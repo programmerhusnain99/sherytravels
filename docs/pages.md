@@ -45,7 +45,9 @@ Reusable: `src/components/sections/PilgrimagePage.tsx` + `FaqAccordion.tsx`; dat
 `src/data/pages/{umrah,hajj}.ts`. One template, two data sets — no duplication.
 
 ## Transportation sub-pages (2)
-- ⬜ `/transportation/ziarat/`
+- ✅ `/transportation/ziarat/` — hero, 3 feature cards, Makkah (10 sites) + Madinah
+  (8 sites) chip sections, navy "Why Choose Us" band, booking steps, FAQ, inquiry.
+  Exact title/meta/canonical, 1 H1. Breadcrumb: Home ▸ Transportation ▸ Ziarat Tours.
 - ⬜ `/transportation/fleets/`
 
 ## Package landings — Umrah USA (30)
