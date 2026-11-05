@@ -62,6 +62,18 @@ export function organizationSchema() {
     logo: absoluteUrl(SITE.logo),
     ...(SITE.telephone ? { telephone: SITE.telephone } : {}),
     ...(SITE.email ? { email: SITE.email } : {}),
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: SITE.address.street,
+      addressLocality: SITE.address.city,
+      addressRegion: SITE.address.region,
+      postalCode: SITE.address.postalCode,
+      addressCountry: SITE.address.country,
+    },
+    contactPoint: [
+      { "@type": "ContactPoint", telephone: "+1-667-439-1263", contactType: "customer service", areaServed: "US" },
+      { "@type": "ContactPoint", telephone: "+966-58-384-2090", contactType: "customer service", areaServed: "SA" },
+    ],
     ...(SITE.sameAs.length ? { sameAs: SITE.sameAs } : {}),
   };
 }

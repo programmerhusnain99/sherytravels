@@ -15,13 +15,21 @@ export const SITE = {
   description:
     "Shery Travels — your trusted partner for Hajj & Umrah pilgrimages with personalized packages, smooth travel, and 24/7 support.",
   locale: "en_US",
-  /** Social / sameAs profiles for Organization schema. Fill these in. */
+  /** Social / sameAs profiles for Organization schema. TODO(client): fill real URLs. */
   sameAs: [] as string[],
-  /** Contact details for Organization schema. Fill these in. */
-  telephone: "",
-  email: "",
+  /** Contact details for Organization schema. */
+  telephone: "+1-667-439-1263",
+  email: "info@sherytravels.com",
+  /** US office address (from the live Contact page). */
+  address: {
+    street: "419 East Cherry Hill Road",
+    city: "Reisterstown",
+    region: "MD",
+    postalCode: "21136",
+    country: "US",
+  },
   /** Path to the logo in /public (used by Organization schema). */
-  logo: "/logo.png",
+  logo: "/images/common/common-logo-lockup.webp",
 } as const;
 
 /** Build an absolute, canonical URL for a given path. */

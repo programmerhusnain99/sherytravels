@@ -24,8 +24,10 @@ review each design. Status: ⬜ not started · 🚧 in progress · ✅ done.
   Placeholder images in place (swap real photos at `public/images/home/`).
 
 ## Simple content (3)
-- ⬜ `/about/`
-- ⬜ `/contact/`
+- ✅ `/about/` — built on `features/home`. All live content preserved (founding story,
+  3 pillars, Why Shery Travels, inquiry form). Exact title/meta/canonical, 1 H1.
+- ✅ `/contact/` — built. Address + both phones + email + map + 3-type inquiry form.
+  Exact title/meta/canonical, 1 H1. Address added to site-wide Organization schema.
 - ⬜ `/privacy-policy/`
 
 ## Section hubs (5)
