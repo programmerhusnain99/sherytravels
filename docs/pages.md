@@ -37,7 +37,9 @@ review each design. Status: ⬜ not started · 🚧 in progress · ✅ done.
 - ✅ `/hajj/` — same `PilgrimagePage` template, Hajj data. Exact title/meta/canonical, 1 H1.
   (Live <title> keeps its quirky surrounding quotes — flagged for client.)
 - ⬜ `/hajj/usa-packages/`
-- ⬜ `/transportation/`
+- ✅ `/transportation/` — dedicated page (hero, reliable-transfers intro, Madinah,
+  fleet grid, navy Ziarat band, how-it-works, effortless-planning, book-your-ride
+  steps, FAQ, inquiry). Reuses FaqAccordion + ContactForm. Exact title/meta/canonical, 1 H1.
 
 Reusable: `src/components/sections/PilgrimagePage.tsx` + `FaqAccordion.tsx`; data in
 `src/data/pages/{umrah,hajj}.ts`. One template, two data sets — no duplication.
