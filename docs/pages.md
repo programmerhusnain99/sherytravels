@@ -48,7 +48,10 @@ Reusable: `src/components/sections/PilgrimagePage.tsx` + `FaqAccordion.tsx`; dat
 - ✅ `/transportation/ziarat/` — hero, 3 feature cards, Makkah (10 sites) + Madinah
   (8 sites) chip sections, navy "Why Choose Us" band, booking steps, FAQ, inquiry.
   Exact title/meta/canonical, 1 H1. Breadcrumb: Home ▸ Transportation ▸ Ziarat Tours.
-- ⬜ `/transportation/fleets/`
+- ✅ `/transportation/fleets/` — hero, 3 feature cards, premium-experience section,
+  6 vehicle cards (persons/luggage/AC), navy "Why Choose Us" band, FAQ, inquiry.
+  Exact title/meta/canonical, 1 H1. NOTE: GMC Yukon spec was missing on live
+  (filled 7/7 from the Transportation page) — flagged for client.
 
 ## Package landings — Umrah USA (30)
 Cities (9): ⬜ newyork, chicago, los-angeles, washington-dc, dallas, detroit, houston, atlanta, dearborn
