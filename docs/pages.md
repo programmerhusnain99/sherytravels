@@ -31,11 +31,16 @@ review each design. Status: ⬜ not started · 🚧 in progress · ✅ done.
 - ⬜ `/privacy-policy/`
 
 ## Section hubs (5)
-- ⬜ `/umrah/`
+- ✅ `/umrah/` — built from the shared `PilgrimagePage` template (hero, overview,
+  4 service cards, journey stages, FAQ, inquiry). Exact title/meta/canonical, 1 H1.
 - ⬜ `/umrah/usa-packages/`
-- ⬜ `/hajj/`
+- ✅ `/hajj/` — same `PilgrimagePage` template, Hajj data. Exact title/meta/canonical, 1 H1.
+  (Live <title> keeps its quirky surrounding quotes — flagged for client.)
 - ⬜ `/hajj/usa-packages/`
 - ⬜ `/transportation/`
+
+Reusable: `src/components/sections/PilgrimagePage.tsx` + `FaqAccordion.tsx`; data in
+`src/data/pages/{umrah,hajj}.ts`. One template, two data sets — no duplication.
 
 ## Transportation sub-pages (2)
 - ⬜ `/transportation/ziarat/`
