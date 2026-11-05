@@ -2,6 +2,8 @@ import { pageMetadata } from "@/lib/seo";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/home/hero/Hero";
+import { TrendingPackages } from "@/components/home/trending/TrendingPackages";
+import { FirstChoice } from "@/components/home/first-choice/FirstChoice";
 
 // EXACT title + meta description from the live site (preserves SEO).
 export const metadata = pageMetadata({
@@ -18,7 +20,10 @@ export default function HomePage() {
       <Header active="/" />
       <main>
         <Hero />
-        {/* Sections 1–11 are added next, in order (trending, first-choice, umrah, …). */}
+        <TrendingPackages />
+        <FirstChoice />
+        {/* Remaining sections (umrah, perfect-package, transport, steps, hajj,
+            hotels, form, faqs, trust) are integrated next. */}
       </main>
       <Footer />
     </>
