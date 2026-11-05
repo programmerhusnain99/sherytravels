@@ -133,8 +133,8 @@ export function TransportSection() {
         </div>
       </Container>
 
-      {/* Full-bleed navy fleet strip */}
-      <div className="mt-12 bg-navy dt:mt-14">
+      {/* Full-bleed fleet strip (light ice ground, per design #F2FDFF) */}
+      <div className="mt-12 border-t border-navy/10 bg-ice dt:mt-14">
         <Container className="py-7 dt:py-9">
           {/* Mobile header row */}
           <div className="mb-4 flex items-center justify-between dt:hidden">
@@ -154,7 +154,7 @@ export function TransportSection() {
             <span className="hidden flex-none whitespace-nowrap text-[13px] font-semibold uppercase tracking-[0.16em] text-gold dt:block">
               Our fleet
             </span>
-            <span aria-hidden className="hidden h-[52px] w-px flex-none bg-white/15 dt:block" />
+            <span aria-hidden className="hidden h-[52px] w-px flex-none bg-navy/15 dt:block" />
 
             <ul className="flex flex-1 gap-[10px] overflow-x-auto snap-x [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:gap-[22px] dt:overflow-visible">
               {FLEET.map((v) => (
@@ -164,7 +164,7 @@ export function TransportSection() {
                 >
                   <Link
                     href={FLEETS}
-                    className="relative block h-full w-full overflow-hidden rounded-xl bg-white/10"
+                    className="relative block h-full w-full overflow-hidden rounded-xl bg-lightblue"
                     aria-label={`${v.alt} — view all vehicles`}
                   >
                     <Image

@@ -67,8 +67,12 @@ export function HotelsTabs({
         const hidden = active !== t.id;
         return (
           <div key={t.id} role="tabpanel" hidden={hidden} className={hidden ? "hidden" : ""}>
-            {/* Desktop: stacked horizontal cards */}
-            <div className="hidden flex-col gap-4 dt:flex">
+            {/* Desktop: stacked horizontal cards in a fixed-height scroll window
+                (shows ~2–3; the up/down arrows scroll it). */}
+            <div
+              data-hotel-scroll
+              className="no-scrollbar hidden max-h-[420px] flex-col gap-4 overflow-y-auto pr-1 dt:flex"
+            >
               {hotels.map((h, i) => (
                 <HotelCardDesktop key={h.name} hotel={h} highlighted={i === 0} />
               ))}

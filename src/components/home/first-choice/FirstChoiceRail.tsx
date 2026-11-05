@@ -43,7 +43,7 @@ export function FirstChoiceRail({ features }: { features: Feature[] }) {
     <div onMouseLeave={release}>
       {/* Station rail */}
       <div
-        className="relative mx-auto mb-8 max-w-[900px] px-6 dt:mb-10"
+        className="relative mb-8 w-full px-2 dt:mb-10 dt:px-10"
         onMouseEnter={hold}
         role="tablist"
         aria-label="Reasons to choose Shery Travels"
@@ -94,7 +94,7 @@ export function FirstChoiceRail({ features }: { features: Feature[] }) {
       </div>
 
       {/* Stage panel */}
-      <div className="relative mx-auto max-w-[900px] overflow-hidden rounded-[26px] bg-navy px-6 py-10 text-white dt:px-12 dt:py-12">
+      <div className="relative w-full overflow-hidden rounded-[26px] bg-navy px-6 py-10 text-white dt:px-14 dt:py-14">
         <span
           className="pointer-events-none absolute -top-4 right-4 font-serif text-[104px] font-bold leading-none text-white/[0.06] dt:text-[150px]"
           aria-hidden

@@ -43,7 +43,7 @@ const AUDIENCES: Audience[] = [
 /** Hajj services — navy band with an arch photo and an overlapping white panel of audience cards. */
 export function HajjSection() {
   return (
-    <Section bg="navy" className="relative overflow-hidden">
+    <Section bg="ice" className="relative overflow-hidden">
       {/* Decorative ring */}
       <div
         aria-hidden
@@ -53,7 +53,7 @@ export function HajjSection() {
       {/* Header + arch photo */}
       <Container className="relative pt-12 dt:pt-[88px]">
         <div className="mx-auto mb-8 max-w-[740px] text-center dt:mb-12">
-          <Eyebrow align="center" tone="white" className="mb-4">
+          <Eyebrow align="center" tone="navy" className="mb-4">
             The fifth pillar
           </Eyebrow>
           <AccentHeading
@@ -61,9 +61,9 @@ export function HajjSection() {
             before="Our "
             accent="Hajj"
             after=" Services"
-            className="mb-4 text-[32px] leading-[1.2] text-white dt:text-[50px] dt:leading-[1.14]"
+            className="mb-4 text-[32px] leading-[1.2] text-navy dt:text-[50px] dt:leading-[1.14]"
           />
-          <p className="mx-auto max-w-[620px] text-[16px] font-light leading-[1.68] text-white/90 text-pretty dt:text-[17px] dt:leading-[1.72]">
+          <p className="mx-auto max-w-[620px] text-[16px] font-light leading-[1.68] text-navy/90 text-pretty dt:text-[17px] dt:leading-[1.72]">
             As one of the five pillars of Islam, Hajj is an obligation for every Muslim who is
             physically and financially able. We ensure every pilgrim is comfortable and fully guided.
           </p>
