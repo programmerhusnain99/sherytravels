@@ -4,6 +4,15 @@ import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/home/hero/Hero";
 import { TrendingPackages } from "@/components/home/trending/TrendingPackages";
 import { FirstChoice } from "@/components/home/first-choice/FirstChoice";
+import { UmrahSection } from "@/components/home/umrah/UmrahSection";
+import { PerfectPackages } from "@/components/home/perfect/PerfectPackages";
+import { TransportSection } from "@/components/home/transport/TransportSection";
+import { StepsSection } from "@/components/home/steps/StepsSection";
+import { HajjSection } from "@/components/home/hajj/HajjSection";
+import { HotelsSection } from "@/components/home/hotels/HotelsSection";
+import { FormSection } from "@/components/home/form/FormSection";
+import { FaqSection } from "@/components/home/faqs/FaqSection";
+import { TrustStrip } from "@/components/home/trust/TrustStrip";
 
 // EXACT title + meta description from the live site (preserves SEO).
 export const metadata = pageMetadata({
@@ -22,8 +31,15 @@ export default function HomePage() {
         <Hero />
         <TrendingPackages />
         <FirstChoice />
-        {/* Remaining sections (umrah, perfect-package, transport, steps, hajj,
-            hotels, form, faqs, trust) are integrated next. */}
+        <UmrahSection />
+        <PerfectPackages />
+        <TransportSection />
+        <StepsSection />
+        <HajjSection />
+        <HotelsSection />
+        <FormSection />
+        <FaqSection />
+        <TrustStrip />
       </main>
       <Footer />
     </>

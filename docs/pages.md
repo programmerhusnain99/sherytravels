@@ -18,7 +18,10 @@ review each design. Status: ⬜ not started · 🚧 in progress · ✅ done.
 | Blog post | A single article. |
 
 ## Home (1)
-- ⬜ `/` — Home
+- ✅ `/` — Home — built on `features/home`: all 14 blocks (hero, trending carousel,
+  first-choice rail, umrah, perfect-package, transport, steps, hajj, hotels tabs,
+  form, faqs, trust) + shell. 1 H1, 11 H2s, static prerender, exact title/meta/canonical.
+  Placeholder images in place (swap real photos at `public/images/home/`).
 
 ## Simple content (3)
 - ⬜ `/about/`
