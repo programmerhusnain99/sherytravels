@@ -18,10 +18,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   // Makes relative canonical/OG URLs resolve against the canonical origin.
   metadataBase: new URL(SITE.baseUrl),
-  // Fallback title/description only; each page should set its own EXACT values.
+  // Fallback title/description only; each page sets its own EXACT values + canonical.
+  // NOTE: intentionally NO default `alternates.canonical` here — a layout-level
+  // canonical would wrongly apply to any page that forgot to set its own
+  // (every page must set its canonical via pageMetadata()).
   title: SITE.name,
   description: SITE.description,
-  alternates: { canonical: "/" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
