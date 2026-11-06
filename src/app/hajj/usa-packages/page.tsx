@@ -157,38 +157,48 @@ export default function HajjUsaPackagesPage() {
         </Container>
       </Section>
 
-      {/* Transparent journey */}
+      {/* Transparent journey — text + image */}
       <Section bg="white" className="py-14 dt:py-20">
-        <Container className="mx-auto max-w-[840px] text-center">
-          <Eyebrow className="mb-4">Transparency</Eyebrow>
-          <AccentHeading as="h2" before="Transparent Journey at Every Turn. From Planning to " accent="Return" className="text-[25px] leading-tight text-navy dt:text-[34px]" />
-          <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-navy/80">
-            Your journey begins with us the moment you contact us. From personalized consultation to post-travel follow-up, we are with you every step of the way. During Hajj, our team in Saudi Arabia provides 24/7 assistance so that you are never alone in unfamiliar territory.
-          </p>
-          <p className="mt-3 text-[15.5px] font-light leading-[1.7] text-navy/80">
-            We answer all your Hajj-related queries about lost items or any follow-ups needed.
-          </p>
+        <Container className="grid items-center gap-10 dt:grid-cols-2 dt:gap-16">
+          <div>
+            <Eyebrow align="left" className="mb-4">Transparency</Eyebrow>
+            <AccentHeading as="h2" before="Transparent Journey at Every Turn. From Planning to " accent="Return" className="text-[24px] leading-tight text-navy dt:text-[32px]" />
+            <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-navy/80">
+              Your journey begins with us the moment you contact us. From personalized consultation to post-travel follow-up, we are with you every step of the way. During Hajj, our team in Saudi Arabia provides 24/7 assistance so that you are never alone in unfamiliar territory.
+            </p>
+            <p className="mt-3 text-[15.5px] font-light leading-[1.7] text-navy/80">
+              We answer all your Hajj-related queries about lost items or any follow-ups needed.
+            </p>
+          </div>
+          <div className="relative h-[320px] w-full overflow-hidden rounded-2xl bg-lightblue shadow-[0_30px_60px_-26px_rgba(26,62,110,0.45)] dt:h-[420px]">
+            <Image src="/images/hajj/usa-transparent.webp" alt="24/7 support throughout your Hajj journey" fill sizes="(max-width:900px) 100vw, 45vw" className="object-cover" />
+          </div>
         </Container>
       </Section>
 
-      {/* Designed for every US Muslim */}
+      {/* Designed for every US Muslim — image + text with audience list */}
       <Section bg="ice" className="py-14 dt:py-20">
-        <Container className="mx-auto max-w-[840px] text-center">
-          <Eyebrow className="mb-4">For everyone</Eyebrow>
-          <AccentHeading as="h2" before="Hajj Package Designed for Every U.S. " accent="Muslim" className="text-[26px] leading-tight text-navy dt:text-[36px]" />
-          <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-navy/80">
-            Whether you are a young American Muslim, a professional, an elderly couple, someone who wants to travel with their family, or even solo women travelers, we accommodate all of you.
-          </p>
-          <p className="mt-3 text-[15.5px] font-light leading-[1.7] text-navy/80">
-            Here you can look for basic Hajj packages or a luxury Hajj package with added comfort, as per your affordability. Our hajj services are designed with options for:
-          </p>
-          <ul className="mx-auto mt-7 grid max-w-[700px] gap-3 text-left dt:grid-cols-2">
-            {AUDIENCES.map((a) => (
-              <li key={a} className="flex items-start gap-2.5 rounded-xl border border-navy/10 bg-white px-4 py-3 text-[14.5px] font-medium text-navy">
-                <Check size={17} className="mt-0.5 flex-none text-gold" /> {a}
-              </li>
-            ))}
-          </ul>
+        <Container className="grid items-center gap-10 dt:grid-cols-2 dt:gap-16">
+          <div className="relative order-2 h-[340px] w-full overflow-hidden rounded-2xl bg-lightblue shadow-[0_30px_60px_-26px_rgba(26,62,110,0.45)] dt:order-1 dt:h-[500px]">
+            <Image src="/images/hajj/usa-everyone.webp" alt="Hajj packages for every U.S. Muslim" fill sizes="(max-width:900px) 100vw, 45vw" className="object-cover" />
+          </div>
+          <div className="order-1 dt:order-2">
+            <Eyebrow align="left" className="mb-4">For everyone</Eyebrow>
+            <AccentHeading as="h2" before="Hajj Package Designed for Every U.S. " accent="Muslim" className="text-[24px] leading-tight text-navy dt:text-[34px]" />
+            <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-navy/80">
+              Whether you are a young American Muslim, a professional, an elderly couple, someone who wants to travel with their family, or even solo women travelers, we accommodate all of you.
+            </p>
+            <p className="mt-3 text-[15.5px] font-light leading-[1.7] text-navy/80">
+              Here you can look for basic Hajj packages or a luxury Hajj package with added comfort, as per your affordability. Our hajj services are designed with options for:
+            </p>
+            <ul className="mt-6 flex flex-col gap-3">
+              {AUDIENCES.map((a) => (
+                <li key={a} className="flex items-start gap-2.5 rounded-xl border border-navy/10 bg-white px-4 py-3 text-[14.5px] font-medium text-navy">
+                  <Check size={17} className="mt-0.5 flex-none text-gold" /> {a}
+                </li>
+              ))}
+            </ul>
+          </div>
         </Container>
       </Section>
 
