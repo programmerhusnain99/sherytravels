@@ -33,7 +33,10 @@ review each design. Status: ⬜ not started · 🚧 in progress · ✅ done.
 ## Section hubs (5)
 - ✅ `/umrah/` — built from the shared `PilgrimagePage` template (hero, overview,
   4 service cards, journey stages, FAQ, inquiry). Exact title/meta/canonical, 1 H1.
-- ⬜ `/umrah/usa-packages/`
+- ✅ `/umrah/usa-packages/` — anchor hub. Hero, 3 feature cards, 3 star-tiers × 3
+  price cards (9, new-design via `PriceCard`), navy Why-Choose band, Specialized +
+  Holy-Months link tiles (→ child pages), numbered highlights, Monthly CTA, FAQ,
+  inquiry. Exact title/meta/canonical, 1 H1. Links to ~13 child pages not yet built.
 - ✅ `/hajj/` — same `PilgrimagePage` template, Hajj data. Exact title/meta/canonical, 1 H1.
   (Live <title> keeps its quirky surrounding quotes — flagged for client.)
 - ⬜ `/hajj/usa-packages/`
