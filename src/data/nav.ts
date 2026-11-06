@@ -19,6 +19,72 @@ export const PRIMARY_NAV: NavLink[] = [
   { label: "Contact", href: "/contact/" },
 ];
 
+/** Nested primary menu with dropdowns (mirrors the live WordPress navbar). */
+export interface MenuItem {
+  label: string;
+  href?: string; // group headers (e.g. "Specialized") have no link
+  children?: MenuItem[];
+}
+
+export const MENU: MenuItem[] = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about/" },
+  {
+    label: "Umrah",
+    href: "/umrah/",
+    children: [
+      {
+        label: "USA Packages",
+        href: "/umrah/usa-packages/",
+        children: [
+          { label: "New York Umrah Packages", href: "/umrah/usa-packages/newyork/" },
+          { label: "Chicago Umrah Packages", href: "/umrah/usa-packages/chicago/" },
+          { label: "Los Angeles Umrah Packages", href: "/umrah/usa-packages/los-angeles/" },
+          { label: "Washington DC Umrah Packages", href: "/umrah/usa-packages/washington-dc/" },
+          { label: "Dallas Umrah Packages", href: "/umrah/usa-packages/dallas/" },
+          { label: "Detroit Umrah Packages", href: "/umrah/usa-packages/detroit/" },
+          { label: "Houston Umrah Packages", href: "/umrah/usa-packages/houston/" },
+          { label: "Atlanta Umrah Packages", href: "/umrah/usa-packages/atlanta/" },
+          { label: "Dearborn Umrah Packages", href: "/umrah/usa-packages/dearborn/" },
+        ],
+      },
+      {
+        label: "Specialized Umrah Packages",
+        children: [
+          { label: "Economy Umrah Packages", href: "/umrah/usa-packages/economy-umrah-packages/" },
+          { label: "Family Umrah Packages", href: "/umrah/usa-packages/family-umrah-packages/" },
+          { label: "Group Umrah Packages", href: "/umrah/usa-packages/group-umrah-packages/" },
+          { label: "Luxury Umrah Packages", href: "/umrah/usa-packages/luxury-umrah-packages/" },
+        ],
+      },
+      {
+        label: "Holy Months Umrah Packages",
+        children: [
+          { label: "Rabi-ul-Awal Umrah Packages", href: "/umrah/usa-packages/rabi-ul-awal/" },
+          { label: "Ramadan Umrah Packages", href: "/umrah/usa-packages/ramadan/" },
+          { label: "Shaban Umrah Packages", href: "/umrah/usa-packages/shaban/" },
+          { label: "Shawwal Umrah Packages", href: "/umrah/usa-packages/shawwal/" },
+        ],
+      },
+      { label: "Monthly Umrah Packages", href: "/umrah/usa-packages/monthly/" },
+    ],
+  },
+  {
+    label: "Hajj",
+    href: "/hajj/",
+    children: [{ label: "USA Packages", href: "/hajj/usa-packages/" }],
+  },
+  {
+    label: "Transport",
+    href: "/transportation/",
+    children: [
+      { label: "Ziarat", href: "/transportation/ziarat/" },
+      { label: "Fleets", href: "/transportation/fleets/" },
+    ],
+  },
+  { label: "Contact", href: "/contact/" },
+];
+
 /** Utility strip quick links (desktop left; collapse into drawer on mobile). */
 export const UTILITY_NAV: NavLink[] = [
   { label: "Umrah Packages", href: "/umrah/usa-packages/" },
