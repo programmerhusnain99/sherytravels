@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  FileCheck2, Plane, MapPinned, Wallet, Users, BedDouble, CarFront, ArrowRight, Star,
+  FileCheck2, Plane, MapPinned, Wallet, Users, BedDouble, CarFront, ArrowRight, Star, MoonStar,
 } from "lucide-react";
 import { pageMetadata, breadcrumbSchema } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
@@ -95,19 +95,6 @@ const FAQ = [
   { q: "Can I pay in U.S. dollars and use U.S. payment methods?", a: "Yes. We accept payments in US Dollars through credit/debit cards, bank transfers, and secure online platforms trusted by U.S. customers." },
 ];
 
-function LinkTiles({ items }: { items: { label: string; href: string }[] }) {
-  return (
-    <div className="grid gap-4 dt:grid-cols-4">
-      {items.map((it) => (
-        <Link key={it.href} href={it.href} className="card-hover group flex items-center justify-between gap-3 rounded-2xl border border-navy/10 bg-white p-5">
-          <span className="font-serif text-[16px] font-bold text-navy">{it.label}</span>
-          <ArrowRight size={18} className="flex-none text-gold transition-transform group-hover:translate-x-1" />
-        </Link>
-      ))}
-    </div>
-  );
-}
-
 export default function UmrahUsaPackagesPage() {
   return (
     <PageShell active="/umrah/">
@@ -162,15 +149,20 @@ export default function UmrahUsaPackagesPage() {
       {/* Packages */}
       <Section bg="ice" className="py-14 dt:py-20">
         <Container>
-          <div className="mx-auto mb-12 max-w-[780px] text-center">
-            <Eyebrow className="mb-4">Our packages</Eyebrow>
-            <AccentHeading as="h2" before="Your Path to a Rewarding Umrah " accent="Experience" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
-            <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-navy/80">
-              Experience a unique and spiritual Umrah journey with Shery Travels. We specialize in helping pilgrims from the USA to plan their trip with ease and affordability. Our dedicated team provides 24/7 support to ensure every detail aligns with your spiritual goals.
-            </p>
-            <p className="mt-3 text-[15.5px] font-light leading-[1.7] text-navy/80">
-              Trust us to make your sacred journey stress-free and fulfilling, so you can focus on your worship with devotion.
-            </p>
+          <div className="mb-14 grid items-center gap-10 dt:grid-cols-2 dt:gap-16">
+            <div className="order-2 dt:order-1">
+              <Eyebrow align="left" className="mb-4">Our packages</Eyebrow>
+              <AccentHeading as="h2" before="Your Path to a Rewarding Umrah " accent="Experience" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
+              <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-navy/80">
+                Experience a unique and spiritual Umrah journey with Shery Travels. We specialize in helping pilgrims from the USA to plan their trip with ease and affordability. Our dedicated team provides 24/7 support to ensure every detail aligns with your spiritual goals.
+              </p>
+              <p className="mt-3 text-[15.5px] font-light leading-[1.7] text-navy/80">
+                Trust us to make your sacred journey stress-free and fulfilling, so you can focus on your worship with devotion.
+              </p>
+            </div>
+            <div className="relative order-1 mx-auto h-[320px] w-full overflow-hidden rounded-2xl bg-lightblue shadow-[0_30px_60px_-26px_rgba(26,62,110,0.45)] dt:order-2 dt:h-[420px]">
+              <Image src="/images/umrah/usa-path.webp" alt="Pilgrims on a rewarding Umrah journey" fill sizes="(max-width:900px) 100vw, 45vw" className="object-cover" />
+            </div>
           </div>
 
           <div className="space-y-12">
@@ -229,37 +221,62 @@ export default function UmrahUsaPackagesPage() {
         </Container>
       </Section>
 
-      {/* Specialized packages */}
+      {/* Specialized packages — image + 2x2 grid */}
       <Section bg="white" className="py-14 dt:py-20">
-        <Container>
-          <div className="mx-auto mb-8 max-w-[820px] text-center">
-            <Eyebrow className="mb-4">Specialized packages</Eyebrow>
-            <AccentHeading as="h2" before="Explore Specialized Umrah Packages for the U.S. " accent="Travelers" className="text-[26px] leading-tight text-navy dt:text-[36px]" />
+        <Container className="grid items-center gap-10 dt:grid-cols-2 dt:gap-16">
+          <div className="relative order-2 h-[360px] w-full overflow-hidden rounded-2xl bg-lightblue shadow-[0_30px_60px_-26px_rgba(26,62,110,0.45)] dt:order-1 dt:h-[480px]">
+            <Image src="/images/umrah/usa-specialized.webp" alt="Specialized Umrah packages for U.S. travelers" fill sizes="(max-width:900px) 100vw, 45vw" className="object-cover" />
+          </div>
+          <div className="order-1 dt:order-2">
+            <Eyebrow align="left" className="mb-4">Specialized packages</Eyebrow>
+            <AccentHeading as="h2" before="Explore Specialized Umrah Packages for the U.S. " accent="Travelers" className="text-[25px] leading-tight text-navy dt:text-[34px]" />
             <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-navy/80">
               Your journey is unique, and so are your needs! That’s why we provide customized Umrah packages specifically for Muslims in the U.S. Whether you’re planning a trip with your family, watching your budget, or looking for something more luxurious, we’ve got you covered.
             </p>
             <p className="mt-3 text-[15.5px] font-light leading-[1.7] text-navy/80">
               You can depart from your favorite U.S. city and enjoy arrangements that take care of everything – from flights and accommodations to guided tours, ensuring your experience is comfortable and enjoyable.
             </p>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              {SPECIALIZED.map((it) => (
+                <Link key={it.href} href={it.href} className="card-hover group flex items-center justify-between gap-3 rounded-xl border border-navy/10 bg-ice p-4">
+                  <span className="font-serif text-[15.5px] font-bold text-navy">{it.label}</span>
+                  <ArrowRight size={17} className="flex-none text-gold transition-transform group-hover:translate-x-1" />
+                </Link>
+              ))}
+            </div>
           </div>
-          <LinkTiles items={SPECIALIZED} />
         </Container>
       </Section>
 
-      {/* Holy months */}
+      {/* Holy months — content with moon-icon list + image */}
       <Section bg="ice" className="py-14 dt:py-20">
-        <Container>
-          <div className="mx-auto mb-8 max-w-[820px] text-center">
-            <Eyebrow className="mb-4">Holy months</Eyebrow>
-            <AccentHeading as="h2" before="Umrah Packages for the Holy " accent="Months" className="text-[26px] leading-tight text-navy dt:text-[36px]" />
+        <Container className="grid items-center gap-10 dt:grid-cols-2 dt:gap-16">
+          <div>
+            <Eyebrow align="left" className="mb-4">Holy months</Eyebrow>
+            <AccentHeading as="h2" before="Umrah Packages for the Holy " accent="Months" className="text-[25px] leading-tight text-navy dt:text-[34px]" />
             <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-navy/80">
               Thinking about performing Umrah during one of the holy months? You’re making a great choice! Each sacred month, like Ramadan, Rabi-ul-Awal, and Sha’ban, is filled with unique blessings that make your pilgrimage even more special.
             </p>
             <p className="mt-3 text-[15.5px] font-light leading-[1.7] text-navy/80">
               With our Umrah packages for U.S. pilgrims, we have everything covered to make your journey as smooth and meaningful as possible. Enjoy convenient flights from various U.S. airports, and rely on our expert guides to enhance your experience. Check out our special packages for these holy months:
             </p>
+            <ul className="mt-6 flex flex-col gap-3">
+              {MONTHS_HOLY.map((it) => (
+                <li key={it.href}>
+                  <Link href={it.href} className="card-hover group flex items-center gap-4 rounded-xl border border-navy/10 bg-white p-4">
+                    <span className="grid h-10 w-10 flex-none place-items-center rounded-full bg-gold/15">
+                      <MoonStar size={18} className="text-gold" />
+                    </span>
+                    <span className="flex-1 font-serif text-[15.5px] font-bold text-navy">{it.label}</span>
+                    <ArrowRight size={17} className="flex-none text-gold transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
-          <LinkTiles items={MONTHS_HOLY} />
+          <div className="relative order-first h-[320px] w-full overflow-hidden rounded-2xl bg-lightblue shadow-[0_30px_60px_-26px_rgba(26,62,110,0.45)] dt:order-last dt:h-[520px]">
+            <Image src="/images/umrah/usa-months.webp" alt="Umrah during the holy months" fill sizes="(max-width:900px) 100vw, 45vw" className="object-cover" />
+          </div>
         </Container>
       </Section>
 
