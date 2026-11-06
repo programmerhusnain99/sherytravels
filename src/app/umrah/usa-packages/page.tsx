@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  FileCheck2, Plane, MapPinned, Wallet, Users, BedDouble, CarFront, ArrowRight,
+  FileCheck2, Plane, MapPinned, Wallet, Users, BedDouble, CarFront, ArrowRight, Star,
 } from "lucide-react";
 import { pageMetadata, breadcrumbSchema } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
@@ -129,9 +129,13 @@ export default function UmrahUsaPackagesPage() {
             <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
               At Shery Travels, we understand the unique needs of Muslims in the USA – from documentation and travel arrangements to spiritual preparation. Let us take care of the details so you can focus on your worship.
             </p>
+            <p className="mt-4 text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
+              We invite you to step into a journey filled with spirituality and reflection. From your heartfelt intentions to the sacred rituals, our dedicated team is here to support you every step of the way. Let us help you create a smooth and meaningful path as you connect with your faith on this special journey.
+            </p>
             <div className="mt-7"><InquireButton variant="gold" size="lg" className="rounded-lg">Inquire Now</InquireButton></div>
           </div>
           <div className="relative order-1 flex justify-center dt:order-2">
+            <div aria-hidden className="pointer-events-none absolute left-1/2 top-0 hidden h-[500px] w-[450px] -translate-x-1/2 rounded-t-[225px] rounded-b-[18px] border border-navy/10 dt:block" />
             <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.12),transparent_70%)]" />
             <div className="hero-float relative h-[360px] w-[300px] overflow-hidden rounded-t-[150px] rounded-b-[16px] bg-lightblue shadow-[0_34px_62px_-26px_rgba(26,62,110,0.5)] dt:h-[480px] dt:w-[420px]">
               <Image src="/images/umrah/usa-packages-hero.webp" alt="Umrah packages for U.S. pilgrims" fill sizes="(max-width:900px) 300px, 420px" priority className="object-cover" />
@@ -162,16 +166,26 @@ export default function UmrahUsaPackagesPage() {
             <Eyebrow className="mb-4">Our packages</Eyebrow>
             <AccentHeading as="h2" before="Your Path to a Rewarding Umrah " accent="Experience" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
             <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-navy/80">
-              We specialize in helping pilgrims from the USA plan their trip with ease and affordability. Our dedicated team provides 24/7 support to ensure every detail aligns with your spiritual goals — so you can focus on your worship with devotion.
+              Experience a unique and spiritual Umrah journey with Shery Travels. We specialize in helping pilgrims from the USA to plan their trip with ease and affordability. Our dedicated team provides 24/7 support to ensure every detail aligns with your spiritual goals.
+            </p>
+            <p className="mt-3 text-[15.5px] font-light leading-[1.7] text-navy/80">
+              Trust us to make your sacred journey stress-free and fulfilling, so you can focus on your worship with devotion.
             </p>
           </div>
 
           <div className="space-y-12">
             {TIERS.map((tier) => (
               <div key={tier.star}>
-                <div className="mb-6 text-center dt:text-left">
-                  <h3 className="font-serif text-[22px] font-bold text-navy dt:text-[26px]">{tier.star} Umrah Package</h3>
-                  <p className="mt-1 text-[14.5px] text-navy/70">{tier.nights} · {tier.split}</p>
+                <div className="mb-6 flex flex-col items-center gap-2 dt:flex-row dt:items-end dt:justify-between">
+                  <div className="text-center dt:text-left">
+                    <div className="mb-1.5 flex items-center justify-center gap-0.5 dt:justify-start">
+                      {Array.from({ length: 5 }).map((_, s) => (
+                        <Star key={s} size={16} className={s < parseInt(tier.star) ? "fill-gold text-gold" : "fill-navy/10 text-navy/10"} />
+                      ))}
+                    </div>
+                    <h3 className="font-serif text-[22px] font-bold text-navy dt:text-[26px]">{tier.star} Umrah Package</h3>
+                  </div>
+                  <p className="text-[14.5px] text-navy/70">{tier.nights} · {tier.split}</p>
                 </div>
                 <div className="grid gap-5 dt:grid-cols-3 dt:gap-7">
                   {tier.rooms.map((r, i) => (
@@ -222,7 +236,10 @@ export default function UmrahUsaPackagesPage() {
             <Eyebrow className="mb-4">Specialized packages</Eyebrow>
             <AccentHeading as="h2" before="Explore Specialized Umrah Packages for the U.S. " accent="Travelers" className="text-[26px] leading-tight text-navy dt:text-[36px]" />
             <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-navy/80">
-              Your journey is unique, and so are your needs! Whether you’re planning a trip with your family, watching your budget, or looking for something more luxurious, we’ve got you covered — departing from your favorite U.S. city.
+              Your journey is unique, and so are your needs! That’s why we provide customized Umrah packages specifically for Muslims in the U.S. Whether you’re planning a trip with your family, watching your budget, or looking for something more luxurious, we’ve got you covered.
+            </p>
+            <p className="mt-3 text-[15.5px] font-light leading-[1.7] text-navy/80">
+              You can depart from your favorite U.S. city and enjoy arrangements that take care of everything – from flights and accommodations to guided tours, ensuring your experience is comfortable and enjoyable.
             </p>
           </div>
           <LinkTiles items={SPECIALIZED} />
@@ -236,7 +253,10 @@ export default function UmrahUsaPackagesPage() {
             <Eyebrow className="mb-4">Holy months</Eyebrow>
             <AccentHeading as="h2" before="Umrah Packages for the Holy " accent="Months" className="text-[26px] leading-tight text-navy dt:text-[36px]" />
             <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-navy/80">
-              Each sacred month — like Ramadan, Rabi-ul-Awal, and Sha’ban — is filled with unique blessings that make your pilgrimage even more special. Check out our special packages for these holy months:
+              Thinking about performing Umrah during one of the holy months? You’re making a great choice! Each sacred month, like Ramadan, Rabi-ul-Awal, and Sha’ban, is filled with unique blessings that make your pilgrimage even more special.
+            </p>
+            <p className="mt-3 text-[15.5px] font-light leading-[1.7] text-navy/80">
+              With our Umrah packages for U.S. pilgrims, we have everything covered to make your journey as smooth and meaningful as possible. Enjoy convenient flights from various U.S. airports, and rely on our expert guides to enhance your experience. Check out our special packages for these holy months:
             </p>
           </div>
           <LinkTiles items={MONTHS_HOLY} />
@@ -264,18 +284,23 @@ export default function UmrahUsaPackagesPage() {
         </Container>
       </Section>
 
-      {/* Monthly CTA band */}
-      <Section bg="navy" className="py-14 dt:py-16">
-        <Container className="flex flex-col items-center gap-5 text-center dt:flex-row dt:justify-between dt:text-left">
-          <div className="max-w-[620px]">
-            <AccentHeading as="h2" before="Explore Our Monthly Umrah " accent="Packages" className="text-[24px] leading-tight text-white dt:text-[32px]" />
-            <p className="mt-3 text-[15px] font-light leading-relaxed text-white/80">
-              Departures every month from major cities like New York, Chicago, Dallas, and Houston — at affordable prices.
-            </p>
+      {/* Monthly packages */}
+      <Section bg="navy" className="relative overflow-hidden py-14 dt:py-20">
+        <div aria-hidden className="pointer-events-none absolute -left-24 -bottom-24 h-[320px] w-[320px] rounded-full border border-gold/15" />
+        <Container className="mx-auto max-w-[780px] text-center">
+          <Eyebrow tone="white" className="mb-4">Monthly packages</Eyebrow>
+          <AccentHeading as="h2" before="Explore Our Monthly Umrah " accent="Packages" className="text-[26px] leading-tight text-white dt:text-[36px]" />
+          <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-white/80">
+            Are you thinking about starting your spiritual journey to Umrah? Whether it’s the beginning of the year or a school break, we’ve got you covered with our flexible monthly Umrah packages from the U.S.
+          </p>
+          <p className="mt-3 text-[15.5px] font-light leading-[1.7] text-white/80">
+            With departures every month from major cities like New York, Chicago, Dallas, and Houston, planning your trip is easy. Plus, our prices are affordable, allowing you to focus on your spiritual journey without worrying about arrangements.
+          </p>
+          <div className="mt-7">
+            <Button href="/umrah/usa-packages/monthly/" variant="gold" size="lg" className="rounded-lg uppercase tracking-[0.05em]">
+              Choose your Umrah month <ArrowRight size={18} />
+            </Button>
           </div>
-          <Button href="/umrah/usa-packages/monthly/" variant="gold" size="lg" className="flex-none rounded-lg uppercase tracking-[0.05em]">
-            Choose your Umrah month <ArrowRight size={18} />
-          </Button>
         </Container>
       </Section>
 

@@ -39,7 +39,10 @@ review each design. Status: ⬜ not started · 🚧 in progress · ✅ done.
   inquiry. Exact title/meta/canonical, 1 H1. Links to ~13 child pages not yet built.
 - ✅ `/hajj/` — same `PilgrimagePage` template, Hajj data. Exact title/meta/canonical, 1 H1.
   (Live <title> keeps its quirky surrounding quotes — flagged for client.)
-- ⬜ `/hajj/usa-packages/`
+- ✅ `/hajj/usa-packages/` — hero, 3 feature cards, trusted intro, 3 room-type cards
+  (no price — bed/board details, reuses PriceCard), navy Why-Rely band, Transparent
+  Journey, Designed-for-every-Muslim + audience chips, Essential Documents (4 numbered),
+  Be-Part-of-a-Guided-Group band, FAQ, inquiry. Exact title/meta/canonical, 1 H1.
 - ✅ `/transportation/` — dedicated page (hero, reliable-transfers intro, Madinah,
   fleet grid, navy Ziarat band, how-it-works, effortless-planning, book-your-ride
   steps, FAQ, inquiry). Reuses FaqAccordion + ContactForm. Exact title/meta/canonical, 1 H1.
