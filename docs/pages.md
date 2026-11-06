@@ -28,7 +28,12 @@ review each design. Status: ⬜ not started · 🚧 in progress · ✅ done.
   3 pillars, Why Shery Travels, inquiry form). Exact title/meta/canonical, 1 H1.
 - ✅ `/contact/` — built. Address + both phones + email + map + 3-type inquiry form.
   Exact title/meta/canonical, 1 H1. Address added to site-wide Organization schema.
-- ⬜ `/privacy-policy/`
+- ✅ `/privacy-policy/` — built. Legal article: Legal eyebrow + "Privacy Policy" H1, 2
+  intro paragraphs, 11 sections verbatim (Information We Collect with Personal/Non-Personal
+  sub-lists, Our Use, Our Sharing, Cookies, Data Safety, Your Rights, Data Retention,
+  Children's Privacy, International Users, Changes, Contact Us). Exact title
+  ("Shery Travels’ Privacy Policy") + meta/canonical, 1 H1. Sections driven by a local
+  `SECTIONS` data array + `Bullets` helper (gold-check list items).
 
 ## Section hubs (5)
 - ✅ `/umrah/` — built from the shared `PilgrimagePage` template (hero, overview,
@@ -69,7 +74,12 @@ title/meta/canonical, 1 H1, static.
 - Package types (4): ✅ economy, family, group, luxury (`*-umrah-packages`) — +2 extra blocks
 - Seasonal (4): ✅ rabi-ul-awal, ramadan, shaban, shawwal
 - Months (12): ✅ january … december
-- ⬜ monthly (the hub, different structure — build separately)
+- ✅ monthly (the hub, different structure) — hero ("Find the Perfect Month for Your Umrah
+  Journey"), navy "Why Monthly Umrah Packages Matter" band (4 numbered highlights), "Discover
+  Your Ideal Monthly Umrah Package" with 12 month link-tiles (→ `/umrah/usa-packages/<month>/`),
+  "Customize" CTA band, inquiry form. Exact title + meta/canonical, 1 H1. NOTE: live meta
+  description carries literal surrounding quotes (WordPress quirk) — preserved EXACT for SEO
+  parity; flagged to client. Hero image is a placeholder pending the real asset.
 NOTE: live Dallas & Houston pages carry stray "Types of Economy Packages" sections
 (WordPress copy-paste error) — preserved verbatim in their data files; flagged for client.
 
