@@ -84,18 +84,35 @@ NOTE: live Dallas & Houston pages carry stray "Types of Economy Packages" sectio
 (WordPress copy-paste error) — preserved verbatim in their data files; flagged for client.
 
 ## Blog index (1)
-- ⬜ `/blogs/`
+- ✅ `/blogs/` — built. Header (Guides & insights eyebrow + "Blogs" H1 — exact, + intro),
+  featured latest post card, then a responsive grid of `BlogCard`s (category chip, headline,
+  excerpt, date · read-time, Read link). Exact title "Blogs - Shery Travels", og:type website,
+  no meta description (matches live). Cards read from the post data files, so each post is the
+  single source of truth for its card AND its page.
 
 ## Blog posts (9)
-- ⬜ `/blogs/umrah-types/`
-- ⬜ `/blogs/hajj-guide/`
-- ⬜ `/blogs/umrah-guide-for-usa/`
-- ⬜ `/blogs/ziyarat-in-makkah/`
-- ⬜ `/blogs/ziyarat-in-madina-sacred-sites-guided-tours-by-shery-travels/`
-- ⬜ `/blogs/umrah-transport-costs-breakdown/`
-- ⬜ `/blogs/hajj-umrah-visa-requirements/`
-- ⬜ `/blogs/best-time-to-book-umrah-usa/`
-- ⬜ `/blogs/jeddah-mecca-guide/`
+✅ All 9 built from ONE shared template `BlogPostPage` + per-post data files in
+`src/data/blog/<slug>.ts` (content VERBATIM from live WordPress, extracted into ordered
+`blocks[]`). Route: `src/app/blogs/[slug]/page.tsx` (generateStaticParams → all 9 prerendered
+static; generateMetadata → exact per-post title/description/canonical, og:type article;
+BlogPosting + Breadcrumb JSON-LD). `BlogContent` renders headings/paragraphs/lists with
+on-brand typography; `BlogCard` is shared by the index grid and each post's "related reads".
+Hero shows category chip + exact H1 + publish date + read time; inline CTA + related posts.
+Image-free by design (the live posts carry no featured images); categories are presentational.
+- ✅ `/blogs/umrah-types/` (desc ✓)
+- ✅ `/blogs/hajj-guide/` (desc ✓)
+- ✅ `/blogs/umrah-guide-for-usa/` (desc ✓)
+- ✅ `/blogs/ziyarat-in-makkah/` (desc ✓)
+- ✅ `/blogs/ziyarat-in-madina-sacred-sites-guided-tours-by-shery-travels/` (desc ✓)
+- ✅ `/blogs/umrah-transport-costs-breakdown/` (no live meta desc — preserved as none).
+  NOTE: live post has an empty "Cost Comparison of Umrah Transport Service (2025 Rates)"
+  heading with no content under it (author left the section empty) — preserved verbatim.
+- ✅ `/blogs/hajj-umrah-visa-requirements/` (no live meta desc — preserved as none)
+- ✅ `/blogs/best-time-to-book-umrah-usa/` (no live meta desc — preserved as none)
+- ✅ `/blogs/jeddah-mecca-guide/` (no live meta desc — preserved as none)
+
+Flag for client: the live blog has no featured images, authors, or categories. The new design
+is a clean image-free layout; supply post images anytime and they can be added to cards + hero.
 
 ---
 Total: 51. Per-template section breakdowns will be added here as we design each.
