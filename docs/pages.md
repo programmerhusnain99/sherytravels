@@ -60,11 +60,18 @@ Reusable: `src/components/sections/PilgrimagePage.tsx` + `FaqAccordion.tsx`; dat
   (filled 7/7 from the Transportation page) — flagged for client.
 
 ## Package landings — Umrah USA (30)
-Cities (9): ⬜ newyork, chicago, los-angeles, washington-dc, dallas, detroit, houston, atlanta, dearborn
-Package types (4): ⬜ economy, family, group, luxury (`*-umrah-packages`)
-Seasonal (5): ⬜ rabi-ul-awal, ramadan, shaban, shawwal, monthly
-Months (12): ⬜ january … december
-(all under `/umrah/usa-packages/<slug>/`)
+✅ 29 built from ONE shared template `PackageLandingPage` + per-page data files in
+`src/data/packages/<slug>.ts` (edit one page without touching others). Route wrappers
+in `src/app/umrah/usa-packages/<slug>/page.tsx`. Each: hero, 9 price cards (own prices),
+"Why/What's Included" navy band (4 highlights), "Plan Your X", FAQ, inquiry. Exact
+title/meta/canonical, 1 H1, static.
+- Cities (9): ✅ newyork, chicago, los-angeles, washington-dc, dallas, detroit, houston, atlanta, dearborn
+- Package types (4): ✅ economy, family, group, luxury (`*-umrah-packages`) — +2 extra blocks
+- Seasonal (4): ✅ rabi-ul-awal, ramadan, shaban, shawwal
+- Months (12): ✅ january … december
+- ⬜ monthly (the hub, different structure — build separately)
+NOTE: live Dallas & Houston pages carry stray "Types of Economy Packages" sections
+(WordPress copy-paste error) — preserved verbatim in their data files; flagged for client.
 
 ## Blog index (1)
 - ⬜ `/blogs/`
