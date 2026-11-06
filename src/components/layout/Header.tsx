@@ -1,18 +1,15 @@
 import { Fragment } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ChevronRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { InquireButton } from "@/components/inquiry/InquireButton";
 import { MobileNav } from "./MobileNav";
 import { MENU, UTILITY_NAV, PHONES, type MenuItem } from "@/data/nav";
 
-/** Desktop dropdown for a nav item with children (CSS hover/focus — no JS). */
+/** Desktop dropdown with nested flyout submenus (CSS hover/focus — no JS). */
 function NavDropdown({ item, active }: { item: MenuItem; active: string }) {
   const isActive = item.href === active;
-  const columns = item.children!.filter((c) => c.children?.length);
-  const extras = item.children!.filter((c) => !c.children?.length);
-  const isMega = columns.length > 0;
 
   return (
     <div className="group relative">
@@ -25,58 +22,43 @@ function NavDropdown({ item, active }: { item: MenuItem; active: string }) {
         {item.label}
         <ChevronDown size={14} className="transition-transform duration-150 group-hover:rotate-180" />
       </Link>
+
+      {/* First-level panel: the main options */}
       <div className="invisible absolute left-0 top-full z-50 pt-3 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-        <div
-          className={`rounded-xl border border-navy/10 bg-white p-4 shadow-[0_24px_54px_-24px_rgba(26,62,110,0.4)] ${
-            isMega ? "w-[640px]" : "w-[220px]"
-          }`}
-        >
-          {isMega ? (
-            <>
-              <div className="grid grid-cols-3 gap-x-5 gap-y-1">
-                {columns.map((col) => (
-                  <div key={col.label}>
-                    {col.href ? (
-                      <Link href={col.href} className="mb-1 block font-serif text-[14px] font-bold text-navy hover:text-gold">
-                        {col.label}
-                      </Link>
-                    ) : (
-                      <span className="mb-1 block font-serif text-[14px] font-bold text-navy">{col.label}</span>
-                    )}
-                    <ul>
-                      {col.children!.map((g) => (
-                        <li key={g.label}>
-                          <Link href={g.href ?? "#"} className="block rounded-md px-2 py-1.5 text-[13px] text-navy/75 hover:bg-ice hover:text-navy">
-                            {g.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-              {extras.length > 0 && (
-                <div className="mt-3 flex gap-5 border-t border-navy/10 pt-3">
-                  {extras.map((e) => (
-                    <Link key={e.label} href={e.href ?? "#"} className="text-[13.5px] font-semibold text-navy hover:text-gold">
-                      {e.label} →
-                    </Link>
-                  ))}
+        <ul className="w-[264px] rounded-xl border border-navy/10 bg-white p-2 shadow-[0_24px_54px_-24px_rgba(26,62,110,0.4)]">
+          {item.children!.map((child) =>
+            child.children?.length ? (
+              <li key={child.label} className="group/sub relative">
+                <div className="flex items-center justify-between gap-2 rounded-md px-3 py-2 text-[14px] text-navy/80 group-hover/sub:bg-ice group-hover/sub:text-navy">
+                  {child.href ? (
+                    <Link href={child.href} className="flex-1">{child.label}</Link>
+                  ) : (
+                    <span className="flex-1">{child.label}</span>
+                  )}
+                  <ChevronRight size={15} className="flex-none text-navy/45" />
                 </div>
-              )}
-            </>
-          ) : (
-            <ul className="flex flex-col">
-              {item.children!.map((c) => (
-                <li key={c.label}>
-                  <Link href={c.href ?? "#"} className="block rounded-md px-3 py-2 text-[14px] text-navy/80 hover:bg-ice hover:text-navy">
-                    {c.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+                {/* Second-level flyout to the right */}
+                <div className="invisible absolute left-full top-0 z-50 pl-2 opacity-0 transition-all duration-150 group-hover/sub:visible group-hover/sub:opacity-100">
+                  <ul className="w-[252px] rounded-xl border border-navy/10 bg-white p-2 shadow-[0_24px_54px_-24px_rgba(26,62,110,0.4)]">
+                    {child.children!.map((g) => (
+                      <li key={g.label}>
+                        <Link href={g.href ?? "#"} className="block rounded-md px-3 py-2 text-[13.5px] text-navy/75 hover:bg-ice hover:text-navy">
+                          {g.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            ) : (
+              <li key={child.label}>
+                <Link href={child.href ?? "#"} className="block rounded-md px-3 py-2 text-[14px] text-navy/80 hover:bg-ice hover:text-navy">
+                  {child.label}
+                </Link>
+              </li>
+            ),
           )}
-        </div>
+        </ul>
       </div>
     </div>
   );
