@@ -5,7 +5,7 @@ import { SITE } from "@/lib/site";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationSchema, websiteSchema } from "@/lib/seo";
 import { InquiryProvider } from "@/components/inquiry/InquiryProvider";
-import { TopProgressBar } from "@/components/layout/TopProgressBar";
+import { PageSplash } from "@/components/layout/PageLoader";
 
 export const metadata: Metadata = {
   // Makes relative canonical/OG URLs resolve against the canonical origin.
@@ -21,8 +21,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${libre.variable} ${outfit.variable}`}>
       <body className="min-h-dvh bg-white text-navy">
-        {/* Top-of-page navigation progress bar (shows on every route change). */}
-        <TopProgressBar />
+        {/* Initial-load splash: full-page line loader until the page is ready. */}
+        <PageSplash />
         {/* Site-wide structured data. Per-page Breadcrumb/Article schema is added per page. */}
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <InquiryProvider>{children}</InquiryProvider>
