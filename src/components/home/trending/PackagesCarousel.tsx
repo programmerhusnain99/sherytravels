@@ -140,7 +140,7 @@ export function PackagesCarousel({ packages }: { packages: TrendingPackage[] }) 
       <div className="dt:hidden">
         <div ref={deckRef} className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2">
           {packages.map((p) => (
-            <article key={p.id} className="w-[300px] flex-none snap-start overflow-hidden rounded-2xl bg-navy text-white">
+            <article key={p.id} className="relative w-[300px] flex-none snap-start overflow-hidden rounded-2xl bg-navy text-white">
               <div className="relative h-[150px] w-full">
                 <Image src={p.image} alt={p.title} fill sizes="300px" className="object-cover" />
                 {p.badge && (
