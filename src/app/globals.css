@@ -83,3 +83,30 @@ body {
     scroll-behavior: auto;
   }
 }
+
+/* Full-page loader bar — an indeterminate navy segment that sweeps the track
+   from start to end on a loop. Used by the initial-load splash and loading.tsx.
+   It animates continuously (no fixed % / no fixed display time); the loader is
+   only mounted while the page is actually loading. */
+.page-loader-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 42%;
+  border-radius: 9999px;
+  background: var(--color-navy);
+  animation: pageLoaderSweep 1.15s ease-in-out infinite;
+}
+@keyframes pageLoaderSweep {
+  0% {
+    left: -45%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-loader-bar {
+    animation-duration: 1.9s;
+  }
+}
