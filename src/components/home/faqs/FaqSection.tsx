@@ -1,9 +1,8 @@
-import { ChevronDown, Phone } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
-import { Button } from "@/components/ui/Button";
 
 // TODO(client): replace with exact answers from the live FAQ pages
 const FAQS = [
@@ -39,7 +38,7 @@ const FAQS = [
  */
 export function FaqSection() {
   return (
-    <Section bg="ice" className="pt-16 dt:pt-22">
+    <Section bg="ice" className="py-16 dt:py-22">
       <Container>
         {/* Header */}
         <div className="mx-auto mb-10 max-w-[700px] text-center dt:mb-12">
@@ -75,42 +74,6 @@ export function FaqSection() {
               </p>
             </details>
           ))}
-        </div>
-      </Container>
-
-      {/* Desktop — full-bleed navy CTA strip */}
-      <div className="mt-12 hidden bg-navy dt:block">
-        <Container>
-          <div className="flex items-center justify-center gap-8 py-8">
-            <span className="text-[17px] text-white/90">Still have questions?</span>
-            <Button href="/contact/" variant="gold" size="md">
-              Contact Us
-            </Button>
-            <a
-              href="tel:+16674391263"
-              className="flex items-center gap-2 text-[15px] font-semibold text-gold transition-opacity hover:opacity-80"
-            >
-              <Phone size={20} aria-hidden />
-              +1-667-439-1263
-            </a>
-            <div className="h-5 w-px bg-white/25" aria-hidden />
-            <a
-              href="tel:+966583842090"
-              className="flex items-center gap-2 text-[15px] font-semibold text-gold transition-opacity hover:opacity-80"
-            >
-              <Phone size={20} aria-hidden />
-              +966-58-384-2090
-            </a>
-          </div>
-        </Container>
-      </div>
-
-      {/* Mobile — full-width navy CTA button, no phones */}
-      <Container className="dt:hidden">
-        <div className="pb-14 pt-8">
-          <Button href="/contact/" variant="navy" size="lg" className="w-full">
-            Still have questions? Contact us
-          </Button>
         </div>
       </Container>
     </Section>

@@ -129,9 +129,9 @@ export function StepsSection() {
         </div>
 
         {/* Desktop — four columns, circular photos, horizontal dashed S-curve */}
-        <div className="relative mx-auto hidden h-[540px] w-full max-w-[1200px] dt:block">
+        <div className="relative mx-auto hidden h-[320px] w-full max-w-[1200px] dt:block">
           <svg
-            viewBox="0 0 1200 540"
+            viewBox="0 0 1200 320"
             fill="none"
             preserveAspectRatio="none"
             aria-hidden
