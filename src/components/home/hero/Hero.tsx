@@ -3,7 +3,6 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { HeroArch } from "./HeroArch";
-import { HeroEnquiryForm } from "./HeroEnquiryForm";
 
 /** Three service pillars from the live site's hero. */
 const PILLARS: { icon: LucideIcon; title: string; body: string }[] = [
@@ -63,27 +62,34 @@ export function Hero() {
         </Container>
       </section>
 
-      {/* Enquiry band: card overlaps the hero above */}
-      <section className="bg-ice pb-12 dt:pb-16">
+      {/* Service pillars — elevated cards */}
+      <section className="bg-ice pb-14 pt-12 dt:pb-20 dt:pt-16">
         <Container>
-          <div className="-mt-12 dt:-mt-16">
-            <HeroEnquiryForm />
-          </div>
-
-          {/* Three service pillars (from the live site) */}
-          <div className="mt-10 grid gap-5 dt:mt-14 dt:grid-cols-3 dt:gap-6">
+          <div className="grid gap-5 dt:grid-cols-3 dt:gap-7">
             {PILLARS.map(({ icon: Icon, title, body }) => (
               <div
                 key={title}
-                className="card-hover rounded-2xl border border-navy/10 bg-white p-6 text-center dt:p-7 dt:text-left"
+                className="card-hover group relative overflow-hidden rounded-[22px] border border-navy/10 bg-white p-7 text-center shadow-[0_34px_70px_-30px_rgba(26,62,110,0.45)] dt:p-8 dt:text-left"
               >
-                <span className="mx-auto mb-4 grid h-12 w-12 place-items-center rounded-full border-[1.5px] border-gold bg-ice dt:mx-0">
-                  <Icon size={22} className="text-navy" aria-hidden />
+                {/* gold top accent */}
+                <span
+                  aria-hidden
+                  className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-gold/0 via-gold to-gold/0"
+                />
+                {/* soft corner glow */}
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-gold/10 blur-xl transition-opacity duration-300 group-hover:opacity-80"
+                />
+                <span className="relative mx-auto mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-navy text-gold shadow-[0_12px_26px_-12px_rgba(26,62,110,0.7)] transition-transform duration-300 group-hover:-translate-y-0.5 dt:mx-0">
+                  <Icon size={26} aria-hidden />
                 </span>
-                <h3 className="mb-2 font-serif text-[19px] font-bold text-navy dt:text-[20px]">
+                <h3 className="relative mb-2.5 font-serif text-[20px] font-bold text-navy dt:text-[21px]">
                   {title}
                 </h3>
-                <p className="text-[14.5px] font-light leading-relaxed text-navy/75">{body}</p>
+                <p className="relative text-[14.5px] font-light leading-relaxed text-navy/75">
+                  {body}
+                </p>
               </div>
             ))}
           </div>
