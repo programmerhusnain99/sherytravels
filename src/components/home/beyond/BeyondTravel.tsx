@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Check } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
@@ -23,13 +24,9 @@ export function BeyondTravel() {
         aria-hidden
         className="pointer-events-none absolute -left-32 bottom-0 hidden h-[420px] w-[420px] rounded-full border border-gold/12 dt:block"
       />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-24 -top-10 hidden h-[300px] w-[300px] rounded-full border border-gold/15 dt:block"
-      />
 
-      <Container className="relative grid items-center gap-11 dt:grid-cols-2 dt:gap-16">
-        {/* Heading + copy */}
+      <Container className="relative grid items-center gap-12 dt:grid-cols-[1.05fr_0.95fr] dt:gap-16">
+        {/* Heading + copy + points */}
         <div className="text-center dt:text-left">
           <Eyebrow align="center" tone="white" className="mb-4 dt:justify-start">
             Beyond travel
@@ -52,33 +49,44 @@ export function BeyondTravel() {
             Whether you’re seeking luxury accommodations and essentials for a lavish stay or
             affordable options that still offer the essentials, we have what you need.
           </p>
+
+          <ul className="mx-auto mt-7 flex max-w-[460px] flex-col gap-3 text-left dt:mx-0">
+            {POINTS.map((p) => (
+              <li key={p} className="flex items-start gap-3">
+                <span className="mt-0.5 grid h-6 w-6 flex-none place-items-center rounded-full bg-gold/15 ring-1 ring-gold/30">
+                  <Check size={14} className="text-gold" aria-hidden />
+                </span>
+                <span className="text-[14.5px] font-light leading-snug text-white/90">{p}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        {/* Stat + key points (directly on the navy) */}
-        <div className="relative mx-auto w-full max-w-[460px] dt:mx-0">
-          <div className="mb-7 flex items-baseline justify-center gap-3 dt:justify-start">
-            <span className="font-serif text-[54px] font-bold leading-none text-gold dt:text-[62px]">
-              10+
-            </span>
-            <span className="text-[14px] font-light leading-tight text-white/70">
+        {/* Image with a floating stat badge */}
+        <div className="relative mx-auto w-full max-w-[460px]">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -right-6 -top-6 hidden h-32 w-32 rounded-full border border-gold/25 dt:block"
+          />
+          <div className="relative h-[340px] w-full overflow-hidden rounded-t-[160px] rounded-b-[18px] bg-lightblue shadow-[0_40px_80px_-30px_rgba(0,0,0,0.55)] dt:h-[420px]">
+            <Image
+              src="/images/home/home-beyond.webp"
+              alt="Pilgrims on their journey with Shery Travels"
+              fill
+              sizes="(max-width:900px) 460px, 460px"
+              className="object-cover"
+            />
+          </div>
+
+          {/* Floating stat badge */}
+          <div className="absolute -bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-3 rounded-2xl border border-white/10 bg-white px-5 py-3.5 shadow-[0_24px_50px_-18px_rgba(0,0,0,0.5)] dt:-left-6 dt:translate-x-0">
+            <span className="font-serif text-[36px] font-bold leading-none text-navy">10+</span>
+            <span className="text-[12.5px] font-light leading-tight text-navy/70">
               years guiding
               <br />
               pilgrims
             </span>
           </div>
-
-          <div aria-hidden className="mb-7 h-px w-full bg-white/15" />
-
-          <ul className="flex flex-col gap-4">
-            {POINTS.map((p) => (
-              <li key={p} className="flex items-start gap-3.5">
-                <span className="mt-0.5 grid h-7 w-7 flex-none place-items-center rounded-full bg-gold/15 ring-1 ring-gold/30">
-                  <Check size={15} className="text-gold" aria-hidden />
-                </span>
-                <span className="text-[15px] font-light leading-snug text-white/90">{p}</span>
-              </li>
-            ))}
-          </ul>
         </div>
       </Container>
     </Section>
