@@ -89,7 +89,7 @@ export function PerfectPackages() {
             data-tile
             href={tile.href}
             aria-label={`${tile.title} — View all packages`}
-            className="group relative h-[370px] w-[272px] flex-none snap-start overflow-hidden rounded-2xl bg-lightblue dt:h-[440px] dt:w-[300px]"
+            className="group relative h-[370px] w-[272px] flex-none snap-start overflow-hidden rounded-[26px] bg-lightblue dt:h-[440px] dt:w-[300px] dt:rounded-[30px]"
           >
             <Image
               src={tile.src}

@@ -55,11 +55,11 @@ function Inclusions({ pkg, onNavy = false }: { pkg: TrendingPackage; onNavy?: bo
           <div
             key={inc.label}
             title={inc.label}
-            className={`grid h-10 w-10 flex-none place-items-center rounded-lg ${
+            className={`grid h-9 w-9 flex-none place-items-center rounded-lg ${
               onNavy ? "bg-white/10 text-white" : "bg-ice text-navy"
             }`}
           >
-            <Icon size={17} aria-hidden />
+            <Icon size={16} aria-hidden />
             <span className="sr-only">{inc.label}</span>
           </div>
         );
@@ -120,7 +120,7 @@ export function PackagesCarousel({ packages }: { packages: TrendingPackage[] }) 
       <div className="hidden gap-7 dt:grid dt:grid-cols-2">
         {/* Feature card — shows the active package */}
         <div className="flex flex-col overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_30px_64px_-26px_rgba(26,62,110,0.3)]">
-          <div className="relative h-[230px] w-full">
+          <div className="relative h-[196px] w-full">
             {packages.map((p, i) => (
               <Image
                 key={p.id}
@@ -139,8 +139,8 @@ export function PackagesCarousel({ packages }: { packages: TrendingPackage[] }) 
             )}
           </div>
 
-          <div className="flex flex-1 flex-col p-6">
-            <div className="mb-3 flex items-center gap-2.5">
+          <div className="flex flex-1 flex-col p-5">
+            <div className="mb-2.5 flex items-center gap-2.5">
               <span className="rounded-full bg-navy px-3 py-1 text-[11px] font-bold uppercase tracking-[0.08em] text-white">
                 {pkg.nightsLabel}
               </span>
@@ -148,10 +148,15 @@ export function PackagesCarousel({ packages }: { packages: TrendingPackage[] }) 
               <span className="text-[12px] text-navy/55">{pkg.starLabel}</span>
             </div>
 
-            <h3 className="font-serif text-[25px] font-bold leading-tight text-navy">{pkg.title}</h3>
-            <p className="mt-2 text-[14px] leading-relaxed text-navy/70">{pkg.blurb}</p>
+            <div className="flex items-start justify-between gap-4">
+              <h3 className="font-serif text-[23px] font-bold leading-tight text-navy">{pkg.title}</h3>
+              <div className="flex-none pt-0.5">
+                <Inclusions pkg={pkg} />
+              </div>
+            </div>
+            <p className="mt-2 text-[13.5px] leading-relaxed text-navy/70">{pkg.blurb}</p>
 
-            <div className="mt-4 space-y-1.5 text-[13px] text-navy/70">
+            <div className="mt-3.5 space-y-1.5 text-[13px] text-navy/70">
               <div className="flex items-center gap-2">
                 <MapPin size={14} className="flex-none text-gold" />
                 {pkg.makkah}
@@ -162,16 +167,10 @@ export function PackagesCarousel({ packages }: { packages: TrendingPackage[] }) 
               </div>
             </div>
 
-            <div className="mt-4">
-              <Inclusions pkg={pkg} />
-            </div>
-
-            <div className="mt-auto flex items-end justify-between pt-6">
-              <div>
-                <div className="text-[10.5px] font-semibold uppercase tracking-[0.1em] text-navy/45">
-                  From · per person
-                </div>
-                <div className="font-serif text-[26px] font-bold text-navy">{pkg.price}</div>
+            <div className="mt-auto flex items-end justify-between pt-5">
+              <div className="flex items-baseline gap-1.5">
+                <span className="font-serif text-[24px] font-bold text-navy">{pkg.price}</span>
+                <span className="text-[12.5px] font-medium text-navy/50">/ per person</span>
               </div>
               <Link
                 href={pkg.href}
@@ -183,10 +182,13 @@ export function PackagesCarousel({ packages }: { packages: TrendingPackage[] }) 
           </div>
         </div>
 
-        {/* List — redesigned cards (image + nights/stars + title + location + price) */}
+        {/* List — redesigned cards (image + nights/stars + title + location + price).
+            Wrapper stretches to the feature card's height; the inner scroll area is
+            absolutely positioned so the list never drives the row height. */}
+        <div className="relative">
         <div
           ref={listRef}
-          className="no-scrollbar flex max-h-[536px] flex-col gap-3 overflow-y-auto pr-1"
+          className="no-scrollbar absolute inset-0 flex flex-col gap-3 overflow-y-auto pr-1"
         >
           {packages.map((p, i) => {
             const isActive = i === active;
@@ -203,17 +205,17 @@ export function PackagesCarousel({ packages }: { packages: TrendingPackage[] }) 
                     setActive(i);
                   }
                 }}
-                className={`flex cursor-pointer gap-3.5 rounded-xl border p-3 text-left transition-colors duration-300 ${
+                className={`flex shrink-0 cursor-pointer gap-3.5 overflow-hidden rounded-xl border text-left transition-colors duration-300 ${
                   isActive
                     ? "border-gold/60 bg-lightblue/40"
                     : "border-navy/10 bg-white hover:border-navy/25"
                 }`}
               >
-                <div className="relative h-[88px] w-[96px] flex-none overflow-hidden rounded-lg bg-lightblue">
-                  <Image src={p.image} alt={p.title} fill sizes="96px" className="object-cover" />
+                <div className="relative w-[104px] flex-none self-stretch bg-lightblue">
+                  <Image src={p.image} alt={p.title} fill sizes="104px" className="object-cover" />
                 </div>
 
-                <div className="flex min-w-0 flex-1 flex-col">
+                <div className="flex min-w-0 flex-1 flex-col py-3 pr-3">
                   <div className="flex items-center gap-2">
                     <span className="text-[10.5px] font-semibold uppercase tracking-[0.08em] text-navy/55">
                       {p.nightsLabel}
@@ -249,6 +251,7 @@ export function PackagesCarousel({ packages }: { packages: TrendingPackage[] }) 
               </div>
             );
           })}
+        </div>
         </div>
       </div>
 

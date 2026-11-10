@@ -45,7 +45,7 @@ function PillarCard({
   return (
     <div
       data-pillar
-      className={`group relative flex flex-col overflow-hidden rounded-2xl border border-navy/10 bg-white p-6 shadow-[0_44px_84px_-34px_rgba(26,62,110,0.5)] dt:p-7 ${className}`}
+      className={`group relative flex flex-col overflow-hidden rounded-2xl border border-navy/10 bg-white p-5 shadow-[0_44px_84px_-34px_rgba(26,62,110,0.5)] dt:p-6 ${className}`}
     >
       <span
         aria-hidden
@@ -54,16 +54,20 @@ function PillarCard({
         0{index + 1}
       </span>
 
-      <span className="mb-3 grid h-10 w-10 place-items-center rounded-lg bg-gold/[0.14]">
-        <Icon size={20} className="text-gold" aria-hidden />
-      </span>
-      <h3 className="mb-1.5 font-serif text-[18px] font-bold text-navy dt:text-[20px]">{title}</h3>
+      <div className="mb-2.5 flex items-center gap-3">
+        <span className="grid h-10 w-10 flex-none place-items-center rounded-lg bg-gold/[0.14]">
+          <Icon size={20} className="text-gold" aria-hidden />
+        </span>
+        <h3 className="font-serif text-[18px] font-bold leading-tight text-navy dt:text-[20px]">
+          {title}
+        </h3>
+      </div>
       <span aria-hidden className="mb-3 block h-[2px] w-7 rounded-full bg-gold" />
       <p className="text-[13.5px] font-light leading-relaxed text-navy/70 dt:text-[14.5px]">{body}</p>
 
       <Link
         href={href}
-        className="mt-auto inline-flex w-fit items-center gap-1.5 pt-5 text-[11.5px] font-bold uppercase tracking-[0.1em] text-gold transition-colors hover:text-navy"
+        className="mt-auto inline-flex w-fit items-center gap-1.5 pt-3.5 text-[11.5px] font-bold uppercase tracking-[0.1em] text-gold transition-colors hover:text-navy"
       >
         Explore
         <ArrowRight size={13} className="transition-transform group-hover:translate-x-1" />

@@ -128,41 +128,41 @@ function HotelCardDesktop({ hotel, highlighted }: { hotel: Hotel; highlighted: b
           : "border border-navy/10 shadow-[0_4px_20px_-8px_rgba(0,0,0,0.06)]"
       }`}
     >
-      <div className="relative w-[240px] flex-none">
+      <div className="relative w-[180px] flex-none">
         <Image
           src={hotel.image}
           alt={`${hotel.name} hotel exterior`}
           fill
-          sizes="240px"
+          sizes="180px"
           className="object-cover"
         />
       </div>
-      <div className="flex flex-1 flex-col justify-center gap-1.5 px-6 py-5">
+      <div className="flex flex-1 flex-col justify-center gap-1 px-5 py-4">
         <div className="flex items-center gap-2.5">
           <span
-            className={`rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.08em] ${
+            className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.08em] ${
               highlighted ? "bg-navy text-white" : "bg-navy/8 text-navy"
             }`}
           >
             Nearest
           </span>
-          <Stars count={hotel.stars} />
+          <Stars count={hotel.stars} size={14} />
         </div>
-        <h3 className="font-serif text-[24px] font-bold text-navy">{hotel.name}</h3>
-        <p className="flex items-center gap-1.5 text-[14px] text-navy/60">
-          <MapPin size={17} className="flex-none text-gold" />
+        <h3 className="font-serif text-[19px] font-bold text-navy">{hotel.name}</h3>
+        <p className="flex items-center gap-1.5 text-[13px] text-navy/60">
+          <MapPin size={15} className="flex-none text-gold" />
           {hotel.nearest}
         </p>
         <Link
           href="/umrah/usa-packages/"
-          className="inline-flex w-fit items-center gap-1 text-[14px] font-medium text-navy underline underline-offset-[3px] hover:text-navy/70"
+          className="inline-flex w-fit items-center gap-1 text-[13px] font-medium text-navy underline underline-offset-[3px] hover:text-navy/70"
         >
-          View All Details <ArrowRight size={16} />
+          View All Details <ArrowRight size={15} />
         </Link>
       </div>
-      <div className="flex flex-none flex-col items-end justify-center gap-1 border-l border-navy/10 px-6 py-5 text-right">
-        <span className="text-[12px] text-navy/50">{hotel.stars}-Star Hotel</span>
-        <span className="text-[13px] font-semibold text-navy/60">Included in package</span>
+      <div className="flex flex-none flex-col items-end justify-center gap-1 border-l border-navy/10 px-5 py-4 text-right">
+        <span className="text-[11.5px] text-navy/50">{hotel.stars}-Star Hotel</span>
+        <span className="text-[12px] font-semibold text-navy/60">Included in package</span>
       </div>
     </article>
   );
