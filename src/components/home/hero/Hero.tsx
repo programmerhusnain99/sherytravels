@@ -10,8 +10,8 @@ import { HeroArch } from "./HeroArch";
  */
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white">
-      <Container className="relative pb-16 pt-10 text-center dt:pb-20 dt:pt-16">
+    <section className="relative overflow-hidden bg-[linear-gradient(to_bottom,#ffffff_0%,#ffffff_62%,#f2fdff_100%)]">
+      <Container className="relative pb-32 pt-10 text-center dt:pb-44 dt:pt-16">
         {/* Decorative arch outline behind */}
         <div
           aria-hidden
