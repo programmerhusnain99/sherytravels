@@ -99,30 +99,16 @@ export function HajjSection() {
             </div>
           </div>
 
-          {/* Right — twin staggered arch photos */}
-          <div className="relative mx-auto grid w-full max-w-[460px] grid-cols-2 gap-4 dt:max-w-none dt:gap-5">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute left-1/2 top-6 -z-0 h-[200px] w-[150px] -translate-x-1/2 rounded-t-[90px] border border-gold/25 dt:h-[300px] dt:w-[220px] dt:rounded-t-[130px]"
+          {/* Right — pre-styled Hajj image (arch shape baked into the artwork) */}
+          <div className="relative mx-auto w-full max-w-[460px] dt:max-w-none">
+            <Image
+              src="/images/home/home-hajj-hero.webp"
+              alt="Pilgrims performing Hajj"
+              width={560}
+              height={460}
+              sizes="(max-width: 900px) 100vw, 50vw"
+              className="h-auto w-full object-contain"
             />
-            <div className="relative z-10 h-[270px] self-end overflow-hidden rounded-t-[110px] rounded-b-[14px] bg-lightblue shadow-[0_30px_56px_-22px_rgba(0,0,0,0.5)] dt:h-[400px] dt:rounded-t-[160px]">
-              <Image
-                src="/images/home/home-hajj-hero.webp"
-                alt="Pilgrims at the Kaaba"
-                fill
-                sizes="(max-width: 900px) 220px, 260px"
-                className="object-cover"
-              />
-            </div>
-            <div className="relative z-10 mt-10 h-[270px] overflow-hidden rounded-t-[110px] rounded-b-[14px] bg-lightblue shadow-[0_30px_56px_-22px_rgba(0,0,0,0.5)] dt:mt-16 dt:h-[400px] dt:rounded-t-[160px]">
-              <Image
-                src="/images/home/home-hero-madinah.webp"
-                alt="The Prophet's Mosque in Madinah"
-                fill
-                sizes="(max-width: 900px) 220px, 260px"
-                className="object-cover"
-              />
-            </div>
           </div>
         </div>
       </Container>
