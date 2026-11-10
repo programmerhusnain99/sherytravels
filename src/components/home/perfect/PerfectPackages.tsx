@@ -82,20 +82,19 @@ export function PerfectPackages() {
       {/* Small-gap band (square image corners). A diverging/concave curve is
           carved into the top and bottom centre with ice-coloured arcs, so the
           band is full-height at the ends and gently pinched in the middle. */}
-      <div className="px-5 dt:px-12">
-        <div className="relative overflow-hidden">
-          <div
-            ref={deck}
-            className="flex snap-x snap-mandatory gap-2 overflow-x-auto scroll-pl-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:gap-2.5"
-          >
-            {TILES.map((tile) => (
-              <Link
-                key={tile.href + tile.title}
-                data-tile
-                href={tile.href}
-                aria-label={`${tile.title} — View all packages`}
-                className="group relative h-[370px] w-[272px] flex-none snap-start overflow-hidden bg-lightblue dt:h-[440px] dt:w-[300px]"
-              >
+      <div className="relative overflow-hidden">
+        <div
+          ref={deck}
+          className="flex snap-x snap-mandatory gap-2 overflow-x-auto scroll-pl-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:gap-2.5"
+        >
+          {TILES.map((tile) => (
+            <Link
+              key={tile.href + tile.title}
+              data-tile
+              href={tile.href}
+              aria-label={`${tile.title} — View all packages`}
+              className="group relative h-[370px] w-full flex-none snap-start overflow-hidden bg-lightblue dt:h-[440px] dt:w-[300px]"
+            >
                 <Image
                   src={tile.src}
                   alt={tile.title}
@@ -127,7 +126,6 @@ export function PerfectPackages() {
             className="pointer-events-none absolute inset-x-0 bottom-[-48px] z-10 h-[76px] rounded-[50%] bg-ice"
           />
         </div>
-      </div>
     </Section>
   );
 }
