@@ -85,7 +85,7 @@ export function PerfectPackages() {
       <div className="relative overflow-hidden">
         <div
           ref={deck}
-          className="flex snap-x snap-mandatory gap-2 overflow-x-auto scroll-pl-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:gap-2.5"
+          className="flex snap-x snap-mandatory gap-2 overflow-x-auto scroll-pl-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {TILES.map((tile) => (
             <Link
@@ -93,13 +93,13 @@ export function PerfectPackages() {
               data-tile
               href={tile.href}
               aria-label={`${tile.title} — View all packages`}
-              className="group relative h-[370px] w-full flex-none snap-start overflow-hidden bg-lightblue dt:h-[440px] dt:w-[300px]"
+              className="group relative h-[360px] w-full flex-none snap-start overflow-hidden bg-lightblue sm:w-[calc((100%-8px)/2)] lg:w-[calc((100%-16px)/3)] dt:h-[440px] xl:w-[calc((100%-24px)/4)] 2xl:w-[calc((100%-32px)/5)]"
             >
                 <Image
                   src={tile.src}
                   alt={tile.title}
                   fill
-                  sizes="(max-width: 900px) 272px, 300px"
+                  sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, (max-width:1280px) 33vw, 25vw"
                   className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                 />
                 <div aria-hidden className={`absolute inset-0 ${SCRIM}`} />
