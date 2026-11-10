@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Accessibility, GraduationCap, Users, User, ArrowRight, type LucideIcon } from "lucide-react";
+import { Accessibility, GraduationCap, Users, User, ArrowRight, MessageCircle, type LucideIcon } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
@@ -51,54 +51,85 @@ export function HajjSection() {
         className="pointer-events-none absolute -right-24 -top-24 h-[280px] w-[280px] rounded-full border border-gold/15 dt:left-1/2 dt:right-auto dt:h-[1000px] dt:w-[1000px] dt:-translate-x-1/2 dt:-top-0"
       />
 
-      {/* Header + arch photo */}
+      {/* Hero — copy + CTAs on the left, twin arch photos on the right */}
       <Container className="relative pt-12 dt:pt-[88px]">
-        <div className="mx-auto mb-8 max-w-[740px] text-center dt:mb-12">
-          <Eyebrow align="center" tone="navy" className="mb-4">
-            The fifth pillar
-          </Eyebrow>
-          <AccentHeading
-            as="h2"
-            before="Our "
-            accent="Hajj"
-            after=" Services"
-            className="mb-4 text-[32px] leading-[1.2] text-navy dt:text-[50px] dt:leading-[1.14]"
-          />
-          <ReadMore
-            id="rm-hajj"
-            className="mx-auto max-w-[680px]"
-            leadClassName="text-[16px] font-light leading-[1.68] text-navy/90 text-pretty dt:text-[17px] dt:leading-[1.72]"
-            lead={
-              <>
-                A once-in-a-lifetime journey is all about sacrifice, unity, and submission to the
-                Almighty. We are here to ensure you are able to fulfil this journey without any
-                hiccups in the easiest way possible. From Ihram guidance to Jamart and more, we are
-                with you every step of the way during each phase.
-              </>
-            }
-          >
-            <p className="mt-4 text-[16px] font-light leading-[1.68] text-navy/90 text-pretty dt:text-[17px] dt:leading-[1.72]">
-              Our close ties in the local area give us the advantage to offer reliable
-              transportation, clean and accessible accommodation, and smooth coordination for
-              families and individuals.
-            </p>
-          </ReadMore>
-        </div>
+        <div className="grid items-center gap-10 dt:grid-cols-[1fr_1.02fr] dt:gap-16">
+          {/* Left — copy */}
+          <div className="text-center dt:text-left">
+            <Eyebrow align="center" tone="navy" className="mb-4 dt:justify-start">
+              The fifth pillar
+            </Eyebrow>
+            <AccentHeading
+              as="h2"
+              before="Our "
+              accent="Hajj"
+              after=" Services"
+              className="mb-4 text-[32px] leading-[1.2] text-navy dt:text-[50px] dt:leading-[1.14]"
+            />
+            <ReadMore
+              id="rm-hajj"
+              className="mx-auto max-w-[560px] dt:mx-0"
+              leadClassName="text-[16px] font-light leading-[1.68] text-navy/90 text-pretty dt:text-[17px] dt:leading-[1.72]"
+              lead={
+                <>
+                  A once-in-a-lifetime journey is all about sacrifice, unity, and submission to the
+                  Almighty. We are here to ensure you are able to fulfil this journey without any
+                  hiccups in the easiest way possible. From Ihram guidance to Jamart and more, we are
+                  with you every step of the way during each phase.
+                </>
+              }
+            >
+              <p className="mt-4 text-[16px] font-light leading-[1.68] text-navy/90 text-pretty dt:text-[17px] dt:leading-[1.72]">
+                Our close ties in the local area give us the advantage to offer reliable
+                transportation, clean and accessible accommodation, and smooth coordination for
+                families and individuals.
+              </p>
+            </ReadMore>
 
-        <div className="relative mx-auto h-[370px] w-[300px] overflow-hidden rounded-t-[150px] rounded-b-[14px] bg-lightblue shadow-[0_30px_56px_-22px_rgba(0,0,0,0.5)] dt:h-[460px] dt:w-[520px] dt:rounded-t-[260px] dt:rounded-b-[16px] dt:shadow-[0_40px_70px_-26px_rgba(0,0,0,0.55)]">
-          <Image
-            src="/images/home/home-hajj-hero.webp"
-            alt="Pilgrims at the Kaaba"
-            fill
-            sizes="(max-width: 900px) 300px, 520px"
-            className="object-cover"
-          />
+            <div className="mt-8 flex justify-center dt:justify-start">
+              <Button
+                href="/contact/"
+                variant="gold"
+                size="lg"
+                className="w-full tracking-[0.06em] uppercase sm:w-auto"
+              >
+                <MessageCircle size={18} aria-hidden />
+                <span>Inquire Now</span>
+              </Button>
+            </div>
+          </div>
+
+          {/* Right — twin staggered arch photos */}
+          <div className="relative mx-auto grid w-full max-w-[460px] grid-cols-2 gap-4 dt:max-w-none dt:gap-5">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute left-1/2 top-6 -z-0 h-[200px] w-[150px] -translate-x-1/2 rounded-t-[90px] border border-gold/25 dt:h-[300px] dt:w-[220px] dt:rounded-t-[130px]"
+            />
+            <div className="relative z-10 h-[270px] self-end overflow-hidden rounded-t-[110px] rounded-b-[14px] bg-lightblue shadow-[0_30px_56px_-22px_rgba(0,0,0,0.5)] dt:h-[400px] dt:rounded-t-[160px]">
+              <Image
+                src="/images/home/home-hajj-hero.webp"
+                alt="Pilgrims at the Kaaba"
+                fill
+                sizes="(max-width: 900px) 220px, 260px"
+                className="object-cover"
+              />
+            </div>
+            <div className="relative z-10 mt-10 h-[270px] overflow-hidden rounded-t-[110px] rounded-b-[14px] bg-lightblue shadow-[0_30px_56px_-22px_rgba(0,0,0,0.5)] dt:mt-16 dt:h-[400px] dt:rounded-t-[160px]">
+              <Image
+                src="/images/home/home-hero-madinah.webp"
+                alt="The Prophet's Mosque in Madinah"
+                fill
+                sizes="(max-width: 900px) 220px, 260px"
+                className="object-cover"
+              />
+            </div>
+          </div>
         </div>
       </Container>
 
-      {/* Overlapping white panel */}
-      <div className="relative -mt-10 rounded-t-[22px] bg-white text-navy dt:-mt-20">
-        <Container className="pb-11 pt-[68px] dt:pb-[72px] dt:pt-[110px]">
+      {/* White audience panel */}
+      <div className="relative mt-14 rounded-t-[22px] bg-white text-navy dt:mt-20">
+        <Container className="pb-11 pt-12 dt:pb-[72px] dt:pt-16">
           {/* Sub-heading (desktop only) */}
           <div className="mb-10 hidden text-center dt:block">
             <AccentHeading
