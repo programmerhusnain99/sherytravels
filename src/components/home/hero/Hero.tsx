@@ -30,43 +30,40 @@ const PILLARS: { icon: LucideIcon; title: string; body: string }[] = [
  */
 export function Hero() {
   return (
-    <>
-      <section className="relative overflow-hidden bg-white">
-        <Container className="relative pb-16 pt-10 text-center dt:pb-20 dt:pt-16">
-          {/* Decorative arch outline behind */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute left-1/2 top-10 hidden h-[560px] w-[1100px] -translate-x-1/2 rounded-t-[550px] border border-b-0 border-navy/10 dt:block"
+    <section className="relative overflow-hidden bg-[linear-gradient(to_bottom,#ffffff_0%,#ffffff_58%,#f2fdff_100%)]">
+      <Container className="relative pb-28 pt-10 text-center dt:pb-40 dt:pt-16">
+        {/* Decorative arch outline behind */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-10 hidden h-[560px] w-[1100px] -translate-x-1/2 rounded-t-[550px] border border-b-0 border-navy/10 dt:block"
+        />
+
+        <div className="relative flex flex-col items-center">
+          <Eyebrow className="mb-5">Start your pilgrimage with confidence</Eyebrow>
+
+          <AccentHeading
+            as="h1"
+            before="Embrace Your Spirit: Step Boldly onto Your Sacred "
+            accent="Journey"
+            className="order-2 mx-auto max-w-[900px] text-[31px] leading-[1.2] text-navy dt:text-[50px] dt:leading-[1.16]"
           />
 
-          <div className="relative flex flex-col items-center">
-            <Eyebrow className="mb-5">Start your pilgrimage with confidence</Eyebrow>
-
-            <AccentHeading
-              as="h1"
-              before="Embrace Your Spirit: Step Boldly onto Your Sacred "
-              accent="Journey"
-              className="order-2 mx-auto max-w-[900px] text-[31px] leading-[1.2] text-navy dt:text-[50px] dt:leading-[1.16]"
-            />
-
-            <div className="order-3 mt-8">
-              <HeroArch />
-            </div>
-
-            <p className="order-4 mx-auto mt-7 max-w-[640px] text-[16px] font-light leading-[1.65] text-navy/80 dt:text-[17px]">
-              Join us at Shery Travels for a pilgrimage that uplifts your spirit. Experience the true
-              spiritual calling for Umrah and Hajj, supported by smooth travel and a trusted partner
-              by your side whom you can truly rely on.
-            </p>
+          <div className="order-3 mt-8">
+            <HeroArch />
           </div>
-        </Container>
-      </section>
 
-      {/* Service pillars — elevated cards */}
-      <section className="bg-ice pb-14 pt-12 dt:pb-20 dt:pt-16">
-        <Container>
-          <div className="grid gap-5 dt:grid-cols-3 dt:gap-7">
-            {PILLARS.map(({ icon: Icon, title, body }) => (
+          <p className="order-4 mx-auto mt-7 max-w-[640px] text-[16px] font-light leading-[1.65] text-navy/80 dt:text-[17px]">
+            Join us at Shery Travels for a pilgrimage that uplifts your spirit. Experience the true
+            spiritual calling for Umrah and Hajj, supported by smooth travel and a trusted partner
+            by your side whom you can truly rely on.
+          </p>
+        </div>
+      </Container>
+
+      {/* Service pillars — elevated cards overlapping the hero above */}
+      <Container className="relative z-10 -mt-20 pb-14 dt:-mt-32 dt:pb-20">
+        <div className="grid gap-5 dt:grid-cols-3 dt:gap-7">
+          {PILLARS.map(({ icon: Icon, title, body }) => (
               <div
                 key={title}
                 className="card-hover group relative overflow-hidden rounded-[22px] border border-navy/10 bg-white p-7 text-center shadow-[0_34px_70px_-30px_rgba(26,62,110,0.45)] dt:p-8 dt:text-left"
@@ -92,9 +89,8 @@ export function Hero() {
                 </p>
               </div>
             ))}
-          </div>
-        </Container>
-      </section>
-    </>
+        </div>
+      </Container>
+    </section>
   );
 }
