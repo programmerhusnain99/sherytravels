@@ -79,13 +79,14 @@ export function PerfectPackages() {
         </div>
       </Container>
 
-      {/* Continuous edge-to-edge band, masked with a gentle convex curve on the
-          top and bottom edges (no gaps, no per-card rounding). */}
+      {/* Small-gap band (square image corners). A diverging/concave curve is
+          carved into the top and bottom centre with ice-coloured arcs, so the
+          band is full-height at the ends and gently pinched in the middle. */}
       <div className="px-5 dt:px-12">
-        <div className="overflow-hidden" style={{ borderRadius: "50% / 42px" }}>
+        <div className="relative overflow-hidden">
           <div
             ref={deck}
-            className="flex snap-x snap-mandatory gap-0 overflow-x-auto scroll-pl-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex snap-x snap-mandatory gap-2 overflow-x-auto scroll-pl-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:gap-2.5"
           >
             {TILES.map((tile) => (
               <Link
@@ -103,7 +104,7 @@ export function PerfectPackages() {
                   className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                 />
                 <div aria-hidden className={`absolute inset-0 ${SCRIM}`} />
-                <div className="absolute inset-x-[22px] bottom-8 dt:inset-x-7 dt:bottom-10">
+                <div className="absolute inset-x-[22px] bottom-9 dt:inset-x-7 dt:bottom-11">
                   <h3 className="mb-4 font-serif text-[20px] font-bold leading-[1.28] text-white text-balance dt:text-[22px]">
                     {tile.title}
                   </h3>
@@ -115,6 +116,16 @@ export function PerfectPackages() {
               </Link>
             ))}
           </div>
+
+          {/* Concave (diverging-lens) curve — ice arcs dip into the top & bottom centre */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 top-[-48px] z-10 h-[76px] rounded-[50%] bg-ice"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 bottom-[-48px] z-10 h-[76px] rounded-[50%] bg-ice"
+          />
         </div>
       </div>
     </Section>
