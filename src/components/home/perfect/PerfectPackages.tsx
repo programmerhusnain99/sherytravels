@@ -43,7 +43,7 @@ export function PerfectPackages() {
   };
 
   return (
-    <Section bg="white" className="pb-12 pt-12 dt:pb-0 dt:pt-20">
+    <Section bg="ice" className="pb-12 pt-12 dt:pb-16 dt:pt-20">
       <Container className="mb-[26px] flex items-end justify-between gap-6 dt:mb-10">
         <div>
           <AccentHeading

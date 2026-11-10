@@ -14,7 +14,7 @@ const ITEMS: { icon: LucideIcon; title: string; sub: string }[] = [
 /** Static trust strip: five reassurance items with gold icon tiles, on a light band. */
 export function TrustStrip() {
   return (
-    <Section bg="ice" className="relative overflow-hidden border-t border-navy/[0.06] py-10 dt:py-12">
+    <Section bg="white" className="relative overflow-hidden border-t border-navy/[0.06] py-10 dt:py-12">
       <div
         aria-hidden
         className="pointer-events-none absolute -left-16 -top-16 h-[220px] w-[220px] rounded-full border border-gold/15"
