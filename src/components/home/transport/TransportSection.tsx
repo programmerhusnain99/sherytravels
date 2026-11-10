@@ -14,10 +14,13 @@ const FEATURES = [
   { Icon: Snowflake, label: "Air-conditioned fleet" },
 ];
 
+// `pos` places each circle's CENTRE at a percentage point of the desktop stage,
+// matching the SVG path's control points below (same 0–100 coordinate space),
+// so the dashed line always connects the circles. Ignored on mobile (vertical stack).
 const STOPS = [
-  { title: "Jeddah Airport", sub: "Airport pickup to your hotel or the Haram", src: "/images/home/home-transport-jeddah.webp", align: "dt:self-start" },
-  { title: "Makkah", sub: "Transfers, ziyarat and inter-city routes", src: "/images/home/home-transport-makkah.webp", align: "dt:self-center" },
-  { title: "Madinah", sub: "Hotel transfers and local ziyarat", src: "/images/home/home-transport-madinah.webp", align: "dt:self-end" },
+  { title: "Jeddah Airport", sub: "Airport pickup to your hotel or the Haram", src: "/images/home/home-transport-jeddah.webp", pos: "dt:left-[9%] dt:top-[15%]" },
+  { title: "Makkah", sub: "Transfers, ziyarat and inter-city routes", src: "/images/home/home-transport-makkah.webp", pos: "dt:left-[29%] dt:top-[50%]" },
+  { title: "Madinah", sub: "Hotel transfers and local ziyarat", src: "/images/home/home-transport-madinah.webp", pos: "dt:left-[49%] dt:top-[85%]" },
 ];
 
 const FLEET = [
@@ -81,35 +84,40 @@ export function TransportSection() {
 
           {/* Route map card */}
           <div className="relative rounded-3xl border border-navy/10 bg-ice p-7 dt:p-10">
-            {/* Desktop: static dashed gold S-curve behind the stops */}
-            <svg
-              viewBox="0 0 520 320"
-              fill="none"
-              aria-hidden
-              className="pointer-events-none absolute inset-7 hidden h-[calc(100%-56px)] w-[calc(100%-56px)] text-gold dt:inset-10 dt:block dt:h-[calc(100%-80px)] dt:w-[calc(100%-80px)]"
-            >
-              <path
-                d="M 60 40 C 180 40, 180 160, 260 160 S 340 280, 460 280"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeDasharray="10 8"
-                strokeOpacity="0.5"
+            {/* Stage: vertical stack on mobile, fixed-height positioned canvas on desktop */}
+            <div className="relative flex flex-col gap-7 dt:block dt:h-[360px]">
+              {/* Desktop: dashed gold S-curve through the circle centres.
+                  viewBox is 0–100 in both axes and preserveAspectRatio="none",
+                  so the path points share the stops' percentage coordinates. */}
+              <svg
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
                 fill="none"
+                aria-hidden
+                className="pointer-events-none absolute inset-0 hidden h-full w-full text-gold dt:block"
+              >
+                <path
+                  d="M 9 15 C 30 24, 12 42, 29 50 C 47 58, 66 76, 49 85"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeDasharray="4 3.5"
+                  strokeOpacity="0.55"
+                  fill="none"
+                  vectorEffect="non-scaling-stroke"
+                />
+              </svg>
+
+              {/* Mobile: vertical dashed line centred on the circle column */}
+              <div
+                aria-hidden
+                className="absolute left-[31px] top-8 bottom-8 w-0 border-l-[3px] border-dashed border-gold/50 dt:hidden"
               />
-            </svg>
 
-            {/* Mobile: vertical dashed line through the circle column */}
-            <div
-              aria-hidden
-              className="absolute left-[53px] top-[90px] bottom-[90px] border-l-[3px] border-dashed border-gold/50 dt:hidden"
-            />
-
-            <div className="relative flex flex-col gap-7 dt:gap-20">
               {STOPS.map((stop) => (
                 <Link
                   key={stop.title}
                   href={ZIARAT}
-                  className={`flex items-center gap-4 ${stop.align}`}
+                  className={`flex items-center gap-4 dt:absolute dt:-translate-x-10 dt:-translate-y-1/2 ${stop.pos}`}
                 >
                   <span className="relative z-[1] h-16 w-16 flex-none overflow-hidden rounded-full border-[2.5px] border-gold bg-lightblue shadow-[0_8px_22px_-8px_rgba(26,62,110,0.5)] dt:h-20 dt:w-20">
                     <Image
