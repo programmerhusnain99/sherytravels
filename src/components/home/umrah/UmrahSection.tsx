@@ -99,7 +99,7 @@ export function UmrahSection() {
       </Section>
 
       {/* White 4-up service bar straddling the band edge */}
-      <div className="bg-white pb-14 dt:pb-24">
+      <div className="bg-white pb-4 dt:pb-6">
         <Container>
           <div className="relative z-10 -mt-12 grid grid-cols-2 rounded-[18px] border border-navy/[0.08] bg-white shadow-[0_28px_56px_-28px_rgba(26,62,110,0.44)] dt:-mt-16 dt:grid-cols-4">
             {SERVICES.map(({ Icon, title, sub, border }) => (
