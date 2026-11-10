@@ -3,6 +3,7 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
+import { ReadMore } from "@/components/ui/ReadMore";
 
 // Content verbatim from the live site's "Your Connection with Allah Matters to Us" section.
 const POINTS = [
@@ -29,15 +30,23 @@ export function ConnectionSection() {
           after=" Matters to Us"
           className="text-[27px] leading-tight text-navy dt:text-[38px] dt:leading-[1.16]"
         />
-        <p className="mt-5 text-[15.5px] font-light leading-[1.72] text-navy/80 text-pretty">
-          Step into the holy cities of Makkah and Madinah without a shadow of doubt and worry. A
-          pilgrimage is more than just rituals; it’s meant to enlighten and renew your faith with a
-          deeper understanding of your history.
-        </p>
-        <p className="mt-4 text-[15.5px] font-light leading-[1.72] text-navy/70 text-pretty">
-          We help you visit sacred sites with proper guidance, arrange tours, and provide ready
-          transport that departs on time.
-        </p>
+        <ReadMore
+          id="rm-connection"
+          className="mt-5"
+          leadClassName="text-[15.5px] font-light leading-[1.72] text-navy/80 text-pretty"
+          lead={
+            <>
+              Step into the holy cities of Makkah and Madinah without a shadow of doubt and worry. A
+              pilgrimage is more than just rituals; it’s meant to enlighten and renew your faith with
+              a deeper understanding of your history.
+            </>
+          }
+        >
+          <p className="mt-4 text-[15.5px] font-light leading-[1.72] text-navy/70 text-pretty">
+            We help you visit sacred sites with proper guidance, arrange tours, and provide ready
+            transport that departs on time.
+          </p>
+        </ReadMore>
 
         <ul className="mt-8 flex flex-col justify-center gap-3.5 dt:flex-row dt:gap-5">
           {POINTS.map((p) => (

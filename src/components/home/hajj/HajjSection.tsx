@@ -5,6 +5,7 @@ import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { Button } from "@/components/ui/Button";
+import { ReadMore } from "@/components/ui/ReadMore";
 
 type Audience = {
   icon: LucideIcon;
@@ -63,16 +64,25 @@ export function HajjSection() {
             after=" Services"
             className="mb-4 text-[32px] leading-[1.2] text-navy dt:text-[50px] dt:leading-[1.14]"
           />
-          <p className="mx-auto max-w-[680px] text-[16px] font-light leading-[1.68] text-navy/90 text-pretty dt:text-[17px] dt:leading-[1.72]">
-            A once-in-a-lifetime journey is all about sacrifice, unity, and submission to the
-            Almighty. We are here to ensure you are able to fulfil this journey without any hiccups
-            in the easiest way possible. From Ihram guidance to Jamart and more, we are with you
-            every step of the way during each phase.
-          </p>
-          <p className="mx-auto mt-4 max-w-[680px] text-[16px] font-light leading-[1.68] text-navy/90 text-pretty dt:text-[17px] dt:leading-[1.72]">
-            Our close ties in the local area give us the advantage to offer reliable transportation,
-            clean and accessible accommodation, and smooth coordination for families and individuals.
-          </p>
+          <ReadMore
+            id="rm-hajj"
+            className="mx-auto max-w-[680px]"
+            leadClassName="text-[16px] font-light leading-[1.68] text-navy/90 text-pretty dt:text-[17px] dt:leading-[1.72]"
+            lead={
+              <>
+                A once-in-a-lifetime journey is all about sacrifice, unity, and submission to the
+                Almighty. We are here to ensure you are able to fulfil this journey without any
+                hiccups in the easiest way possible. From Ihram guidance to Jamart and more, we are
+                with you every step of the way during each phase.
+              </>
+            }
+          >
+            <p className="mt-4 text-[16px] font-light leading-[1.68] text-navy/90 text-pretty dt:text-[17px] dt:leading-[1.72]">
+              Our close ties in the local area give us the advantage to offer reliable
+              transportation, clean and accessible accommodation, and smooth coordination for
+              families and individuals.
+            </p>
+          </ReadMore>
         </div>
 
         <div className="relative mx-auto h-[370px] w-[300px] overflow-hidden rounded-t-[150px] rounded-b-[14px] bg-lightblue shadow-[0_30px_56px_-22px_rgba(0,0,0,0.5)] dt:h-[460px] dt:w-[520px] dt:rounded-t-[260px] dt:rounded-b-[16px] dt:shadow-[0_40px_70px_-26px_rgba(0,0,0,0.55)]">

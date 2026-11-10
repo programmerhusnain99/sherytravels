@@ -4,6 +4,7 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
+import { ReadMore } from "@/components/ui/ReadMore";
 import { FormEnquiry } from "./FormEnquiry";
 
 const STATS = [
@@ -53,13 +54,20 @@ export function FormSection() {
               className="mt-5 text-[28px] leading-[1.2] text-white dt:text-[44px] dt:leading-[1.14]"
             />
 
-            <p className="mx-auto mt-4 max-w-[460px] text-[15.5px] font-light leading-[1.62] text-white/90 dt:mx-0 dt:mt-5 dt:text-[16.5px] dt:leading-[1.7]">
-              Whether it’s your first-ever Umrah or once-in-a-lifetime Hajj, it all begins with a
-              simple conversation with us. Fill out the form and share your request with us. Our
-              travel expert will walk you through the options, answer all your questions, and ensure
-              to offer a customized or the best Umrah and Hajj package based on your location,
-              budget, and goals.
-            </p>
+            <ReadMore
+              id="rm-form"
+              className="mx-auto mt-4 max-w-[460px] dt:mx-0 dt:mt-5"
+              leadClassName="text-[15.5px] font-light leading-[1.62] text-white/90 dt:text-[16.5px] dt:leading-[1.7]"
+              lead={
+                <>
+                  Whether it’s your first-ever Umrah or once-in-a-lifetime Hajj, it all begins with a
+                  simple conversation with us. Fill out the form and share your request with us. Our
+                  travel expert will walk you through the options, answer all your questions, and
+                  ensure to offer a customized or the best Umrah and Hajj package based on your
+                  location, budget, and goals.
+                </>
+              }
+            />
 
             <p className="mx-auto mt-4 max-w-[460px] text-[14.5px] font-light leading-[1.6] text-white/80 dt:mx-0">
               We don’t believe in one-size-fits-all, which is why we take your preferences into

@@ -4,6 +4,7 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
+import { ReadMore } from "@/components/ui/ReadMore";
 
 // Content verbatim from the live site's "Beyond Travel" section.
 const POINTS = [
@@ -37,18 +38,26 @@ export function BeyondTravel() {
             accent="Matters"
             className="text-[27px] leading-[1.2] text-white dt:text-[38px] dt:leading-[1.16]"
           />
-          <p className="mt-5 text-[15.5px] font-light leading-[1.72] text-white/85">
-            With over a decade of experience, we have learned the importance of faith and religious
-            journeys for Muslims, who are looking to renew their emotional and spiritual strength.
-            We, at Shery Travels, are dedicated to fulfilling our part in your pilgrimage to ensure a
-            smooth travel experience. From helping process visas to guided tours, comfortable
-            transportation, and family-friendly accommodations, we provide a hassle-free experience
-            from beginning to end.
-          </p>
-          <p className="mt-4 text-[15.5px] font-light leading-[1.72] text-white/70">
-            Whether you’re seeking luxury accommodations and essentials for a lavish stay or
-            affordable options that still offer the essentials, we have what you need.
-          </p>
+          <ReadMore
+            id="rm-beyond"
+            className="mt-5"
+            leadClassName="text-[15.5px] font-light leading-[1.72] text-white/85"
+            lead={
+              <>
+                With over a decade of experience, we have learned the importance of faith and
+                religious journeys for Muslims, who are looking to renew their emotional and
+                spiritual strength. We, at Shery Travels, are dedicated to fulfilling our part in
+                your pilgrimage to ensure a smooth travel experience. From helping process visas to
+                guided tours, comfortable transportation, and family-friendly accommodations, we
+                provide a hassle-free experience from beginning to end.
+              </>
+            }
+          >
+            <p className="mt-4 text-[15.5px] font-light leading-[1.72] text-white/70">
+              Whether you’re seeking luxury accommodations and essentials for a lavish stay or
+              affordable options that still offer the essentials, we have what you need.
+            </p>
+          </ReadMore>
 
           <ul className="mx-auto mt-7 flex max-w-[460px] flex-col gap-3 text-left dt:mx-0">
             {POINTS.map((p) => (
