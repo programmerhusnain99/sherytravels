@@ -11,10 +11,10 @@ const ITEMS: { icon: LucideIcon; title: string; sub: string }[] = [
   { icon: Lock, title: "Secure payment", sub: "Pay safely, no hidden fees" },
 ];
 
-/** Static trust strip: five reassurance items with gold icon tiles, on a light band. */
+/** Static trust strip: five reassurance items with gold icon tiles, on a light-blue band. */
 export function TrustStrip() {
   return (
-    <Section bg="white" className="relative overflow-hidden border-t border-navy/[0.06] py-10 dt:py-12">
+    <Section bg="lightblue" className="relative overflow-hidden border-t border-navy/[0.06] py-10 dt:py-12">
       <div
         aria-hidden
         className="pointer-events-none absolute -left-16 -top-16 h-[220px] w-[220px] rounded-full border border-gold/15"
@@ -25,7 +25,7 @@ export function TrustStrip() {
             const Glyph = item.icon;
             return (
               <li key={item.title} className="flex items-center gap-3.5 dt:items-start">
-                <span className="grid h-[46px] w-[46px] flex-none place-items-center rounded-[13px] bg-gold/15 ring-1 ring-gold/25">
+                <span className="grid h-[46px] w-[46px] flex-none place-items-center rounded-[13px] bg-white ring-1 ring-gold/30">
                   <Glyph size={23} className="text-gold" />
                 </span>
                 <div>
