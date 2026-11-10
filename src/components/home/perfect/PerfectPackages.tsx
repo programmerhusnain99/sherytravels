@@ -79,37 +79,43 @@ export function PerfectPackages() {
         </div>
       </Container>
 
-      <div
-        ref={deck}
-        className="flex snap-x snap-mandatory gap-[10px] overflow-x-auto px-5 pb-1 scroll-pl-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:gap-3 dt:px-14 dt:scroll-pl-14 dt:pb-0"
-      >
-        {TILES.map((tile) => (
-          <Link
-            key={tile.href + tile.title}
-            data-tile
-            href={tile.href}
-            aria-label={`${tile.title} — View all packages`}
-            className="group relative h-[370px] w-[272px] flex-none snap-start overflow-hidden rounded-[26px] bg-lightblue dt:h-[440px] dt:w-[300px] dt:rounded-[30px]"
+      {/* Continuous edge-to-edge band, masked with a gentle convex curve on the
+          top and bottom edges (no gaps, no per-card rounding). */}
+      <div className="px-5 dt:px-12">
+        <div className="overflow-hidden" style={{ borderRadius: "50% / 42px" }}>
+          <div
+            ref={deck}
+            className="flex snap-x snap-mandatory gap-0 overflow-x-auto scroll-pl-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
-            <Image
-              src={tile.src}
-              alt={tile.title}
-              fill
-              sizes="(max-width: 900px) 272px, 300px"
-              className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-            />
-            <div aria-hidden className={`absolute inset-0 ${SCRIM}`} />
-            <div className="absolute inset-x-[18px] bottom-5 dt:inset-x-6 dt:bottom-[26px]">
-              <h3 className="mb-4 font-serif text-[20px] font-bold leading-[1.28] text-white text-balance dt:text-[22px]">
-                {tile.title}
-              </h3>
-              <span className="inline-flex items-center gap-2 rounded-md bg-gold px-[18px] py-3 text-[13px] font-bold text-navy transition group-hover:brightness-105">
-                View All Packages
-                <ArrowRight size={16} aria-hidden />
-              </span>
-            </div>
-          </Link>
-        ))}
+            {TILES.map((tile) => (
+              <Link
+                key={tile.href + tile.title}
+                data-tile
+                href={tile.href}
+                aria-label={`${tile.title} — View all packages`}
+                className="group relative h-[370px] w-[272px] flex-none snap-start overflow-hidden bg-lightblue dt:h-[440px] dt:w-[300px]"
+              >
+                <Image
+                  src={tile.src}
+                  alt={tile.title}
+                  fill
+                  sizes="(max-width: 900px) 272px, 300px"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                />
+                <div aria-hidden className={`absolute inset-0 ${SCRIM}`} />
+                <div className="absolute inset-x-[22px] bottom-8 dt:inset-x-7 dt:bottom-10">
+                  <h3 className="mb-4 font-serif text-[20px] font-bold leading-[1.28] text-white text-balance dt:text-[22px]">
+                    {tile.title}
+                  </h3>
+                  <span className="inline-flex items-center gap-2 rounded-md bg-gold px-[18px] py-3 text-[13px] font-bold text-navy transition group-hover:brightness-105">
+                    View All Packages
+                    <ArrowRight size={16} aria-hidden />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
     </Section>
   );
