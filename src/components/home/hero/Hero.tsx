@@ -50,15 +50,15 @@ export function Hero() {
               className="order-2 mx-auto max-w-[900px] text-[31px] leading-[1.2] text-navy dt:text-[50px] dt:leading-[1.16]"
             />
 
-            <p className="order-4 mx-auto mt-5 max-w-[640px] text-[16px] font-light leading-[1.65] text-navy/80 dt:order-3 dt:text-[17px]">
+            <div className="order-3 mt-8">
+              <HeroArch />
+            </div>
+
+            <p className="order-4 mx-auto mt-7 max-w-[640px] text-[16px] font-light leading-[1.65] text-navy/80 dt:text-[17px]">
               Join us at Shery Travels for a pilgrimage that uplifts your spirit. Experience the true
               spiritual calling for Umrah and Hajj, supported by smooth travel and a trusted partner
               by your side whom you can truly rely on.
             </p>
-
-            <div className="order-3 mt-8 dt:order-4">
-              <HeroArch />
-            </div>
           </div>
         </Container>
       </section>
