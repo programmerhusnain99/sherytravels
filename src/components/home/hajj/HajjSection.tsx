@@ -63,9 +63,15 @@ export function HajjSection() {
             after=" Services"
             className="mb-4 text-[32px] leading-[1.2] text-navy dt:text-[50px] dt:leading-[1.14]"
           />
-          <p className="mx-auto max-w-[620px] text-[16px] font-light leading-[1.68] text-navy/90 text-pretty dt:text-[17px] dt:leading-[1.72]">
-            As one of the five pillars of Islam, Hajj is an obligation for every Muslim who is
-            physically and financially able. We ensure every pilgrim is comfortable and fully guided.
+          <p className="mx-auto max-w-[680px] text-[16px] font-light leading-[1.68] text-navy/90 text-pretty dt:text-[17px] dt:leading-[1.72]">
+            A once-in-a-lifetime journey is all about sacrifice, unity, and submission to the
+            Almighty. We are here to ensure you are able to fulfil this journey without any hiccups
+            in the easiest way possible. From Ihram guidance to Jamart and more, we are with you
+            every step of the way during each phase.
+          </p>
+          <p className="mx-auto mt-4 max-w-[680px] text-[16px] font-light leading-[1.68] text-navy/90 text-pretty dt:text-[17px] dt:leading-[1.72]">
+            Our close ties in the local area give us the advantage to offer reliable transportation,
+            clean and accessible accommodation, and smooth coordination for families and individuals.
           </p>
         </div>
 
