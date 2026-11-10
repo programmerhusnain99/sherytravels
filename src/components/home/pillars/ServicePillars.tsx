@@ -33,35 +33,35 @@ export function ServicePillars() {
   return (
     <div className="relative z-20 -mt-28 -mb-16 dt:-mt-40 dt:-mb-24">
       <Container>
-        <div className="grid gap-5 dt:grid-cols-3 dt:gap-7">
+        <div className="grid gap-4 dt:grid-cols-3 dt:gap-5">
           {PILLARS.map(({ icon: Icon, title, body, href }, i) => (
             <div
               key={title}
-              className="group relative flex flex-col overflow-hidden rounded-2xl border border-navy/10 bg-white p-7 shadow-[0_44px_84px_-34px_rgba(26,62,110,0.5)] dt:p-8"
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-navy/10 bg-white p-5 shadow-[0_34px_66px_-34px_rgba(26,62,110,0.45)] dt:p-6"
             >
               {/* editorial index number */}
               <span
                 aria-hidden
-                className="pointer-events-none absolute right-4 top-1 font-serif text-[64px] font-bold leading-none text-navy/[0.06]"
+                className="pointer-events-none absolute right-3 top-1 font-serif text-[42px] font-bold leading-none text-navy/[0.06]"
               >
                 0{i + 1}
               </span>
 
-              <span className="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-gold/[0.14]">
-                <Icon size={24} className="text-gold" aria-hidden />
+              <span className="mb-3 grid h-9 w-9 place-items-center rounded-lg bg-gold/[0.14]">
+                <Icon size={18} className="text-gold" aria-hidden />
               </span>
-              <h3 className="mb-2 font-serif text-[20px] font-bold text-navy dt:text-[21px]">
+              <h3 className="mb-1.5 font-serif text-[16.5px] font-bold text-navy dt:text-[17px]">
                 {title}
               </h3>
-              <span aria-hidden className="mb-3.5 block h-[3px] w-8 rounded-full bg-gold" />
-              <p className="text-[14.5px] font-light leading-relaxed text-navy/70">{body}</p>
+              <span aria-hidden className="mb-2.5 block h-[2px] w-6 rounded-full bg-gold" />
+              <p className="text-[13px] font-light leading-relaxed text-navy/70">{body}</p>
 
               <Link
                 href={href}
-                className="mt-auto inline-flex w-fit items-center gap-1.5 pt-6 text-[12.5px] font-bold uppercase tracking-[0.1em] text-gold transition-colors hover:text-navy"
+                className="mt-auto inline-flex w-fit items-center gap-1.5 pt-4 text-[11px] font-bold uppercase tracking-[0.1em] text-gold transition-colors hover:text-navy"
               >
                 Explore
-                <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                <ArrowRight size={13} className="transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
           ))}
