@@ -6,6 +6,7 @@ import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { Button } from "@/components/ui/Button";
+import { ReadMore } from "@/components/ui/ReadMore";
 import { UmrahArch } from "./UmrahArch";
 
 const CHECKLIST: { Icon: LucideIcon; label: string }[] = [
@@ -57,16 +58,25 @@ export function UmrahSection() {
                 <UmrahArch />
               </div>
 
-              <p className="mt-6 max-w-[520px] text-[16.5px] font-light leading-[1.72] text-white/90 text-pretty dt:text-[17.5px]">
-                The Serenity of Umrah is undeniable. So, if you are planning your first ever Umrah with
-                hard-earned money, you are at the right place. Shery Travels is here to assist Muslims who
-                choose to travel with us, in all capacities making processes, making necessary bookings and
-                planning itineraries on your behalf.
-              </p>
-              <p className="mt-5 max-w-[520px] text-[16.5px] font-light leading-[1.72] text-white/90 text-pretty dt:text-[17.5px]">
-                Whether you choose to travel solo, with family, or in a group, our team will help you choose
-                from the best Umrah packages and ensure convenience throughout the process.
-              </p>
+              <ReadMore
+                id="rm-umrah"
+                className="mt-6 max-w-[520px]"
+                leadClassName="text-[16.5px] font-light leading-[1.72] text-white/90 text-pretty dt:text-[17.5px]"
+                lead={
+                  <>
+                    The Serenity of Umrah is undeniable. So, if you are planning your first ever
+                    Umrah with hard-earned money, you are at the right place. Shery Travels is here to
+                    assist Muslims who choose to travel with us, in all capacities making processes,
+                    making necessary bookings and planning itineraries on your behalf.
+                  </>
+                }
+              >
+                <p className="mt-5 text-[16.5px] font-light leading-[1.72] text-white/90 text-pretty dt:text-[17.5px]">
+                  Whether you choose to travel solo, with family, or in a group, our team will help
+                  you choose from the best Umrah packages and ensure convenience throughout the
+                  process.
+                </p>
+              </ReadMore>
 
               {/* Checklist — desktop only */}
               <div className="mb-8 mt-8 hidden max-w-[520px] grid-cols-2 gap-x-7 gap-y-3.5 border-y border-white/20 py-6 dt:grid">
@@ -99,7 +109,7 @@ export function UmrahSection() {
       </Section>
 
       {/* White 4-up service bar straddling the band edge */}
-      <div className="bg-white pb-14 dt:pb-24">
+      <div className="bg-white pb-4 dt:pb-6">
         <Container>
           <div className="relative z-10 -mt-12 grid grid-cols-2 rounded-[18px] border border-navy/[0.08] bg-white shadow-[0_28px_56px_-28px_rgba(26,62,110,0.44)] dt:-mt-16 dt:grid-cols-4">
             {SERVICES.map(({ Icon, title, sub, border }) => (

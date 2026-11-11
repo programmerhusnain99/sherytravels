@@ -4,31 +4,23 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 
-// TODO(client): replace with exact answers from the live FAQ pages
+// Content verbatim from the live site's homepage FAQ.
 const FAQS = [
   {
-    q: "Which documents do I need for Umrah?",
-    a: "A passport valid for at least six months, your completed visa application, recent photographs, and proof of required vaccinations. We handle the Umrah visa process on your behalf.",
+    q: "What payment methods do you accept?",
+    a: "We accept payment via multiple mediums, including credit and debit cards, bank transfers, and online payment options, to make it easier for you.",
   },
   {
-    q: "Can women travel alone for Hajj?",
-    a: "Yes. Current Saudi policy allows women to perform Hajj and Umrah in an organized group without a Mehram. We arrange dedicated group departures with on-ground support throughout.",
+    q: "Can I customize my travel package?",
+    a: "Absolutely. We offer customizable packages for Hajj and Umrah to suit your specific needs and preferences.",
   },
   {
-    q: "How far in advance should I book?",
-    a: "For Umrah, book 4–6 weeks ahead — earlier for Ramadan, when seats and hotels fill quickly. For Hajj, book several months in advance, as quotas and flights sell out well before the season.",
+    q: "Do you assist during the pilgrimage?",
+    a: "Yes, our team offers on-ground support to ensure your journey is smooth and worry-free.",
   },
   {
-    q: "What is included in the packages?",
-    a: "Return flights, visa processing, hotels near the Haram, inter-city transfers, and guided ziyarat in Makkah and Madinah. Meal plans and hotel tier vary by package — we confirm the details before you book.",
-  },
-  {
-    q: "Do you provide transportation between cities?",
-    a: "Yes. We provide 24/7 air-conditioned transfers between Jeddah, Makkah, and Madinah — private cars, shared vans, or full coaches, matched to your group size.",
-  },
-  {
-    q: "How do I pay for my trip?",
-    a: "Payments are made securely online. A deposit reserves your package and the balance is due before departure. Instalment plans are available on most packages — just ask your travel expert.",
+    q: "Are there Hajj and Umrah packages available during Ramadan?",
+    a: "Yes, we offer special packages for Hajj and Umrah, customized for the Holy Month of Ramadan.",
   },
 ];
 
@@ -51,6 +43,10 @@ export function FaqSection() {
             accent="Questions"
             className="text-[28px] leading-[1.22] text-navy dt:text-[42px] dt:leading-[1.16]"
           />
+          <p className="mx-auto mt-4 max-w-[640px] text-[15.5px] font-light leading-[1.65] text-navy/75">
+            Find answers to common questions about our transportation, Umrah and Hajj services,
+            documentation, customization options, or support during your pilgrimage.
+          </p>
         </div>
 
         {/* Accordion — single column on mobile, two columns on desktop */}

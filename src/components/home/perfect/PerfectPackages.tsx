@@ -43,7 +43,7 @@ export function PerfectPackages() {
   };
 
   return (
-    <Section bg="white" className="pb-12 pt-12 dt:pb-0 dt:pt-20">
+    <Section bg="ice" className="pb-12 pt-12 dt:pb-16 dt:pt-20">
       <Container className="mb-[26px] flex items-end justify-between gap-6 dt:mb-10">
         <div>
           <AccentHeading
@@ -79,38 +79,53 @@ export function PerfectPackages() {
         </div>
       </Container>
 
-      <div
-        ref={deck}
-        className="flex snap-x snap-mandatory gap-[10px] overflow-x-auto px-5 pb-1 scroll-pl-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:gap-3 dt:px-14 dt:scroll-pl-14 dt:pb-0"
-      >
-        {TILES.map((tile) => (
-          <Link
-            key={tile.href + tile.title}
-            data-tile
-            href={tile.href}
-            aria-label={`${tile.title} — View all packages`}
-            className="group relative h-[370px] w-[272px] flex-none snap-start overflow-hidden rounded-2xl bg-lightblue dt:h-[440px] dt:w-[300px]"
-          >
-            <Image
-              src={tile.src}
-              alt={tile.title}
-              fill
-              sizes="(max-width: 900px) 272px, 300px"
-              className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-            />
-            <div aria-hidden className={`absolute inset-0 ${SCRIM}`} />
-            <div className="absolute inset-x-[18px] bottom-5 dt:inset-x-6 dt:bottom-[26px]">
-              <h3 className="mb-4 font-serif text-[20px] font-bold leading-[1.28] text-white text-balance dt:text-[22px]">
-                {tile.title}
-              </h3>
-              <span className="inline-flex items-center gap-2 rounded-md bg-gold px-[18px] py-3 text-[13px] font-bold text-navy transition group-hover:brightness-105">
-                View All Packages
-                <ArrowRight size={16} aria-hidden />
-              </span>
-            </div>
-          </Link>
-        ))}
-      </div>
+      {/* Small-gap band (square image corners). A diverging/concave curve is
+          carved into the top and bottom centre with ice-coloured arcs, so the
+          band is full-height at the ends and gently pinched in the middle. */}
+      <div className="relative overflow-hidden">
+        <div
+          ref={deck}
+          className="flex snap-x snap-mandatory gap-2 overflow-x-auto scroll-pl-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {TILES.map((tile) => (
+            <Link
+              key={tile.href + tile.title}
+              data-tile
+              href={tile.href}
+              aria-label={`${tile.title} — View all packages`}
+              className="group relative h-[360px] w-full flex-none snap-start overflow-hidden bg-lightblue sm:w-[calc((100%-8px)/2)] lg:w-[calc((100%-16px)/3)] dt:h-[440px] xl:w-[calc((100%-24px)/4)] 2xl:w-[calc((100%-32px)/5)]"
+            >
+                <Image
+                  src={tile.src}
+                  alt={tile.title}
+                  fill
+                  sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, (max-width:1280px) 33vw, 25vw"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                />
+                <div aria-hidden className={`absolute inset-0 ${SCRIM}`} />
+                <div className="absolute inset-x-[22px] bottom-9 dt:inset-x-7 dt:bottom-11">
+                  <h3 className="mb-4 font-serif text-[20px] font-bold leading-[1.28] text-white text-balance dt:text-[22px]">
+                    {tile.title}
+                  </h3>
+                  <span className="inline-flex items-center gap-2 rounded-md bg-gold px-[18px] py-3 text-[13px] font-bold text-navy transition group-hover:brightness-105">
+                    View All Packages
+                    <ArrowRight size={16} aria-hidden />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Concave (diverging-lens) curve — ice arcs dip into the top & bottom centre */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 top-[-48px] z-10 h-[76px] rounded-[50%] bg-ice"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 bottom-[-48px] z-10 h-[76px] rounded-[50%] bg-ice"
+          />
+        </div>
     </Section>
   );
 }

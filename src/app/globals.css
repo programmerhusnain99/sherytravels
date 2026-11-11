@@ -75,8 +75,26 @@ body {
 .hero-float {
   animation: heroFloat 6s ease-in-out infinite;
 }
+
+/* Hero stat badge swap — fades/slides the value+label in when the slide changes. */
+@keyframes heroBadgeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero-badge-in {
+  animation: heroBadgeIn 500ms ease;
+}
 @media (prefers-reduced-motion: reduce) {
   .hero-float {
+    animation: none;
+  }
+  .hero-badge-in {
     animation: none;
   }
   html {
