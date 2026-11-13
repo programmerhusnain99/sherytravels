@@ -61,23 +61,34 @@ export function PackagesShowcase() {
           </p>
         </div>
 
-        <div className="flex flex-none items-center gap-3">
-          <button
-            type="button"
-            aria-label="Previous package"
-            onClick={() => step(-1)}
-            className="grid h-[46px] w-[46px] place-items-center rounded-full bg-navy text-white transition-colors hover:bg-navy/90"
+        <div className="flex flex-none flex-col items-start gap-4 dt:items-end">
+          <Button
+            href="/umrah/usa-packages/"
+            variant="navy"
+            size="md"
+            className="uppercase tracking-[0.06em]"
           >
-            <ArrowLeft size={20} />
-          </button>
-          <button
-            type="button"
-            aria-label="Next package"
-            onClick={() => step(1)}
-            className="grid h-[46px] w-[46px] place-items-center rounded-full bg-gold text-navy transition-[filter] hover:brightness-105"
-          >
-            <ArrowRight size={20} />
-          </button>
+            View all packages
+            <ArrowRight size={17} aria-hidden />
+          </Button>
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              aria-label="Previous package"
+              onClick={() => step(-1)}
+              className="grid h-[46px] w-[46px] place-items-center rounded-full bg-navy text-white transition-colors hover:bg-navy/90"
+            >
+              <ArrowLeft size={20} />
+            </button>
+            <button
+              type="button"
+              aria-label="Next package"
+              onClick={() => step(1)}
+              className="grid h-[46px] w-[46px] place-items-center rounded-full bg-gold text-navy transition-[filter] hover:brightness-105"
+            >
+              <ArrowRight size={20} />
+            </button>
+          </div>
         </div>
       </Container>
 
@@ -100,13 +111,6 @@ export function PackagesShowcase() {
           </div>
         ))}
       </div>
-
-      <Container className="mt-9 text-center dt:mt-11">
-        <Button href="/umrah/usa-packages/" variant="navy" size="lg" className="uppercase tracking-[0.06em]">
-          View all packages
-          <ArrowRight size={18} aria-hidden />
-        </Button>
-      </Container>
     </Section>
   );
 }
