@@ -26,7 +26,7 @@ export function PackageCard({ pkg }: { pkg: TPackageCard }) {
     <article className="relative flex h-full flex-col overflow-hidden bg-white shadow-[0_26px_54px_-30px_rgba(26,62,110,0.45)] ring-1 ring-navy/10">
       <Corners />
 
-      <div className="relative z-10 flex flex-1 flex-col p-3.5 dt:p-4">
+      <div className="relative z-10 flex flex-1 flex-col p-3.5 pb-2.5 dt:p-4 dt:pb-3">
         {/* Top: image + details */}
         <div className="flex gap-3.5">
           <Link
@@ -55,32 +55,32 @@ export function PackageCard({ pkg }: { pkg: TPackageCard }) {
               ))}
             </ul>
 
-            <div className="mt-2 font-serif text-[22px] font-bold leading-none text-navy dt:text-[24px]">
+            <div className="mt-2 font-serif text-[19px] font-bold leading-none text-navy dt:text-[21px]">
               {pkg.price}
-              <span className="ml-1 font-sans text-[12.5px] font-medium text-navy/50">/pp</span>
+              <span className="ml-1 font-sans text-[11.5px] font-medium text-navy/50">/pp</span>
             </div>
           </div>
         </div>
 
         {/* Title */}
-        <h3 className="mt-3 font-serif text-[17px] font-bold leading-none text-navy dt:text-[18px]">
+        <h3 className="mt-2.5 font-serif text-[15px] font-bold leading-none text-navy dt:text-[16px]">
           {pkg.title}
         </h3>
 
         {/* Skyline band — sits just above the divider line above the icons */}
         <div className="pt-1 text-lightblue" aria-hidden>
-          <Skyline className="h-[28px] w-full" />
+          <Skyline className="h-[24px] w-full" />
         </div>
 
         {/* Feature row */}
-        <div className="flex items-stretch border-t border-navy/10 pt-3">
+        <div className="flex items-stretch border-t border-navy/10 pt-2">
           {PACKAGE_FEATURES.map(({ Icon, label }, i) => (
             <div
               key={label}
-              className={`flex flex-1 flex-col items-center gap-1 ${i > 0 ? "border-l border-navy/10" : ""}`}
+              className={`flex flex-1 flex-col items-center gap-0.5 ${i > 0 ? "border-l border-navy/10" : ""}`}
             >
-              <Icon size={18} className="text-gold" aria-hidden />
-              <span className="text-[11px] font-medium text-navy/75">{label}</span>
+              <Icon size={16} className="text-gold" aria-hidden />
+              <span className="text-[10.5px] font-medium text-navy/75">{label}</span>
             </div>
           ))}
         </div>
