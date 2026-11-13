@@ -205,20 +205,14 @@ export function PackagesCarousel({ packages }: { packages: TrendingPackage[] }) 
                     setActive(i);
                   }
                 }}
-                className={`group flex shrink-0 cursor-pointer gap-3.5 overflow-hidden rounded-xl border text-left transition-all duration-300 hover:-translate-y-0.5 motion-reduce:transform-none ${
+                className={`flex shrink-0 cursor-pointer gap-3.5 overflow-hidden rounded-xl border text-left transition-colors duration-300 ${
                   isActive
-                    ? "border-gold/60 bg-lightblue/40 shadow-[0_14px_30px_-18px_rgba(26,62,110,0.5)]"
-                    : "border-navy/10 bg-white hover:border-gold/40 hover:shadow-[0_14px_30px_-18px_rgba(26,62,110,0.35)]"
+                    ? "border-gold/60 bg-lightblue/40"
+                    : "border-navy/10 bg-white hover:border-navy/25"
                 }`}
               >
-                <div className="relative w-[104px] flex-none self-stretch overflow-hidden bg-lightblue">
-                  <Image
-                    src={p.image}
-                    alt={p.title}
-                    fill
-                    sizes="104px"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 motion-reduce:transform-none"
-                  />
+                <div className="relative w-[104px] flex-none self-stretch bg-lightblue">
+                  <Image src={p.image} alt={p.title} fill sizes="104px" className="object-cover" />
                 </div>
 
                 <div className="flex min-w-0 flex-1 flex-col py-3 pr-3">

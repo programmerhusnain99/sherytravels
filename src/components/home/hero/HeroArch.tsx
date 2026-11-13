@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { motion, useReducedMotion } from "motion/react";
 
 type Stat = { value: string; label: string };
 
@@ -101,7 +100,6 @@ export function HeroArch() {
       {SLOTS.map((slot, i) => (
         <Badge
           key={i}
-          index={i}
           className={slot.className}
           tile={slot.tile}
           shape={slot.shape}
@@ -119,28 +117,16 @@ function Badge({
   shape,
   stat,
   swapKey,
-  index,
 }: {
   className: string;
   tile: string;
   shape: React.ReactNode;
   stat: Stat;
   swapKey: number;
-  index: number;
 }) {
-  const reduce = useReducedMotion();
-  const amp = 7 + index * 2;
   return (
-    <motion.div
+    <div
       className={`absolute z-10 flex items-center gap-2.5 rounded-full border border-navy/10 bg-white py-2 pl-2 pr-4 shadow-[0_18px_40px_-16px_rgba(26,62,110,0.4)] ${className}`}
-      initial={{ opacity: 0, scale: 0.75 }}
-      animate={{ opacity: 1, scale: 1, y: reduce ? 0 : [-amp, amp, -amp] }}
-      transition={{
-        opacity: { duration: 0.5, delay: 0.5 + index * 0.15 },
-        scale: { duration: 0.5, delay: 0.5 + index * 0.15, ease: [0.34, 1.56, 0.64, 1] },
-        y: { duration: 4.2 + index * 0.8, ease: "easeInOut", repeat: Infinity },
-      }}
-      whileHover={reduce ? undefined : { scale: 1.06 }}
     >
       <span className={`grid h-9 w-9 flex-none place-items-center rounded-full ${tile}`}>{shape}</span>
       {/* key swaps the content so the fade-in animation re-runs on each slide change */}
@@ -148,6 +134,6 @@ function Badge({
         <span className="block font-serif text-[18px] font-bold leading-none text-navy">{stat.value}</span>
         <span className="block whitespace-nowrap text-[11.5px] text-navy/80">{stat.label}</span>
       </span>
-    </motion.div>
+    </div>
   );
 }

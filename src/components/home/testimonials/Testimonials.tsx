@@ -7,7 +7,6 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { Counter } from "@/components/motion/Counter";
-import { AuroraBlobs } from "@/components/motion/AuroraBlobs";
 
 /**
  * ⚠️ PLACEHOLDER testimonials — replace the quotes, names and the rating/count
@@ -55,7 +54,10 @@ export function Testimonials() {
 
   return (
     <Section bg="white" className="relative overflow-hidden py-16 dt:py-24">
-      <AuroraBlobs tone="light" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-24 top-10 hidden h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.08),transparent_70%)] dt:block"
+      />
       <Container className="relative">
         <div className="mx-auto max-w-[720px] text-center">
           <Eyebrow align="center" className="mb-4">

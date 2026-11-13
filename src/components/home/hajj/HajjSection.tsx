@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
-import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
+import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { ReadMore } from "@/components/ui/ReadMore";
 
@@ -135,13 +135,13 @@ export function HajjSection() {
           </div>
 
           {/* Audience cards — mobile 2x2 grid */}
-          <Stagger className="grid grid-cols-2 gap-3 dt:hidden">
+          <div className="grid grid-cols-2 gap-3 dt:hidden">
             {AUDIENCES.map(({ icon: Icon, title, bodyMobile }) => (
-              <StaggerItem
+              <div
                 key={title}
-                className="group rounded-2xl border border-navy/10 bg-ice p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-gold/40 hover:shadow-[0_18px_34px_-18px_rgba(26,62,110,0.3)] motion-reduce:transform-none"
+                className="rounded-2xl border border-navy/10 bg-ice p-5 text-center"
               >
-                <span className="mx-auto mb-3 grid h-12 w-12 place-items-center rounded-full border-[1.5px] border-gold bg-lightblue transition-transform duration-300 group-hover:scale-110 motion-reduce:transform-none">
+                <span className="mx-auto mb-3 grid h-12 w-12 place-items-center rounded-full border-[1.5px] border-gold bg-lightblue">
                   <Icon size={22} className="text-navy" aria-hidden />
                 </span>
                 <h4 className="mb-1.5 font-serif text-[15px] font-bold leading-[1.3] text-navy">
@@ -150,9 +150,9 @@ export function HajjSection() {
                 <p className="text-[13px] font-light leading-[1.5] text-navy/85 text-pretty">
                   {bodyMobile}
                 </p>
-              </StaggerItem>
+              </div>
             ))}
-          </Stagger>
+          </div>
 
           {/* Audience cards — desktop row with dividers */}
           <div className="mx-auto hidden max-w-[1100px] grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] items-start dt:grid">
