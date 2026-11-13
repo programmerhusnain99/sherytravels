@@ -2,7 +2,7 @@ import { pageMetadata } from "@/lib/seo";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/home/hero/Hero";
-import { ServicePillars } from "@/components/home/pillars/ServicePillars";
+import { HeroEnquiry } from "@/components/home/hero/HeroEnquiry";
 import { BeyondTravel } from "@/components/home/beyond/BeyondTravel";
 import { TrendingPackages } from "@/components/home/trending/TrendingPackages";
 import { FirstChoice } from "@/components/home/first-choice/FirstChoice";
@@ -32,7 +32,7 @@ export default function HomePage() {
       <Header active="/" />
       <main>
         <Hero />
-        <ServicePillars />
+        <HeroEnquiry />
         <BeyondTravel />
         <TrendingPackages />
         <FirstChoice />
