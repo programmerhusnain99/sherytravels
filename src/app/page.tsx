@@ -7,7 +7,7 @@ import { HeroEnquiry } from "@/components/home/hero/HeroEnquiry";
 import { CredentialsStrip } from "@/components/home/credentials/CredentialsStrip";
 import { Testimonials } from "@/components/home/testimonials/Testimonials";
 import { BeyondTravel } from "@/components/home/beyond/BeyondTravel";
-import { TrendingPackages } from "@/components/home/trending/TrendingPackages";
+import { PackagesShowcase } from "@/components/home/packages/PackagesShowcase";
 import { FirstChoice } from "@/components/home/first-choice/FirstChoice";
 import { UmrahSection } from "@/components/home/umrah/UmrahSection";
 import { ConnectionSection } from "@/components/home/connection/ConnectionSection";
@@ -39,7 +39,7 @@ export default function HomePage() {
         <HeroEnquiry />
         <CredentialsStrip />
         <BeyondTravel />
-        <TrendingPackages />
+        <PackagesShowcase />
         <FirstChoice />
         <UmrahSection />
         <ConnectionSection />
