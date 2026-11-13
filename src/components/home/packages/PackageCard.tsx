@@ -24,11 +24,6 @@ function Corners() {
 export function PackageCard({ pkg }: { pkg: TPackageCard }) {
   return (
     <article className="relative flex h-full flex-col overflow-hidden bg-white shadow-[0_26px_54px_-30px_rgba(26,62,110,0.45)] ring-1 ring-navy/10">
-      {/* Skyline behind the lower half */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[132px] text-lightblue">
-        <Skyline className="h-full w-full" />
-      </div>
-
       <Corners />
 
       <div className="relative z-10 flex flex-1 flex-col p-5 dt:p-6">
@@ -70,8 +65,13 @@ export function PackageCard({ pkg }: { pkg: TPackageCard }) {
         {/* Title */}
         <h3 className="mt-4 font-serif text-[18px] font-bold text-navy dt:text-[19px]">{pkg.title}</h3>
 
-        {/* Feature row over the skyline */}
-        <div className="mt-4 flex items-stretch border-t border-navy/10 pt-3.5">
+        {/* Skyline band — sits just above the divider line above the icons */}
+        <div className="mt-auto pt-5 text-lightblue" aria-hidden>
+          <Skyline className="h-[40px] w-full" />
+        </div>
+
+        {/* Feature row */}
+        <div className="flex items-stretch border-t border-navy/10 pt-3.5">
           {PACKAGE_FEATURES.map(({ Icon, label }, i) => (
             <div
               key={label}

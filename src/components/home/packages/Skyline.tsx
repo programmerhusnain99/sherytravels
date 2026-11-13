@@ -1,41 +1,28 @@
 /**
- * Decorative Makkah/Madinah skyline silhouette. Fills with `currentColor`, so
- * tint it with a Tailwind text color. Stretches to the container width.
+ * Small Makkah/Madinah skyline silhouette (the card's `.pk-mark`). Fills with
+ * `currentColor`, so tint it with a Tailwind text color. Meant to sit as a short
+ * band just above the feature-row divider.
  */
 export function Skyline({ className }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 440 90"
+      viewBox="0 0 400 82"
       preserveAspectRatio="none"
       aria-hidden
       fill="currentColor"
       className={className}
     >
-      {/* left low buildings */}
-      <rect x="0" y="54" width="26" height="36" />
-      <rect x="30" y="42" width="20" height="48" rx="2" />
-      <rect x="54" y="62" width="30" height="28" />
-      {/* left minaret */}
-      <rect x="92" y="30" width="7" height="60" />
-      <circle cx="95.5" cy="27" r="6" />
-      {/* left domed hall */}
-      <path d="M110 90 V60 a22 20 0 0 1 44 0 V90 Z" />
-      <rect x="129" y="22" width="6" height="20" />
-      <circle cx="132" cy="19" r="4" />
-      {/* central grand dome */}
-      <rect x="180" y="56" width="80" height="34" />
-      <path d="M180 57 a40 34 0 0 1 80 0 Z" />
-      <rect x="217" y="16" width="6" height="26" />
-      <circle cx="220" cy="13" r="5" />
-      {/* right domed hall */}
-      <path d="M286 90 V60 a22 20 0 0 1 44 0 V90 Z" />
-      {/* right minaret */}
-      <rect x="341" y="32" width="7" height="58" />
-      <circle cx="344.5" cy="29" r="6" />
-      {/* right low buildings */}
-      <rect x="356" y="60" width="30" height="30" />
-      <rect x="390" y="46" width="20" height="44" rx="2" />
-      <rect x="414" y="56" width="26" height="34" />
+      <rect x="0" y="52" width="38" height="30" />
+      <rect x="44" y="36" width="18" height="46" />
+      <circle cx="53" cy="36" r="9" />
+      <rect x="70" y="58" width="48" height="24" />
+      <path d="M126 82V64a30 22 0 0 1 60 0v18z" />
+      <rect x="194" y="48" width="28" height="34" />
+      <rect x="230" y="28" width="15" height="54" />
+      <circle cx="237.5" cy="28" r="7.5" />
+      <rect x="254" y="60" width="54" height="22" />
+      <path d="M316 82V68a26 19 0 0 1 52 0v14z" />
+      <rect x="374" y="44" width="26" height="38" />
     </svg>
   );
 }
