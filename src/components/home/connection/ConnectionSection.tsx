@@ -3,7 +3,7 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
-import { Reveal } from "@/components/motion/Reveal";
+import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
 import { ReadMore } from "@/components/ui/ReadMore";
 
 // Content verbatim from the live site's "Your Connection with Allah Matters to Us" section.
@@ -51,17 +51,18 @@ export function ConnectionSection() {
           </p>
         </ReadMore>
 
-        <ul className="mt-8 flex flex-col justify-center gap-3.5 dt:flex-row dt:gap-5">
+        <Stagger as="ul" gap={0.1} className="mt-8 flex flex-col justify-center gap-3.5 dt:flex-row dt:gap-5">
           {POINTS.map((p) => (
-            <li
+            <StaggerItem
+              as="li"
               key={p}
-              className="flex items-center justify-center gap-2.5 rounded-xl border border-navy/10 bg-ice px-5 py-3.5 text-[14.5px] font-medium text-navy"
+              className="flex items-center justify-center gap-2.5 rounded-xl border border-navy/10 bg-ice px-5 py-3.5 text-[14.5px] font-medium text-navy transition-all duration-300 hover:-translate-y-1 hover:border-gold/40 hover:shadow-[0_18px_34px_-18px_rgba(26,62,110,0.4)] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
             >
               <Check size={17} className="flex-none text-gold" aria-hidden />
               {p}
-            </li>
+            </StaggerItem>
           ))}
-        </ul>
+        </Stagger>
       </Container>
     </Section>
   );

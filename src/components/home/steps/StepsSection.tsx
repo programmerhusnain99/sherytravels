@@ -4,6 +4,7 @@ import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
+import { AuroraBlobs } from "@/components/motion/AuroraBlobs";
 
 type Step = {
   num: string;
@@ -44,6 +45,7 @@ const STEPS: Step[] = [
 export function StepsSection() {
   return (
     <Section bg="navy" className="relative overflow-hidden py-14 dt:py-24">
+      <AuroraBlobs />
       {/* Decorative rings */}
       <div
         aria-hidden

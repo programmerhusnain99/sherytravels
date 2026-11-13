@@ -6,6 +6,7 @@ import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { Reveal } from "@/components/motion/Reveal";
+import { AuroraBlobs } from "@/components/motion/AuroraBlobs";
 import { Button } from "@/components/ui/Button";
 import { ReadMore } from "@/components/ui/ReadMore";
 import { UmrahArch } from "./UmrahArch";
@@ -29,6 +30,7 @@ export function UmrahSection() {
   return (
     <>
       <Section bg="navy" className="relative overflow-hidden pt-14 pb-24 dt:pt-24 dt:pb-28">
+        <AuroraBlobs />
         {/* Decorative gold arch outline rising from the band */}
         <div
           aria-hidden

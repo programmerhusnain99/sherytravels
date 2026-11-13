@@ -122,19 +122,19 @@ function Stars({ count, size = 16 }: { count: number; size?: number }) {
 function HotelCardDesktop({ hotel, highlighted }: { hotel: Hotel; highlighted: boolean }) {
   return (
     <article
-      className={`flex items-stretch overflow-hidden rounded-[18px] bg-white ${
+      className={`group flex items-stretch overflow-hidden rounded-[18px] bg-white transition-all duration-300 hover:-translate-y-1 motion-reduce:transform-none ${
         highlighted
-          ? "border-2 border-gold shadow-[0_8px_30px_-10px_rgba(26,62,110,0.12)]"
-          : "border border-navy/10 shadow-[0_4px_20px_-8px_rgba(0,0,0,0.06)]"
+          ? "border-2 border-gold shadow-[0_8px_30px_-10px_rgba(26,62,110,0.12)] hover:shadow-[0_18px_40px_-14px_rgba(26,62,110,0.28)]"
+          : "border border-navy/10 shadow-[0_4px_20px_-8px_rgba(0,0,0,0.06)] hover:border-gold/40 hover:shadow-[0_18px_40px_-16px_rgba(26,62,110,0.22)]"
       }`}
     >
-      <div className="relative w-[180px] flex-none">
+      <div className="relative w-[180px] flex-none overflow-hidden">
         <Image
           src={hotel.image}
           alt={`${hotel.name} hotel exterior`}
           fill
           sizes="180px"
-          className="object-cover"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 motion-reduce:transform-none"
         />
       </div>
       <div className="flex flex-1 flex-col justify-center gap-1 px-5 py-4">

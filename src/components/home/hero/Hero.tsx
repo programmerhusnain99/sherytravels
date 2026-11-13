@@ -3,6 +3,7 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { HeroArch } from "./HeroArch";
 import { Stagger, StaggerItem } from "@/components/motion/Reveal";
+import { Parallax } from "@/components/motion/Parallax";
 
 /**
  * Homepage hero. Server-rendered content (heading, copy = SEO) with one client
@@ -34,7 +35,9 @@ export function Hero() {
           </StaggerItem>
 
           <StaggerItem className="order-3 mt-8 w-full">
-            <HeroArch />
+            <Parallax distance={44}>
+              <HeroArch />
+            </Parallax>
           </StaggerItem>
         </Stagger>
       </Container>

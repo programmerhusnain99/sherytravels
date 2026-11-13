@@ -29,7 +29,7 @@ export function buttonClasses({
   className?: string;
 } = {}): string {
   const base =
-    "inline-flex items-center justify-center gap-2 font-semibold transition-[background-color,color,filter,border-color] duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2";
+    "inline-flex items-center justify-center gap-2 font-semibold transition-[background-color,color,filter,border-color,transform,box-shadow] duration-200 will-change-transform hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] motion-reduce:transform-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2";
   const sizeCls = variant === "ghost" ? SIZES[size].replace(/rounded-\w+/, "") : SIZES[size];
   return `${base} ${VARIANTS[variant]} ${sizeCls} ${className}`.trim();
 }

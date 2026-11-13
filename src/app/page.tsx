@@ -2,6 +2,7 @@ import { pageMetadata } from "@/lib/seo";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
+import { FloatingContact } from "@/components/motion/FloatingContact";
 import { Hero } from "@/components/home/hero/Hero";
 import { HeroEnquiry } from "@/components/home/hero/HeroEnquiry";
 import { CredentialsStrip } from "@/components/home/credentials/CredentialsStrip";
@@ -33,6 +34,7 @@ export default function HomePage() {
   return (
     <>
       <ScrollProgress />
+      <FloatingContact />
       <Header active="/" />
       <main>
         <Hero />
