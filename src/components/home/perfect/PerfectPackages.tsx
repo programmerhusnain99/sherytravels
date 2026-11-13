@@ -79,10 +79,10 @@ export function PerfectPackages() {
         </div>
       </Container>
 
-      {/* Small-gap band (square image corners). A diverging/concave curve is
-          carved into the top and bottom centre with ice-coloured arcs, and the
-          outer corners of the band are rounded so the ends curve too. */}
-      <div className="relative overflow-hidden rounded-[26px] dt:rounded-[40px]">
+      {/* Small-gap band (square image corners, full-bleed to the screen edges).
+          A gentle diverging/concave curve is carved into the top and bottom
+          centre with ice-coloured arcs. */}
+      <div className="relative overflow-hidden">
         <div
           ref={deck}
           className="flex snap-x snap-mandatory gap-2 overflow-x-auto scroll-pl-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
@@ -119,11 +119,11 @@ export function PerfectPackages() {
           {/* Concave (diverging-lens) curve — ice arcs dip into the top & bottom centre */}
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-x-0 top-[-48px] z-10 h-[76px] rounded-[50%] bg-ice"
+            className="pointer-events-none absolute inset-x-0 top-[-54px] z-10 h-[76px] rounded-[50%] bg-ice"
           />
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-x-0 bottom-[-48px] z-10 h-[76px] rounded-[50%] bg-ice"
+            className="pointer-events-none absolute inset-x-0 bottom-[-54px] z-10 h-[76px] rounded-[50%] bg-ice"
           />
         </div>
     </Section>
