@@ -88,7 +88,7 @@ export function PackagesShowcase() {
         onTouchStart={() => (paused.current = true)}
         onFocusCapture={() => (paused.current = true)}
         onBlurCapture={() => (paused.current = false)}
-        className="no-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:px-10"
+        className="no-scrollbar flex snap-x snap-mandatory items-start gap-5 overflow-x-auto px-5 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:px-10"
       >
         {PACKAGE_CARDS.map((pkg) => (
           <div

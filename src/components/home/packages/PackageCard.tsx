@@ -26,13 +26,13 @@ export function PackageCard({ pkg }: { pkg: TPackageCard }) {
     <article className="relative flex h-full flex-col overflow-hidden bg-white shadow-[0_26px_54px_-30px_rgba(26,62,110,0.45)] ring-1 ring-navy/10">
       <Corners />
 
-      <div className="relative z-10 flex flex-1 flex-col p-5 dt:p-6">
+      <div className="relative z-10 flex flex-1 flex-col p-4 dt:p-5">
         {/* Top: image + details */}
-        <div className="flex gap-4">
+        <div className="flex gap-3.5">
           <Link
             href={pkg.href}
             aria-label={pkg.title}
-            className="relative h-[116px] w-[116px] flex-none overflow-hidden rounded-xl bg-lightblue dt:h-[128px] dt:w-[128px]"
+            className="relative h-[100px] w-[100px] flex-none overflow-hidden rounded-xl bg-lightblue dt:h-[108px] dt:w-[108px]"
           >
             <Image src={pkg.image} alt={pkg.title} fill sizes="128px" className="object-cover" />
           </Link>
@@ -46,32 +46,32 @@ export function PackageCard({ pkg }: { pkg: TPackageCard }) {
               <ArrowRight size={14} aria-hidden />
             </Link>
 
-            <ul className="mt-2.5 flex flex-col gap-1.5">
+            <ul className="mt-2 flex flex-col gap-1">
               {pkg.highlights.map((h) => (
-                <li key={h} className="flex items-center gap-2 text-[13px] text-navy/80">
+                <li key={h} className="flex items-center gap-2 text-[12.5px] text-navy/80">
                   <span className="h-2.5 w-2.5 flex-none rounded-full border-2 border-gold" aria-hidden />
                   {h}
                 </li>
               ))}
             </ul>
 
-            <div className="mt-2.5 font-serif text-[24px] font-bold leading-none text-navy dt:text-[26px]">
+            <div className="mt-2 font-serif text-[22px] font-bold leading-none text-navy dt:text-[24px]">
               {pkg.price}
-              <span className="ml-1 font-sans text-[13px] font-medium text-navy/50">/pp</span>
+              <span className="ml-1 font-sans text-[12.5px] font-medium text-navy/50">/pp</span>
             </div>
           </div>
         </div>
 
         {/* Title */}
-        <h3 className="mt-4 font-serif text-[18px] font-bold text-navy dt:text-[19px]">{pkg.title}</h3>
+        <h3 className="mt-3 font-serif text-[17px] font-bold text-navy dt:text-[18px]">{pkg.title}</h3>
 
         {/* Skyline band — sits just above the divider line above the icons */}
-        <div className="mt-auto pt-5 text-lightblue" aria-hidden>
-          <Skyline className="h-[40px] w-full" />
+        <div className="pt-3 text-lightblue" aria-hidden>
+          <Skyline className="h-[30px] w-full" />
         </div>
 
         {/* Feature row */}
-        <div className="flex items-stretch border-t border-navy/10 pt-3.5">
+        <div className="flex items-stretch border-t border-navy/10 pt-3">
           {PACKAGE_FEATURES.map(({ Icon, label }, i) => (
             <div
               key={label}
