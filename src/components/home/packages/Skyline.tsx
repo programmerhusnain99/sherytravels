@@ -6,7 +6,7 @@
 export function Skyline({ className }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 400 82"
+      viewBox="0 18 400 64"
       preserveAspectRatio="none"
       aria-hidden
       fill="currentColor"

@@ -94,7 +94,7 @@ export function PackagesShowcase() {
           <div
             key={pkg.title + pkg.href}
             data-card
-            className="w-[86vw] max-w-[430px] flex-none snap-start sm:w-[62vw] dt:w-[430px]"
+            className="w-[84vw] max-w-[390px] flex-none snap-start sm:w-[56vw] dt:w-[388px]"
           >
             <PackageCard pkg={pkg} />
           </div>

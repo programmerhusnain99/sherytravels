@@ -9,10 +9,10 @@ function Corners() {
   const base = "pointer-events-none absolute z-20 h-4 w-4 border-gold";
   return (
     <>
-      <span className={`${base} left-2.5 top-2.5 border-l-2 border-t-2`} />
-      <span className={`${base} right-2.5 top-2.5 border-r-2 border-t-2`} />
-      <span className={`${base} bottom-2.5 left-2.5 border-b-2 border-l-2`} />
-      <span className={`${base} bottom-2.5 right-2.5 border-b-2 border-r-2`} />
+      <span className={`${base} left-2 top-2 border-l-2 border-t-2`} />
+      <span className={`${base} right-2 top-2 border-r-2 border-t-2`} />
+      <span className={`${base} bottom-2 left-2 border-b-2 border-l-2`} />
+      <span className={`${base} bottom-2 right-2 border-b-2 border-r-2`} />
     </>
   );
 }
@@ -26,7 +26,7 @@ export function PackageCard({ pkg }: { pkg: TPackageCard }) {
     <article className="relative flex h-full flex-col overflow-hidden bg-white shadow-[0_26px_54px_-30px_rgba(26,62,110,0.45)] ring-1 ring-navy/10">
       <Corners />
 
-      <div className="relative z-10 flex flex-1 flex-col p-4 dt:p-5">
+      <div className="relative z-10 flex flex-1 flex-col p-3.5 dt:p-4">
         {/* Top: image + details */}
         <div className="flex gap-3.5">
           <Link
@@ -63,11 +63,13 @@ export function PackageCard({ pkg }: { pkg: TPackageCard }) {
         </div>
 
         {/* Title */}
-        <h3 className="mt-3 font-serif text-[17px] font-bold text-navy dt:text-[18px]">{pkg.title}</h3>
+        <h3 className="mt-3 font-serif text-[17px] font-bold leading-none text-navy dt:text-[18px]">
+          {pkg.title}
+        </h3>
 
         {/* Skyline band — sits just above the divider line above the icons */}
-        <div className="pt-3 text-lightblue" aria-hidden>
-          <Skyline className="h-[30px] w-full" />
+        <div className="pt-1 text-lightblue" aria-hidden>
+          <Skyline className="h-[28px] w-full" />
         </div>
 
         {/* Feature row */}
