@@ -84,12 +84,9 @@ export function StepsSection() {
                 <div className="mb-2 font-serif text-[34px] font-bold leading-none text-gold/25">
                   {step.num}
                 </div>
-                <h3 className="mb-2.5 font-serif text-[20px] font-bold leading-[1.26] text-white">
+                <h3 className="font-serif text-[20px] font-bold leading-[1.26] text-white">
                   {step.title}
                 </h3>
-                <p className="text-[14.5px] font-light leading-[1.6] text-white/85 text-pretty">
-                  {step.body}
-                </p>
               </li>
             ))}
           </ol>
@@ -106,13 +103,10 @@ export function StepsSection() {
               <div className="relative z-10 grid h-12 w-12 flex-none place-items-center rounded-full border-[2px] border-gold bg-navy font-serif text-[16px] font-bold text-gold">
                 {step.num}
               </div>
-              <div className="pt-0.5">
-                <h3 className="mb-1.5 font-serif text-[18px] font-bold leading-[1.28] text-white">
+              <div className="flex h-12 items-center">
+                <h3 className="font-serif text-[18px] font-bold leading-[1.28] text-white">
                   {step.title}
                 </h3>
-                <p className="text-[14.5px] font-light leading-[1.6] text-white/85 text-pretty">
-                  {step.body}
-                </p>
               </div>
             </li>
           ))}
