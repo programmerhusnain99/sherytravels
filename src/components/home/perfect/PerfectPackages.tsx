@@ -119,11 +119,11 @@ export function PerfectPackages() {
           {/* Concave (diverging-lens) curve — ice arcs dip into the top & bottom centre */}
           <div
             aria-hidden
-            className="pointer-events-none absolute left-1/2 top-[-60px] z-10 h-[80px] w-[150%] -translate-x-1/2 rounded-[50%] bg-ice"
+            className="pointer-events-none absolute left-1/2 top-[-74px] z-10 h-[100px] w-[150%] -translate-x-1/2 rounded-[50%] bg-ice"
           />
           <div
             aria-hidden
-            className="pointer-events-none absolute left-1/2 bottom-[-60px] z-10 h-[80px] w-[150%] -translate-x-1/2 rounded-[50%] bg-ice"
+            className="pointer-events-none absolute left-1/2 bottom-[-74px] z-10 h-[100px] w-[150%] -translate-x-1/2 rounded-[50%] bg-ice"
           />
         </div>
     </Section>
