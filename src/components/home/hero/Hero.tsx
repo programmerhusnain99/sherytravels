@@ -2,6 +2,7 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { HeroArch } from "./HeroArch";
+import { Stagger, StaggerItem } from "@/components/motion/Reveal";
 
 /**
  * Homepage hero. Server-rendered content (heading, copy = SEO) with one client
@@ -18,20 +19,24 @@ export function Hero() {
           className="pointer-events-none absolute left-1/2 top-10 hidden h-[560px] w-[1100px] -translate-x-1/2 rounded-t-[550px] border border-b-0 border-navy/10 dt:block"
         />
 
-        <div className="relative flex flex-col items-center">
-          <Eyebrow className="mb-5">Start your pilgrimage with confidence</Eyebrow>
+        <Stagger mount gap={0.14} className="relative flex flex-col items-center">
+          <StaggerItem className="mb-5">
+            <Eyebrow>Start your pilgrimage with confidence</Eyebrow>
+          </StaggerItem>
 
-          <AccentHeading
-            as="h1"
-            before="Embrace Your Spirit: Step Boldly onto Your Sacred "
-            accent="Journey"
-            className="order-2 mx-auto max-w-[900px] text-[31px] leading-[1.2] text-navy dt:text-[50px] dt:leading-[1.16]"
-          />
+          <StaggerItem className="order-2 w-full">
+            <AccentHeading
+              as="h1"
+              before="Embrace Your Spirit: Step Boldly onto Your Sacred "
+              accent="Journey"
+              className="mx-auto max-w-[900px] text-[31px] leading-[1.2] text-navy dt:text-[50px] dt:leading-[1.16]"
+            />
+          </StaggerItem>
 
-          <div className="order-3 mt-8">
+          <StaggerItem className="order-3 mt-8 w-full">
             <HeroArch />
-          </div>
-        </div>
+          </StaggerItem>
+        </Stagger>
       </Container>
     </section>
   );

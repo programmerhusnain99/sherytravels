@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
+import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
 
 type Step = {
   num: string;
@@ -55,7 +56,7 @@ export function StepsSection() {
 
       <Container className="relative">
         {/* Header */}
-        <div className="mb-10 text-center dt:mb-16">
+        <Reveal className="mb-10 text-center dt:mb-16">
           <Eyebrow align="center" tone="white" className="mb-4">
             How it works
           </Eyebrow>
@@ -66,7 +67,7 @@ export function StepsSection() {
             after=" to Follow"
             className="mx-auto max-w-[860px] text-[28px] leading-[1.22] text-white dt:text-[42px] dt:leading-[1.16]"
           />
-        </div>
+        </Reveal>
 
         {/* Desktop — four columns with a dashed connector behind the circles */}
         <div className="relative mx-auto hidden max-w-[1180px] dt:block">
@@ -75,9 +76,9 @@ export function StepsSection() {
             aria-hidden
             className="pointer-events-none absolute left-[12.5%] right-[12.5%] top-[45px] border-t-2 border-dashed border-gold/40"
           />
-          <ol className="relative grid grid-cols-4 gap-8">
+          <Stagger as="ol" gap={0.14} className="relative grid grid-cols-4 gap-8">
             {STEPS.map((step) => (
-              <li key={step.num} className="flex flex-col items-center text-center">
+              <StaggerItem as="li" key={step.num} className="flex flex-col items-center text-center">
                 <div className="relative z-10 mb-4 h-[90px] w-[90px] overflow-hidden rounded-full border-[2.5px] border-gold bg-lightblue">
                   <Image src={step.img} alt={step.title} fill sizes="90px" className="object-cover" />
                 </div>
@@ -87,19 +88,19 @@ export function StepsSection() {
                 <h3 className="font-serif text-[20px] font-bold leading-[1.26] text-white">
                   {step.title}
                 </h3>
-              </li>
+              </StaggerItem>
             ))}
-          </ol>
+          </Stagger>
         </div>
 
         {/* Mobile — vertical stepper with a dashed rail */}
-        <ol className="relative flex flex-col gap-7 dt:hidden">
+        <Stagger as="ol" gap={0.12} className="relative flex flex-col gap-7 dt:hidden">
           <div
             aria-hidden
             className="pointer-events-none absolute bottom-6 left-[23px] top-6 border-l-2 border-dashed border-gold/35"
           />
           {STEPS.map((step) => (
-            <li key={step.num} className="relative flex gap-4">
+            <StaggerItem as="li" key={step.num} className="relative flex gap-4">
               <div className="relative z-10 grid h-12 w-12 flex-none place-items-center rounded-full border-[2px] border-gold bg-navy font-serif text-[16px] font-bold text-gold">
                 {step.num}
               </div>
@@ -108,9 +109,9 @@ export function StepsSection() {
                   {step.title}
                 </h3>
               </div>
-            </li>
+            </StaggerItem>
           ))}
-        </ol>
+        </Stagger>
       </Container>
     </Section>
   );

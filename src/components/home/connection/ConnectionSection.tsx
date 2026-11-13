@@ -3,6 +3,7 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
+import { Reveal } from "@/components/motion/Reveal";
 import { ReadMore } from "@/components/ui/ReadMore";
 
 // Content verbatim from the live site's "Your Connection with Allah Matters to Us" section.
@@ -20,16 +21,18 @@ export function ConnectionSection() {
         className="pointer-events-none absolute -bottom-24 -left-24 hidden h-[320px] w-[320px] rounded-full border border-gold/15 dt:block"
       />
       <Container className="relative mx-auto max-w-[840px] text-center">
-        <Eyebrow align="center" className="mb-4">
-          A deeper purpose
-        </Eyebrow>
-        <AccentHeading
-          as="h2"
-          before="Your Connection with "
-          accent="Allah"
-          after=" Matters to Us"
-          className="text-[27px] leading-tight text-navy dt:text-[38px] dt:leading-[1.16]"
-        />
+        <Reveal as="div">
+          <Eyebrow align="center" className="mb-4">
+            A deeper purpose
+          </Eyebrow>
+          <AccentHeading
+            as="h2"
+            before="Your Connection with "
+            accent="Allah"
+            after=" Matters to Us"
+            className="text-[27px] leading-tight text-navy dt:text-[38px] dt:leading-[1.16]"
+          />
+        </Reveal>
         <ReadMore
           id="rm-connection"
           className="mt-5"

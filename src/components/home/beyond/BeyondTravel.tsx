@@ -4,6 +4,7 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
+import { Reveal } from "@/components/motion/Reveal";
 import { ReadMore } from "@/components/ui/ReadMore";
 
 // Content verbatim from the live site's "Beyond Travel" section.
@@ -29,15 +30,17 @@ export function BeyondTravel() {
       <Container className="relative grid items-center gap-12 dt:grid-cols-[1.05fr_0.95fr] dt:gap-16">
         {/* Heading + copy + points */}
         <div className="text-center dt:text-left">
-          <Eyebrow align="center" tone="white" className="mb-4 dt:justify-start">
-            Beyond travel
-          </Eyebrow>
-          <AccentHeading
-            as="h2"
-            before="Beyond Travel — Where Every Step of Your Pilgrimage "
-            accent="Matters"
-            className="text-[27px] leading-[1.2] text-white dt:text-[38px] dt:leading-[1.16]"
-          />
+          <Reveal as="div">
+            <Eyebrow align="center" tone="white" className="mb-4 dt:justify-start">
+              Beyond travel
+            </Eyebrow>
+            <AccentHeading
+              as="h2"
+              before="Beyond Travel — Where Every Step of Your Pilgrimage "
+              accent="Matters"
+              className="text-[27px] leading-[1.2] text-white dt:text-[38px] dt:leading-[1.16]"
+            />
+          </Reveal>
           <ReadMore
             id="rm-beyond"
             className="mt-5"

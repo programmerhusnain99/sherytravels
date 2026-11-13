@@ -4,6 +4,7 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
+import { Reveal } from "@/components/motion/Reveal";
 import { ReadMore } from "@/components/ui/ReadMore";
 import { FormEnquiry } from "./FormEnquiry";
 
@@ -43,16 +44,18 @@ export function FormSection() {
         <div className="grid grid-cols-1 items-center gap-10 py-12 dt:grid-cols-2 dt:gap-14 dt:py-20">
           {/* Left column — copy + stats */}
           <div className="text-center dt:text-left">
-            <Eyebrow align="center" tone="white" className="dt:justify-start">
-              Get in touch with us
-            </Eyebrow>
+            <Reveal as="div">
+              <Eyebrow align="center" tone="white" className="dt:justify-start">
+                Get in touch with us
+              </Eyebrow>
 
-            <AccentHeading
-              as="h2"
-              before="Take The First Step To Plan Your "
-              accent="Journey"
-              className="mt-5 text-[28px] leading-[1.2] text-white dt:text-[44px] dt:leading-[1.14]"
-            />
+              <AccentHeading
+                as="h2"
+                before="Take The First Step To Plan Your "
+                accent="Journey"
+                className="mt-5 text-[28px] leading-[1.2] text-white dt:text-[44px] dt:leading-[1.14]"
+              />
+            </Reveal>
 
             <ReadMore
               id="rm-form"

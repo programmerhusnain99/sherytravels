@@ -1,8 +1,11 @@
 import { pageMetadata } from "@/lib/seo";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { Hero } from "@/components/home/hero/Hero";
 import { HeroEnquiry } from "@/components/home/hero/HeroEnquiry";
+import { CredentialsStrip } from "@/components/home/credentials/CredentialsStrip";
+import { Testimonials } from "@/components/home/testimonials/Testimonials";
 import { BeyondTravel } from "@/components/home/beyond/BeyondTravel";
 import { TrendingPackages } from "@/components/home/trending/TrendingPackages";
 import { FirstChoice } from "@/components/home/first-choice/FirstChoice";
@@ -29,10 +32,12 @@ export const metadata = pageMetadata({
 export default function HomePage() {
   return (
     <>
+      <ScrollProgress />
       <Header active="/" />
       <main>
         <Hero />
         <HeroEnquiry />
+        <CredentialsStrip />
         <BeyondTravel />
         <TrendingPackages />
         <FirstChoice />
@@ -43,6 +48,7 @@ export default function HomePage() {
         <StepsSection />
         <HajjSection />
         <HotelsSection />
+        <Testimonials />
         <FormSection />
         <FaqSection />
         <TrustStrip />

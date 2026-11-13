@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
+import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { ReadMore } from "@/components/ui/ReadMore";
 import { UmrahArch } from "./UmrahArch";
@@ -42,16 +43,18 @@ export function UmrahSection() {
           <div className="grid items-center gap-10 dt:grid-cols-[1fr_1.02fr] dt:gap-[76px]">
             {/* Copy column — on mobile, heading/eyebrow render first, arch is injected after */}
             <div className="flex flex-col">
-              <Eyebrow align="left" tone="white">
-                The serenity of Umrah
-              </Eyebrow>
-              <AccentHeading
-                as="h2"
-                before="Our "
-                accent="Umrah"
-                after=" Services"
-                className="mt-6 text-[32px] leading-[1.14] text-white dt:text-[50px]"
-              />
+              <Reveal as="div">
+                <Eyebrow align="left" tone="white">
+                  The serenity of Umrah
+                </Eyebrow>
+                <AccentHeading
+                  as="h2"
+                  before="Our "
+                  accent="Umrah"
+                  after=" Services"
+                  className="mt-6 text-[32px] leading-[1.14] text-white dt:text-[50px]"
+                />
+              </Reveal>
 
               {/* Arch cluster — appears directly under the heading on mobile */}
               <div className="order-first mt-8 dt:hidden">
