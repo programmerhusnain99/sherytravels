@@ -80,9 +80,9 @@ export function PerfectPackages() {
       </Container>
 
       {/* Small-gap band (square image corners). A diverging/concave curve is
-          carved into the top and bottom centre with ice-coloured arcs, so the
-          band is full-height at the ends and gently pinched in the middle. */}
-      <div className="relative overflow-hidden">
+          carved into the top and bottom centre with ice-coloured arcs, and the
+          outer corners of the band are rounded so the ends curve too. */}
+      <div className="relative overflow-hidden rounded-[26px] dt:rounded-[40px]">
         <div
           ref={deck}
           className="flex snap-x snap-mandatory gap-2 overflow-x-auto scroll-pl-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
