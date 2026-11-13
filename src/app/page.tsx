@@ -10,10 +10,8 @@ import { BeyondTravel } from "@/components/home/beyond/BeyondTravel";
 import { PackagesShowcase } from "@/components/home/packages/PackagesShowcase";
 import { FirstChoice } from "@/components/home/first-choice/FirstChoice";
 import { UmrahSection } from "@/components/home/umrah/UmrahSection";
-import { ConnectionSection } from "@/components/home/connection/ConnectionSection";
 import { PerfectPackages } from "@/components/home/perfect/PerfectPackages";
 import { TransportSection } from "@/components/home/transport/TransportSection";
-import { StepsSection } from "@/components/home/steps/StepsSection";
 import { HajjSection } from "@/components/home/hajj/HajjSection";
 import { HotelsSection } from "@/components/home/hotels/HotelsSection";
 import { FormSection } from "@/components/home/form/FormSection";
@@ -40,12 +38,10 @@ export default function HomePage() {
         <CredentialsStrip />
         <BeyondTravel />
         <PackagesShowcase />
-        <FirstChoice />
         <UmrahSection />
-        <ConnectionSection />
+        <FirstChoice />
         <PerfectPackages />
         <TransportSection />
-        <StepsSection />
         <HajjSection />
         <HotelsSection />
         <Testimonials />
