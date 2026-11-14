@@ -9,6 +9,7 @@ import { InquireButton } from "@/components/inquiry/InquireButton";
 import { ContactForm } from "@/components/inquiry/ContactForm";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { PriceCard } from "@/components/sections/PriceCard";
+import { PackagesShowcase } from "@/components/home/packages/PackagesShowcase";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/seo";
 
@@ -194,6 +195,15 @@ export function PackageLandingPage({ data }: { data: PackageLandingData }) {
           <ContactForm />
         </Container>
       </Section>
+
+      {/* Suggestions — explore more packages */}
+      <PackagesShowcase
+        eyebrow="Keep exploring"
+        headingBefore="Explore more "
+        headingAccent="packages"
+        description="Browse other Umrah packages — flights, visa, hotels near the Haram and transport, all arranged for you."
+        bg="white"
+      />
     </PageShell>
   );
 }

@@ -15,6 +15,7 @@ import { InquireButton } from "@/components/inquiry/InquireButton";
 import { ContactForm } from "@/components/inquiry/ContactForm";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { PriceCard } from "@/components/sections/PriceCard";
+import { PackagesShowcase } from "@/components/home/packages/PackagesShowcase";
 
 const PATH = "/umrah/usa-packages/";
 
@@ -340,6 +341,15 @@ export default function UmrahUsaPackagesPage() {
           <ContactForm />
         </Container>
       </Section>
+
+      {/* Suggestions — explore more packages */}
+      <PackagesShowcase
+        eyebrow="Keep exploring"
+        headingBefore="Explore more "
+        headingAccent="packages"
+        description="Browse other Umrah packages — flights, visa, hotels near the Haram and transport, all arranged for you."
+        bg="ice"
+      />
     </PageShell>
   );
 }
