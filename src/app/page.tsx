@@ -12,7 +12,8 @@ import { FirstChoice } from "@/components/home/first-choice/FirstChoice";
 import { UmrahSection } from "@/components/home/umrah/UmrahSection";
 import { PerfectPackages } from "@/components/home/perfect/PerfectPackages";
 import { TransportSection } from "@/components/home/transport/TransportSection";
-import { HajjSection } from "@/components/home/hajj/HajjSection";
+import { HajjServices } from "@/components/home/hajj/HajjServices";
+import { HajjExperiences } from "@/components/home/hajj/HajjExperiences";
 import { HotelsSection } from "@/components/home/hotels/HotelsSection";
 import { FormSection } from "@/components/home/form/FormSection";
 import { FaqSection } from "@/components/home/faqs/FaqSection";
@@ -42,7 +43,8 @@ export default function HomePage() {
         <FirstChoice />
         <PerfectPackages />
         <TransportSection />
-        <HajjSection />
+        <HajjServices />
+        <HajjExperiences />
         <HotelsSection />
         <Testimonials />
         <FormSection />
