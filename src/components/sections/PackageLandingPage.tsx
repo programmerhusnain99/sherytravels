@@ -8,7 +8,7 @@ import { AccentHeading } from "@/components/ui/AccentHeading";
 import { InquireButton } from "@/components/inquiry/InquireButton";
 import { ContactForm } from "@/components/inquiry/ContactForm";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
-import { PriceCard } from "@/components/sections/PriceCard";
+import { PackageCardLarge } from "@/components/home/packages/PackageCardLarge";
 import { PackagesShowcase } from "@/components/home/packages/PackagesShowcase";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/seo";
@@ -123,15 +123,17 @@ export function PackageLandingPage({ data }: { data: PackageLandingData }) {
                     </div>
                     <p className="text-[14.5px] text-navy/70">{tier.nights} · {tier.split}</p>
                   </div>
-                  <div className="grid gap-5 dt:grid-cols-3 dt:gap-7">
-                    {tier.rooms.map((r, i) => (
-                      <PriceCard
+                  <div className="grid gap-6 dt:grid-cols-3 dt:gap-7">
+                    {tier.rooms.map((r) => (
+                      <PackageCardLarge
                         key={r.room}
-                        badge={`${tier.star} · ${tier.nights}`}
-                        title={r.room}
-                        price={r.price}
-                        features={[tier.split, "Visa & Transport included"]}
-                        featured={i === 0}
+                        pkg={{
+                          title: `${tier.star} · ${r.room}`,
+                          image: data.heroImage,
+                          highlights: [tier.nights, tier.split, "Visa & Transport included"],
+                          price: r.price,
+                          href: data.path,
+                        }}
                       />
                     ))}
                   </div>
