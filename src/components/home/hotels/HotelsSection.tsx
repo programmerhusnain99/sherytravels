@@ -44,7 +44,7 @@ const MADINAH: Hotel[] = [
  */
 export function HotelsSection() {
   return (
-    <Section bg="lightblue" className="py-16 dt:py-24">
+    <Section bg="white" className="py-16 dt:py-24">
       <Container>
         <div className="dt:grid dt:grid-cols-[minmax(0,1fr)_420px] dt:items-stretch dt:gap-12">
           {/* Left: heading + tabs + cards */}

@@ -1,10 +1,29 @@
+"use client";
+
 import { Accessibility, GraduationCap, Users, User, ArrowRight, type LucideIcon } from "lucide-react";
+import { motion, type Variants } from "motion/react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { AccentHeading } from "@/components/ui/AccentHeading";
-import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
+import { Reveal } from "@/components/motion/Reveal";
 import { DropBounce } from "@/components/motion/DropBounce";
 import { Button } from "@/components/ui/Button";
+
+const EASE = [0.22, 1, 0.36, 1] as const;
+
+// Reveal order (by card index): the 2nd card first, then 1st, then 3rd, 4th.
+const ORDER_DELAY = [0.18, 0, 0.36, 0.54];
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  show: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: ORDER_DELAY[i] ?? 0, ease: EASE },
+  }),
+};
+
+const viewport = { once: true, amount: 0.3 } as const;
 
 type Audience = {
   icon: LucideIcon;
@@ -43,7 +62,7 @@ const AUDIENCES: Audience[] = [
 /** "Hajj experiences for all pilgrims" — audience cards + packages CTA. */
 export function HajjExperiences() {
   return (
-    <Section bg="white" className="py-14 dt:py-20">
+    <Section bg="lightblue" className="py-14 dt:py-20">
       <Container>
         {/* Sub-heading (desktop only) */}
         <Reveal className="mb-10 hidden text-center dt:block">
@@ -61,10 +80,17 @@ export function HajjExperiences() {
         </Reveal>
 
         {/* Audience cards — mobile 2x2 grid */}
-        <Stagger className="grid grid-cols-2 gap-3 dt:hidden">
-          {AUDIENCES.map(({ icon: Icon, title, bodyMobile }) => (
-            <StaggerItem
+        <motion.div
+          className="grid grid-cols-2 gap-3 dt:hidden"
+          initial="hidden"
+          whileInView="show"
+          viewport={viewport}
+        >
+          {AUDIENCES.map(({ icon: Icon, title, bodyMobile }, i) => (
+            <motion.div
               key={title}
+              custom={i}
+              variants={cardVariants}
               className="rounded-2xl border border-navy/10 bg-ice p-5 text-center"
             >
               <span className="mx-auto mb-3 grid h-12 w-12 place-items-center rounded-full border-[1.5px] border-gold bg-lightblue">
@@ -76,16 +102,21 @@ export function HajjExperiences() {
               <p className="text-[13px] font-light leading-[1.5] text-navy/85 text-pretty">
                 {bodyMobile}
               </p>
-            </StaggerItem>
+            </motion.div>
           ))}
-        </Stagger>
+        </motion.div>
 
         {/* Audience cards — desktop row with dividers */}
-        <div className="mx-auto hidden max-w-[1100px] grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] items-start dt:grid">
+        <motion.div
+          className="mx-auto hidden max-w-[1100px] grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] items-start dt:grid"
+          initial="hidden"
+          whileInView="show"
+          viewport={viewport}
+        >
           {AUDIENCES.map(({ icon: Icon, title, bodyDesktop }, i) => (
             <div key={title} className="contents">
               {i > 0 && <div aria-hidden className="mx-2 self-stretch w-px bg-navy/10" />}
-              <div className="px-4 text-center">
+              <motion.div custom={i} variants={cardVariants} className="px-4 text-center">
                 <span className="mx-auto mb-4 grid h-[60px] w-[60px] place-items-center rounded-full border-[1.5px] border-gold bg-ice">
                   <Icon size={26} className="text-navy" aria-hidden />
                 </span>
@@ -95,13 +126,13 @@ export function HajjExperiences() {
                 <p className="text-[14px] font-light leading-[1.55] text-navy/85 text-pretty">
                   {bodyDesktop}
                 </p>
-              </div>
+              </motion.div>
             </div>
           ))}
-        </div>
+        </motion.div>
 
-        {/* CTA */}
-        <DropBounce className="mt-7 text-center dt:mt-10">
+        {/* CTA — drops in after the cards have appeared */}
+        <DropBounce delay={0.55} amount={0.4} className="mt-7 text-center dt:mt-10">
           <Button
             href="/hajj/usa-packages/"
             variant="gold"

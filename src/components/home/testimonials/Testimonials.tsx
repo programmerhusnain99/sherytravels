@@ -53,7 +53,7 @@ export function Testimonials() {
   const reduce = useReducedMotion();
 
   return (
-    <Section bg="white" className="relative overflow-hidden py-16 dt:py-24">
+    <Section bg="lightblue" className="relative overflow-hidden py-16 dt:py-24">
       <div
         aria-hidden
         className="pointer-events-none absolute -right-24 top-10 hidden h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.08),transparent_70%)] dt:block"
