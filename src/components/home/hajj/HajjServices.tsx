@@ -19,7 +19,7 @@ export function HajjServices() {
       />
 
       <Container className="relative pt-12 dt:pt-[88px]">
-        <div className="grid items-center gap-10 dt:grid-cols-[1fr_1.02fr] dt:gap-16">
+        <div className="grid items-stretch gap-10 dt:grid-cols-[1fr_1.02fr] dt:gap-16">
           {/* Left — copy */}
           <div className="text-center dt:text-left">
             <Reveal as="div">
@@ -67,15 +67,15 @@ export function HajjServices() {
             </div>
           </div>
 
-          {/* Right — pre-styled Hajj image (arch shape baked into the artwork) */}
-          <div className="relative mx-auto w-full max-w-[460px] dt:max-w-none">
+          {/* Right — pre-styled Hajj image. Fills the column so its height
+              matches the copy (instead of its full natural aspect ratio). */}
+          <div className="relative mx-auto h-[280px] w-full max-w-[460px] dt:h-full dt:max-w-none">
             <Image
               src="/images/home/home-hajj-hero.webp"
               alt="Pilgrims performing Hajj"
-              width={560}
-              height={460}
+              fill
               sizes="(max-width: 900px) 100vw, 50vw"
-              className="h-auto w-full object-contain"
+              className="object-contain object-center"
             />
           </div>
         </div>
