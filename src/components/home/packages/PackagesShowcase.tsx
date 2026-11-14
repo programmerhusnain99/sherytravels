@@ -7,15 +7,37 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { Button } from "@/components/ui/Button";
-import { PACKAGE_CARDS } from "@/data/home/packageCards";
+import { PACKAGE_CARDS, type PackageCard as TPackageCard } from "@/data/home/packageCards";
 import { PackageCard } from "./PackageCard";
+
+type Bg = Parameters<typeof Section>[0]["bg"];
+
+type Props = {
+  eyebrow?: string;
+  headingBefore?: string;
+  headingAccent?: string;
+  description?: string;
+  packages?: TPackageCard[];
+  viewAllHref?: string;
+  bg?: Bg;
+};
 
 /**
  * Horizontal auto-scrolling showcase of landscape package cards. Advances one
  * card every few seconds, loops at the end, and pauses on hover/touch/focus so
- * the cards stay clickable.
+ * the cards stay clickable. Props default to the homepage "Explore Our Umrah
+ * Packages" copy; override them to reuse it elsewhere (e.g. "Explore more
+ * packages" suggestions).
  */
-export function PackagesShowcase() {
+export function PackagesShowcase({
+  eyebrow = "Popular departures",
+  headingBefore = "Explore Our ",
+  headingAccent = "Umrah Packages",
+  description = "Hand-picked packages with flights, visa, hotels near the Haram and transport — all arranged for you. Hover to pause and browse.",
+  packages = PACKAGE_CARDS,
+  viewAllHref = "/umrah/usa-packages/",
+  bg = "ice",
+}: Props = {}) {
   const track = useRef<HTMLDivElement>(null);
   const paused = useRef(false);
 
@@ -43,27 +65,26 @@ export function PackagesShowcase() {
   }, []);
 
   return (
-    <Section bg="ice" className="overflow-hidden py-16 dt:py-24">
+    <Section bg={bg} className="overflow-hidden py-16 dt:py-24">
       <Container className="mb-8 flex flex-col items-start justify-between gap-5 dt:mb-11 dt:flex-row dt:items-end">
         <div>
           <Eyebrow align="left" className="mb-4">
-            Popular departures
+            {eyebrow}
           </Eyebrow>
           <AccentHeading
             as="h2"
-            before="Explore Our "
-            accent="Umrah Packages"
+            before={headingBefore}
+            accent={headingAccent}
             className="text-[28px] leading-[1.18] text-navy dt:text-[42px]"
           />
           <p className="mt-3 max-w-[560px] text-[15.5px] font-light leading-[1.65] text-navy/80">
-            Hand-picked packages with flights, visa, hotels near the Haram and transport — all
-            arranged for you. Hover to pause and browse.
+            {description}
           </p>
         </div>
 
         <div className="flex flex-none flex-col items-start gap-4 dt:items-end">
           <Button
-            href="/umrah/usa-packages/"
+            href={viewAllHref}
             variant="navy"
             size="md"
             className="uppercase tracking-[0.06em]"
@@ -101,7 +122,7 @@ export function PackagesShowcase() {
         onBlurCapture={() => (paused.current = false)}
         className="no-scrollbar flex snap-x snap-mandatory items-start gap-5 overflow-x-auto px-5 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:px-10"
       >
-        {PACKAGE_CARDS.map((pkg) => (
+        {packages.map((pkg) => (
           <div
             key={pkg.title + pkg.href}
             data-card

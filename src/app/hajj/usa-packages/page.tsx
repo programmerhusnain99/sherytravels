@@ -10,7 +10,9 @@ import { AccentHeading } from "@/components/ui/AccentHeading";
 import { InquireButton } from "@/components/inquiry/InquireButton";
 import { ContactForm } from "@/components/inquiry/ContactForm";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
-import { PriceCard } from "@/components/sections/PriceCard";
+import { PackageCardLarge } from "@/components/home/packages/PackageCardLarge";
+import { PackagesShowcase } from "@/components/home/packages/PackagesShowcase";
+import { HAJJ_PACKAGES } from "@/data/home/packageCards";
 
 const PATH = "/hajj/usa-packages/";
 
@@ -26,12 +28,6 @@ const FEATURES = [
   { Icon: Plane, title: "US-Based Departure", body: "U.S. travelers can take flights from major cities, including L.A., Houston, Chicago, New York, and other cities. The bilingual support team communicates every step of the way." },
   { Icon: FileCheck2, title: "Easy Visa Processing", body: "Travel easily knowing we take care of all necessary visa paperwork and requirements from the embassy." },
   { Icon: PackageCheck, title: "Inclusive Services", body: "Get airport pickups, guided rituals, and air-conditioned accommodation in Makkah and Madina, fully religious compliant." },
-];
-
-const ROOMS = [
-  { title: "Double Room", features: ["1 King-sized Bed or 2 Individual Beds", "Half Board in Makkah & Madinah Hotels", "Full Board in Mina Camp"] },
-  { title: "Triple Room", features: ["3 Individual Beds available in the room", "Half Board in Makkah & Madinah Hotels", "Full Board in Mina Camp"] },
-  { title: "Quad Room", features: ["4 Individual Beds available in the room", "Half Board in Makkah & Madinah Hotels", "Full Board in Mina Camp"] },
 ];
 
 const WHY = [
@@ -125,9 +121,9 @@ export default function HajjUsaPackagesPage() {
           </div>
 
           <h3 className="mb-6 text-center font-serif text-[22px] font-bold text-navy dt:text-[26px]">Types of USA Hajj Packages</h3>
-          <div className="grid gap-5 dt:grid-cols-3 dt:gap-7">
-            {ROOMS.map((r, i) => (
-              <PriceCard key={r.title} badge="Hajj Package" title={r.title} features={r.features} featured={i === 1} />
+          <div className="grid gap-6 dt:grid-cols-3 dt:gap-7">
+            {HAJJ_PACKAGES.map((pkg) => (
+              <PackageCardLarge key={pkg.title} pkg={pkg} />
             ))}
           </div>
         </Container>
@@ -258,6 +254,15 @@ export default function HajjUsaPackagesPage() {
           <ContactForm />
         </Container>
       </Section>
+
+      {/* Suggestions — explore more packages */}
+      <PackagesShowcase
+        eyebrow="Keep exploring"
+        headingBefore="Explore more "
+        headingAccent="packages"
+        description="Browse other Umrah and Hajj packages — flights, visa, hotels near the Haram and transport, all arranged for you."
+        bg="ice"
+      />
     </PageShell>
   );
 }

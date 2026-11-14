@@ -54,3 +54,27 @@ export const PACKAGE_CARDS: PackageCard[] = [
     href: "/umrah/usa-packages/",
   },
 ];
+
+export const HAJJ_PACKAGES: PackageCard[] = [
+  {
+    title: "Economy Hajj Package",
+    image: "/images/home/home-trending-hajj.webp",
+    highlights: ["Shared Mina & Arafat camps", "Visa, Transport & Meals", "Quad Room"],
+    price: "$8,400",
+    href: "/hajj/usa-packages/",
+  },
+  {
+    title: "Standard Hajj Package",
+    image: "/images/home/home-pkg-family.webp",
+    highlights: ["Upgraded Mina tents", "Guided rituals & ziyarat", "Triple Room"],
+    price: "$10,900",
+    href: "/hajj/usa-packages/",
+  },
+  {
+    title: "Premium Hajj Package",
+    image: "/images/home/home-pkg-luxury.webp",
+    highlights: ["5★ Haram-view hotels", "VIP Mina & Arafat camps", "Double Room"],
+    price: "$14,500",
+    href: "/hajj/usa-packages/",
+  },
+];
