@@ -23,7 +23,7 @@ function Corners() {
  */
 export function PackageCard({ pkg }: { pkg: TPackageCard }) {
   return (
-    <article className="relative flex h-full flex-col overflow-hidden bg-white shadow-[0_26px_54px_-30px_rgba(26,62,110,0.45)] ring-1 ring-navy/10">
+    <article className="relative flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-[0_26px_54px_-30px_rgba(26,62,110,0.45)] ring-1 ring-navy/10">
       <Corners />
 
       <div className="relative z-10 flex flex-1 flex-col p-3.5 pb-2.5 dt:p-4 dt:pb-3">
