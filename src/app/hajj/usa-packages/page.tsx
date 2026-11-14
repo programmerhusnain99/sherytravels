@@ -153,6 +153,15 @@ export default function HajjUsaPackagesPage() {
         </Container>
       </Section>
 
+      {/* Suggestions — explore more packages (right after Why choose us) */}
+      <PackagesShowcase
+        eyebrow="Keep exploring"
+        headingBefore="Explore more "
+        headingAccent="packages"
+        description="Browse other Umrah and Hajj packages — flights, visa, hotels near the Haram and transport, all arranged for you."
+        bg="ice"
+      />
+
       {/* Transparent journey — text + image */}
       <Section bg="white" className="py-14 dt:py-20">
         <Container className="grid items-center gap-10 dt:grid-cols-2 dt:gap-16">
@@ -254,15 +263,6 @@ export default function HajjUsaPackagesPage() {
           <ContactForm />
         </Container>
       </Section>
-
-      {/* Suggestions — explore more packages */}
-      <PackagesShowcase
-        eyebrow="Keep exploring"
-        headingBefore="Explore more "
-        headingAccent="packages"
-        description="Browse other Umrah and Hajj packages — flights, visa, hotels near the Haram and transport, all arranged for you."
-        bg="ice"
-      />
     </PageShell>
   );
 }

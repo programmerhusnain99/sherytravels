@@ -169,6 +169,15 @@ export function PackageLandingPage({ data }: { data: PackageLandingData }) {
         </Container>
       </Section>
 
+      {/* Suggestions — explore more packages (right after Why choose us) */}
+      <PackagesShowcase
+        eyebrow="Keep exploring"
+        headingBefore="Explore more "
+        headingAccent="packages"
+        description="Browse other Umrah packages — flights, visa, hotels near the Haram and transport, all arranged for you."
+        bg="ice"
+      />
+
       {/* Plan */}
       <Section bg="white" className="py-14 dt:py-20">
         <Container className="mx-auto max-w-[840px] text-center">
@@ -197,15 +206,6 @@ export function PackageLandingPage({ data }: { data: PackageLandingData }) {
           <ContactForm />
         </Container>
       </Section>
-
-      {/* Suggestions — explore more packages */}
-      <PackagesShowcase
-        eyebrow="Keep exploring"
-        headingBefore="Explore more "
-        headingAccent="packages"
-        description="Browse other Umrah packages — flights, visa, hotels near the Haram and transport, all arranged for you."
-        bg="white"
-      />
     </PageShell>
   );
 }

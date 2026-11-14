@@ -224,6 +224,15 @@ export default function UmrahUsaPackagesPage() {
         </Container>
       </Section>
 
+      {/* Suggestions — explore more packages (right after Why choose us) */}
+      <PackagesShowcase
+        eyebrow="Keep exploring"
+        headingBefore="Explore more "
+        headingAccent="packages"
+        description="Browse other Umrah packages — flights, visa, hotels near the Haram and transport, all arranged for you."
+        bg="ice"
+      />
+
       {/* Specialized packages — image + 2x2 grid */}
       <Section bg="white" className="py-14 dt:py-20">
         <Container className="grid items-center gap-10 dt:grid-cols-2 dt:gap-16">
@@ -343,15 +352,6 @@ export default function UmrahUsaPackagesPage() {
           <ContactForm />
         </Container>
       </Section>
-
-      {/* Suggestions — explore more packages */}
-      <PackagesShowcase
-        eyebrow="Keep exploring"
-        headingBefore="Explore more "
-        headingAccent="packages"
-        description="Browse other Umrah packages — flights, visa, hotels near the Haram and transport, all arranged for you."
-        bg="ice"
-      />
     </PageShell>
   );
 }
