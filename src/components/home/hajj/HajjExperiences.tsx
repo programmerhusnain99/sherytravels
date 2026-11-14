@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
+import { DropBounce } from "@/components/motion/DropBounce";
 import { Button } from "@/components/ui/Button";
 
 type Audience = {
@@ -100,7 +101,7 @@ export function HajjExperiences() {
         </div>
 
         {/* CTA */}
-        <div className="mt-7 text-center dt:mt-10">
+        <DropBounce className="mt-7 text-center dt:mt-10">
           <Button
             href="/hajj/usa-packages/"
             variant="gold"
@@ -110,7 +111,7 @@ export function HajjExperiences() {
             <span>View Hajj Packages</span>
             <ArrowRight size={18} aria-hidden />
           </Button>
-        </div>
+        </DropBounce>
       </Container>
     </Section>
   );

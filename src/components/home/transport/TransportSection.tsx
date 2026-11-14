@@ -6,6 +6,8 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { Button } from "@/components/ui/Button";
+import { DropBounce } from "@/components/motion/DropBounce";
+import { Stagger, StaggerItem } from "@/components/motion/Reveal";
 
 const FEATURES = [
   { Icon: Clock, label: "24/7 availability" },
@@ -71,15 +73,17 @@ export function TransportSection() {
               ))}
             </ul>
 
-            <Button
-              href="/transportation/"
-              variant="gold"
-              size="lg"
-              className="mt-8 uppercase tracking-[0.06em]"
-            >
-              Explore Transportation
-              <ArrowRight size={18} aria-hidden />
-            </Button>
+            <DropBounce className="mt-8 w-fit">
+              <Button
+                href="/transportation/"
+                variant="gold"
+                size="lg"
+                className="uppercase tracking-[0.06em]"
+              >
+                Explore Transportation
+                <ArrowRight size={18} aria-hidden />
+              </Button>
+            </DropBounce>
           </div>
 
           {/* Route map card */}
@@ -164,10 +168,18 @@ export function TransportSection() {
             </span>
             <span aria-hidden className="hidden h-[52px] w-px flex-none bg-white/20 dt:block" />
 
-            <ul className="flex flex-1 gap-[10px] overflow-x-auto snap-x [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:gap-[22px] dt:overflow-visible">
+            <Stagger
+              as="ul"
+              gap={0.09}
+              delay={0.15}
+              amount={0.4}
+              className="flex flex-1 gap-[10px] overflow-x-auto snap-x [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:gap-[22px] dt:overflow-visible"
+            >
               {FLEET.map((v) => (
-                <li
+                <StaggerItem
+                  as="li"
                   key={v.src}
+                  direction="left"
                   className="h-[90px] w-[140px] flex-none snap-start dt:h-20 dt:w-auto dt:flex-1"
                 >
                   <Link
@@ -183,9 +195,9 @@ export function TransportSection() {
                       className="object-cover"
                     />
                   </Link>
-                </li>
+                </StaggerItem>
               ))}
-            </ul>
+            </Stagger>
 
             <Link
               href={FLEETS}

@@ -6,6 +6,7 @@ import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { Reveal } from "@/components/motion/Reveal";
+import { DropBounce } from "@/components/motion/DropBounce";
 import { Button } from "@/components/ui/Button";
 import { ReadMore } from "@/components/ui/ReadMore";
 import { UmrahArch } from "./UmrahArch";
@@ -91,7 +92,7 @@ export function UmrahSection() {
                 ))}
               </div>
 
-              <div className="mt-8 dt:mt-0">
+              <DropBounce className="mt-8 dt:mt-0">
                 <Button
                   href="/umrah/"
                   variant="gold"
@@ -100,7 +101,7 @@ export function UmrahSection() {
                 >
                   Umrah begins here
                 </Button>
-              </div>
+              </DropBounce>
             </div>
 
             {/* Arch cluster — desktop column */}

@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { Reveal } from "@/components/motion/Reveal";
+import { DropBounce } from "@/components/motion/DropBounce";
 import { ReadMore } from "@/components/ui/ReadMore";
 
 // Content verbatim from the live site's "Beyond Travel" section.
@@ -90,14 +91,16 @@ export function BeyondTravel() {
             />
           </div>
 
-          {/* Floating stat badge */}
-          <div className="absolute -bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-3 rounded-2xl border border-white/10 bg-white px-5 py-3.5 shadow-[0_24px_50px_-18px_rgba(0,0,0,0.5)] dt:-left-6 dt:translate-x-0">
-            <span className="font-serif text-[36px] font-bold leading-none text-navy">10+</span>
-            <span className="text-[12.5px] font-light leading-tight text-navy/70">
-              years guiding
-              <br />
-              pilgrims
-            </span>
+          {/* Floating stat badge (drops in and bounces) */}
+          <div className="absolute -bottom-5 inset-x-0 flex justify-center dt:inset-x-auto dt:left-[-24px] dt:block">
+            <DropBounce className="flex w-fit items-center gap-3 rounded-2xl border border-white/10 bg-white px-5 py-3.5 shadow-[0_24px_50px_-18px_rgba(0,0,0,0.5)]">
+              <span className="font-serif text-[36px] font-bold leading-none text-navy">10+</span>
+              <span className="text-[12.5px] font-light leading-tight text-navy/70">
+                years guiding
+                <br />
+                pilgrims
+              </span>
+            </DropBounce>
           </div>
         </div>
       </Container>
