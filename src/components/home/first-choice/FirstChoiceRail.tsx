@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { motion, useReducedMotion } from "motion/react";
 import { Award, Handshake, BusFront, SlidersHorizontal, type LucideIcon } from "lucide-react";
 import type { Feature } from "@/data/home/features";
 
@@ -38,6 +39,19 @@ export function FirstChoiceRail({ features }: { features: Feature[] }) {
   };
 
   const ActiveIcon = ICONS[features[active].icon];
+  const reduce = useReducedMotion();
+
+  const dotVariants = reduce
+    ? undefined
+    : {
+        hidden: { opacity: 0, y: 14, scale: 0.8 },
+        show: {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          transition: { type: "spring" as const, stiffness: 420, damping: 18 },
+        },
+      };
 
   return (
     <div onMouseLeave={release}>
@@ -48,16 +62,38 @@ export function FirstChoiceRail({ features }: { features: Feature[] }) {
         role="tablist"
         aria-label="Reasons to choose Shery Travels"
       >
-        <div className="absolute left-10 right-10 top-7 h-0.5 bg-navy/15" aria-hidden />
-        <div className="relative grid grid-cols-4">
+        <motion.div
+          className="absolute left-10 right-10 top-7 h-0.5 origin-left bg-navy/15"
+          aria-hidden
+          {...(reduce
+            ? {}
+            : {
+                initial: { scaleX: 0, opacity: 0 },
+                whileInView: { scaleX: 1, opacity: 1 },
+                viewport: { once: true, amount: 0.6 },
+                transition: { duration: 0.6, ease: "easeOut" as const },
+              })}
+        />
+        <motion.div
+          className="relative grid grid-cols-4"
+          {...(reduce
+            ? {}
+            : {
+                initial: "hidden",
+                whileInView: "show",
+                viewport: { once: true, amount: 0.6 },
+                variants: { hidden: {}, show: { transition: { staggerChildren: 0.12, delayChildren: 0.25 } } },
+              })}
+        >
           {features.map((f, i) => {
             const StopIcon = ICONS[f.icon];
             const on = i === active;
             return (
-              <button
+              <motion.button
                 key={f.num}
                 role="tab"
                 aria-selected={on}
+                variants={dotVariants}
                 onMouseEnter={() => {
                   hold();
                   setActive(i);
@@ -87,10 +123,10 @@ export function FirstChoiceRail({ features }: { features: Feature[] }) {
                 >
                   {f.title}
                 </span>
-              </button>
+              </motion.button>
             );
           })}
-        </div>
+        </motion.div>
       </div>
 
       {/* Stage panel */}

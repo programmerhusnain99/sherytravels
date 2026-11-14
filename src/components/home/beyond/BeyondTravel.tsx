@@ -4,6 +4,8 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
+import { Reveal } from "@/components/motion/Reveal";
+import { DropBounce } from "@/components/motion/DropBounce";
 import { ReadMore } from "@/components/ui/ReadMore";
 
 // Content verbatim from the live site's "Beyond Travel" section.
@@ -29,15 +31,17 @@ export function BeyondTravel() {
       <Container className="relative grid items-center gap-12 dt:grid-cols-[1.05fr_0.95fr] dt:gap-16">
         {/* Heading + copy + points */}
         <div className="text-center dt:text-left">
-          <Eyebrow align="center" tone="white" className="mb-4 dt:justify-start">
-            Beyond travel
-          </Eyebrow>
-          <AccentHeading
-            as="h2"
-            before="Beyond Travel — Where Every Step of Your Pilgrimage "
-            accent="Matters"
-            className="text-[27px] leading-[1.2] text-white dt:text-[38px] dt:leading-[1.16]"
-          />
+          <Reveal as="div">
+            <Eyebrow align="center" tone="white" className="mb-4 dt:justify-start">
+              Beyond travel
+            </Eyebrow>
+            <AccentHeading
+              as="h2"
+              before="Beyond Travel — Where Every Step of Your Pilgrimage "
+              accent="Matters"
+              className="text-[27px] leading-[1.2] text-white dt:text-[38px] dt:leading-[1.16]"
+            />
+          </Reveal>
           <ReadMore
             id="rm-beyond"
             className="mt-5"
@@ -87,14 +91,16 @@ export function BeyondTravel() {
             />
           </div>
 
-          {/* Floating stat badge */}
-          <div className="absolute -bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-3 rounded-2xl border border-white/10 bg-white px-5 py-3.5 shadow-[0_24px_50px_-18px_rgba(0,0,0,0.5)] dt:-left-6 dt:translate-x-0">
-            <span className="font-serif text-[36px] font-bold leading-none text-navy">10+</span>
-            <span className="text-[12.5px] font-light leading-tight text-navy/70">
-              years guiding
-              <br />
-              pilgrims
-            </span>
+          {/* Floating stat badge (drops in and bounces) */}
+          <div className="absolute -bottom-5 inset-x-0 flex justify-center dt:inset-x-auto dt:left-[-24px] dt:block">
+            <DropBounce className="flex w-fit items-center gap-3 rounded-2xl border border-white/10 bg-white px-5 py-3.5 shadow-[0_24px_50px_-18px_rgba(0,0,0,0.5)]">
+              <span className="font-serif text-[36px] font-bold leading-none text-navy">10+</span>
+              <span className="text-[12.5px] font-light leading-tight text-navy/70">
+                years guiding
+                <br />
+                pilgrims
+              </span>
+            </DropBounce>
           </div>
         </div>
       </Container>

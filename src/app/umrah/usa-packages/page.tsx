@@ -14,7 +14,8 @@ import { Button } from "@/components/ui/Button";
 import { InquireButton } from "@/components/inquiry/InquireButton";
 import { ContactForm } from "@/components/inquiry/ContactForm";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
-import { PriceCard } from "@/components/sections/PriceCard";
+import { PackageCardLarge } from "@/components/home/packages/PackageCardLarge";
+import { PackagesShowcase } from "@/components/home/packages/PackagesShowcase";
 
 const PATH = "/umrah/usa-packages/";
 
@@ -179,15 +180,17 @@ export default function UmrahUsaPackagesPage() {
                   </div>
                   <p className="text-[14.5px] text-navy/70">{tier.nights} · {tier.split}</p>
                 </div>
-                <div className="grid gap-5 dt:grid-cols-3 dt:gap-7">
-                  {tier.rooms.map((r, i) => (
-                    <PriceCard
+                <div className="grid gap-6 dt:grid-cols-3 dt:gap-7">
+                  {tier.rooms.map((r) => (
+                    <PackageCardLarge
                       key={r.room}
-                      badge={`${tier.star} · ${tier.nights}`}
-                      title={r.room}
-                      price={r.price}
-                      features={[tier.split, "Visa & Transport included"]}
-                      featured={i === 0}
+                      pkg={{
+                        title: `${tier.star} · ${r.room}`,
+                        image: "/images/home/home-pkg-ramadan.webp",
+                        highlights: [tier.nights, tier.split, "Visa & Transport included"],
+                        price: r.price,
+                        href: PATH,
+                      }}
                     />
                   ))}
                 </div>
@@ -220,6 +223,15 @@ export default function UmrahUsaPackagesPage() {
           </div>
         </Container>
       </Section>
+
+      {/* Suggestions — explore more packages (right after Why choose us) */}
+      <PackagesShowcase
+        eyebrow="Keep exploring"
+        headingBefore="Explore more "
+        headingAccent="packages"
+        description="Browse other Umrah packages — flights, visa, hotels near the Haram and transport, all arranged for you."
+        bg="ice"
+      />
 
       {/* Specialized packages — image + 2x2 grid */}
       <Section bg="white" className="py-14 dt:py-20">

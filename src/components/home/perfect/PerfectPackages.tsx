@@ -7,6 +7,7 @@ import { ArrowRight, ArrowLeft } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { AccentHeading } from "@/components/ui/AccentHeading";
+import { Reveal } from "@/components/motion/Reveal";
 
 type Tile = {
   title: string;
@@ -45,7 +46,7 @@ export function PerfectPackages() {
   return (
     <Section bg="ice" className="pb-12 pt-12 dt:pb-16 dt:pt-20">
       <Container className="mb-[26px] flex items-end justify-between gap-6 dt:mb-10">
-        <div>
+        <Reveal as="div">
           <AccentHeading
             as="h2"
             before="Find The Perfect Package For "
@@ -56,7 +57,7 @@ export function PerfectPackages() {
             Whether you prefer quieter months or peak seasons, luxury stays or family-friendly options
             — find the package that suits your budget, schedule, and travel preferences.
           </p>
-        </div>
+        </Reveal>
 
         {/* Prev / next controls (desktop) */}
         <div className="hidden flex-none items-center gap-3 dt:flex">
@@ -79,9 +80,9 @@ export function PerfectPackages() {
         </div>
       </Container>
 
-      {/* Small-gap band (square image corners). A diverging/concave curve is
-          carved into the top and bottom centre with ice-coloured arcs, so the
-          band is full-height at the ends and gently pinched in the middle. */}
+      {/* Small-gap band (square image corners, full-bleed to the screen edges).
+          A gentle diverging/concave curve is carved into the top and bottom
+          centre with ice-coloured arcs. */}
       <div className="relative overflow-hidden">
         <div
           ref={deck}
@@ -119,11 +120,11 @@ export function PerfectPackages() {
           {/* Concave (diverging-lens) curve — ice arcs dip into the top & bottom centre */}
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-x-0 top-[-48px] z-10 h-[76px] rounded-[50%] bg-ice"
+            className="pointer-events-none absolute left-1/2 top-[-74px] z-10 h-[100px] w-[150%] -translate-x-1/2 rounded-[50%] bg-ice"
           />
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-x-0 bottom-[-48px] z-10 h-[76px] rounded-[50%] bg-ice"
+            className="pointer-events-none absolute left-1/2 bottom-[-74px] z-10 h-[100px] w-[150%] -translate-x-1/2 rounded-[50%] bg-ice"
           />
         </div>
     </Section>

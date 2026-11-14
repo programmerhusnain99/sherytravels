@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
+import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { ReadMore } from "@/components/ui/ReadMore";
 
@@ -56,16 +57,18 @@ export function HajjSection() {
         <div className="grid items-center gap-10 dt:grid-cols-[1fr_1.02fr] dt:gap-16">
           {/* Left — copy */}
           <div className="text-center dt:text-left">
-            <Eyebrow align="center" tone="navy" className="mb-4 dt:justify-start">
-              The fifth pillar
-            </Eyebrow>
-            <AccentHeading
-              as="h2"
-              before="Our "
-              accent="Hajj"
-              after=" Services"
-              className="mb-4 text-[32px] leading-[1.2] text-navy dt:text-[50px] dt:leading-[1.14]"
-            />
+            <Reveal as="div">
+              <Eyebrow align="center" tone="navy" className="mb-4 dt:justify-start">
+                The fifth pillar
+              </Eyebrow>
+              <AccentHeading
+                as="h2"
+                before="Our "
+                accent="Hajj"
+                after=" Services"
+                className="mb-4 text-[32px] leading-[1.2] text-navy dt:text-[50px] dt:leading-[1.14]"
+              />
+            </Reveal>
             <ReadMore
               id="rm-hajj"
               className="mx-auto max-w-[560px] dt:mx-0"

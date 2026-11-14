@@ -6,6 +6,8 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { Button } from "@/components/ui/Button";
+import { DropBounce } from "@/components/motion/DropBounce";
+import { Stagger, StaggerItem } from "@/components/motion/Reveal";
 
 const FEATURES = [
   { Icon: Clock, label: "24/7 availability" },
@@ -42,12 +44,12 @@ const FLEETS = "/transportation/fleets/";
  */
 export function TransportSection() {
   return (
-    <Section bg="white" className="pt-12 dt:pt-20">
+    <Section bg="navy" className="pt-12 dt:pt-20">
       <Container>
         <div className="grid gap-10 dt:grid-cols-[1fr_1.1fr] dt:items-center dt:gap-[72px]">
           {/* Copy */}
           <div>
-            <Eyebrow align="left" tone="navy">
+            <Eyebrow align="left" tone="white">
               Transportation
             </Eyebrow>
             <AccentHeading
@@ -56,7 +58,7 @@ export function TransportSection() {
               accent="Holy Cities"
               className="mt-4 text-[30px] leading-[1.22] dt:text-[42px] dt:leading-[1.16]"
             />
-            <p className="mt-4 max-w-[500px] text-[16px] font-light leading-[1.7] text-navy/80 dt:text-[17px] dt:leading-[1.72]">
+            <p className="mt-4 max-w-[500px] text-[16px] font-light leading-[1.7] text-white/80 dt:text-[17px] dt:leading-[1.72]">
               Air-conditioned vehicles, experienced drivers, and 24/7 availability — from Jeddah
               Airport to the Haram and between Makkah and Madinah. Private cars, shared buses, or
               full coaches.
@@ -66,20 +68,22 @@ export function TransportSection() {
               {FEATURES.map(({ Icon, label }) => (
                 <li key={label} className="flex items-center gap-2.5">
                   <Icon size={20} className="flex-none text-gold" aria-hidden />
-                  <span className="text-[13.5px] font-medium text-navy dt:text-[14.5px]">{label}</span>
+                  <span className="text-[13.5px] font-medium text-white dt:text-[14.5px]">{label}</span>
                 </li>
               ))}
             </ul>
 
-            <Button
-              href="/transportation/"
-              variant="navy"
-              size="lg"
-              className="mt-8 uppercase tracking-[0.06em]"
-            >
-              Explore Transportation
-              <ArrowRight size={18} aria-hidden />
-            </Button>
+            <DropBounce className="mt-8 w-fit">
+              <Button
+                href="/transportation/"
+                variant="gold"
+                size="lg"
+                className="uppercase tracking-[0.06em]"
+              >
+                Explore Transportation
+                <ArrowRight size={18} aria-hidden />
+              </Button>
+            </DropBounce>
           </div>
 
           {/* Route map card */}
@@ -141,8 +145,8 @@ export function TransportSection() {
         </div>
       </Container>
 
-      {/* Full-bleed fleet strip (light ice ground, per design #F2FDFF) */}
-      <div className="mt-12 border-t border-navy/10 bg-ice dt:mt-14">
+      {/* Full-bleed fleet strip (sits on the navy ground) */}
+      <div className="mt-12 border-t border-white/10 dt:mt-14">
         <Container className="py-7 dt:py-9">
           {/* Mobile header row */}
           <div className="mb-4 flex items-center justify-between dt:hidden">
@@ -162,12 +166,20 @@ export function TransportSection() {
             <span className="hidden flex-none whitespace-nowrap text-[13px] font-semibold uppercase tracking-[0.16em] text-gold dt:block">
               Our fleet
             </span>
-            <span aria-hidden className="hidden h-[52px] w-px flex-none bg-navy/15 dt:block" />
+            <span aria-hidden className="hidden h-[52px] w-px flex-none bg-white/20 dt:block" />
 
-            <ul className="flex flex-1 gap-[10px] overflow-x-auto snap-x [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:gap-[22px] dt:overflow-visible">
+            <Stagger
+              as="ul"
+              gap={0.09}
+              delay={0.15}
+              amount={0.4}
+              className="flex flex-1 gap-[10px] overflow-x-auto snap-x [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:gap-[22px] dt:overflow-visible"
+            >
               {FLEET.map((v) => (
-                <li
+                <StaggerItem
+                  as="li"
                   key={v.src}
+                  direction="left"
                   className="h-[90px] w-[140px] flex-none snap-start dt:h-20 dt:w-auto dt:flex-1"
                 >
                   <Link
@@ -183,9 +195,9 @@ export function TransportSection() {
                       className="object-cover"
                     />
                   </Link>
-                </li>
+                </StaggerItem>
               ))}
-            </ul>
+            </Stagger>
 
             <Link
               href={FLEETS}

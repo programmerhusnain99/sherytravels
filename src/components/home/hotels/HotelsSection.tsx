@@ -3,6 +3,7 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
+import { Reveal } from "@/components/motion/Reveal";
 import { HotelsTabs, type Hotel } from "./HotelsTabs";
 import { HotelsScrollButtons } from "./HotelsScrollButtons";
 
@@ -43,14 +44,14 @@ const MADINAH: Hotel[] = [
  */
 export function HotelsSection() {
   return (
-    <Section bg="ice" className="py-16 dt:py-24">
+    <Section bg="white" className="py-16 dt:py-24">
       <Container>
         <div className="dt:grid dt:grid-cols-[minmax(0,1fr)_420px] dt:items-stretch dt:gap-12">
           {/* Left: heading + tabs + cards */}
           <div>
             <div className="flex items-start gap-5">
               <HotelsScrollButtons />
-              <div className="flex-1 text-center dt:text-left">
+              <Reveal as="div" className="flex-1 text-center dt:text-left">
                 <Eyebrow align="center" className="dt:justify-start">
                   Where You&apos;ll Stay
                 </Eyebrow>
@@ -65,7 +66,7 @@ export function HotelsSection() {
                   Shery Travels partners with 3, 4 and 5-star hotels in Makkah and
                   Madinah, carefully selected for comfort, quality and convenience.
                 </p>
-              </div>
+              </Reveal>
             </div>
 
             {/* Mobile tower banner */}
