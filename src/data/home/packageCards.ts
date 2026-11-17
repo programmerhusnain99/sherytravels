@@ -1,4 +1,7 @@
-import { Plane, Building2, IdCard, BusFront, UserRound, type LucideIcon } from "lucide-react";
+import type { ComponentType } from "react";
+import {
+  FlightsIcon, HotelsIcon, VisaIcon, TransportIcon, GuideIcon,
+} from "@/components/icons/PackageIcons";
 
 export type PackageCard = {
   title: string;
@@ -8,13 +11,15 @@ export type PackageCard = {
   href: string;
 };
 
+export type PackageFeatureIcon = ComponentType<{ className?: string }>;
+
 /** Shared feature row shown on every package card. */
-export const PACKAGE_FEATURES: { Icon: LucideIcon; label: string }[] = [
-  { Icon: Plane, label: "Flights" },
-  { Icon: Building2, label: "Hotels" },
-  { Icon: IdCard, label: "Visa" },
-  { Icon: BusFront, label: "Transport" },
-  { Icon: UserRound, label: "Guide" },
+export const PACKAGE_FEATURES: { Icon: PackageFeatureIcon; label: string }[] = [
+  { Icon: FlightsIcon, label: "Flights" },
+  { Icon: HotelsIcon, label: "Hotels" },
+  { Icon: VisaIcon, label: "Visa" },
+  { Icon: TransportIcon, label: "Transport" },
+  { Icon: GuideIcon, label: "Guide" },
 ];
 
 export const PACKAGE_CARDS: PackageCard[] = [
