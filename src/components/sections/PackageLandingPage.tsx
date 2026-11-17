@@ -56,7 +56,23 @@ function splitHeading(text: string): { before: string; accent: string } {
  * Shared template for all /umrah/usa-packages/<slug>/ landing pages (cities,
  * package types, seasonal, months). Fed by one data object per page.
  */
-export function PackageLandingPage({ data }: { data: PackageLandingData }) {
+const DEFAULT_TRAIL = [
+  { name: "Home", path: "/" },
+  { name: "Umrah", path: "/umrah/" },
+  { name: "USA Packages", path: "/umrah/usa-packages/" },
+];
+
+export function PackageLandingPage({
+  data,
+  breadcrumb,
+  packagesHref,
+}: {
+  data: PackageLandingData;
+  /** Breadcrumb trail BEFORE the final page crumb. Defaults to the USA-packages trail. */
+  breadcrumb?: { name: string; path: string }[];
+  /** "View all packages" target for the suggestions carousel. Defaults to /umrah/usa-packages/. */
+  packagesHref?: string;
+}) {
   const h1 = splitHeading(data.h1);
   const pkg = data.packagesHeading ? splitHeading(data.packagesHeading) : null;
   const hilite = splitHeading(data.highlightHeading);
@@ -66,9 +82,7 @@ export function PackageLandingPage({ data }: { data: PackageLandingData }) {
     <PageShell active="/umrah/">
       <JsonLd
         data={breadcrumbSchema([
-          { name: "Home", path: "/" },
-          { name: "Umrah", path: "/umrah/" },
-          { name: "USA Packages", path: "/umrah/usa-packages/" },
+          ...(breadcrumb ?? DEFAULT_TRAIL),
           { name: data.crumb, path: data.path },
         ])}
       />
@@ -175,6 +189,7 @@ export function PackageLandingPage({ data }: { data: PackageLandingData }) {
         headingBefore="Explore more "
         headingAccent="packages"
         description="Browse other Umrah packages — flights, visa, hotels near the Haram and transport, all arranged for you."
+        viewAllHref={packagesHref}
         bg="ice"
       />
 
