@@ -107,7 +107,7 @@ export function Header({ active = "/" }: { active?: string }) {
       </div>
 
       {/* Logo + nav row */}
-      <Container className="flex items-center justify-between border-b border-navy/10 py-4 dt:py-5">
+      <Container className="flex items-center justify-between border-b border-navy/10 py-3">
         <Link href="/" aria-label="Shery Travels — home">
           <Image
             src="/images/common/common-logo-lockup.webp"

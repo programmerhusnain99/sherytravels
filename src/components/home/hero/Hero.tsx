@@ -20,7 +20,7 @@ export function Hero() {
         />
 
         <Stagger mount gap={0.14} className="relative flex flex-col items-center">
-          <StaggerItem className="mb-5">
+          <StaggerItem className="mb-4">
             <Eyebrow>Start your pilgrimage with confidence</Eyebrow>
           </StaggerItem>
 
@@ -33,7 +33,7 @@ export function Hero() {
             />
           </StaggerItem>
 
-          <StaggerItem className="order-3 mt-3 w-full dt:mt-4">
+          <StaggerItem className="order-3 mt-5 w-full dt:mt-6">
             <HeroArch />
           </StaggerItem>
         </Stagger>
