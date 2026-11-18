@@ -94,7 +94,7 @@ export function UmrahSection() {
 
               <DropBounce className="mt-8 dt:mt-0">
                 <Button
-                  href="/umrah/"
+                  href="/umrah-packages/"
                   variant="gold"
                   size="lg"
                   className="w-full uppercase tracking-[0.07em] dt:w-auto"

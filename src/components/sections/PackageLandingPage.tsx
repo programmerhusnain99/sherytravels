@@ -58,7 +58,7 @@ function splitHeading(text: string): { before: string; accent: string } {
  */
 const DEFAULT_TRAIL = [
   { name: "Home", path: "/" },
-  { name: "Umrah", path: "/umrah/" },
+  { name: "Umrah Packages", path: "/umrah-packages/" },
   { name: "USA Packages", path: "/umrah/usa-packages/" },
 ];
 
@@ -79,7 +79,7 @@ export function PackageLandingPage({
   const plan = splitHeading(data.planHeading);
 
   return (
-    <PageShell active="/umrah/">
+    <PageShell active="/umrah-packages/">
       <JsonLd
         data={breadcrumbSchema([
           ...(breadcrumb ?? DEFAULT_TRAIL),

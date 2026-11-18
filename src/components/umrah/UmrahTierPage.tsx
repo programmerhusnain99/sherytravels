@@ -20,7 +20,7 @@ export function UmrahTierPage({ tier }: { tier: UmrahTier }) {
   const path = `${PACKAGES_PATH}${tier.slug}/`;
 
   return (
-    <PageShell active="/umrah/">
+    <PageShell active="/umrah-packages/">
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },

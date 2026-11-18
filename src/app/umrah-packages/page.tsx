@@ -26,7 +26,7 @@ export const metadata = pageMetadata({
 
 export default function UmrahPackagesPage() {
   return (
-    <PageShell active="/umrah/">
+    <PageShell active="/umrah-packages/">
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },

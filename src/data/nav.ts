@@ -30,8 +30,8 @@ export const MENU: MenuItem[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about/" },
   {
+    // Group-only heading (no standalone page) — opens the submenu on click/hover.
     label: "Umrah",
-    href: "/umrah/",
     children: [
       { label: "Umrah Packages", href: "/umrah-packages/" },
       { label: "3-Star Umrah", href: "/umrah-packages/3-star/" },
@@ -42,8 +42,8 @@ export const MENU: MenuItem[] = [
     ],
   },
   {
+    // Group-only heading (no standalone page) — opens the submenu on click/hover.
     label: "Hajj",
-    href: "/hajj/",
     children: [{ label: "Hajj Packages", href: "/hajj-packages/" }],
   },
   {
@@ -100,7 +100,6 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
   {
     heading: "Umrah",
     links: [
-      { label: "Umrah", href: "/umrah/" },
       { label: "Umrah Packages", href: "/umrah-packages/" },
       { label: "3-Star Umrah", href: "/umrah-packages/3-star/" },
       { label: "4-Star Umrah", href: "/umrah-packages/4-star/" },
@@ -112,7 +111,6 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
   {
     heading: "Services",
     links: [
-      { label: "Hajj", href: "/hajj/" },
       { label: "Hajj Packages", href: "/hajj-packages/" },
       { label: "Transport", href: "/umrah-transport/" },
       { label: "Vehicles", href: "/umrah-transport/vehicles/" },
