@@ -102,18 +102,14 @@ export function PackagesShowcase({
       onFocusCapture={() => (paused.current = true)}
       onBlurCapture={() => (paused.current = false)}
       className={`no-scrollbar flex snap-x snap-mandatory items-start gap-5 overflow-x-auto pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${
-        layout === "split" ? "" : "px-5 dt:px-10"
+        layout === "split" ? "-mr-5 dt:-mr-14" : "px-5 dt:px-10"
       }`}
     >
       {packages.map((pkg) => (
         <div
           key={pkg.title + pkg.href}
           data-card
-          className={
-            layout === "split"
-              ? "w-[82vw] max-w-[340px] flex-none snap-start sm:w-[300px]"
-              : "w-[84vw] max-w-[390px] flex-none snap-start sm:w-[56vw] dt:w-[388px]"
-          }
+          className="w-[84vw] max-w-[390px] flex-none snap-start sm:w-[56vw] dt:w-[388px]"
         >
           <PackageCard pkg={pkg} />
         </div>

@@ -35,7 +35,7 @@ const UMRAH: PackageCard[] = [
 /** Homepage section: Umrah package tiers as large cards, linking to /umrah-packages. */
 export function ExploreUmrahPackages() {
   return (
-    <Section bg="ice" className="py-16 dt:py-24">
+    <Section bg="white" className="py-16 dt:py-24">
       <Container>
         <Reveal as="div" className="mx-auto mb-11 max-w-[760px] text-center">
           <Eyebrow align="center" className="mb-4">The serenity of Umrah</Eyebrow>

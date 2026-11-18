@@ -44,7 +44,7 @@ export function PerfectPackages() {
   };
 
   return (
-    <Section bg="ice" className="pb-12 pt-12 dt:pb-16 dt:pt-20">
+    <Section bg="white" className="pb-12 pt-12 dt:pb-16 dt:pt-20">
       <Container className="mb-[26px] flex items-end justify-between gap-6 dt:mb-10">
         <Reveal as="div">
           <AccentHeading
@@ -121,11 +121,11 @@ export function PerfectPackages() {
           {/* Concave (diverging-lens) curve — ice arcs dip into the top & bottom centre */}
           <div
             aria-hidden
-            className="pointer-events-none absolute left-1/2 top-[-74px] z-10 h-[100px] w-[150%] -translate-x-1/2 rounded-[50%] bg-ice"
+            className="pointer-events-none absolute left-1/2 top-[-74px] z-10 h-[100px] w-[150%] -translate-x-1/2 rounded-[50%] bg-white"
           />
           <div
             aria-hidden
-            className="pointer-events-none absolute left-1/2 bottom-[-74px] z-10 h-[100px] w-[150%] -translate-x-1/2 rounded-[50%] bg-ice"
+            className="pointer-events-none absolute left-1/2 bottom-[-74px] z-10 h-[100px] w-[150%] -translate-x-1/2 rounded-[50%] bg-white"
           />
         </div>
     </Section>
