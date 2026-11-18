@@ -33,7 +33,7 @@ export function Hero() {
             />
           </StaggerItem>
 
-          <StaggerItem className="order-3 mt-5 w-full dt:mt-6">
+          <StaggerItem className="order-3 mt-8 w-full dt:mt-9">
             <HeroArch />
           </StaggerItem>
         </Stagger>
