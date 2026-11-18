@@ -28,6 +28,7 @@ export interface MenuItem {
 
 export const MENU: MenuItem[] = [
   { label: "Home", href: "/" },
+  { label: "About", href: "/about/" },
   {
     label: "Umrah",
     href: "/umrah/",
@@ -53,9 +54,14 @@ export const MENU: MenuItem[] = [
       { label: "Routes", href: "/umrah-transport/routes/" },
     ],
   },
-  { label: "Ziyarat", href: "/ziyarat/" },
-  { label: "Hotels", href: "/hotels/" },
-  { label: "About", href: "/about/" },
+  {
+    // Group-only heading (no page of its own) for the two standalone services.
+    label: "Explore",
+    children: [
+      { label: "Ziyarat", href: "/ziyarat/" },
+      { label: "Hotels", href: "/hotels/" },
+    ],
+  },
   { label: "Contact", href: "/contact/" },
 ];
 

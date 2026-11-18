@@ -9,19 +9,28 @@ import { MENU, UTILITY_NAV, PHONES, type MenuItem } from "@/data/nav";
 
 /** Desktop dropdown with nested flyout submenus (CSS hover/focus — no JS). */
 function NavDropdown({ item, active }: { item: MenuItem; active: string }) {
-  const isActive = item.href === active;
+  const isActive = item.href === active || !!item.children?.some((c) => c.href === active);
+  const triggerCls = `flex items-center gap-1 transition-opacity ${
+    isActive ? "font-semibold text-navy" : "text-navy opacity-[0.68] group-hover:opacity-100"
+  }`;
+  const inner = (
+    <>
+      {item.label}
+      <ChevronDown size={14} className="transition-transform duration-150 group-hover:rotate-180" />
+    </>
+  );
 
   return (
     <div className="group relative">
-      <Link
-        href={item.href ?? "#"}
-        className={`flex items-center gap-1 transition-opacity ${
-          isActive ? "font-semibold text-navy" : "text-navy opacity-[0.68] group-hover:opacity-100"
-        }`}
-      >
-        {item.label}
-        <ChevronDown size={14} className="transition-transform duration-150 group-hover:rotate-180" />
-      </Link>
+      {item.href ? (
+        <Link href={item.href} className={triggerCls}>
+          {inner}
+        </Link>
+      ) : (
+        <button type="button" aria-haspopup="true" className={triggerCls}>
+          {inner}
+        </button>
+      )}
 
       {/* First-level panel: the main options */}
       <div className="invisible absolute left-0 top-full z-50 pt-3 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
