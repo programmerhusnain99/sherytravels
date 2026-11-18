@@ -43,7 +43,7 @@ export function Footer() {
       {/* Navy link area */}
       <div className="bg-navy text-white">
         <Container className="py-12 dt:py-14">
-          <div className="grid gap-10 dt:grid-cols-[1.4fr_1fr_1fr_1fr] dt:gap-12">
+          <div className="grid gap-10 dt:grid-cols-[1.4fr_1fr_1fr_1fr_1fr] dt:gap-12">
             {/* Brand column */}
             <div className="flex flex-col items-center gap-4 text-center dt:items-start dt:text-left">
               <Image
@@ -84,7 +84,7 @@ export function Footer() {
             </div>
 
             {/* Link columns */}
-            <div className="grid grid-cols-3 gap-8 dt:col-span-3 dt:grid-cols-3">
+            <div className="grid grid-cols-2 gap-8 dt:col-span-4 dt:grid-cols-4">
               {FOOTER_COLUMNS.map((col) => (
                 <div key={col.heading}>
                   <h3 className="mb-3 text-[13px] font-semibold uppercase tracking-[0.14em] text-gold">{col.heading}</h3>

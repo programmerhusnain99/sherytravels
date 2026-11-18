@@ -55,9 +55,15 @@ function SiteChips({ sites }: { sites: string[] }) {
 }
 
 /** Shared Ziarat / Ziyarat page body (legacy /transportation/ziarat/ + new /ziyarat/). */
-export function ZiaratContent({ breadcrumb }: { breadcrumb: { name: string; path: string }[] }) {
+export function ZiaratContent({
+  breadcrumb,
+  active = "/transportation/",
+}: {
+  breadcrumb: { name: string; path: string }[];
+  active?: string;
+}) {
   return (
-    <PageShell active="/transportation/">
+    <PageShell active={active}>
       <JsonLd data={breadcrumbSchema(breadcrumb)} />
 
       {/* Hero */}

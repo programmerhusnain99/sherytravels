@@ -20,6 +20,7 @@ export default function UmrahTransportPage() {
       ]}
       fleetsHref="/umrah-transport/vehicles/"
       ziaratHref="/ziyarat/"
+      active="/umrah-transport/"
     />
   );
 }

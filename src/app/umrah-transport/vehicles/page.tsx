@@ -19,6 +19,7 @@ export default function UmrahTransportVehiclesPage() {
         { name: "Umrah Transport", path: "/umrah-transport/" },
         { name: "Vehicles", path: PATH },
       ]}
+      active="/umrah-transport/"
     />
   );
 }

@@ -18,6 +18,7 @@ export default function ZiyaratPage() {
         { name: "Home", path: "/" },
         { name: "Ziyarat", path: PATH },
       ]}
+      active="/ziyarat/"
     />
   );
 }

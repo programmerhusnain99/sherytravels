@@ -60,13 +60,15 @@ export function TransportationContent({
   breadcrumb,
   fleetsHref,
   ziaratHref,
+  active = "/transportation/",
 }: {
   breadcrumb: { name: string; path: string }[];
   fleetsHref: string;
   ziaratHref: string;
+  active?: string;
 }) {
   return (
-    <PageShell active="/transportation/">
+    <PageShell active={active}>
       <JsonLd data={breadcrumbSchema(breadcrumb)} />
 
       {/* Hero */}

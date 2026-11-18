@@ -42,9 +42,15 @@ const FAQ = [
 ];
 
 /** Shared Fleet / Vehicles page body (legacy /transportation/fleets/ + new /umrah-transport/vehicles/). */
-export function FleetsContent({ breadcrumb }: { breadcrumb: { name: string; path: string }[] }) {
+export function FleetsContent({
+  breadcrumb,
+  active = "/transportation/",
+}: {
+  breadcrumb: { name: string; path: string }[];
+  active?: string;
+}) {
   return (
-    <PageShell active="/transportation/">
+    <PageShell active={active}>
       <JsonLd data={breadcrumbSchema(breadcrumb)} />
 
       {/* Hero */}
