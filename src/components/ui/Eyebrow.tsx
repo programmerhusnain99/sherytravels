@@ -16,11 +16,11 @@ export function Eyebrow({
     <div
       className={`flex items-center gap-3 ${align === "center" ? "justify-center" : "justify-start"} ${className}`}
     >
-      <span className="h-px w-6 bg-gold" />
-      <span className={`text-[12px] font-semibold uppercase tracking-[0.22em] ${text}`}>
+      <span className="h-px w-5 flex-none bg-gold dt:w-6" />
+      <span className={`whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.15em] dt:text-[12px] dt:tracking-[0.22em] ${text}`}>
         {children}
       </span>
-      {align === "center" && <span className="h-px w-6 bg-gold" />}
+      {align === "center" && <span className="h-px w-5 flex-none bg-gold dt:w-6" />}
     </div>
   );
 }
