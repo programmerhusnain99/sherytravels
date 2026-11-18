@@ -7,8 +7,8 @@ import { HeroEnquiry } from "@/components/home/hero/HeroEnquiry";
 import { CredentialsStrip } from "@/components/home/credentials/CredentialsStrip";
 import { BeyondTravel } from "@/components/home/beyond/BeyondTravel";
 import { PackagesShowcase } from "@/components/home/packages/PackagesShowcase";
+import { UMRAH_PACKAGES } from "@/data/home/packageCards";
 import { UmrahSection } from "@/components/home/umrah/UmrahSection";
-import { ExploreUmrahPackages } from "@/components/home/explore/ExploreUmrahPackages";
 import { FirstChoice } from "@/components/home/first-choice/FirstChoice";
 import { PerfectPackages } from "@/components/home/perfect/PerfectPackages";
 import { TransportSection } from "@/components/home/transport/TransportSection";
@@ -46,7 +46,15 @@ export default function HomePage() {
           description="Our most-booked Hajj & Umrah packages — flights, visa, hotels near the Haram and transport, all arranged for you."
         />
         <UmrahSection />
-        <ExploreUmrahPackages />
+        <PackagesShowcase
+          bg="white"
+          eyebrow="The serenity of Umrah"
+          headingBefore="Explore Our Umrah "
+          headingAccent="Packages"
+          description="Choose the comfort level that suits you — every package includes flights, visa, hotels near the Haram and transport, fully arranged for you."
+          packages={UMRAH_PACKAGES}
+          viewAllHref="/umrah-packages/"
+        />
         <FirstChoice />
         <PerfectPackages />
         <TransportSection />

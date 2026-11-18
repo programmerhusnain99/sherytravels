@@ -60,6 +60,45 @@ export const PACKAGE_CARDS: PackageCard[] = [
   },
 ];
 
+/** Umrah tier/season cards for the homepage "Explore Our Umrah Packages" carousel. */
+export const UMRAH_PACKAGES: PackageCard[] = [
+  {
+    title: "3-Star Umrah Package",
+    image: "/images/home/home-hotel-grand.webp",
+    highlights: ["7 Nights · 4 Makkah / 3 Madinah", "Comfortable hotels near the Haram", "Visa & Transport included"],
+    price: "$940",
+    href: "/umrah-packages/3-star/",
+  },
+  {
+    title: "4-Star Umrah Package",
+    image: "/images/home/home-hotel-kiswah.webp",
+    highlights: ["10 Nights · 5 Makkah / 5 Madinah", "Premium-comfort hotels", "Visa & Transport included"],
+    price: "$1,140",
+    href: "/umrah-packages/4-star/",
+  },
+  {
+    title: "5-Star Umrah Package",
+    image: "/images/home/home-pkg-luxury.webp",
+    highlights: ["6 Nights · 3 Makkah / 3 Madinah", "5★ Haram-view rooms", "Private transfers & guide"],
+    price: "$1,670",
+    href: "/umrah-packages/5-star/",
+  },
+  {
+    title: "Ramadan Umrah Package",
+    image: "/images/home/home-pkg-ramadan.webp",
+    highlights: ["Ramadan departures", "Hotels close to the Haram", "Visa & Transport included"],
+    price: "$1,890",
+    href: "/umrah-packages/ramadan/",
+  },
+  {
+    title: "December Umrah Package",
+    image: "/images/home/home-pkg-december.webp",
+    highlights: ["December departures", "Family-friendly options", "Visa & Transport included"],
+    price: "$1,180",
+    href: "/umrah-packages/december/",
+  },
+];
+
 export const HAJJ_PACKAGES: PackageCard[] = [
   {
     title: "Economy Hajj Package",
