@@ -56,7 +56,7 @@ export const MENU: MenuItem[] = [
   },
   {
     // Group-only heading (no page of its own) for the two standalone services.
-    label: "Explore",
+    label: "Services",
     children: [
       { label: "Ziyarat", href: "/ziyarat/" },
       { label: "Hotels", href: "/hotels/" },
