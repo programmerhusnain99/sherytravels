@@ -27,9 +27,9 @@ export function Hero() {
           <StaggerItem className="order-2 w-full">
             <AccentHeading
               as="h1"
-              before="Embrace Your Spirit: Step Boldly onto Your Sacred "
+              before="Begin Your Sacred "
               accent="Journey"
-              className="mx-auto max-w-[900px] text-[31px] leading-[1.2] text-navy dt:text-[50px] dt:leading-[1.16]"
+              className="mx-auto max-w-[640px] text-[30px] leading-[1.14] text-navy dt:text-[44px] dt:leading-[1.12]"
             />
           </StaggerItem>
 

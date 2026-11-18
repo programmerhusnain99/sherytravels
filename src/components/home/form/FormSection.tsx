@@ -1,11 +1,10 @@
 import Image from "next/image";
-import { Phone, Mail, Check } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { Reveal } from "@/components/motion/Reveal";
-import { ReadMore } from "@/components/ui/ReadMore";
 import { FormEnquiry } from "./FormEnquiry";
 
 const STATS = [
@@ -57,39 +56,10 @@ export function FormSection() {
               />
             </Reveal>
 
-            <ReadMore
-              id="rm-form"
-              className="mx-auto mt-4 max-w-[460px] dt:mx-0 dt:mt-5"
-              leadClassName="text-[15.5px] font-light leading-[1.62] text-white/90 dt:text-[16.5px] dt:leading-[1.7]"
-              lead={
-                <>
-                  Whether it’s your first-ever Umrah or once-in-a-lifetime Hajj, it all begins with a
-                  simple conversation with us. Fill out the form and share your request with us. Our
-                  travel expert will walk you through the options, answer all your questions, and
-                  ensure to offer a customized or the best Umrah and Hajj package based on your
-                  location, budget, and goals.
-                </>
-              }
-            />
-
-            <p className="mx-auto mt-4 max-w-[460px] text-[14.5px] font-light leading-[1.6] text-white/80 dt:mx-0">
-              We don’t believe in one-size-fits-all, which is why we take your preferences into
-              careful consideration. So you can fulfill your spiritual journey without any stress,
-              once you have submitted the form:
+            <p className="mx-auto mt-5 max-w-[460px] text-[15.5px] font-light leading-[1.7] text-white/90 dt:mx-0 dt:text-[16.5px]">
+              Your journey begins with a simple conversation. Share your dates and preferences, and a
+              travel expert will reply within 24 hours with the best Umrah or Hajj package for you.
             </p>
-
-            <ul className="mx-auto mt-4 flex max-w-[460px] flex-col gap-2.5 text-left dt:mx-0">
-              {[
-                "You’ll receive travel recommendations within 24 hours",
-                "We’ll guide you about the necessary documents and payments",
-                "Our spokesperson will contact you for further assistance.",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-2.5 text-[14.5px] text-white/90">
-                  <Check size={17} className="mt-0.5 flex-none text-gold" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
 
             {/* Gold trust stats */}
             <div className="mt-8 flex items-stretch justify-center gap-7 dt:justify-start dt:gap-10">
