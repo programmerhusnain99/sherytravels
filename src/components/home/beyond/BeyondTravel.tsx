@@ -1,108 +1,68 @@
-import Image from "next/image";
-import { Check } from "lucide-react";
+import { Award, Users, Headset, ArrowRight } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
-import { Reveal } from "@/components/motion/Reveal";
+import { Button } from "@/components/ui/Button";
+import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
 import { DropBounce } from "@/components/motion/DropBounce";
-import { ReadMore } from "@/components/ui/ReadMore";
 
-// Content verbatim from the live site's "Beyond Travel" section.
-const POINTS = [
-  "Over 10 years of dedicated service",
-  "Customized Hajj and Umrah services to suit individual needs",
-  "Strong network in Saudi Arabia and beyond",
+const STATS = [
+  { Icon: Award, value: "10+", label: "Years guiding pilgrims" },
+  { Icon: Users, value: "1,000+", label: "Pilgrims served" },
+  { Icon: Headset, value: "24/7", label: "On-ground support" },
 ];
 
 /**
- * Navy band so the white overlapping pillar cards above read as floating over a
- * dark backdrop. Generous top padding leaves room for that overlap.
+ * Compact navy band under the floating enquiry card: a short, confident
+ * statement plus three trust stats. Keeps generous top padding so the enquiry
+ * card above overlaps cleanly.
  */
 export function BeyondTravel() {
   return (
-    <Section bg="navy" className="relative overflow-hidden pb-16 pt-28 dt:pb-24 dt:pt-40">
-      {/* Decorative rings */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -left-32 bottom-0 hidden h-[420px] w-[420px] rounded-full border border-gold/12 dt:block"
-      />
+    <Section bg="navy" className="relative overflow-hidden pb-14 pt-32 dt:pb-20 dt:pt-36">
+      <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(219,183,37,0.14),transparent_70%)]" />
 
-      <Container className="relative grid items-center gap-12 dt:grid-cols-[1.05fr_0.95fr] dt:gap-16">
-        {/* Heading + copy + points */}
-        <div className="text-center dt:text-left">
-          <Reveal as="div">
-            <Eyebrow align="center" tone="white" className="mb-4 dt:justify-start">
-              Beyond travel
-            </Eyebrow>
-            <AccentHeading
-              as="h2"
-              before="Beyond Travel — Where Every Step of Your Pilgrimage "
-              accent="Matters"
-              className="text-[27px] leading-[1.2] text-white dt:text-[38px] dt:leading-[1.16]"
-            />
-          </Reveal>
-          <ReadMore
-            id="rm-beyond"
-            className="mt-5"
-            leadClassName="text-[15.5px] font-light leading-[1.72] text-white/85"
-            lead={
-              <>
-                With over a decade of experience, we have learned the importance of faith and
-                religious journeys for Muslims, who are looking to renew their emotional and
-                spiritual strength. We, at Shery Travels, are dedicated to fulfilling our part in
-                your pilgrimage to ensure a smooth travel experience. From helping process visas to
-                guided tours, comfortable transportation, and family-friendly accommodations, we
-                provide a hassle-free experience from beginning to end.
-              </>
-            }
-          >
-            <p className="mt-4 text-[15.5px] font-light leading-[1.72] text-white/70">
-              Whether you’re seeking luxury accommodations and essentials for a lavish stay or
-              affordable options that still offer the essentials, we have what you need.
-            </p>
-          </ReadMore>
-
-          <ul className="mx-auto mt-7 flex max-w-[460px] flex-col gap-3 text-left dt:mx-0">
-            {POINTS.map((p) => (
-              <li key={p} className="flex items-start gap-3">
-                <span className="mt-0.5 grid h-6 w-6 flex-none place-items-center rounded-full bg-gold/15 ring-1 ring-gold/30">
-                  <Check size={14} className="text-gold" aria-hidden />
-                </span>
-                <span className="text-[14.5px] font-light leading-snug text-white/90">{p}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Image with a floating stat badge */}
-        <div className="relative mx-auto w-full max-w-[460px]">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -right-6 -top-6 hidden h-32 w-32 rounded-full border border-gold/25 dt:block"
+      <Container className="relative">
+        <Reveal as="div" className="mx-auto max-w-[760px] text-center">
+          <Eyebrow align="center" tone="white" className="mb-4">Why Shery Travels</Eyebrow>
+          <AccentHeading
+            as="h2"
+            before="A Pilgrimage Handled, End to "
+            accent="End"
+            className="text-[28px] leading-[1.16] text-white dt:text-[40px]"
           />
-          <div className="relative h-[340px] w-full overflow-hidden rounded-t-[160px] rounded-b-[18px] bg-lightblue shadow-[0_40px_80px_-30px_rgba(0,0,0,0.55)] dt:h-[420px]">
-            <Image
-              src="/images/home/home-beyond.webp"
-              alt="Pilgrims on their journey with Shery Travels"
-              fill
-              sizes="(max-width:900px) 460px, 460px"
-              className="object-cover"
-            />
-          </div>
+          <p className="mx-auto mt-4 max-w-[600px] text-[15.5px] font-light leading-[1.7] text-white/80 dt:text-[16.5px]">
+            Visas, hotels near the Haram, guided ziyarat and comfortable transport — every detail
+            arranged for you, so you can focus entirely on your worship.
+          </p>
+        </Reveal>
 
-          {/* Floating stat badge (drops in and bounces) */}
-          <div className="absolute -bottom-5 inset-x-0 flex justify-center dt:inset-x-auto dt:left-[-24px] dt:block">
-            <DropBounce className="flex w-fit items-center gap-3 rounded-2xl border border-white/10 bg-white px-5 py-3.5 shadow-[0_24px_50px_-18px_rgba(0,0,0,0.5)]">
-              <span className="font-serif text-[36px] font-bold leading-none text-navy">10+</span>
-              <span className="text-[12.5px] font-light leading-tight text-navy/70">
-                years guiding
-                <br />
-                pilgrims
+        <Stagger as="div" gap={0.12} delay={0.1} className="mx-auto mt-9 grid max-w-[720px] gap-4 sm:grid-cols-3">
+          {STATS.map(({ Icon, value, label }) => (
+            <StaggerItem
+              as="div"
+              key={label}
+              direction="up"
+              className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.06] px-5 py-4 transition-colors hover:border-gold/40 sm:flex-col sm:gap-2 sm:py-6 sm:text-center"
+            >
+              <span className="grid h-12 w-12 flex-none place-items-center rounded-xl border border-gold/50 text-gold">
+                <Icon size={22} />
               </span>
-            </DropBounce>
-          </div>
-        </div>
+              <div>
+                <div className="font-serif text-[26px] font-bold leading-none text-gold dt:text-[30px]">{value}</div>
+                <div className="mt-1.5 text-[13px] font-light text-white/80">{label}</div>
+              </div>
+            </StaggerItem>
+          ))}
+        </Stagger>
+
+        <DropBounce className="mt-9 flex justify-center">
+          <Button href="/about/" variant="gold" size="lg" className="rounded-lg uppercase tracking-[0.06em]">
+            Discover Shery Travels
+            <ArrowRight size={18} aria-hidden />
+          </Button>
+        </DropBounce>
       </Container>
     </Section>
   );

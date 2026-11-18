@@ -123,7 +123,7 @@ export default function AboutPage() {
           />
           <div className="flex flex-none gap-3">
             <InquireButton variant="gold" size="lg" className="rounded-lg">Inquire Now</InquireButton>
-            <Button href="/umrah/" variant="outline" size="lg" className="hidden border-white/30 text-white dt:inline-flex">
+            <Button href="/umrah-packages/" variant="outline" size="lg" className="hidden border-white/30 text-white dt:inline-flex">
               Explore Umrah
             </Button>
           </div>

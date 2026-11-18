@@ -66,13 +66,13 @@ export function PackageCardLarge({ pkg }: { pkg: TPackageCard }) {
         </div>
 
         {/* Feature row */}
-        <div className="flex items-stretch border-t border-navy/10 pt-2.5">
+        <div className="pkg-feature-icons flex items-stretch border-t border-navy/10 pt-2.5">
           {PACKAGE_FEATURES.map(({ Icon, label }, i) => (
             <div
               key={label}
-              className={`flex flex-1 flex-col items-center gap-0.5 ${i > 0 ? "border-l border-navy/10" : ""}`}
+              className={`flex flex-1 flex-col items-center gap-1 ${i > 0 ? "border-l border-navy/10" : ""}`}
             >
-              <Icon size={16} className="text-gold" aria-hidden />
+              <Icon className="h-[26px] w-[26px]" />
               <span className="text-[10.5px] font-medium text-navy/75">{label}</span>
             </div>
           ))}

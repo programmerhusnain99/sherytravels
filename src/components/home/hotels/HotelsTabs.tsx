@@ -154,7 +154,7 @@ function HotelCardDesktop({ hotel, highlighted }: { hotel: Hotel; highlighted: b
           {hotel.nearest}
         </p>
         <Link
-          href="/umrah/usa-packages/"
+          href="/hotels/"
           className="inline-flex w-fit items-center gap-1 text-[13px] font-medium text-navy underline underline-offset-[3px] hover:text-navy/70"
         >
           View All Details <ArrowRight size={15} />
@@ -209,7 +209,7 @@ function HotelCardMobile({ hotel, highlighted }: { hotel: Hotel; highlighted: bo
         </p>
         <div className="flex items-center justify-between">
           <Link
-            href="/umrah/usa-packages/"
+            href="/hotels/"
             className="inline-flex items-center gap-1 text-[13px] font-medium text-navy underline underline-offset-[3px] hover:text-navy/70"
           >
             View Details <ArrowRight size={15} />

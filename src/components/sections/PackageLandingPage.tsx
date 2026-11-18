@@ -56,19 +56,32 @@ function splitHeading(text: string): { before: string; accent: string } {
  * Shared template for all /umrah/usa-packages/<slug>/ landing pages (cities,
  * package types, seasonal, months). Fed by one data object per page.
  */
-export function PackageLandingPage({ data }: { data: PackageLandingData }) {
+const DEFAULT_TRAIL = [
+  { name: "Home", path: "/" },
+  { name: "Umrah Packages", path: "/umrah-packages/" },
+];
+
+export function PackageLandingPage({
+  data,
+  breadcrumb,
+  packagesHref,
+}: {
+  data: PackageLandingData;
+  /** Breadcrumb trail BEFORE the final page crumb. Defaults to the USA-packages trail. */
+  breadcrumb?: { name: string; path: string }[];
+  /** "View all packages" target for the suggestions carousel. Defaults to /umrah/usa-packages/. */
+  packagesHref?: string;
+}) {
   const h1 = splitHeading(data.h1);
   const pkg = data.packagesHeading ? splitHeading(data.packagesHeading) : null;
   const hilite = splitHeading(data.highlightHeading);
   const plan = splitHeading(data.planHeading);
 
   return (
-    <PageShell active="/umrah/">
+    <PageShell active="/umrah-packages/">
       <JsonLd
         data={breadcrumbSchema([
-          { name: "Home", path: "/" },
-          { name: "Umrah", path: "/umrah/" },
-          { name: "USA Packages", path: "/umrah/usa-packages/" },
+          ...(breadcrumb ?? DEFAULT_TRAIL),
           { name: data.crumb, path: data.path },
         ])}
       />
@@ -76,16 +89,18 @@ export function PackageLandingPage({ data }: { data: PackageLandingData }) {
       {/* Hero */}
       <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-12 dt:pt-16">
         <div aria-hidden className="pointer-events-none absolute -left-32 top-10 hidden h-[460px] w-[460px] rounded-full border border-gold/15 dt:block" />
-        <Container className="grid items-center gap-10 dt:grid-cols-2 dt:gap-16">
-          <div className="order-2 text-center dt:order-1 dt:text-left">
-            <Eyebrow align="center" className="mb-5 dt:justify-start">{data.crumb} · Umrah packages</Eyebrow>
+        <Container className="grid items-start gap-7 dt:grid-cols-2 dt:gap-x-16 dt:gap-y-5 dt:[grid-template-rows:auto_1fr]">
+          <div className="order-1 text-center dt:col-start-1 dt:row-start-1 dt:text-left">
+            <Eyebrow align="center" className="dt:justify-start">{data.crumb} · Umrah packages</Eyebrow>
+          </div>
+          <div className="order-3 text-center dt:col-start-1 dt:row-start-2 dt:text-left">
             <AccentHeading as="h1" before={h1.before} accent={h1.accent} className="text-[29px] leading-[1.18] text-navy dt:text-[44px]" />
             {data.heroIntro.map((p, i) => (
               <p key={i} className={`${i === 0 ? "mt-5" : "mt-3"} text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]`}>{p}</p>
             ))}
             <div className="mt-7"><InquireButton variant="gold" size="lg" className="rounded-lg">Inquire Now</InquireButton></div>
           </div>
-          <div className="relative order-1 flex justify-center dt:order-2">
+          <div className="relative order-2 flex justify-center dt:col-start-2 dt:row-span-2 dt:self-center">
             <div aria-hidden className="pointer-events-none absolute left-1/2 top-0 hidden h-[500px] w-[450px] -translate-x-1/2 rounded-t-[225px] rounded-b-[18px] border border-navy/10 dt:block" />
             <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.12),transparent_70%)]" />
             <div className="hero-float relative h-[360px] w-[300px] overflow-hidden rounded-t-[150px] rounded-b-[16px] bg-lightblue shadow-[0_34px_62px_-26px_rgba(26,62,110,0.5)] dt:h-[480px] dt:w-[420px]">
@@ -175,6 +190,7 @@ export function PackageLandingPage({ data }: { data: PackageLandingData }) {
         headingBefore="Explore more "
         headingAccent="packages"
         description="Browse other Umrah packages — flights, visa, hotels near the Haram and transport, all arranged for you."
+        viewAllHref={packagesHref}
         bg="ice"
       />
 

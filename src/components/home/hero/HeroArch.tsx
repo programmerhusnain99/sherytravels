@@ -73,7 +73,7 @@ export function HeroArch() {
   const slide = SLIDES[active];
 
   return (
-    <div className="relative mx-auto h-[440px] w-[326px] dt:h-[520px] dt:w-[540px]">
+    <div className="relative mx-auto h-[416px] w-[326px] dt:h-[496px] dt:w-[540px]">
       {/* Ground shadow */}
       <div
         aria-hidden

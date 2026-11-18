@@ -20,6 +20,20 @@
   --breakpoint-dt: 900px;
 }
 
+/*
+ * Glossy gold palette for the detailed package-feature icons (Flights, Hotels,
+ * Visa, Transport, Guide). Set on the feature-row wrapper so the inline SVG
+ * gradients (var(--i-*)) resolve to a metallic gold ramp.
+ */
+.pkg-feature-icons {
+  --i-dk: #6f560e; /* deepest shadow */
+  --i-lo: #b2901f; /* shadow / underside */
+  --i-base: #dbb725; /* brand gold */
+  --i-gl: #e8ca4c; /* lit face */
+  --i-hi: #f4e08c; /* highlight */
+  --i-pa: #fdf7df; /* palest — windows, paper, glass */
+}
+
 html {
   scroll-behavior: smooth;
   /* Offset anchored scroll if a sticky header is added later. */

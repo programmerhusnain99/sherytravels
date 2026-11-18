@@ -20,14 +20,14 @@ type Props = {
   packages?: TPackageCard[];
   viewAllHref?: string;
   bg?: Bg;
+  /** "stacked": heading above the cards (default). "split": heading column on the left, cards on the right. */
+  layout?: "stacked" | "split";
 };
 
 /**
  * Horizontal auto-scrolling showcase of landscape package cards. Advances one
  * card every few seconds, loops at the end, and pauses on hover/touch/focus so
- * the cards stay clickable. Props default to the homepage "Explore Our Umrah
- * Packages" copy; override them to reuse it elsewhere (e.g. "Explore more
- * packages" suggestions).
+ * the cards stay clickable.
  */
 export function PackagesShowcase({
   eyebrow = "Popular departures",
@@ -35,8 +35,9 @@ export function PackagesShowcase({
   headingAccent = "Umrah Packages",
   description = "Hand-picked packages with flights, visa, hotels near the Haram and transport — all arranged for you. Hover to pause and browse.",
   packages = PACKAGE_CARDS,
-  viewAllHref = "/umrah/usa-packages/",
+  viewAllHref = "/umrah-packages/",
   bg = "ice",
+  layout = "stacked",
 }: Props = {}) {
   const track = useRef<HTMLDivElement>(null);
   const paused = useRef(false);
@@ -64,6 +65,92 @@ export function PackagesShowcase({
     return () => clearInterval(id);
   }, []);
 
+  const arrows = (
+    <div className="flex items-center gap-3">
+      <button
+        type="button"
+        aria-label="Previous package"
+        onClick={() => step(-1)}
+        className="grid h-[46px] w-[46px] place-items-center rounded-full bg-navy text-white transition-colors hover:bg-navy/90"
+      >
+        <ArrowLeft size={20} />
+      </button>
+      <button
+        type="button"
+        aria-label="Next package"
+        onClick={() => step(1)}
+        className="grid h-[46px] w-[46px] place-items-center rounded-full bg-gold text-navy transition-[filter] hover:brightness-105"
+      >
+        <ArrowRight size={20} />
+      </button>
+    </div>
+  );
+
+  const viewAll = (
+    <Button href={viewAllHref} variant="navy" size="md" className="uppercase tracking-[0.06em]">
+      View all packages
+      <ArrowRight size={17} aria-hidden />
+    </Button>
+  );
+
+  const trackEl = (
+    <div
+      ref={track}
+      onMouseEnter={() => (paused.current = true)}
+      onMouseLeave={() => (paused.current = false)}
+      onTouchStart={() => (paused.current = true)}
+      onFocusCapture={() => (paused.current = true)}
+      onBlurCapture={() => (paused.current = false)}
+      className={`no-scrollbar flex snap-x snap-mandatory items-start gap-5 overflow-x-auto pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${
+        layout === "split" ? "-mr-5 dt:-mr-14" : "px-5 dt:px-10"
+      }`}
+    >
+      {packages.map((pkg) => (
+        <div
+          key={pkg.title + pkg.href}
+          data-card
+          className="w-[84vw] max-w-[390px] flex-none snap-start sm:w-[56vw] dt:w-[388px]"
+        >
+          <PackageCard pkg={pkg} />
+        </div>
+      ))}
+    </div>
+  );
+
+  if (layout === "split") {
+    return (
+      <Section bg={bg} className="overflow-hidden py-16 dt:py-24">
+        <Container>
+          <div className="grid gap-8 dt:grid-cols-[minmax(0,330px)_minmax(0,1fr)] dt:items-center dt:gap-12">
+            {/* Heading column (left) */}
+            <div className="text-center dt:text-left">
+              <Eyebrow align="center" className="mb-4 dt:justify-start">
+                {eyebrow}
+              </Eyebrow>
+              <AccentHeading
+                as="h2"
+                before={headingBefore}
+                accent={headingAccent}
+                className="text-[28px] leading-[1.16] text-navy dt:text-[40px]"
+              />
+              <p className="mx-auto mt-3 max-w-[460px] text-[15px] font-light leading-[1.65] text-navy/80 dt:mx-0">
+                {description}
+              </p>
+              {/* small empty space, then controls */}
+              <div className="mt-8 flex flex-col items-center gap-4 dt:items-start">
+                {viewAll}
+                {arrows}
+              </div>
+            </div>
+
+            {/* Cards (right) */}
+            {trackEl}
+          </div>
+        </Container>
+      </Section>
+    );
+  }
+
   return (
     <Section bg={bg} className="overflow-hidden py-16 dt:py-24">
       <Container className="mb-8 flex flex-col items-start justify-between gap-5 dt:mb-11 dt:flex-row dt:items-end">
@@ -83,55 +170,12 @@ export function PackagesShowcase({
         </div>
 
         <div className="flex flex-none flex-col items-start gap-4 dt:items-end">
-          <Button
-            href={viewAllHref}
-            variant="navy"
-            size="md"
-            className="uppercase tracking-[0.06em]"
-          >
-            View all packages
-            <ArrowRight size={17} aria-hidden />
-          </Button>
-          <div className="flex items-center gap-3">
-            <button
-              type="button"
-              aria-label="Previous package"
-              onClick={() => step(-1)}
-              className="grid h-[46px] w-[46px] place-items-center rounded-full bg-navy text-white transition-colors hover:bg-navy/90"
-            >
-              <ArrowLeft size={20} />
-            </button>
-            <button
-              type="button"
-              aria-label="Next package"
-              onClick={() => step(1)}
-              className="grid h-[46px] w-[46px] place-items-center rounded-full bg-gold text-navy transition-[filter] hover:brightness-105"
-            >
-              <ArrowRight size={20} />
-            </button>
-          </div>
+          {viewAll}
+          {arrows}
         </div>
       </Container>
 
-      <div
-        ref={track}
-        onMouseEnter={() => (paused.current = true)}
-        onMouseLeave={() => (paused.current = false)}
-        onTouchStart={() => (paused.current = true)}
-        onFocusCapture={() => (paused.current = true)}
-        onBlurCapture={() => (paused.current = false)}
-        className="no-scrollbar flex snap-x snap-mandatory items-start gap-5 overflow-x-auto px-5 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:px-10"
-      >
-        {packages.map((pkg) => (
-          <div
-            key={pkg.title + pkg.href}
-            data-card
-            className="w-[84vw] max-w-[390px] flex-none snap-start sm:w-[56vw] dt:w-[388px]"
-          >
-            <PackageCard pkg={pkg} />
-          </div>
-        ))}
-      </div>
+      {trackEl}
     </Section>
   );
 }

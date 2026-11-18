@@ -13,9 +13,9 @@ export interface NavLink {
 export const PRIMARY_NAV: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about/" },
-  { label: "Umrah", href: "/umrah/" },
-  { label: "Hajj", href: "/hajj/" },
-  { label: "Transport", href: "/transportation/" },
+  { label: "Umrah Packages", href: "/umrah-packages/" },
+  { label: "Hajj Packages", href: "/hajj-packages/" },
+  { label: "Transport", href: "/umrah-transport/" },
   { label: "Contact", href: "/contact/" },
 ];
 
@@ -30,56 +30,36 @@ export const MENU: MenuItem[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about/" },
   {
+    // Group-only heading (no standalone page) — opens the submenu on click/hover.
     label: "Umrah",
-    href: "/umrah/",
     children: [
-      {
-        label: "USA Packages",
-        href: "/umrah/usa-packages/",
-        children: [
-          { label: "New York Umrah Packages", href: "/umrah/usa-packages/newyork/" },
-          { label: "Chicago Umrah Packages", href: "/umrah/usa-packages/chicago/" },
-          { label: "Los Angeles Umrah Packages", href: "/umrah/usa-packages/los-angeles/" },
-          { label: "Washington DC Umrah Packages", href: "/umrah/usa-packages/washington-dc/" },
-          { label: "Dallas Umrah Packages", href: "/umrah/usa-packages/dallas/" },
-          { label: "Detroit Umrah Packages", href: "/umrah/usa-packages/detroit/" },
-          { label: "Houston Umrah Packages", href: "/umrah/usa-packages/houston/" },
-          { label: "Atlanta Umrah Packages", href: "/umrah/usa-packages/atlanta/" },
-          { label: "Dearborn Umrah Packages", href: "/umrah/usa-packages/dearborn/" },
-        ],
-      },
-      {
-        label: "Specialized Umrah Packages",
-        children: [
-          { label: "Economy Umrah Packages", href: "/umrah/usa-packages/economy-umrah-packages/" },
-          { label: "Family Umrah Packages", href: "/umrah/usa-packages/family-umrah-packages/" },
-          { label: "Group Umrah Packages", href: "/umrah/usa-packages/group-umrah-packages/" },
-          { label: "Luxury Umrah Packages", href: "/umrah/usa-packages/luxury-umrah-packages/" },
-        ],
-      },
-      {
-        label: "Holy Months Umrah Packages",
-        children: [
-          { label: "Rabi-ul-Awal Umrah Packages", href: "/umrah/usa-packages/rabi-ul-awal/" },
-          { label: "Ramadan Umrah Packages", href: "/umrah/usa-packages/ramadan/" },
-          { label: "Shaban Umrah Packages", href: "/umrah/usa-packages/shaban/" },
-          { label: "Shawwal Umrah Packages", href: "/umrah/usa-packages/shawwal/" },
-        ],
-      },
-      { label: "Monthly Umrah Packages", href: "/umrah/usa-packages/monthly/" },
+      { label: "Umrah Packages", href: "/umrah-packages/" },
+      { label: "3-Star Umrah", href: "/umrah-packages/3-star/" },
+      { label: "4-Star Umrah", href: "/umrah-packages/4-star/" },
+      { label: "5-Star Umrah", href: "/umrah-packages/5-star/" },
+      { label: "Ramadan Umrah", href: "/umrah-packages/ramadan/" },
+      { label: "December Umrah", href: "/umrah-packages/december/" },
     ],
   },
   {
+    // Group-only heading (no standalone page) — opens the submenu on click/hover.
     label: "Hajj",
-    href: "/hajj/",
-    children: [{ label: "USA Packages", href: "/hajj/usa-packages/" }],
+    children: [{ label: "Hajj Packages", href: "/hajj-packages/" }],
   },
   {
     label: "Transport",
-    href: "/transportation/",
+    href: "/umrah-transport/",
     children: [
-      { label: "Ziarat", href: "/transportation/ziarat/" },
-      { label: "Fleets", href: "/transportation/fleets/" },
+      { label: "Vehicles", href: "/umrah-transport/vehicles/" },
+      { label: "Routes", href: "/umrah-transport/routes/" },
+    ],
+  },
+  {
+    // Group-only heading (no page of its own) for the two standalone services.
+    label: "Services",
+    children: [
+      { label: "Ziyarat", href: "/ziyarat/" },
+      { label: "Hotels", href: "/hotels/" },
     ],
   },
   { label: "Contact", href: "/contact/" },
@@ -87,9 +67,9 @@ export const MENU: MenuItem[] = [
 
 /** Utility strip quick links (desktop left; collapse into drawer on mobile). */
 export const UTILITY_NAV: NavLink[] = [
-  { label: "Umrah Packages", href: "/umrah/usa-packages/" },
-  { label: "Hajj Packages", href: "/hajj/usa-packages/" },
-  { label: "Transportation", href: "/transportation/" },
+  { label: "Umrah Packages", href: "/umrah-packages/" },
+  { label: "Hajj Packages", href: "/hajj-packages/" },
+  { label: "Transport", href: "/umrah-transport/" },
 ];
 
 export interface Phone {
@@ -118,24 +98,25 @@ export interface FooterColumn {
 
 export const FOOTER_COLUMNS: FooterColumn[] = [
   {
-    heading: "Services",
+    heading: "Umrah",
     links: [
-      { label: "Umrah", href: "/umrah/" },
-      { label: "Hajj", href: "/hajj/" },
-      { label: "Transportation", href: "/transportation/" },
-      { label: "Ziyarat Tours", href: "/transportation/ziarat/" },
-      { label: "Our Fleet", href: "/transportation/fleets/" },
+      { label: "Umrah Packages", href: "/umrah-packages/" },
+      { label: "3-Star Umrah", href: "/umrah-packages/3-star/" },
+      { label: "4-Star Umrah", href: "/umrah-packages/4-star/" },
+      { label: "5-Star Umrah", href: "/umrah-packages/5-star/" },
+      { label: "Ramadan Umrah", href: "/umrah-packages/ramadan/" },
+      { label: "December Umrah", href: "/umrah-packages/december/" },
     ],
   },
   {
-    heading: "Packages",
+    heading: "Services",
     links: [
-      { label: "Umrah Packages", href: "/umrah/usa-packages/" },
-      { label: "Hajj Packages", href: "/hajj/usa-packages/" },
-      { label: "Economy Umrah", href: "/umrah/usa-packages/economy-umrah-packages/" },
-      { label: "Family Umrah", href: "/umrah/usa-packages/family-umrah-packages/" },
-      { label: "Luxury Umrah", href: "/umrah/usa-packages/luxury-umrah-packages/" },
-      { label: "Ramadan Umrah", href: "/umrah/usa-packages/ramadan/" },
+      { label: "Hajj Packages", href: "/hajj-packages/" },
+      { label: "Transport", href: "/umrah-transport/" },
+      { label: "Vehicles", href: "/umrah-transport/vehicles/" },
+      { label: "Routes", href: "/umrah-transport/routes/" },
+      { label: "Ziyarat", href: "/ziyarat/" },
+      { label: "Hotels", href: "/hotels/" },
     ],
   },
   {
@@ -144,8 +125,15 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
       { label: "Home", href: "/" },
       { label: "About Us", href: "/about/" },
       { label: "Contact", href: "/contact/" },
-      { label: "Blogs", href: "/blogs/" },
+    ],
+  },
+  {
+    heading: "Legal",
+    links: [
+      { label: "Payments & Refunds", href: "/payments-refunds/" },
+      { label: "Complaints", href: "/complaints/" },
       { label: "Privacy Policy", href: "/privacy-policy/" },
+      { label: "Terms & Conditions", href: "/terms-and-conditions/" },
     ],
   },
 ];
