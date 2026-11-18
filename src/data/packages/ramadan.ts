@@ -1,7 +1,7 @@
 import type { PackageLandingData } from "@/components/sections/PackageLandingPage";
 
 export const PAGE_DATA: PackageLandingData = {
-  "path": "/umrah/usa-packages/ramadan/",
+  "path": "/umrah-packages/ramadan/",
   "title": "Ramadan Umrah Packages by Shery Travels | U.S. Muslims",
   "description": "Join Shery Travels for unforgettable Ramadan Umrah packages designed for U.S. Muslims. Experience the holy journey with ease and devotion. Book now!",
   "crumb": "Ramadan",

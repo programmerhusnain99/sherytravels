@@ -13,9 +13,9 @@ export interface NavLink {
 export const PRIMARY_NAV: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about/" },
-  { label: "Umrah", href: "/umrah/" },
-  { label: "Hajj", href: "/hajj/" },
-  { label: "Transport", href: "/transportation/" },
+  { label: "Umrah Packages", href: "/umrah-packages/" },
+  { label: "Hajj Packages", href: "/hajj-packages/" },
+  { label: "Transport", href: "/umrah-transport/" },
   { label: "Contact", href: "/contact/" },
 ];
 

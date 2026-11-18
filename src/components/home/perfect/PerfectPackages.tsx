@@ -16,11 +16,11 @@ type Tile = {
 };
 
 const TILES: Tile[] = [
-  { title: "Ramadan Umrah Packages", href: "/umrah/usa-packages/ramadan/", src: "/images/home/home-pkg-ramadan.webp" },
-  { title: "December Umrah Packages", href: "/umrah/usa-packages/december/", src: "/images/home/home-pkg-december.webp" },
-  { title: "Luxury Umrah Packages", href: "/umrah/usa-packages/luxury-umrah-packages/", src: "/images/home/home-pkg-luxury.webp" },
-  { title: "Family Umrah Packages", href: "/umrah/usa-packages/family-umrah-packages/", src: "/images/home/home-pkg-family.webp" },
-  { title: "Easter Umrah Packages", href: "/umrah/usa-packages/", src: "/images/home/home-pkg-easter.webp" },
+  { title: "Ramadan Umrah Packages", href: "/umrah-packages/ramadan/", src: "/images/home/home-pkg-ramadan.webp" },
+  { title: "December Umrah Packages", href: "/umrah-packages/december/", src: "/images/home/home-pkg-december.webp" },
+  { title: "Luxury Umrah Packages", href: "/umrah-packages/5-star/", src: "/images/home/home-pkg-luxury.webp" },
+  { title: "Family Umrah Packages", href: "/umrah-packages/4-star/", src: "/images/home/home-pkg-family.webp" },
+  { title: "3-Star Umrah Packages", href: "/umrah-packages/3-star/", src: "/images/home/home-pkg-easter.webp" },
 ];
 
 // Navy gradient scrim over the lower half of each tile.

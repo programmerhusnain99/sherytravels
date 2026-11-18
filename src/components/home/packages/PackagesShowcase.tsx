@@ -35,7 +35,7 @@ export function PackagesShowcase({
   headingAccent = "Umrah Packages",
   description = "Hand-picked packages with flights, visa, hotels near the Haram and transport — all arranged for you. Hover to pause and browse.",
   packages = PACKAGE_CARDS,
-  viewAllHref = "/umrah/usa-packages/",
+  viewAllHref = "/umrah-packages/",
   bg = "ice",
 }: Props = {}) {
   const track = useRef<HTMLDivElement>(null);

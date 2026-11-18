@@ -134,7 +134,7 @@ export function HajjExperiences() {
         {/* CTA — drops in after the cards have appeared */}
         <DropBounce delay={0.55} amount={0.4} className="mt-7 text-center dt:mt-10">
           <Button
-            href="/hajj/usa-packages/"
+            href="/hajj-packages/"
             variant="gold"
             size="lg"
             className="w-full tracking-[0.06em] uppercase dt:w-auto"

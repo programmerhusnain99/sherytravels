@@ -33,8 +33,8 @@ const FLEET = [
   { alt: "Large Bus", src: "/images/home/home-fleet-bus.webp" },
 ];
 
-const ZIARAT = "/transportation/ziarat/";
-const FLEETS = "/transportation/fleets/";
+const ZIARAT = "/ziyarat/";
+const FLEETS = "/umrah-transport/vehicles/";
 
 /**
  * Section 5 — Transportation.
@@ -75,7 +75,7 @@ export function TransportSection() {
 
             <DropBounce className="mt-8 w-fit">
               <Button
-                href="/transportation/"
+                href="/umrah-transport/"
                 variant="gold"
                 size="lg"
                 className="uppercase tracking-[0.06em]"

@@ -57,7 +57,7 @@ function SiteChips({ sites }: { sites: string[] }) {
 /** Shared Ziarat / Ziyarat page body (legacy /transportation/ziarat/ + new /ziyarat/). */
 export function ZiaratContent({
   breadcrumb,
-  active = "/transportation/",
+  active = "/ziyarat/",
 }: {
   breadcrumb: { name: string; path: string }[];
   active?: string;

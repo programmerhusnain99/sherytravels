@@ -59,7 +59,6 @@ function splitHeading(text: string): { before: string; accent: string } {
 const DEFAULT_TRAIL = [
   { name: "Home", path: "/" },
   { name: "Umrah Packages", path: "/umrah-packages/" },
-  { name: "USA Packages", path: "/umrah/usa-packages/" },
 ];
 
 export function PackageLandingPage({
