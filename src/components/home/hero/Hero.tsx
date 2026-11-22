@@ -20,21 +20,21 @@ export function Hero() {
         />
 
         <Stagger mount gap={0.14} className="relative flex flex-col items-center">
-          <StaggerItem className="mb-4">
+          <StaggerItem className="order-1">
             <Eyebrow>Start your pilgrimage with confidence</Eyebrow>
           </StaggerItem>
 
-          <StaggerItem className="order-2 w-full">
+          <StaggerItem className="order-2 mt-6 w-full dt:mt-7">
+            <HeroArch />
+          </StaggerItem>
+
+          <StaggerItem className="order-3 mt-8 w-full dt:mt-9">
             <AccentHeading
               as="h1"
               before="Begin Your Sacred "
               accent="Journey"
               className="mx-auto max-w-[640px] text-[30px] leading-[1.14] text-navy dt:text-[44px] dt:leading-[1.12]"
             />
-          </StaggerItem>
-
-          <StaggerItem className="order-3 mt-8 w-full dt:mt-9">
-            <HeroArch />
           </StaggerItem>
         </Stagger>
       </Container>

@@ -57,18 +57,18 @@ export function HajjPackagesContent({ breadcrumb }: { breadcrumb: { name: string
       {/* Hero */}
       <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-10 dt:pt-12">
         <div aria-hidden className="pointer-events-none absolute -left-32 top-10 hidden h-[460px] w-[460px] rounded-full border border-gold/15 dt:block" />
-        <Container className="grid items-start gap-7 dt:grid-cols-2 dt:gap-x-16 dt:gap-y-5 dt:[grid-template-rows:auto_1fr]">
-          <div className="order-1 text-center dt:col-start-1 dt:row-start-1 dt:text-left">
-            <Eyebrow align="center" className="dt:justify-start">Hajj packages from USA</Eyebrow>
+        <Container className="flex flex-col items-center gap-6 text-center">
+          <div className="order-1">
+            <Eyebrow align="center">Hajj packages from USA</Eyebrow>
           </div>
-          <div className="order-3 text-center dt:col-start-1 dt:row-start-2 dt:text-left">
+          <div className="order-3 max-w-[680px] text-center">
             <AccentHeading as="h1" before="Hajj Packages: From USA to the Heart of " accent="Makkah" className="text-[30px] leading-[1.18] text-navy dt:text-[46px]" />
             <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
               Hajj is one in a lifetime journey that can become even more memorable and easier with premium services and smooth transportation. Exclusively catered to the Muslims living in the United States.
             </p>
             <div className="mt-7"><InquireButton variant="gold" size="lg" className="rounded-lg">Inquire Now</InquireButton></div>
           </div>
-          <div className="relative order-2 flex justify-center dt:col-start-2 dt:row-span-2 dt:self-center">
+          <div className="relative order-2 flex justify-center">
             <div aria-hidden className="pointer-events-none absolute left-1/2 top-0 hidden h-[500px] w-[450px] -translate-x-1/2 rounded-t-[225px] rounded-b-[18px] border border-navy/10 dt:block" />
             <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.12),transparent_70%)]" />
             <div className="hero-float relative h-[360px] w-[300px] overflow-hidden rounded-t-[150px] rounded-b-[16px] bg-lightblue shadow-[0_34px_62px_-26px_rgba(26,62,110,0.5)] dt:h-[480px] dt:w-[420px]">

@@ -51,14 +51,20 @@ export default function AboutPage() {
       />
 
       {/* Intro */}
-      <Section bg="white" className="pt-10 dt:pt-12">
-        <Container className="text-center">
-          <Eyebrow className="mb-5">About Shery Travels</Eyebrow>
+      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-10 pb-12 dt:pt-12 dt:pb-16">
+        <Container className="flex flex-col items-center text-center">
+          <Eyebrow>About Shery Travels</Eyebrow>
+          <div className="relative mt-6 flex justify-center dt:mt-7">
+            <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.12),transparent_70%)]" />
+            <div className="hero-float relative h-[330px] w-[290px] overflow-hidden rounded-t-[145px] rounded-b-[16px] bg-lightblue shadow-[0_34px_62px_-26px_rgba(26,62,110,0.5)] dt:h-[420px] dt:w-[380px] dt:rounded-t-[190px]">
+              <Image src="/images/about/about-story.webp" alt="Shery Travels — about us" fill sizes="(max-width:900px) 290px, 380px" priority className="object-cover" />
+            </div>
+          </div>
           <AccentHeading
             as="h1"
             before="Making Pilgrimage Journeys Easy and "
             accent="Comfortable"
-            className="mx-auto max-w-[880px] text-[32px] leading-[1.18] text-navy dt:text-[52px]"
+            className="mt-8 max-w-[760px] text-[30px] leading-[1.16] text-navy dt:text-[44px]"
           />
         </Container>
       </Section>
