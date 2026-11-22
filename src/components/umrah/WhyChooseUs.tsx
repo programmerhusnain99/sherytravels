@@ -4,60 +4,45 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { WHY } from "@/data/umrah/packages";
 
-/** Per-card accent gradients — the "colorful" layer over the brand palette. */
-const ACCENTS = [
-  { from: "#17a884", to: "#0c7a60", glow: "rgba(23,168,132,0.45)" }, // emerald
-  { from: "#6d6bf5", to: "#4b3fd4", glow: "rgba(109,107,245,0.45)" }, // violet
-  { from: "#2f80ed", to: "#1b5fc4", glow: "rgba(47,128,237,0.45)" }, // sky
-  { from: "#e8a51f", to: "#c6841a", glow: "rgba(232,165,31,0.45)" }, // amber
-];
-
 /**
- * "Why Choose Us for Your Umrah Journey" — a bright, colorful feature grid.
- * Each card carries its own gradient icon tile + top accent bar.
+ * "Why Choose Us for Your Umrah Journey" — dark-blue section with premium
+ * glass cards, gold gradient icon tiles and a growing gold underline on hover.
  */
 export function WhyChooseUs() {
   return (
-    <Section
-      bg="white"
-      className="relative overflow-hidden bg-gradient-to-b from-white via-ice/50 to-white py-14 dt:py-20"
-    >
-      {/* Ambient colour blobs */}
-      <div aria-hidden className="pointer-events-none absolute -left-28 -top-20 h-[380px] w-[380px] rounded-full bg-[radial-gradient(circle,rgba(23,168,132,0.16),transparent_70%)] blur-2xl" />
-      <div aria-hidden className="pointer-events-none absolute -right-28 top-36 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(109,107,245,0.14),transparent_70%)] blur-2xl" />
-      <div aria-hidden className="pointer-events-none absolute left-1/2 -bottom-24 h-[320px] w-[320px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(232,165,31,0.12),transparent_70%)] blur-2xl" />
+    <Section bg="navy" className="relative overflow-hidden py-14 dt:py-20">
+      {/* Ambient gold glow + decorative arches */}
+      <div aria-hidden className="pointer-events-none absolute left-1/2 -top-24 h-[460px] w-[760px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(219,183,37,0.16),transparent_70%)]" />
+      <div aria-hidden className="pointer-events-none absolute -right-28 top-24 hidden h-[360px] w-[360px] rounded-full border border-gold/15 dt:block" />
+      <div aria-hidden className="pointer-events-none absolute -left-28 -bottom-28 hidden h-[400px] w-[400px] rounded-full border border-white/[0.06] dt:block" />
 
       <Container className="relative">
         <div className="mx-auto mb-11 max-w-[760px] text-center dt:mb-14">
-          <Eyebrow align="center" className="mb-4">Why choose us</Eyebrow>
-          <AccentHeading as="h2" before="Why Choose Us for Your Umrah " accent="Journey" className="text-[28px] leading-tight text-navy dt:text-[40px]" />
-          <p className="mx-auto mt-4 max-w-[600px] text-[15.5px] font-light leading-relaxed text-navy/75 dt:text-[16.5px]">
+          <Eyebrow align="center" tone="white" className="mb-4">Why choose us</Eyebrow>
+          <AccentHeading as="h2" before="Why Choose Us for Your Umrah " accent="Journey" className="text-[28px] leading-tight text-white dt:text-[40px]" />
+          <p className="mx-auto mt-4 max-w-[600px] text-[15.5px] font-light leading-relaxed text-white/70 dt:text-[16.5px]">
             A dedicated team, trusted partners and years of experience — so every part of your pilgrimage is in safe, caring hands.
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 dt:grid-cols-4">
-          {WHY.map(({ Icon, title, body }, i) => {
-            const c = ACCENTS[i % ACCENTS.length];
-            return (
-              <div
-                key={title}
-                className="group relative overflow-hidden rounded-[22px] border border-navy/10 bg-white p-7 shadow-[0_20px_45px_-30px_rgba(26,62,110,0.45)] transition-transform duration-300 hover:-translate-y-1.5"
-              >
-                {/* Coloured top accent bar */}
-                <span aria-hidden className="absolute inset-x-6 top-0 h-[4px] rounded-b-full" style={{ background: `linear-gradient(90deg, ${c.from}, ${c.to})` }} />
-                {/* Gradient icon tile */}
-                <span
-                  className="mb-5 grid h-16 w-16 place-items-center rounded-2xl text-white transition-transform duration-300 group-hover:scale-105"
-                  style={{ background: `linear-gradient(135deg, ${c.from}, ${c.to})`, boxShadow: `0 16px 32px -12px ${c.glow}` }}
-                >
-                  <Icon size={28} aria-hidden />
-                </span>
-                <h3 className="mb-2 font-serif text-[18px] font-bold text-navy">{title}</h3>
-                <p className="text-[14px] font-light leading-relaxed text-navy/70">{body}</p>
-              </div>
-            );
-          })}
+        <div className="grid grid-cols-1 gap-5 dt:grid-cols-4 dt:gap-6">
+          {WHY.map(({ Icon, title, body }) => (
+            <div
+              key={title}
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-gold/50"
+            >
+              {/* Gold corner glow on hover */}
+              <span aria-hidden className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-gold/0 blur-2xl transition-colors duration-300 group-hover:bg-gold/25" />
+              {/* Gold gradient icon tile */}
+              <span className="relative mb-5 grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-gold to-[#b4871a] text-navy shadow-[0_16px_32px_-12px_rgba(219,183,37,0.65)]">
+                <Icon size={28} aria-hidden />
+              </span>
+              <h3 className="relative mb-2 font-serif text-[18px] font-bold text-white">{title}</h3>
+              <p className="relative text-[14px] font-light leading-relaxed text-white/70">{body}</p>
+              {/* Growing gold underline */}
+              <span aria-hidden className="relative mt-5 h-[3px] w-10 rounded-full bg-gradient-to-r from-gold to-gold/0 transition-all duration-300 group-hover:w-20" />
+            </div>
+          ))}
         </div>
       </Container>
     </Section>
