@@ -25,19 +25,20 @@ export function WhyChooseUs() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 dt:grid-cols-4 dt:gap-5">
+        <div className="grid grid-cols-2 gap-3.5 dt:grid-cols-4 dt:gap-4">
           {WHY.map(({ Icon, title, body }) => (
             <div
               key={title}
-              className="group relative flex flex-col overflow-hidden rounded-xl border border-white/10 bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50"
+              className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50"
             >
-              <span aria-hidden className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gold/0 blur-2xl transition-colors duration-300 group-hover:bg-gold/25" />
-              <span className="relative mb-4 grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-gold to-[#b4871a] text-navy shadow-[0_12px_26px_-10px_rgba(219,183,37,0.65)]">
-                <Icon size={22} aria-hidden />
-              </span>
-              <h3 className="relative mb-1.5 font-serif text-[16px] font-bold text-white">{title}</h3>
-              <p className="relative text-[13px] font-light leading-relaxed text-white/65">{body}</p>
-              <span aria-hidden className="relative mt-3.5 h-[2px] w-8 rounded-full bg-gradient-to-r from-gold to-gold/0 transition-all duration-300 group-hover:w-14" />
+              <span aria-hidden className="pointer-events-none absolute -right-8 -top-8 h-20 w-20 rounded-full bg-gold/0 blur-2xl transition-colors duration-300 group-hover:bg-gold/25" />
+              <div className="relative mb-2.5 flex items-center gap-3">
+                <span className="grid h-10 w-10 flex-none place-items-center rounded-lg bg-gradient-to-br from-gold to-[#b4871a] text-navy shadow-[0_10px_22px_-10px_rgba(219,183,37,0.65)]">
+                  <Icon size={19} aria-hidden />
+                </span>
+                <h3 className="font-serif text-[15px] font-bold leading-tight text-white">{title}</h3>
+              </div>
+              <p className="relative text-[12.5px] font-light leading-relaxed text-white/60">{body}</p>
             </div>
           ))}
         </div>

@@ -35,16 +35,7 @@ export const metadata = pageMetadata({
 
 export default function UmrahPackagesPage() {
   return (
-    <PageShell
-      active="/umrah-packages/"
-      cta={{
-        eyebrow: "Plan your Umrah",
-        headingBefore: "Ready to Begin Your Umrah ",
-        headingAccent: "Journey?",
-        description:
-          "Share your dates, group size and preferred tier, and a travel expert will reply within 24 hours with the best Umrah package for you.",
-      }}
-    >
+    <PageShell active="/umrah-packages/" cta={false}>
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },
@@ -93,12 +84,20 @@ export default function UmrahPackagesPage() {
             </p>
           </div>
 
-          <PackageGrid cards={CARD_POOL} initial={6} step={3} />
+          <PackageGrid cards={CARD_POOL} initial={3} step={3} />
         </Container>
       </Section>
 
-      {/* Why choose us → Explore → Spiritual highlights → FAQ */}
-      <UmrahPackagesCommon />
+      {/* Why choose us → Explore → Spiritual highlights → CTA → FAQ */}
+      <UmrahPackagesCommon
+        cta={{
+          eyebrow: "Plan your Umrah",
+          headingBefore: "Ready to Begin Your Umrah ",
+          headingAccent: "Journey?",
+          description:
+            "Share your dates, group size and preferred tier, and a travel expert will reply within 24 hours with the best Umrah package for you.",
+        }}
+      />
     </PageShell>
   );
 }

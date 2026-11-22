@@ -26,12 +26,34 @@
  * gradients (var(--i-*)) resolve to a metallic gold ramp.
  */
 .pkg-feature-icons {
-  --i-dk: #6f560e; /* deepest shadow */
-  --i-lo: #b2901f; /* shadow / underside */
-  --i-base: #dbb725; /* brand gold */
-  --i-gl: #e8ca4c; /* lit face */
-  --i-hi: #f4e08c; /* highlight */
-  --i-pa: #fdf7df; /* palest — windows, paper, glass */
+  /* Palette compressed into a visibly dark gold range so even the lightest
+     faces read clearly on a white card (the glossy originals washed out). */
+  --i-dk: #463505; /* deepest shadow */
+  --i-lo: #6b520c; /* shadow / underside */
+  --i-base: #927214; /* brand gold, deepened */
+  --i-gl: #a9871d; /* lit face */
+  --i-hi: #c2a132; /* highlight */
+  --i-pa: #d4b94e; /* palest — windows, paper, glass */
+}
+
+/* Smooth entrance for cards revealed by "Load more". */
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.card-in {
+  animation: cardIn 0.45s ease both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-in {
+    animation: none;
+  }
 }
 
 html {

@@ -19,16 +19,7 @@ export function UmrahTierPage({ tier }: { tier: UmrahTier }) {
   const path = `${PACKAGES_PATH}${tier.slug}/`;
 
   return (
-    <PageShell
-      active="/umrah-packages/"
-      cta={{
-        eyebrow: "Plan your Umrah",
-        headingBefore: `Ready to Begin Your ${tier.star} Umrah `,
-        headingAccent: "Journey?",
-        description:
-          "Share your dates and group size and our team will put together a tailored plan — visa, flights, hotels and transport included.",
-      }}
-    >
+    <PageShell active="/umrah-packages/" cta={false}>
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },
@@ -87,14 +78,22 @@ export function UmrahTierPage({ tier }: { tier: UmrahTier }) {
               price: r.price,
               href: path,
             }))}
-            initial={6}
+            initial={3}
             step={3}
           />
         </Container>
       </Section>
 
-      {/* Why choose us → Explore → Spiritual highlights → FAQ */}
-      <UmrahPackagesCommon />
+      {/* Why choose us → Explore → Spiritual highlights → CTA → FAQ */}
+      <UmrahPackagesCommon
+        cta={{
+          eyebrow: "Plan your Umrah",
+          headingBefore: `Ready to Begin Your ${tier.star} Umrah `,
+          headingAccent: "Journey?",
+          description:
+            "Share your dates and group size and our team will put together a tailored plan — visa, flights, hotels and transport included.",
+        }}
+      />
     </PageShell>
   );
 }

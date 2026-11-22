@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
@@ -12,64 +13,60 @@ const ACCENTS = [
 ];
 
 /**
- * "Spiritual Highlights of Our Umrah Packages" — a connected step-flow: gradient
- * numbered nodes on a line (horizontal on desktop, a vertical timeline on
- * mobile). Deliberately card-free for an editorial, premium feel.
+ * "Spiritual Highlights of Our Umrah Packages" — white, two-column editorial
+ * layout: an arch image beside a compact numbered highlight list.
  */
 export function SpiritualHighlights() {
   return (
-    <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-white via-[#f6f9ff] to-white py-14 dt:py-20">
-      <div aria-hidden className="pointer-events-none absolute -right-24 top-10 h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,rgba(47,128,237,0.1),transparent_70%)] blur-2xl" />
-      <div aria-hidden className="pointer-events-none absolute -left-24 bottom-0 h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,rgba(138,92,246,0.08),transparent_70%)] blur-2xl" />
+    <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-white via-ice/40 to-white py-14 dt:py-20">
+      <div aria-hidden className="pointer-events-none absolute -left-24 top-10 h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,rgba(47,128,237,0.1),transparent_70%)] blur-2xl" />
+      <div aria-hidden className="pointer-events-none absolute -right-24 bottom-0 h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,rgba(240,114,46,0.08),transparent_70%)] blur-2xl" />
 
-      <Container className="relative">
-        <div className="mx-auto mb-12 max-w-[760px] text-center dt:mb-16">
-          <Eyebrow align="center" className="mb-4">Spiritual highlights</Eyebrow>
-          <AccentHeading as="h2" before="Spiritual Highlights of Our Umrah " accent="Packages" className="text-[28px] leading-tight text-navy dt:text-[40px]" />
-          <p className="mx-auto mt-4 max-w-[600px] text-[15.5px] font-light leading-relaxed text-navy/75 dt:text-[16.5px]">
-            Every package is built around meaningful worship — guided sites, closeness to the Haram, and support at every step.
-          </p>
-        </div>
-
-        {/* Desktop — horizontal connected steps */}
-        <div className="relative hidden dt:block">
-          <div aria-hidden className="absolute inset-x-[12%] top-8 h-[2px] bg-gradient-to-r from-transparent via-navy/15 to-transparent" />
-          <div className="relative grid grid-cols-4 gap-8">
-            {HIGHLIGHTS.map((h, i) => {
-              const c = ACCENTS[i % ACCENTS.length];
-              return (
-                <div key={h.title} className="flex flex-col items-center px-1 text-center">
-                  <span
-                    className="relative z-10 grid h-16 w-16 place-items-center rounded-full font-serif text-[20px] font-bold text-white ring-[6px] ring-white"
-                    style={{ background: `linear-gradient(135deg, ${c.from}, ${c.to})`, boxShadow: `0 16px 30px -12px ${c.from}` }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="mt-6 font-serif text-[16.5px] font-bold text-navy">{h.title}</h3>
-                  <p className="mt-2 text-[13.5px] font-light leading-relaxed text-navy/65">{h.body}</p>
-                </div>
-              );
-            })}
+      <Container className="relative grid items-center gap-11 dt:grid-cols-2 dt:gap-16">
+        {/* Image */}
+        <div className="relative order-2 mx-auto w-full max-w-[460px] dt:order-1">
+          <div aria-hidden className="pointer-events-none absolute -left-5 -top-5 hidden h-28 w-28 rounded-full border border-gold/25 dt:block" />
+          <div aria-hidden className="pointer-events-none absolute -right-6 -bottom-6 hidden h-36 w-36 rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.14),transparent_70%)] dt:block" />
+          <div className="relative mx-auto h-[380px] w-[300px] overflow-hidden rounded-t-[150px] rounded-b-[18px] bg-lightblue shadow-[0_40px_80px_-32px_rgba(26,62,110,0.5)] dt:h-[480px] dt:w-full dt:rounded-t-[200px]">
+            <Image
+              src="/images/home/home-umrah-haram.webp"
+              alt="Pilgrims at the Haram"
+              fill
+              sizes="(max-width:900px) 300px, 440px"
+              className="object-cover"
+            />
+            <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,transparent_60%,rgba(26,62,110,0.35)_100%)]" />
+          </div>
+          <div className="absolute inset-x-0 -bottom-4 flex justify-center dt:inset-x-auto dt:left-[-18px] dt:block">
+            <div className="flex w-fit items-center gap-3 rounded-2xl border border-navy/10 bg-white px-5 py-3 shadow-[0_24px_50px_-18px_rgba(26,62,110,0.4)]">
+              <span className="font-serif text-[28px] font-bold leading-none text-gold">4</span>
+              <span className="text-left text-[12px] font-light leading-tight text-navy/70">ways we deepen<br />your worship</span>
+            </div>
           </div>
         </div>
 
-        {/* Mobile — vertical timeline */}
-        <div className="relative mx-auto max-w-[460px] dt:hidden">
-          <div aria-hidden className="absolute left-[27px] top-4 bottom-6 w-[2px] bg-gradient-to-b from-navy/15 via-navy/15 to-transparent" />
-          <div className="flex flex-col gap-7">
+        {/* Highlight list */}
+        <div className="order-1 text-center dt:order-2 dt:text-left">
+          <Eyebrow align="center" className="mb-4 dt:justify-start">Spiritual highlights</Eyebrow>
+          <AccentHeading as="h2" before="Spiritual Highlights of Our Umrah " accent="Packages" className="text-[26px] leading-tight text-navy dt:text-[36px]" />
+          <p className="mx-auto mt-4 max-w-[480px] text-[15px] font-light leading-relaxed text-navy/75 dt:mx-0">
+            Every package is built around meaningful worship — guided sites, closeness to the Haram, and support at every step.
+          </p>
+
+          <div className="mt-8 flex flex-col gap-5 text-left">
             {HIGHLIGHTS.map((h, i) => {
               const c = ACCENTS[i % ACCENTS.length];
               return (
-                <div key={h.title} className="relative flex gap-4">
+                <div key={h.title} className="flex gap-4">
                   <span
-                    className="relative z-10 grid h-14 w-14 flex-none place-items-center rounded-full font-serif text-[17px] font-bold text-white ring-[5px] ring-white"
+                    className="grid h-11 w-11 flex-none place-items-center rounded-xl font-serif text-[15px] font-bold text-white"
                     style={{ background: `linear-gradient(135deg, ${c.from}, ${c.to})`, boxShadow: `0 12px 24px -10px ${c.from}` }}
                   >
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <div className="pt-1.5">
+                  <div>
                     <h3 className="font-serif text-[16px] font-bold text-navy">{h.title}</h3>
-                    <p className="mt-1.5 text-[13.5px] font-light leading-relaxed text-navy/65">{h.body}</p>
+                    <p className="mt-1 text-[13.5px] font-light leading-relaxed text-navy/65">{h.body}</p>
                   </div>
                 </div>
               );
