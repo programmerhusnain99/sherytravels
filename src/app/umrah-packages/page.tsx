@@ -35,7 +35,7 @@ export default function UmrahPackagesPage() {
       />
 
       {/* Hero */}
-      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-12 dt:pt-16">
+      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-10 dt:pt-12">
         <div aria-hidden className="pointer-events-none absolute -left-32 top-10 hidden h-[460px] w-[460px] rounded-full border border-gold/15 dt:block" />
         <Container className="grid items-start gap-7 dt:grid-cols-2 dt:gap-x-16 dt:gap-y-5 dt:[grid-template-rows:auto_1fr]">
           <div className="order-1 text-center dt:col-start-1 dt:row-start-1 dt:text-left">
@@ -62,7 +62,7 @@ export default function UmrahPackagesPage() {
       </Section>
 
       {/* What's included */}
-      <Section bg="ice" className="py-14 dt:py-20">
+      <Section bg="ice" className="py-10 dt:py-14">
         <Container>
           <div className="mx-auto mb-12 max-w-[760px] text-center">
             <Eyebrow className="mb-4">What&apos;s included</Eyebrow>
@@ -83,7 +83,7 @@ export default function UmrahPackagesPage() {
       </Section>
 
       {/* Packages by tier */}
-      <Section bg="white" className="py-14 dt:py-20">
+      <Section bg="white" className="py-10 dt:py-14">
         <Container>
           <div className="mx-auto mb-12 max-w-[760px] text-center">
             <Eyebrow className="mb-4">Our packages</Eyebrow>

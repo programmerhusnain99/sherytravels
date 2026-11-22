@@ -33,7 +33,7 @@ export default function ContactPage() {
       />
 
       {/* Intro */}
-      <Section bg="white" className="pt-12 dt:pt-16">
+      <Section bg="white" className="pt-10 dt:pt-12">
         <Container className="text-center">
           <Eyebrow className="mb-5">Contact us</Eyebrow>
           <AccentHeading
@@ -49,7 +49,7 @@ export default function ContactPage() {
       </Section>
 
       {/* Contact detail cards */}
-      <Section bg="white" className="py-12 dt:py-16">
+      <Section bg="white" className="py-10 dt:py-12">
         <Container className="grid gap-5 dt:grid-cols-3 dt:gap-7">
           {/* Address */}
           <div className="rounded-2xl border border-navy/10 bg-ice p-7">
@@ -95,7 +95,7 @@ export default function ContactPage() {
       </Section>
 
       {/* Map + form */}
-      <Section bg="ice" className="py-14 dt:py-20">
+      <Section bg="ice" className="py-10 dt:py-14">
         <Container className="grid items-stretch gap-10 dt:grid-cols-2 dt:gap-14">
           <div>
             <Eyebrow align="left" className="mb-4">Get in touch with us</Eyebrow>

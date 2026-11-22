@@ -138,7 +138,7 @@ export default function HotelsPage() {
       />
 
       {/* Hero */}
-      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-12 dt:pt-16">
+      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-10 dt:pt-12">
         <div aria-hidden className="pointer-events-none absolute -left-32 top-10 hidden h-[460px] w-[460px] rounded-full border border-gold/15 dt:block" />
         <Container className="grid items-start gap-7 dt:grid-cols-2 dt:gap-x-16 dt:gap-y-5 dt:[grid-template-rows:auto_1fr]">
           <div className="order-1 text-center dt:col-start-1 dt:row-start-1 dt:text-left">
@@ -162,7 +162,7 @@ export default function HotelsPage() {
       </Section>
 
       {/* Why our hotels */}
-      <Section bg="ice" className="py-14 dt:py-20">
+      <Section bg="ice" className="py-10 dt:py-14">
         <Container>
           <div className="mx-auto mb-12 max-w-[760px] text-center">
             <Eyebrow className="mb-4">Why stay with us</Eyebrow>
@@ -183,7 +183,7 @@ export default function HotelsPage() {
       </Section>
 
       {/* Tiers */}
-      <Section bg="white" className="py-14 dt:py-20">
+      <Section bg="white" className="py-10 dt:py-14">
         <Container>
           <div className="mx-auto mb-12 max-w-[760px] text-center">
             <Eyebrow className="mb-4">Hotel categories</Eyebrow>
@@ -215,7 +215,7 @@ export default function HotelsPage() {
       </Section>
 
       {/* Makkah hotels */}
-      <Section bg="ice" className="py-14 dt:py-20">
+      <Section bg="ice" className="py-10 dt:py-14">
         <Container>
           <div className="mb-10 flex flex-col items-center gap-2 text-center dt:mb-12 dt:flex-row dt:items-end dt:justify-between dt:text-left">
             <div>
@@ -233,7 +233,7 @@ export default function HotelsPage() {
       </Section>
 
       {/* Madinah hotels */}
-      <Section bg="white" className="py-14 dt:py-20">
+      <Section bg="white" className="py-10 dt:py-14">
         <Container>
           <div className="mb-10 flex flex-col items-center gap-2 text-center dt:mb-12 dt:flex-row dt:items-end dt:justify-between dt:text-left">
             <div>
@@ -254,7 +254,7 @@ export default function HotelsPage() {
       </Section>
 
       {/* Amenities — navy band */}
-      <Section bg="navy" className="relative overflow-hidden py-14 dt:py-20">
+      <Section bg="navy" className="relative overflow-hidden py-10 dt:py-14">
         <div aria-hidden className="pointer-events-none absolute -right-28 -top-28 h-[360px] w-[360px] rounded-full border border-gold/15" />
         <Container>
           <div className="mx-auto mb-10 max-w-[760px] text-center">
@@ -281,7 +281,7 @@ export default function HotelsPage() {
       />
 
       {/* Inquiry */}
-      <Section bg="white" className="py-14 dt:py-20">
+      <Section bg="white" className="py-10 dt:py-14">
         <Container className="grid items-start gap-10 dt:grid-cols-2 dt:gap-16">
           <div>
             <Eyebrow align="left" className="mb-4">Reserve your stay</Eyebrow>

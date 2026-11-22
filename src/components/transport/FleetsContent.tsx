@@ -54,7 +54,7 @@ export function FleetsContent({
       <JsonLd data={breadcrumbSchema(breadcrumb)} />
 
       {/* Hero */}
-      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-12 dt:pt-16">
+      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-10 dt:pt-12">
         <div aria-hidden className="pointer-events-none absolute -left-32 top-10 hidden h-[460px] w-[460px] rounded-full border border-gold/15 dt:block" />
         <Container className="grid items-start gap-7 dt:grid-cols-2 dt:gap-x-16 dt:gap-y-5 dt:[grid-template-rows:auto_1fr]">
           <div className="order-1 text-center dt:col-start-1 dt:row-start-1 dt:text-left">
@@ -79,7 +79,7 @@ export function FleetsContent({
       </Section>
 
       {/* Features */}
-      <Section bg="ice" className="py-14 dt:py-20">
+      <Section bg="ice" className="py-10 dt:py-14">
         <Container className="grid gap-5 dt:grid-cols-3 dt:gap-7">
           {FEATURES.map(({ Icon, title, body }) => (
             <div key={title} className="card-hover group rounded-2xl border border-navy/10 bg-white p-7">
@@ -94,7 +94,7 @@ export function FleetsContent({
       </Section>
 
       {/* Premium experience */}
-      <Section bg="white" className="py-14 dt:py-20">
+      <Section bg="white" className="py-10 dt:py-14">
         <Container className="grid items-center gap-10 dt:grid-cols-2 dt:gap-16">
           <div className="relative order-2 h-[340px] w-full overflow-hidden rounded-2xl bg-lightblue shadow-[0_30px_60px_-26px_rgba(26,62,110,0.45)] dt:order-1 dt:h-[420px]">
             <Image src="/images/transportation/fleets-premium.webp" alt="Luxury sedan and van for pilgrimage travel" fill sizes="(max-width:900px) 100vw, 45vw" className="object-cover" />
@@ -110,7 +110,7 @@ export function FleetsContent({
       </Section>
 
       {/* Fleet options */}
-      <Section bg="ice" className="py-14 dt:py-20">
+      <Section bg="ice" className="py-10 dt:py-14">
         <Container>
           <div className="mx-auto mb-10 max-w-[760px] text-center">
             <Eyebrow className="mb-4">The vehicles</Eyebrow>
@@ -140,7 +140,7 @@ export function FleetsContent({
       </Section>
 
       {/* Why choose us — navy band */}
-      <Section bg="navy" className="relative overflow-hidden py-14 dt:py-20">
+      <Section bg="navy" className="relative overflow-hidden py-10 dt:py-14">
         <div aria-hidden className="pointer-events-none absolute -right-28 -top-28 h-[360px] w-[360px] rounded-full border border-gold/15" />
         <Container>
           <div className="mx-auto mb-10 max-w-[760px] text-center">
@@ -167,7 +167,7 @@ export function FleetsContent({
       <FaqAccordion items={FAQ} />
 
       {/* Inquiry */}
-      <Section bg="white" className="py-14 dt:py-20">
+      <Section bg="white" className="py-10 dt:py-14">
         <Container className="grid items-start gap-10 dt:grid-cols-2 dt:gap-16">
           <div>
             <Eyebrow align="left" className="mb-4">Get in touch</Eyebrow>

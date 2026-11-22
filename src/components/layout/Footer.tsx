@@ -42,7 +42,7 @@ export function Footer() {
 
       {/* Navy link area */}
       <div className="bg-navy text-white">
-        <Container className="py-12 dt:py-14">
+        <Container className="py-10 dt:py-12">
           <div className="grid gap-10 dt:grid-cols-[1.4fr_1fr_1fr_1fr_1fr] dt:gap-12">
             {/* Brand column */}
             <div className="flex flex-col items-center gap-4 text-center dt:items-start dt:text-left">

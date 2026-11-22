@@ -30,7 +30,7 @@ const FAQS = [
  */
 export function FaqSection() {
   return (
-    <Section bg="ice" className="py-16 dt:py-22">
+    <Section bg="ice" className="py-12 dt:py-16">
       <Container>
         {/* Header */}
         <div className="mx-auto mb-10 max-w-[700px] text-center dt:mb-12">

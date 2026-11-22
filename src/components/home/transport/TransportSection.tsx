@@ -44,7 +44,7 @@ const FLEETS = "/umrah-transport/vehicles/";
  */
 export function TransportSection() {
   return (
-    <Section bg="navy" className="pt-12 dt:pt-20">
+    <Section bg="navy" className="pt-10 dt:pt-14">
       <Container>
         <div className="grid gap-10 dt:grid-cols-[1fr_1.1fr] dt:items-center dt:gap-[72px]">
           {/* Copy */}

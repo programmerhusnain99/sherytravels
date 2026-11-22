@@ -11,7 +11,7 @@ import { ReadMore } from "@/components/ui/ReadMore";
 /** "Our Hajj Services" — copy + Inquire CTA on the left, arch artwork on the right. */
 export function HajjServices() {
   return (
-    <Section bg="white" className="relative overflow-hidden pb-14 dt:pb-24">
+    <Section bg="white" className="relative overflow-hidden pb-10 dt:pb-16">
       {/* Decorative ring */}
       <div
         aria-hidden

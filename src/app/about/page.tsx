@@ -51,7 +51,7 @@ export default function AboutPage() {
       />
 
       {/* Intro */}
-      <Section bg="white" className="pt-12 dt:pt-16">
+      <Section bg="white" className="pt-10 dt:pt-12">
         <Container className="text-center">
           <Eyebrow className="mb-5">About Shery Travels</Eyebrow>
           <AccentHeading
@@ -64,7 +64,7 @@ export default function AboutPage() {
       </Section>
 
       {/* Story + image */}
-      <Section bg="white" className="py-14 dt:py-20">
+      <Section bg="white" className="py-10 dt:py-14">
         <Container className="grid items-center gap-10 dt:grid-cols-2 dt:gap-16">
           <div className="relative order-2 mx-auto h-[420px] w-[320px] overflow-hidden rounded-t-[160px] rounded-b-[16px] bg-lightblue shadow-[0_34px_62px_-26px_rgba(26,62,110,0.5)] dt:order-1 dt:h-[520px] dt:w-[440px]">
             <Image
@@ -98,7 +98,7 @@ export default function AboutPage() {
       </Section>
 
       {/* Three pillars */}
-      <Section bg="ice" className="py-14 dt:py-20">
+      <Section bg="ice" className="py-10 dt:py-14">
         <Container className="grid gap-5 dt:grid-cols-3 dt:gap-7">
           {PILLARS.map(({ Icon, title, body }) => (
             <div key={title} className="rounded-2xl border border-navy/10 bg-white p-7 text-center dt:text-left">
@@ -113,7 +113,7 @@ export default function AboutPage() {
       </Section>
 
       {/* Worry-free CTA band */}
-      <Section bg="navy" className="py-14 dt:py-16">
+      <Section bg="navy" className="py-10 dt:py-12">
         <Container className="flex flex-col items-center gap-6 text-center dt:flex-row dt:justify-between dt:text-left">
           <AccentHeading
             as="h2"
@@ -131,7 +131,7 @@ export default function AboutPage() {
       </Section>
 
       {/* Why Shery Travels */}
-      <Section bg="white" className="py-14 dt:py-20">
+      <Section bg="white" className="py-10 dt:py-14">
         <Container>
           <div className="mx-auto max-w-[760px] text-center">
             <Eyebrow className="mb-4">Why choose us</Eyebrow>
@@ -164,7 +164,7 @@ export default function AboutPage() {
       </Section>
 
       {/* Inquiry */}
-      <Section bg="ice" className="py-14 dt:py-20">
+      <Section bg="ice" className="py-10 dt:py-14">
         <Container className="grid items-start gap-10 dt:grid-cols-2 dt:gap-16">
           <div>
             <Eyebrow align="left" className="mb-4">Get in touch</Eyebrow>

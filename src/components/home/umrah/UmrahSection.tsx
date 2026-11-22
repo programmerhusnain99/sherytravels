@@ -29,7 +29,7 @@ const SERVICES: { Icon: LucideIcon; title: string; sub: string; border: string }
 export function UmrahSection() {
   return (
     <>
-      <Section bg="navy" className="relative overflow-hidden pt-14 pb-24 dt:pt-24 dt:pb-28">
+      <Section bg="navy" className="relative overflow-hidden pt-10 pb-20 dt:pt-16 dt:pb-24">
         {/* Decorative gold arch outline rising from the band */}
         <div
           aria-hidden

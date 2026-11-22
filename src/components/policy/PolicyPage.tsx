@@ -67,7 +67,7 @@ export function PolicyPage({ data }: { data: PolicyPageData }) {
       />
 
       {/* Hero */}
-      <Section bg="ice" className="relative overflow-hidden py-14 dt:py-18">
+      <Section bg="ice" className="relative overflow-hidden py-10 dt:py-14">
         <div aria-hidden className="pointer-events-none absolute -left-28 -top-24 hidden h-[360px] w-[360px] rounded-full border border-gold/15 dt:block" />
         <div aria-hidden className="pointer-events-none absolute -right-24 top-16 hidden h-[280px] w-[280px] rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.1),transparent_70%)] dt:block" />
         <Container className="relative mx-auto max-w-[860px] text-center">

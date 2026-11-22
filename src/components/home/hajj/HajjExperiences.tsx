@@ -62,7 +62,7 @@ const AUDIENCES: Audience[] = [
 /** "Hajj experiences for all pilgrims" — audience cards + packages CTA. */
 export function HajjExperiences() {
   return (
-    <Section bg="lightblue" className="py-14 dt:py-20">
+    <Section bg="lightblue" className="py-10 dt:py-14">
       <Container>
         {/* Sub-heading (desktop only) */}
         <Reveal className="mb-10 hidden text-center dt:block">

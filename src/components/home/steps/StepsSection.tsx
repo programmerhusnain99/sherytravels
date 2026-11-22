@@ -43,7 +43,7 @@ const STEPS: Step[] = [
 /** "How it works" — four steps joined by a decorative dashed gold connector. */
 export function StepsSection() {
   return (
-    <Section bg="navy" className="relative overflow-hidden py-14 dt:py-24">
+    <Section bg="navy" className="relative overflow-hidden py-10 dt:py-16">
       {/* Decorative rings */}
       <div
         aria-hidden

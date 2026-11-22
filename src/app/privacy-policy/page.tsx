@@ -115,7 +115,7 @@ export default function PrivacyPolicyPage() {
       />
 
       {/* Header */}
-      <Section bg="ice" className="py-12 dt:py-16">
+      <Section bg="ice" className="py-10 dt:py-12">
         <Container className="mx-auto max-w-[820px] text-center">
           <Eyebrow className="mb-4">Legal</Eyebrow>
           <AccentHeading as="h1" before="Privacy " accent="Policy" className="text-[34px] leading-tight text-navy dt:text-[46px]" />
@@ -123,7 +123,7 @@ export default function PrivacyPolicyPage() {
       </Section>
 
       {/* Body */}
-      <Section bg="white" className="py-12 dt:py-16">
+      <Section bg="white" className="py-10 dt:py-12">
         <Container className="mx-auto max-w-[820px]">
           <p className="text-[15.5px] leading-[1.75] text-navy/80">
             Shery Travels holds your privacy with utmost respect. This privacy policy is meant to inform you of the collection, usage, sharing, and protection of your personal information by us while using the website and services with respect to Hajj, Umrah, and other travel offerings.

@@ -72,7 +72,7 @@ export function TransportationContent({
       <JsonLd data={breadcrumbSchema(breadcrumb)} />
 
       {/* Hero */}
-      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-12 dt:pt-16">
+      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-10 dt:pt-12">
         <div aria-hidden className="pointer-events-none absolute -left-32 top-10 hidden h-[460px] w-[460px] rounded-full border border-gold/15 dt:block" />
         <Container className="grid items-start gap-7 dt:grid-cols-2 dt:gap-x-16 dt:gap-y-5 dt:[grid-template-rows:auto_1fr]">
           <div className="order-1 text-center dt:col-start-1 dt:row-start-1 dt:text-left">
@@ -101,7 +101,7 @@ export function TransportationContent({
       </Section>
 
       {/* Reliable Mecca intro */}
-      <Section bg="white" className="py-14 dt:py-20">
+      <Section bg="white" className="py-10 dt:py-14">
         <Container className="mx-auto max-w-[900px] text-center">
           <Eyebrow className="mb-4">Reliable transfers</Eyebrow>
           <AccentHeading as="h2" before="Reliable Mecca Transportation for Umrah " accent="Pilgrims" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
@@ -119,7 +119,7 @@ export function TransportationContent({
       </Section>
 
       {/* Madinah */}
-      <Section bg="ice" className="py-14 dt:py-20">
+      <Section bg="ice" className="py-10 dt:py-14">
         <Container className="grid items-center gap-10 dt:grid-cols-2 dt:gap-16">
           <div className="relative order-2 mx-auto h-[360px] w-full overflow-hidden rounded-2xl bg-lightblue shadow-[0_30px_60px_-26px_rgba(26,62,110,0.45)] dt:order-1 dt:h-[420px]">
             <Image src="/images/transportation/transport-madinah.webp" alt="Transfers near Masjid al-Nabawi in Madinah" fill sizes="(max-width:900px) 100vw, 45vw" className="object-cover" />
@@ -135,7 +135,7 @@ export function TransportationContent({
       </Section>
 
       {/* Fleet */}
-      <Section bg="white" className="py-14 dt:py-20">
+      <Section bg="white" className="py-10 dt:py-14">
         <Container>
           <div className="mx-auto mb-10 max-w-[760px] text-center">
             <Eyebrow className="mb-4">Our fleet</Eyebrow>
@@ -168,7 +168,7 @@ export function TransportationContent({
       </Section>
 
       {/* Ziarat — navy band */}
-      <Section bg="navy" className="relative overflow-hidden py-14 dt:py-20">
+      <Section bg="navy" className="relative overflow-hidden py-10 dt:py-14">
         <div aria-hidden className="pointer-events-none absolute -right-28 -top-28 h-[360px] w-[360px] rounded-full border border-gold/15" />
         <Container className="grid items-center gap-10 dt:grid-cols-2 dt:gap-16">
           <div>
@@ -191,7 +191,7 @@ export function TransportationContent({
       </Section>
 
       {/* How it works */}
-      <Section bg="white" className="py-14 dt:py-20">
+      <Section bg="white" className="py-10 dt:py-14">
         <Container>
           <div className="mx-auto mb-10 max-w-[760px] text-center">
             <Eyebrow className="mb-4">How it works</Eyebrow>
@@ -214,7 +214,7 @@ export function TransportationContent({
       </Section>
 
       {/* Effortless planning */}
-      <Section bg="ice" className="py-14 dt:py-20">
+      <Section bg="ice" className="py-10 dt:py-14">
         <Container className="mx-auto max-w-[900px] text-center">
           <Eyebrow className="mb-4">Plan your trip</Eyebrow>
           <AccentHeading as="h2" before="Effortless Travel Planning: Your Trip, Your " accent="Way" className="text-[26px] leading-tight text-navy dt:text-[36px]" />
@@ -232,7 +232,7 @@ export function TransportationContent({
       </Section>
 
       {/* Book your ride — numbered steps */}
-      <Section bg="white" className="py-14 dt:py-20">
+      <Section bg="white" className="py-10 dt:py-14">
         <Container>
           <div className="mx-auto mb-10 max-w-[760px] text-center">
             <Eyebrow className="mb-4">Book your ride with ease</Eyebrow>
@@ -262,7 +262,7 @@ export function TransportationContent({
       />
 
       {/* Inquiry */}
-      <Section bg="white" className="py-14 dt:py-20">
+      <Section bg="white" className="py-10 dt:py-14">
         <Container className="grid items-start gap-10 dt:grid-cols-2 dt:gap-16">
           <div>
             <Eyebrow align="left" className="mb-4">Get in touch with us</Eyebrow>

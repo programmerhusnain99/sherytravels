@@ -40,7 +40,7 @@ export function FormSection() {
       </div>
 
       <Container className="relative">
-        <div className="grid grid-cols-1 items-center gap-10 py-12 dt:grid-cols-2 dt:gap-14 dt:py-20">
+        <div className="grid grid-cols-1 items-center gap-10 py-10 dt:grid-cols-2 dt:gap-14 dt:py-14">
           {/* Left column — copy + stats */}
           <div className="text-center dt:text-left">
             <Reveal as="div">

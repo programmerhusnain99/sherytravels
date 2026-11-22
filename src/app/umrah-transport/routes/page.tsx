@@ -29,7 +29,7 @@ export default function RoutesPage() {
         ])}
       />
 
-      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white py-20 dt:py-28">
+      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white py-14 dt:py-18">
         <div aria-hidden className="pointer-events-none absolute -left-32 top-10 hidden h-[460px] w-[460px] rounded-full border border-gold/15 dt:block" />
         <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.12),transparent_70%)]" />
         <Container className="relative mx-auto max-w-[760px] text-center">

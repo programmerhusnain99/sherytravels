@@ -15,7 +15,7 @@ export function UmrahPackagesCommon({ crumb = "Umrah" }: { crumb?: string }) {
   return (
     <>
       {/* Why choose us — navy band */}
-      <Section bg="navy" className="relative overflow-hidden py-14 dt:py-20">
+      <Section bg="navy" className="relative overflow-hidden py-10 dt:py-14">
         <div aria-hidden className="pointer-events-none absolute -right-28 -top-28 h-[360px] w-[360px] rounded-full border border-gold/15" />
         <Container>
           <div className="mx-auto mb-10 max-w-[760px] text-center">
@@ -39,7 +39,7 @@ export function UmrahPackagesCommon({ crumb = "Umrah" }: { crumb?: string }) {
       </Section>
 
       {/* Spiritual highlights — numbered */}
-      <Section bg="white" className="py-14 dt:py-20">
+      <Section bg="white" className="py-10 dt:py-14">
         <Container>
           <div className="mx-auto mb-10 max-w-[760px] text-center">
             <Eyebrow className="mb-4">What&apos;s included</Eyebrow>
@@ -66,7 +66,7 @@ export function UmrahPackagesCommon({ crumb = "Umrah" }: { crumb?: string }) {
       />
 
       {/* Inquiry */}
-      <Section bg="white" className="py-14 dt:py-20">
+      <Section bg="white" className="py-10 dt:py-14">
         <Container className="grid items-start gap-10 dt:grid-cols-2 dt:gap-16">
           <div>
             <Eyebrow align="left" className="mb-4">Get in touch</Eyebrow>

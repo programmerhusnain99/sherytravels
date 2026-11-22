@@ -14,7 +14,7 @@ export interface Faq {
  */
 export function FaqAccordion({ intro, items }: { intro?: string; items: Faq[] }) {
   return (
-    <section className="bg-ice py-14 dt:py-20">
+    <section className="bg-ice py-10 dt:py-14">
       <Container>
         <div className="mx-auto mb-10 max-w-[720px] text-center">
           <Eyebrow className="mb-4">Common questions</Eyebrow>

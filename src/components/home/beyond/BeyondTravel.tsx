@@ -20,7 +20,7 @@ const STATS = [
  */
 export function BeyondTravel() {
   return (
-    <Section bg="navy" className="relative overflow-hidden pb-14 pt-32 dt:pb-20 dt:pt-36">
+    <Section bg="navy" className="relative overflow-hidden pb-10 pt-20 dt:pb-16 dt:pt-24">
       <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(219,183,37,0.14),transparent_70%)]" />
 
       <Container className="relative">

@@ -87,7 +87,7 @@ export function PackageLandingPage({
       />
 
       {/* Hero */}
-      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-12 dt:pt-16">
+      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-10 dt:pt-12">
         <div aria-hidden className="pointer-events-none absolute -left-32 top-10 hidden h-[460px] w-[460px] rounded-full border border-gold/15 dt:block" />
         <Container className="grid items-start gap-7 dt:grid-cols-2 dt:gap-x-16 dt:gap-y-5 dt:[grid-template-rows:auto_1fr]">
           <div className="order-1 text-center dt:col-start-1 dt:row-start-1 dt:text-left">
@@ -111,7 +111,7 @@ export function PackageLandingPage({
       </Section>
 
       {/* Packages */}
-      <Section bg="ice" className="py-14 dt:py-20">
+      <Section bg="ice" className="py-10 dt:py-14">
         <Container>
           <div className="mx-auto mb-12 max-w-[780px] text-center">
             <Eyebrow className="mb-4">Our packages</Eyebrow>
@@ -160,7 +160,7 @@ export function PackageLandingPage({
       </Section>
 
       {/* Highlights — navy band */}
-      <Section bg="navy" className="relative overflow-hidden py-14 dt:py-20">
+      <Section bg="navy" className="relative overflow-hidden py-10 dt:py-14">
         <div aria-hidden className="pointer-events-none absolute -right-28 -top-28 h-[360px] w-[360px] rounded-full border border-gold/15" />
         <Container>
           <div className="mx-auto mb-10 max-w-[820px] text-center">
@@ -195,7 +195,7 @@ export function PackageLandingPage({
       />
 
       {/* Plan */}
-      <Section bg="white" className="py-14 dt:py-20">
+      <Section bg="white" className="py-10 dt:py-14">
         <Container className="mx-auto max-w-[840px] text-center">
           <Eyebrow className="mb-4">Plan your trip</Eyebrow>
           <AccentHeading as="h2" before={plan.before} accent={plan.accent} className="text-[25px] leading-tight text-navy dt:text-[34px]" />
@@ -210,7 +210,7 @@ export function PackageLandingPage({
       <FaqAccordion items={data.faq} />
 
       {/* Inquiry */}
-      <Section bg="ice" className="py-14 dt:py-20">
+      <Section bg="ice" className="py-10 dt:py-14">
         <Container className="grid items-start gap-10 dt:grid-cols-2 dt:gap-16">
           <div>
             <Eyebrow align="left" className="mb-4">Get in touch with us</Eyebrow>

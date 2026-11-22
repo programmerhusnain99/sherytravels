@@ -12,7 +12,7 @@ import { Stagger, StaggerItem } from "@/components/motion/Reveal";
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-[linear-gradient(to_bottom,#ffffff_0%,#ffffff_62%,#f2fdff_100%)]">
-      <Container className="relative pb-24 pt-4 text-center dt:pb-32 dt:pt-7">
+      <Container className="relative pb-20 pt-4 text-center dt:pb-28 dt:pt-7">
         {/* Decorative arch outline behind */}
         <div
           aria-hidden
