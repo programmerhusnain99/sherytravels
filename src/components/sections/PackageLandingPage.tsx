@@ -78,7 +78,7 @@ export function PackageLandingPage({
   const plan = splitHeading(data.planHeading);
 
   return (
-    <PageShell active="/umrah-packages/">
+    <PageShell active="/umrah-packages/" cta={false}>
       <JsonLd
         data={breadcrumbSchema([
           ...(breadcrumb ?? DEFAULT_TRAIL),

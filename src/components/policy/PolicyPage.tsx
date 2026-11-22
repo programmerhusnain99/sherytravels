@@ -58,7 +58,7 @@ export function PolicyPage({ data }: { data: PolicyPageData }) {
   const sections = data.sections.map((s, i) => ({ ...s, id: `section-${i + 1}`, n: String(i + 1).padStart(2, "0") }));
 
   return (
-    <PageShell active={data.path}>
+    <PageShell active={data.path} cta={false}>
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },

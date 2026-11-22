@@ -50,7 +50,7 @@ export function FleetsContent({
   active?: string;
 }) {
   return (
-    <PageShell active={active}>
+    <PageShell active={active} cta={false}>
       <JsonLd data={breadcrumbSchema(breadcrumb)} />
 
       {/* Hero */}

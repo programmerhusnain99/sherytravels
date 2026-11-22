@@ -19,12 +19,26 @@ const CONTACTS = [
   { icon: Mail, label: "info@sherytravels.com", href: "mailto:info@sherytravels.com" },
 ];
 
+export interface FormSectionProps {
+  eyebrow?: string;
+  headingBefore?: string;
+  headingAccent?: string;
+  description?: string;
+}
+
 /**
  * Contact / enquiry CTA. Full-bleed background photo with a navy gradient overlay.
  * Left column: eyebrow, heading, body, gold trust stats (+ desktop contact row).
  * Right column: the client enquiry form. Server-rendered copy for SEO.
+ *
+ * Text is overridable per page; defaults match the homepage.
  */
-export function FormSection() {
+export function FormSection({
+  eyebrow = "Get in touch with us",
+  headingBefore = "Take The First Step To Plan Your ",
+  headingAccent = "Journey",
+  description = "Your journey begins with a simple conversation. Share your dates and preferences, and a travel expert will reply within 24 hours with the best Umrah or Hajj package for you.",
+}: FormSectionProps = {}) {
   return (
     <Section bg="navy" className="relative overflow-hidden dt:min-h-[680px]">
       {/* Background photo + navy gradient (vertical on mobile, left-to-right on desktop) */}
@@ -45,20 +59,19 @@ export function FormSection() {
           <div className="text-center dt:text-left">
             <Reveal as="div">
               <Eyebrow align="center" tone="white" className="dt:justify-start">
-                Get in touch with us
+                {eyebrow}
               </Eyebrow>
 
               <AccentHeading
                 as="h2"
-                before="Take The First Step To Plan Your "
-                accent="Journey"
+                before={headingBefore}
+                accent={headingAccent}
                 className="mt-5 text-[28px] leading-[1.2] text-white dt:text-[44px] dt:leading-[1.14]"
               />
             </Reveal>
 
             <p className="mx-auto mt-5 max-w-[460px] text-[15.5px] font-light leading-[1.7] text-white/90 dt:mx-0 dt:text-[16.5px]">
-              Your journey begins with a simple conversation. Share your dates and preferences, and a
-              travel expert will reply within 24 hours with the best Umrah or Hajj package for you.
+              {description}
             </p>
 
             {/* Gold trust stats */}

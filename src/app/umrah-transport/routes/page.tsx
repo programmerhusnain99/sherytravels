@@ -21,7 +21,7 @@ export const metadata = pageMetadata({
 
 export default function RoutesPage() {
   return (
-    <PageShell active="/umrah-transport/">
+    <PageShell active="/umrah-transport/" cta={false}>
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },

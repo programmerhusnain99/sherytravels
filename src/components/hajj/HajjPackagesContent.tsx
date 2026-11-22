@@ -51,7 +51,7 @@ const FAQ = [
 /** Shared Hajj Packages page body (legacy /hajj/usa-packages/ + new /hajj-packages/). */
 export function HajjPackagesContent({ breadcrumb }: { breadcrumb: { name: string; path: string }[] }) {
   return (
-    <PageShell active="/hajj-packages/">
+    <PageShell active="/hajj-packages/" cta={false}>
       <JsonLd data={breadcrumbSchema(breadcrumb)} />
 
       {/* Hero */}

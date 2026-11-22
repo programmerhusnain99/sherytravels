@@ -25,7 +25,7 @@ export const metadata = pageMetadata({
 
 export default function ContactPage() {
   return (
-    <PageShell active="/contact/">
+    <PageShell active="/contact/" cta={false}>
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },

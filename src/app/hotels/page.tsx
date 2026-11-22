@@ -129,7 +129,7 @@ function HotelCard({ h }: { h: Hotel }) {
 
 export default function HotelsPage() {
   return (
-    <PageShell active="/hotels/">
+    <PageShell active="/hotels/" cta={false}>
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },

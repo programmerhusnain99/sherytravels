@@ -106,7 +106,7 @@ function Bullets({ items }: { items: string[] }) {
 
 export default function PrivacyPolicyPage() {
   return (
-    <PageShell active="/privacy-policy/">
+    <PageShell active="/privacy-policy/" cta={false}>
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },

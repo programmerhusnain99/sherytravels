@@ -7,10 +7,9 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { InquireButton } from "@/components/inquiry/InquireButton";
 import { PackageCardLarge } from "@/components/home/packages/PackageCardLarge";
-import { PackagesShowcase } from "@/components/home/packages/PackagesShowcase";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/seo";
-import { INCLUDED, type UmrahTier } from "@/data/umrah/packages";
+import { type UmrahTier } from "@/data/umrah/packages";
 import { UmrahPackagesCommon } from "./UmrahPackagesCommon";
 
 const PACKAGES_PATH = "/umrah-packages/";
@@ -20,7 +19,16 @@ export function UmrahTierPage({ tier }: { tier: UmrahTier }) {
   const path = `${PACKAGES_PATH}${tier.slug}/`;
 
   return (
-    <PageShell active="/umrah-packages/">
+    <PageShell
+      active="/umrah-packages/"
+      cta={{
+        eyebrow: "Plan your Umrah",
+        headingBefore: `Ready to Begin Your ${tier.star} Umrah `,
+        headingAccent: "Journey?",
+        description:
+          "Share your dates and group size and our team will put together a tailored plan — visa, flights, hotels and transport included.",
+      }}
+    >
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },
@@ -58,8 +66,8 @@ export function UmrahTierPage({ tier }: { tier: UmrahTier }) {
         </Container>
       </Section>
 
-      {/* Tier package cards */}
-      <Section bg="ice" className="py-10 dt:py-14">
+      {/* Tier package cards. Clearer section tint + extra space after the hero CTA. */}
+      <Section bg="lightblue" className="pt-16 pb-12 dt:pt-24 dt:pb-16">
         <Container>
           <div className="mb-10 flex flex-col items-center gap-2 text-center dt:mb-12 dt:flex-row dt:items-end dt:justify-between dt:text-left">
             <div>
@@ -85,53 +93,8 @@ export function UmrahTierPage({ tier }: { tier: UmrahTier }) {
         </Container>
       </Section>
 
-      {/* What's included — the "something" section */}
-      <Section bg="white" className="py-10 dt:py-14">
-        <Container>
-          <div className="mx-auto mb-12 max-w-[760px] text-center">
-            <Eyebrow className="mb-4">What&apos;s included</Eyebrow>
-            <AccentHeading as="h2" before="Everything Arranged for Your " accent="Pilgrimage" className="text-[26px] leading-tight text-navy dt:text-[36px]" />
-            <p className="mt-4 text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">{tier.lead}</p>
-          </div>
-          <div className="grid gap-5 dt:grid-cols-3 dt:gap-7">
-            {INCLUDED.map(({ Icon, title, body }) => (
-              <div key={title} className="card-hover group rounded-2xl border border-navy/10 bg-ice p-7">
-                <span className="mb-5 grid h-14 w-14 place-items-center rounded-2xl border-[1.5px] border-gold bg-white transition-colors duration-300 group-hover:bg-gold">
-                  <Icon size={26} className="text-navy" />
-                </span>
-                <h3 className="mb-2 font-serif text-[19px] font-bold text-navy">{title}</h3>
-                <p className="text-[14.5px] font-light leading-relaxed text-navy/75">{body}</p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* Suggestions — explore more packages */}
-      <PackagesShowcase
-        eyebrow="Keep exploring"
-        headingBefore="Explore more "
-        headingAccent="packages"
-        description="Browse other Umrah packages — flights, visa, hotels near the Haram and transport, all arranged for you."
-        bg="ice"
-      />
-
-      {/* Inquire now CTA band */}
-      <Section bg="lightblue" className="py-10 dt:py-14">
-        <Container className="mx-auto max-w-[720px] text-center">
-          <Eyebrow className="mb-4">Ready when you are</Eyebrow>
-          <AccentHeading as="h2" before={`Start Your ${tier.star} Umrah `} accent="Today" className="text-[26px] leading-tight text-navy dt:text-[36px]" />
-          <p className="mt-4 text-[15.5px] font-light leading-[1.7] text-navy/80">
-            Share your dates and group size and our team will put together a tailored plan — visa, flights, hotels and transport included.
-          </p>
-          <div className="mt-7 flex justify-center">
-            <InquireButton variant="gold" size="lg" className="rounded-lg">Inquire Now</InquireButton>
-          </div>
-        </Container>
-      </Section>
-
-      {/* Shared "Umrah packages page" content */}
-      <UmrahPackagesCommon crumb="Umrah" />
+      {/* Why choose us → Explore → Spiritual highlights → FAQ */}
+      <UmrahPackagesCommon />
     </PageShell>
   );
 }
