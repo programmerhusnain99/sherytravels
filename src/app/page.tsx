@@ -4,7 +4,6 @@ import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { Hero } from "@/components/home/hero/Hero";
 import { HeroEnquiry } from "@/components/home/hero/HeroEnquiry";
-import { CredentialsStrip } from "@/components/home/credentials/CredentialsStrip";
 import { BeyondTravel } from "@/components/home/beyond/BeyondTravel";
 import { PackagesShowcase } from "@/components/home/packages/PackagesShowcase";
 import { UMRAH_PACKAGES } from "@/data/home/packageCards";
@@ -35,7 +34,6 @@ export default function HomePage() {
       <main>
         <Hero />
         <HeroEnquiry />
-        <CredentialsStrip />
         <BeyondTravel />
         <PackagesShowcase
           layout="split"
