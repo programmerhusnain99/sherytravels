@@ -104,11 +104,31 @@ body {
 .hero-badge-in {
   animation: heroBadgeIn 500ms ease;
 }
+
+/* Seamless infinite marquee for the Popular Packages cards (doubled track). */
+@keyframes pkgMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.pkg-marquee {
+  animation: pkgMarquee 36s linear infinite;
+}
+.pkg-marquee:hover {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-float {
     animation: none;
   }
   .hero-badge-in {
+    animation: none;
+  }
+  .pkg-marquee {
     animation: none;
   }
   html {

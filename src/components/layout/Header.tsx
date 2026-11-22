@@ -76,7 +76,7 @@ function NavDropdown({ item, active }: { item: MenuItem; active: string }) {
 /** Site header: navy utility strip + logo/nav row. `active` highlights the current nav item. */
 export function Header({ active = "/" }: { active?: string }) {
   return (
-    <header>
+    <header className="sticky top-0 z-50 bg-white shadow-[0_6px_24px_-18px_rgba(26,62,110,0.5)]">
       {/* Utility strip */}
       <div className="bg-navy text-white">
         <Container className="flex items-center justify-center py-2.5 dt:justify-between dt:py-[11px]">

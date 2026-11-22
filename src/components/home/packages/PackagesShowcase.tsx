@@ -22,6 +22,8 @@ type Props = {
   bg?: Bg;
   /** "stacked": heading above the cards (default). "split": heading column on the left, cards on the right. */
   layout?: "stacked" | "split";
+  /** Seamless infinite auto-loop (CSS marquee) instead of button-stepped scroll. */
+  loop?: boolean;
 };
 
 /**
@@ -38,6 +40,7 @@ export function PackagesShowcase({
   viewAllHref = "/umrah-packages/",
   bg = "ice",
   layout = "stacked",
+  loop = false,
 }: Props = {}) {
   const track = useRef<HTMLDivElement>(null);
   const paused = useRef(false);
@@ -117,6 +120,25 @@ export function PackagesShowcase({
     </div>
   );
 
+  // Seamless infinite marquee (doubled cards). Pauses on hover via CSS.
+  const marqueeEl = (
+    <div className={`overflow-hidden pb-3 ${layout === "split" ? "-mr-5 dt:-mr-14" : ""}`}>
+      <div className={`pkg-marquee flex w-max items-start gap-5 ${layout === "split" ? "" : "px-5 dt:px-10"}`}>
+        {[...packages, ...packages].map((pkg, i) => (
+          <div
+            key={pkg.title + pkg.href + i}
+            aria-hidden={i >= packages.length}
+            className="w-[84vw] max-w-[390px] flex-none sm:w-[56vw] dt:w-[388px]"
+          >
+            <PackageCard pkg={pkg} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
+  const cards = loop ? marqueeEl : trackEl;
+
   if (layout === "split") {
     return (
       <Section bg={bg} className="overflow-hidden py-12 dt:py-16">
@@ -139,12 +161,12 @@ export function PackagesShowcase({
               {/* small empty space, then controls */}
               <div className="mt-8 flex flex-col items-center gap-4 dt:items-start">
                 {viewAll}
-                {arrows}
+                {!loop && arrows}
               </div>
             </div>
 
             {/* Cards (right) */}
-            {trackEl}
+            {cards}
           </div>
         </Container>
       </Section>
@@ -171,11 +193,11 @@ export function PackagesShowcase({
 
         <div className="flex flex-none flex-col items-start gap-4 dt:items-end">
           {viewAll}
-          {arrows}
+          {!loop && arrows}
         </div>
       </Container>
 
-      {trackEl}
+      {cards}
     </Section>
   );
 }
