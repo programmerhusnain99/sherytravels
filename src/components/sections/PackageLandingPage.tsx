@@ -210,7 +210,7 @@ export function PackageLandingPage({
       <FaqAccordion items={data.faq} />
 
       {/* Inquiry */}
-      <Section bg="ice" className="py-10 dt:py-14">
+      <Section bg="white" className="py-10 dt:py-14">
         <Container className="grid items-start gap-10 dt:grid-cols-2 dt:gap-16">
           <div>
             <Eyebrow align="left" className="mb-4">Get in touch with us</Eyebrow>

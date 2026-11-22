@@ -70,7 +70,7 @@ export default function AboutPage() {
       </Section>
 
       {/* Story + image */}
-      <Section bg="white" className="py-10 dt:py-14">
+      <Section bg="lightblue" className="py-10 dt:py-14">
         <Container className="grid items-center gap-10 dt:grid-cols-2 dt:gap-16">
           <div className="relative order-2 mx-auto h-[420px] w-[320px] overflow-hidden rounded-t-[160px] rounded-b-[16px] bg-lightblue shadow-[0_34px_62px_-26px_rgba(26,62,110,0.5)] dt:order-1 dt:h-[520px] dt:w-[440px]">
             <Image

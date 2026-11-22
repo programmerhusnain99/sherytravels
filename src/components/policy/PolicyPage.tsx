@@ -91,7 +91,7 @@ export function PolicyPage({ data }: { data: PolicyPageData }) {
       </Section>
 
       {/* Body: sticky index + content */}
-      <Section bg="white" className="pb-14 pt-12 dt:pb-20 dt:pt-16">
+      <Section bg="ice" className="pb-14 pt-12 dt:pb-20 dt:pt-16">
         <Container>
           <div className="grid gap-10 dt:grid-cols-[250px_1fr] dt:gap-14">
             {/* Section index — sticky on desktop */}

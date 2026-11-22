@@ -62,7 +62,7 @@ export default function UmrahPackagesPage() {
       </Section>
 
       {/* What's included */}
-      <Section bg="ice" className="py-10 dt:py-14">
+      <Section bg="lightblue" className="py-10 dt:py-14">
         <Container>
           <div className="mx-auto mb-12 max-w-[760px] text-center">
             <Eyebrow className="mb-4">What&apos;s included</Eyebrow>

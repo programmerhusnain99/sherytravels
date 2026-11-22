@@ -101,7 +101,7 @@ export function TransportationContent({
       </Section>
 
       {/* Reliable Mecca intro */}
-      <Section bg="white" className="py-10 dt:py-14">
+      <Section bg="lightblue" className="py-10 dt:py-14">
         <Container className="mx-auto max-w-[900px] text-center">
           <Eyebrow className="mb-4">Reliable transfers</Eyebrow>
           <AccentHeading as="h2" before="Reliable Mecca Transportation for Umrah " accent="Pilgrims" className="text-[27px] leading-tight text-navy dt:text-[38px]" />

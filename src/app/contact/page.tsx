@@ -56,7 +56,7 @@ export default function ContactPage() {
       </Section>
 
       {/* Contact detail cards */}
-      <Section bg="white" className="py-10 dt:py-12">
+      <Section bg="lightblue" className="py-10 dt:py-12">
         <Container className="grid gap-5 dt:grid-cols-3 dt:gap-7">
           {/* Address */}
           <div className="rounded-2xl border border-navy/10 bg-ice p-7">

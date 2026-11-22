@@ -24,7 +24,7 @@ export function Hero() {
             <Eyebrow>Start your pilgrimage with confidence</Eyebrow>
           </StaggerItem>
 
-          <StaggerItem className="order-2 mt-6 w-full dt:mt-7">
+          <StaggerItem className="order-2 mt-8 w-full dt:mt-10">
             <HeroArch />
           </StaggerItem>
 
