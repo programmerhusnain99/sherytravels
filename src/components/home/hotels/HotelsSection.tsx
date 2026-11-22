@@ -8,33 +8,21 @@ import { HotelsTabs, type Hotel } from "./HotelsTabs";
 import { HotelsScrollButtons } from "./HotelsScrollButtons";
 
 const MAKKAH: Hotel[] = [
-  {
-    name: "Dar Al Eiman Grand",
-    stars: 5,
-    image: "/images/home/home-hotel-grand.webp",
-    nearest: "200m from Masjid al-Haram",
-  },
-  {
-    name: "Al Kiswah Towers",
-    stars: 4,
-    image: "/images/home/home-hotel-kiswah.webp",
-    nearest: "150m from Masjid al-Haram",
-  },
+  { name: "Dar Al Eiman Grand", stars: 5, image: "/images/home/home-hotel-grand.webp", nearest: "200m from Masjid al-Haram" },
+  { name: "Al Kiswah Towers", stars: 4, image: "/images/home/home-hotel-kiswah.webp", nearest: "150m from Masjid al-Haram" },
+  { name: "Makkah Tower Residences", stars: 5, image: "/images/home/home-hotels-tower.webp", nearest: "Steps from the Haram" },
+  { name: "Anjum Makkah", stars: 4, image: "/images/home/home-hotel-manar.webp", nearest: "300m from Masjid al-Haram" },
+  { name: "Elaf Al Mashaer", stars: 3, image: "/images/home/home-hotel-nadaalsalam.webp", nearest: "500m from Masjid al-Haram" },
+  { name: "Hilton Suites Makkah", stars: 5, image: "/images/home/home-hotel-grand.webp", nearest: "250m from Masjid al-Haram" },
 ];
 
 const MADINAH: Hotel[] = [
-  {
-    name: "Dar Al Eiman Al Manar",
-    stars: 4,
-    image: "/images/home/home-hotel-manar.webp",
-    nearest: "250m from Al-Masjid an-Nabawi",
-  },
-  {
-    name: "Nada Al Salam",
-    stars: 3,
-    image: "/images/home/home-hotel-nadaalsalam.webp",
-    nearest: "450m from Al-Masjid an-Nabawi",
-  },
+  { name: "Dar Al Eiman Al Manar", stars: 4, image: "/images/home/home-hotel-manar.webp", nearest: "250m from Al-Masjid an-Nabawi" },
+  { name: "Anwar Al Madinah", stars: 5, image: "/images/home/home-hotel-grand.webp", nearest: "120m from Al-Masjid an-Nabawi" },
+  { name: "Shaza Al Madina", stars: 5, image: "/images/home/home-hotel-kiswah.webp", nearest: "180m from Al-Masjid an-Nabawi" },
+  { name: "Taiba Front Hotel", stars: 4, image: "/images/home/home-hotels-tower.webp", nearest: "300m from Al-Masjid an-Nabawi" },
+  { name: "Nada Al Salam", stars: 3, image: "/images/home/home-hotel-nadaalsalam.webp", nearest: "450m from Al-Masjid an-Nabawi" },
+  { name: "Dar Al Hijra", stars: 3, image: "/images/home/home-hotel-manar.webp", nearest: "550m from Al-Masjid an-Nabawi" },
 ];
 
 /**

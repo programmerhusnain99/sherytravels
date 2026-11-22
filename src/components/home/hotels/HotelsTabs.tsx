@@ -12,9 +12,10 @@ export type Hotel = {
   nearest: string;
 };
 
-type City = "makkah" | "madinah";
+type City = "all" | "makkah" | "madinah";
 
 const TABS: { id: City; label: string }[] = [
+  { id: "all", label: "All" },
   { id: "makkah", label: "Makkah" },
   { id: "madinah", label: "Madinah" },
 ];
@@ -31,8 +32,8 @@ export function HotelsTabs({
   makkah: Hotel[];
   madinah: Hotel[];
 }) {
-  const [active, setActive] = useState<City>("makkah");
-  const lists: Record<City, Hotel[]> = { makkah, madinah };
+  const [active, setActive] = useState<City>("all");
+  const lists: Record<City, Hotel[]> = { all: [...makkah, ...madinah], makkah, madinah };
 
   return (
     <div>
@@ -122,7 +123,7 @@ function Stars({ count, size = 16 }: { count: number; size?: number }) {
 function HotelCardDesktop({ hotel, highlighted }: { hotel: Hotel; highlighted: boolean }) {
   return (
     <article
-      className={`flex items-stretch overflow-hidden rounded-[18px] bg-white ${
+      className={`flex shrink-0 items-stretch overflow-hidden rounded-[18px] bg-white ${
         highlighted
           ? "border-2 border-gold shadow-[0_8px_30px_-10px_rgba(26,62,110,0.12)]"
           : "border border-navy/10 shadow-[0_4px_20px_-8px_rgba(0,0,0,0.06)]"
