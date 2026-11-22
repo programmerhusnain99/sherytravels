@@ -9,14 +9,29 @@ import { InquireButton } from "@/components/inquiry/InquireButton";
 import { PackageGrid } from "@/components/home/packages/PackageGrid";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/seo";
-import { type UmrahTier } from "@/data/umrah/packages";
+import { TIERS, type UmrahTier } from "@/data/umrah/packages";
+import type { PackageCard } from "@/data/home/packageCards";
 import { UmrahPackagesCommon } from "./UmrahPackagesCommon";
 
 const PACKAGES_PATH = "/umrah-packages/";
 
+const toCards = (t: UmrahTier): PackageCard[] =>
+  t.rooms.map((r) => ({
+    title: `${t.star} · ${r.room}`,
+    image: r.image,
+    highlights: [t.nights, t.split, "Visa & Transport included"],
+    price: r.price,
+    href: `${PACKAGES_PATH}${t.slug}/`,
+  }));
+
 /** Full tier page (3/4/5-star) for `/umrah-packages/<tier>`. */
 export function UmrahTierPage({ tier }: { tier: UmrahTier }) {
   const path = `${PACKAGES_PATH}${tier.slug}/`;
+  // This tier's rooms first, then the other tiers' rooms — 9 cards for load-more.
+  const pool: PackageCard[] = [
+    ...toCards(tier),
+    ...TIERS.filter((t) => t.slug !== tier.slug).flatMap(toCards),
+  ];
 
   return (
     <PageShell active="/umrah-packages/" cta={false}>
@@ -70,17 +85,7 @@ export function UmrahTierPage({ tier }: { tier: UmrahTier }) {
             </div>
             <p className="text-[14.5px] text-navy/70">{tier.nights} · {tier.split}</p>
           </div>
-          <PackageGrid
-            cards={tier.rooms.map((r) => ({
-              title: `${tier.star} · ${r.room}`,
-              image: r.image,
-              highlights: [tier.nights, tier.split, "Visa & Transport included"],
-              price: r.price,
-              href: path,
-            }))}
-            initial={3}
-            step={3}
-          />
+          <PackageGrid cards={pool} initial={3} step={3} />
         </Container>
       </Section>
 

@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Star, ArrowRight } from "lucide-react";
 import { pageMetadata, breadcrumbSchema } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { PageShell } from "@/components/layout/PageShell";
@@ -7,23 +9,11 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { InquireButton } from "@/components/inquiry/InquireButton";
-import { PackageGrid } from "@/components/home/packages/PackageGrid";
+import { PackageRow } from "@/components/home/packages/PackageRow";
 import { UmrahPackagesCommon } from "@/components/umrah/UmrahPackagesCommon";
 import { TIERS } from "@/data/umrah/packages";
-import type { PackageCard } from "@/data/home/packageCards";
 
 const PATH = "/umrah-packages/";
-
-/** All room options across every tier, as a flat pool of cards. */
-const CARD_POOL: PackageCard[] = TIERS.flatMap((tier) =>
-  tier.rooms.map((r) => ({
-    title: `${tier.star} · ${r.room}`,
-    image: r.image,
-    highlights: [tier.nights, tier.split, "Visa & Transport included"],
-    price: r.price,
-    href: `${PATH}${tier.slug}/`,
-  })),
-);
 
 export const metadata = pageMetadata({
   path: PATH,
@@ -84,7 +74,39 @@ export default function UmrahPackagesPage() {
             </p>
           </div>
 
-          <PackageGrid cards={CARD_POOL} initial={3} step={3} />
+          <div className="space-y-14">
+            {TIERS.map((tier) => (
+              <div key={tier.slug}>
+                <div className="mb-6 flex flex-col items-center gap-3 dt:flex-row dt:items-end dt:justify-between">
+                  <div className="text-center dt:text-left">
+                    <div className="mb-1.5 flex items-center justify-center gap-0.5 dt:justify-start">
+                      {Array.from({ length: 5 }).map((_, s) => (
+                        <Star key={s} size={16} className={s < tier.stars ? "fill-gold text-gold" : "fill-navy/10 text-navy/10"} />
+                      ))}
+                    </div>
+                    <h3 className="font-serif text-[22px] font-bold text-navy dt:text-[26px]">{tier.star} Umrah Package</h3>
+                    <p className="mt-1 text-[14px] text-navy/70">{tier.nights} · {tier.split}</p>
+                  </div>
+                  <Link
+                    href={`${PATH}${tier.slug}/`}
+                    className="inline-flex items-center gap-2 rounded-full border border-navy/15 bg-white px-5 py-2.5 text-[13.5px] font-bold text-navy shadow-[0_10px_26px_-18px_rgba(26,62,110,0.6)] transition-colors hover:border-gold hover:text-gold"
+                  >
+                    Explore all {tier.star}
+                    <ArrowRight size={16} aria-hidden />
+                  </Link>
+                </div>
+                <PackageRow
+                  cards={tier.rooms.map((r) => ({
+                    title: `${tier.star} · ${r.room}`,
+                    image: r.image,
+                    highlights: [tier.nights, tier.split, "Visa & Transport included"],
+                    price: r.price,
+                    href: `${PATH}${tier.slug}/`,
+                  }))}
+                />
+              </div>
+            ))}
+          </div>
         </Container>
       </Section>
 

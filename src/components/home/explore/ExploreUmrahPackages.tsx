@@ -4,8 +4,8 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { Button } from "@/components/ui/Button";
-import { PackageCardLarge } from "@/components/home/packages/PackageCardLarge";
-import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
+import { PackageRow } from "@/components/home/packages/PackageRow";
+import { Reveal } from "@/components/motion/Reveal";
 import type { PackageCard } from "@/data/home/packageCards";
 
 const UMRAH: PackageCard[] = [
@@ -51,13 +51,7 @@ export function ExploreUmrahPackages() {
           </p>
         </Reveal>
 
-        <Stagger as="div" gap={0.12} className="grid gap-6 dt:grid-cols-3 dt:gap-7">
-          {UMRAH.map((pkg) => (
-            <StaggerItem as="div" key={pkg.href} direction="up">
-              <PackageCardLarge pkg={pkg} />
-            </StaggerItem>
-          ))}
-        </Stagger>
+        <PackageRow cards={UMRAH} />
 
         <div className="mt-10 flex justify-center">
           <Button href="/umrah-packages/" variant="gold" size="lg" className="rounded-lg uppercase tracking-[0.06em]">

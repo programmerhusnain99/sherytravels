@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Star } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
@@ -8,10 +7,11 @@ import { AccentHeading } from "@/components/ui/AccentHeading";
 import { InquireButton } from "@/components/inquiry/InquireButton";
 import { ContactForm } from "@/components/inquiry/ContactForm";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
-import { PackageCardLarge } from "@/components/home/packages/PackageCardLarge";
+import { PackageGrid } from "@/components/home/packages/PackageGrid";
 import { PackagesShowcase } from "@/components/home/packages/PackagesShowcase";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/seo";
+import type { PackageCard } from "@/data/home/packageCards";
 
 export interface PackageTier {
   star: string; // e.g. "3 Star"
@@ -122,40 +122,19 @@ export function PackageLandingPage({
             )}
           </div>
 
-          <div className="space-y-12">
-            {data.tiers.map((tier) => {
-              const stars = parseInt(tier.star, 10) || 0;
-              return (
-                <div key={tier.star}>
-                  <div className="mb-6 flex flex-col items-center gap-2 dt:flex-row dt:items-end dt:justify-between">
-                    <div className="text-center dt:text-left">
-                      <div className="mb-1.5 flex items-center justify-center gap-0.5 dt:justify-start">
-                        {Array.from({ length: 5 }).map((_, s) => (
-                          <Star key={s} size={16} className={s < stars ? "fill-gold text-gold" : "fill-navy/10 text-navy/10"} />
-                        ))}
-                      </div>
-                      <h3 className="font-serif text-[22px] font-bold text-navy dt:text-[26px]">{tier.star} Umrah Package</h3>
-                    </div>
-                    <p className="text-[14.5px] text-navy/70">{tier.nights} · {tier.split}</p>
-                  </div>
-                  <div className="grid gap-6 dt:grid-cols-3 dt:gap-7">
-                    {tier.rooms.map((r) => (
-                      <PackageCardLarge
-                        key={r.room}
-                        pkg={{
-                          title: `${tier.star} · ${r.room}`,
-                          image: data.heroImage,
-                          highlights: [tier.nights, tier.split, "Visa & Transport included"],
-                          price: r.price,
-                          href: data.path,
-                        }}
-                      />
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          <PackageGrid
+            cards={data.tiers.flatMap<PackageCard>((tier) =>
+              tier.rooms.map((r) => ({
+                title: `${tier.star} · ${r.room}`,
+                image: data.heroImage,
+                highlights: [tier.nights, tier.split, "Visa & Transport included"],
+                price: r.price,
+                href: data.path,
+              })),
+            )}
+            initial={3}
+            step={3}
+          />
         </Container>
       </Section>
 
