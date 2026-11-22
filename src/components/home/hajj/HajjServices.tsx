@@ -6,7 +6,6 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
-import { ReadMore } from "@/components/ui/ReadMore";
 
 /** "Our Hajj Services" — copy + Inquire CTA on the left, arch artwork on the right. */
 export function HajjServices() {
@@ -34,25 +33,19 @@ export function HajjServices() {
                 className="mb-4 text-[32px] leading-[1.2] text-navy dt:text-[50px] dt:leading-[1.14]"
               />
             </Reveal>
-            <ReadMore
-              id="rm-hajj"
-              className="mx-auto max-w-[560px] dt:mx-0"
-              leadClassName="text-[16px] font-light leading-[1.68] text-navy/90 text-pretty dt:text-[17px] dt:leading-[1.72]"
-              lead={
-                <>
-                  A once-in-a-lifetime journey is all about sacrifice, unity, and submission to the
-                  Almighty. We are here to ensure you are able to fulfil this journey without any
-                  hiccups in the easiest way possible. From Ihram guidance to Jamart and more, we are
-                  with you every step of the way during each phase.
-                </>
-              }
-            >
+            <div className="mx-auto max-w-[560px] dt:mx-0">
+              <p className="text-[16px] font-light leading-[1.68] text-navy/90 text-pretty dt:text-[17px] dt:leading-[1.72]">
+                A once-in-a-lifetime journey is all about sacrifice, unity, and submission to the
+                Almighty. We are here to ensure you are able to fulfil this journey without any
+                hiccups in the easiest way possible. From Ihram guidance to Jamart and more, we are
+                with you every step of the way during each phase.
+              </p>
               <p className="mt-4 text-[16px] font-light leading-[1.68] text-navy/90 text-pretty dt:text-[17px] dt:leading-[1.72]">
                 Our close ties in the local area give us the advantage to offer reliable
                 transportation, clean and accessible accommodation, and smooth coordination for
                 families and individuals.
               </p>
-            </ReadMore>
+            </div>
 
             <div className="mt-8 flex justify-center dt:justify-start">
               <Button

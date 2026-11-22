@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Route, ShieldCheck, Headset, Users, HeartHandshake } from "lucide-react";
+import { Route, ShieldCheck, Headset, Users, HeartHandshake, Check } from "lucide-react";
 import { pageMetadata, breadcrumbSchema } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { PageShell } from "@/components/layout/PageShell";
@@ -69,36 +69,51 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      {/* Story + image */}
-      <Section bg="lightblue" className="py-10 dt:py-14">
-        <Container className="grid items-center gap-10 dt:grid-cols-2 dt:gap-16">
-          <div className="relative order-2 mx-auto h-[420px] w-[320px] overflow-hidden rounded-t-[160px] rounded-b-[16px] bg-lightblue shadow-[0_34px_62px_-26px_rgba(26,62,110,0.5)] dt:order-1 dt:h-[520px] dt:w-[440px]">
-            <Image
-              src="/images/about/about-story.webp"
-              alt="Pilgrims on their journey with Shery Travels"
-              fill
-              sizes="(max-width: 900px) 320px, 440px"
-              className="object-cover"
-            />
+      {/* Story + image — navy glorified band */}
+      <Section bg="navy" className="relative overflow-hidden py-12 dt:py-16">
+        <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[760px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(219,183,37,0.12),transparent_70%)]" />
+        <div aria-hidden className="pointer-events-none absolute -right-28 -bottom-24 hidden h-[420px] w-[420px] rounded-full border border-gold/15 dt:block" />
+        <Container className="relative grid items-center gap-14 dt:grid-cols-2 dt:gap-16">
+          {/* Image */}
+          <div className="relative order-2 mx-auto w-full max-w-[420px] dt:order-1">
+            <div aria-hidden className="pointer-events-none absolute -left-5 -top-5 hidden h-28 w-28 rounded-full border border-gold/25 dt:block" />
+            <div className="hero-float relative mx-auto h-[380px] w-[300px] overflow-hidden rounded-t-[160px] rounded-b-[18px] bg-lightblue shadow-[0_44px_90px_-30px_rgba(0,0,0,0.6)] dt:h-[480px] dt:w-full dt:rounded-t-[220px]">
+              <Image src="/images/about/about-story.webp" alt="Pilgrims on their journey with Shery Travels" fill sizes="(max-width:900px) 300px, 440px" className="object-cover" />
+              <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(26,62,110,0.4)_100%)]" />
+            </div>
+            <div className="absolute -bottom-4 inset-x-0 flex justify-center dt:inset-x-auto dt:left-[-20px] dt:block">
+              <div className="flex w-fit items-center gap-3 rounded-2xl border border-white/10 bg-white px-5 py-3.5 shadow-[0_24px_50px_-18px_rgba(0,0,0,0.5)]">
+                <span className="font-serif text-[30px] font-bold leading-none text-navy">10+</span>
+                <span className="text-left text-[12px] font-light leading-tight text-navy/70">years of<br />trusted service</span>
+              </div>
+            </div>
           </div>
-          <div className="order-1 dt:order-2">
-            <Eyebrow align="left" className="mb-4">Who we are</Eyebrow>
+          {/* Content */}
+          <div className="order-1 text-center dt:order-2 dt:text-left">
+            <Eyebrow align="center" tone="white" className="mb-4 dt:justify-start">Who we are</Eyebrow>
             <AccentHeading
               as="h2"
               before="Umrah & Services Planned with "
               accent="Care"
-              className="text-[28px] leading-[1.2] text-navy dt:text-[40px]"
+              className="text-[28px] leading-[1.18] text-white dt:text-[40px]"
             />
-            <p className="mt-5 text-[16px] font-light leading-[1.7] text-navy/80 dt:text-[17px]">
-              Shery Travels was founded with the idea of providing more than just an ordinary travel
-              experience.
+            <p className="mx-auto mt-5 max-w-[520px] text-[15.5px] font-light leading-[1.7] text-white/80 dt:mx-0 dt:text-[16.5px]">
+              Shery Travels was founded on the idea of providing more than an ordinary travel
+              experience — a journey rooted in faith, care and trust.
             </p>
-            <p className="mt-4 text-[16px] font-light leading-[1.7] text-navy/80 dt:text-[17px]">
-              We understand that Umrah and Hajj are close to the heart of Muslims. The spiritual
-              journey is of utmost importance to our brothers and sisters. Keeping this in mind, we
-              wanted to share our expertise in travel matters, along with guidance on planning your
-              first Umrah and Hajj, without waiting in long queues.
+            <p className="mx-auto mt-4 max-w-[520px] text-[15.5px] font-light leading-[1.7] text-white/70 dt:mx-0">
+              We understand that Umrah and Hajj are close to the heart of Muslims. Keeping that in
+              mind, we share our expertise and guidance to plan your pilgrimage smoothly — without
+              waiting in long queues.
             </p>
+            <ul className="mx-auto mt-6 flex max-w-[520px] flex-col gap-2.5 text-left dt:mx-0 sm:flex-row sm:flex-wrap sm:gap-x-6">
+              {["Faith-first guidance", "End-to-end arrangements", "Strong local network"].map((t) => (
+                <li key={t} className="flex items-center gap-2.5 text-[14.5px] font-medium text-white/90">
+                  <span className="grid h-6 w-6 flex-none place-items-center rounded-full bg-gold/15 ring-1 ring-gold/30"><Check size={13} className="text-gold" /></span>
+                  {t}
+                </li>
+              ))}
+            </ul>
           </div>
         </Container>
       </Section>

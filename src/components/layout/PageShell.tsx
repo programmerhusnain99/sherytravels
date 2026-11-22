@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import { TrustStrip } from "@/components/home/trust/TrustStrip";
 
 /** Standard page wrapper: header + main + footer. `active` highlights the nav item. */
 export function PageShell({
@@ -14,6 +15,7 @@ export function PageShell({
     <>
       <Header active={active} />
       <main>{children}</main>
+      <TrustStrip />
       <Footer />
     </>
   );

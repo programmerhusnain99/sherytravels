@@ -11,8 +11,8 @@ import { AccentHeading } from "@/components/ui/AccentHeading";
 import { InquireButton } from "@/components/inquiry/InquireButton";
 import { PackageCardLarge } from "@/components/home/packages/PackageCardLarge";
 import { PackagesShowcase } from "@/components/home/packages/PackagesShowcase";
-import { UmrahPackagesCommon } from "@/components/umrah/UmrahPackagesCommon";
-import { TIERS, INCLUDED } from "@/data/umrah/packages";
+import { FaqAccordion } from "@/components/sections/FaqAccordion";
+import { TIERS, WHY, HIGHLIGHTS, FAQ } from "@/data/umrah/packages";
 
 const PATH = "/umrah-packages/";
 
@@ -61,29 +61,8 @@ export default function UmrahPackagesPage() {
         </Container>
       </Section>
 
-      {/* What's included */}
-      <Section bg="lightblue" className="py-10 dt:py-14">
-        <Container>
-          <div className="mx-auto mb-12 max-w-[760px] text-center">
-            <Eyebrow className="mb-4">What&apos;s included</Eyebrow>
-            <AccentHeading as="h2" before="Everything Arranged for Your " accent="Pilgrimage" className="text-[26px] leading-tight text-navy dt:text-[36px]" />
-          </div>
-          <div className="grid gap-5 dt:grid-cols-3 dt:gap-7">
-            {INCLUDED.map(({ Icon, title, body }) => (
-              <div key={title} className="card-hover group rounded-2xl border border-navy/10 bg-white p-7">
-                <span className="mb-5 grid h-14 w-14 place-items-center rounded-2xl border-[1.5px] border-gold bg-ice transition-colors duration-300 group-hover:bg-gold">
-                  <Icon size={26} className="text-navy" />
-                </span>
-                <h3 className="mb-2 font-serif text-[19px] font-bold text-navy">{title}</h3>
-                <p className="text-[14.5px] font-light leading-relaxed text-navy/75">{body}</p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* Packages by tier */}
-      <Section bg="white" className="py-10 dt:py-14">
+      {/* Choose Your Umrah Packages — directly after the hero */}
+      <Section bg="ice" className="py-10 dt:py-14">
         <Container>
           <div className="mx-auto mb-12 max-w-[760px] text-center">
             <Eyebrow className="mb-4">Our packages</Eyebrow>
@@ -134,7 +113,40 @@ export default function UmrahPackagesPage() {
         </Container>
       </Section>
 
-      {/* Suggestions */}
+      {/* Why Choose Us for Your Umrah Journey — navy, numbered feature cards */}
+      <Section bg="navy" className="relative overflow-hidden py-12 dt:py-16">
+        <div aria-hidden className="pointer-events-none absolute -right-28 -top-24 h-[380px] w-[380px] rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.14),transparent_70%)]" />
+        <div aria-hidden className="pointer-events-none absolute -left-24 -bottom-24 hidden h-[340px] w-[340px] rounded-full border border-gold/15 dt:block" />
+        <Container className="relative">
+          <div className="mx-auto mb-10 max-w-[760px] text-center dt:mb-12">
+            <Eyebrow align="center" tone="white" className="mb-4">Why choose us</Eyebrow>
+            <AccentHeading as="h2" before="Why Choose Us for Your Umrah " accent="Journey" className="text-[27px] leading-tight text-white dt:text-[38px]" />
+            <p className="mx-auto mt-4 max-w-[600px] text-[15.5px] font-light leading-relaxed text-white/75">
+              A dedicated team, trusted partners and years of experience — so every part of your pilgrimage is in safe, caring hands.
+            </p>
+          </div>
+          <div className="grid gap-5 sm:grid-cols-2 dt:grid-cols-4 dt:gap-6">
+            {WHY.map(({ Icon, title, body }, i) => (
+              <div
+                key={title}
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.05] p-6 transition-colors hover:border-gold/40"
+              >
+                <span aria-hidden className="pointer-events-none absolute -right-1 -top-3 font-serif text-[64px] font-bold leading-none text-white/[0.06]">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span aria-hidden className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-gold/0 via-gold to-gold/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <span className="relative mb-4 grid h-14 w-14 place-items-center rounded-2xl border-[1.5px] border-gold/50 text-gold">
+                  <Icon size={26} />
+                </span>
+                <h3 className="relative mb-2 font-serif text-[17px] font-bold text-white">{title}</h3>
+                <p className="relative text-[13.5px] font-light leading-relaxed text-white/70">{body}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* Explore more packages */}
       <PackagesShowcase
         eyebrow="Keep exploring"
         headingBefore="Explore more "
@@ -144,8 +156,32 @@ export default function UmrahPackagesPage() {
         bg="ice"
       />
 
-      {/* Shared "Umrah packages page" content */}
-      <UmrahPackagesCommon crumb="Umrah" />
+      {/* Spiritual Highlights of Our Umrah Packages */}
+      <Section bg="white" className="py-10 dt:py-14">
+        <Container>
+          <div className="mx-auto mb-10 max-w-[760px] text-center">
+            <Eyebrow className="mb-4">What&apos;s included</Eyebrow>
+            <AccentHeading as="h2" before="Spiritual Highlights of Our Umrah " accent="Packages" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
+          </div>
+          <div className="grid gap-5 dt:grid-cols-2 dt:gap-7">
+            {HIGHLIGHTS.map((h, i) => (
+              <div key={h.title} className="card-hover relative overflow-hidden rounded-2xl border border-navy/10 bg-ice p-7">
+                <span className="pointer-events-none absolute -right-2 -top-3 font-serif text-[64px] font-bold leading-none text-gold/15" aria-hidden>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="relative mb-2 font-serif text-[19px] font-bold text-navy">{h.title}</h3>
+                <p className="relative text-[14.5px] font-light leading-relaxed text-navy/75">{h.body}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* FAQ */}
+      <FaqAccordion
+        intro="Find answers to common questions about our Umrah packages, visas, room options and support during your pilgrimage."
+        items={FAQ}
+      />
     </PageShell>
   );
 }
