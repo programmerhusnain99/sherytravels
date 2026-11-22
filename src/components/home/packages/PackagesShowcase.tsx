@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowLeft, ArrowRight, Plus } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
@@ -24,12 +24,17 @@ type Props = {
   layout?: "stacked" | "split";
   /** Seamless infinite auto-loop (CSS marquee) instead of button-stepped scroll. */
   loop?: boolean;
+  /** Reveal mode: show this many cards first, then an inline "load more" tile. */
+  revealInitial?: number;
+  /** Reveal mode: how many more cards each "load more" click adds. */
+  revealStep?: number;
 };
 
 /**
- * Horizontal auto-scrolling showcase of landscape package cards. Advances one
- * card every few seconds, loops at the end, and pauses on hover/touch/focus so
- * the cards stay clickable.
+ * Horizontal showcase of landscape package cards. On mobile every variant is a
+ * snap-scroll that shows one card plus the edge of the next. Supports an
+ * auto-advancing scroll, a seamless marquee (`loop`), or an inline "load more"
+ * tile that reveals more cards in the row (`revealStep`).
  */
 export function PackagesShowcase({
   eyebrow = "Popular departures",
@@ -41,9 +46,13 @@ export function PackagesShowcase({
   bg = "ice",
   layout = "stacked",
   loop = false,
+  revealInitial = 3,
+  revealStep,
 }: Props = {}) {
   const track = useRef<HTMLDivElement>(null);
   const paused = useRef(false);
+  const reveal = revealStep != null;
+  const [visible, setVisible] = useState(revealInitial);
 
   const step = (dir: 1 | -1) => {
     const el = track.current;
@@ -61,12 +70,16 @@ export function PackagesShowcase({
   };
 
   useEffect(() => {
+    if (reveal) return; // reveal mode is user-driven, no auto-advance
     if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
     const id = setInterval(() => {
       if (!paused.current) step(1);
     }, 3800);
     return () => clearInterval(id);
-  }, []);
+  }, [reveal]);
+
+  const hasMore = reveal && visible < packages.length;
+  const shown = reveal ? packages.slice(0, visible) : packages;
 
   const arrows = (
     <div className="flex items-center gap-3">
@@ -96,6 +109,22 @@ export function PackagesShowcase({
     </Button>
   );
 
+  const loadMoreTile = hasMore && (
+    <div className="w-[84vw] max-w-[300px] flex-none snap-start sm:w-[52vw] dt:w-[300px]">
+      <button
+        type="button"
+        onClick={() => setVisible((v) => v + (revealStep ?? 3))}
+        className="group flex h-full min-h-[230px] w-full flex-col items-center justify-center gap-4 rounded-xl border-2 border-dashed border-gold/50 bg-gradient-to-br from-navy to-[#14325a] p-8 text-center text-white transition-all duration-300 hover:border-gold hover:shadow-[0_26px_54px_-20px_rgba(26,62,110,0.65)]"
+      >
+        <span className="grid h-16 w-16 place-items-center rounded-full bg-gold text-navy shadow-[0_14px_30px_-10px_rgba(219,183,37,0.7)] transition-transform duration-300 group-hover:rotate-90">
+          <Plus size={26} aria-hidden />
+        </span>
+        <span className="font-serif text-[19px] font-bold">Load {revealStep} more</span>
+        <span className="text-[13px] font-light leading-relaxed text-white/70">Reveal more packages in the row</span>
+      </button>
+    </div>
+  );
+
   const trackEl = (
     <div
       ref={track}
@@ -104,11 +133,11 @@ export function PackagesShowcase({
       onTouchStart={() => (paused.current = true)}
       onFocusCapture={() => (paused.current = true)}
       onBlurCapture={() => (paused.current = false)}
-      className={`no-scrollbar flex snap-x snap-mandatory items-start gap-5 overflow-x-auto pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${
+      className={`no-scrollbar flex snap-x snap-mandatory items-stretch gap-5 overflow-x-auto pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${
         layout === "split" ? "-mr-5 dt:-mr-14" : "px-5 dt:px-10"
       }`}
     >
-      {packages.map((pkg) => (
+      {shown.map((pkg) => (
         <div
           key={pkg.title + pkg.href}
           data-card
@@ -117,6 +146,7 @@ export function PackagesShowcase({
           <PackageCard pkg={pkg} />
         </div>
       ))}
+      {loadMoreTile}
     </div>
   );
 

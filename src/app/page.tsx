@@ -37,7 +37,8 @@ export default function HomePage() {
         <BeyondTravel />
         <PackagesShowcase
           layout="split"
-          loop
+          revealInitial={3}
+          revealStep={3}
           bg="white"
           eyebrow="Trending now"
           headingBefore="Popular "

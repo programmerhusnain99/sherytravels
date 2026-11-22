@@ -58,6 +58,34 @@ export const PACKAGE_CARDS: PackageCard[] = [
     price: "$1,090",
     href: "/umrah-packages/3-star/",
   },
+  {
+    title: "Ramadan Umrah Special",
+    image: "/images/home/home-pkg-ramadan.webp",
+    highlights: ["Last 10 nights of Ramadan", "Hotels close to the Haram", "Visa & Transport included"],
+    price: "$1,890",
+    href: "/umrah-packages/ramadan/",
+  },
+  {
+    title: "December Family Umrah",
+    image: "/images/home/home-pkg-december.webp",
+    highlights: ["School-holiday departures", "Family rooms & meals", "Guided Ziyarat"],
+    price: "$1,260",
+    href: "/umrah-packages/december/",
+  },
+  {
+    title: "16 Nights Extended Umrah",
+    image: "/images/home/home-pkg-family.webp",
+    highlights: ["9 in Makkah & 7 in Madinah", "Premium-comfort hotels", "Visa & Transport included"],
+    price: "$1,760",
+    href: "/umrah-packages/4-star/",
+  },
+  {
+    title: "5-Star Haram-View Umrah",
+    image: "/images/home/home-pkg-luxury.webp",
+    highlights: ["6 Nights · 3 Makkah / 3 Madinah", "5★ Haram-view rooms", "Private transfers & guide"],
+    price: "$2,480",
+    href: "/umrah-packages/5-star/",
+  },
 ];
 
 /** Umrah tier/season cards for the homepage "Explore Our Umrah Packages" carousel. */

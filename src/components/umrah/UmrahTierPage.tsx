@@ -6,7 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { InquireButton } from "@/components/inquiry/InquireButton";
-import { PackageCardLarge } from "@/components/home/packages/PackageCardLarge";
+import { PackageGrid } from "@/components/home/packages/PackageGrid";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/seo";
 import { type UmrahTier } from "@/data/umrah/packages";
@@ -79,20 +79,17 @@ export function UmrahTierPage({ tier }: { tier: UmrahTier }) {
             </div>
             <p className="text-[14.5px] text-navy/70">{tier.nights} · {tier.split}</p>
           </div>
-          <div className="grid gap-6 dt:grid-cols-3 dt:gap-7">
-            {tier.rooms.map((r) => (
-              <PackageCardLarge
-                key={r.room}
-                pkg={{
-                  title: `${tier.star} · ${r.room}`,
-                  image: r.image,
-                  highlights: [tier.nights, tier.split, "Visa & Transport included"],
-                  price: r.price,
-                  href: path,
-                }}
-              />
-            ))}
-          </div>
+          <PackageGrid
+            cards={tier.rooms.map((r) => ({
+              title: `${tier.star} · ${r.room}`,
+              image: r.image,
+              highlights: [tier.nights, tier.split, "Visa & Transport included"],
+              price: r.price,
+              href: path,
+            }))}
+            initial={6}
+            step={3}
+          />
         </Container>
       </Section>
 
