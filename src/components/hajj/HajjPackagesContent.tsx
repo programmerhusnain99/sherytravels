@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Plane, FileCheck2, PackageCheck, Users, HeartHandshake, Handshake, Check } from "lucide-react";
+import { FileCheck2, Users, HeartHandshake, Handshake, PackageCheck, UserCheck, Syringe, PlaneTakeoff, Check } from "lucide-react";
 import { breadcrumbSchema } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { PageShell } from "@/components/layout/PageShell";
@@ -10,15 +10,9 @@ import { AccentHeading } from "@/components/ui/AccentHeading";
 import { InquireButton } from "@/components/inquiry/InquireButton";
 import { ContactForm } from "@/components/inquiry/ContactForm";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
-import { PackageCardLarge } from "@/components/home/packages/PackageCardLarge";
+import { PackageGrid } from "@/components/home/packages/PackageGrid";
 import { PackagesShowcase } from "@/components/home/packages/PackagesShowcase";
 import { HAJJ_PACKAGES } from "@/data/home/packageCards";
-
-const FEATURES = [
-  { Icon: Plane, title: "US-Based Departure", body: "U.S. travelers can take flights from major cities, including L.A., Houston, Chicago, New York, and other cities. The bilingual support team communicates every step of the way." },
-  { Icon: FileCheck2, title: "Easy Visa Processing", body: "Travel easily knowing we take care of all necessary visa paperwork and requirements from the embassy." },
-  { Icon: PackageCheck, title: "Inclusive Services", body: "Get airport pickups, guided rituals, and air-conditioned accommodation in Makkah and Madina, fully religious compliant." },
-];
 
 const WHY = [
   { Icon: Users, title: "Deep Understanding of U.S. Muslim Travelers", body: "From time zone differences to halal dietary needs and bilingual challenges, we match your lifestyle without compromising throughout the Hajj journey." },
@@ -35,10 +29,10 @@ const AUDIENCES = [
 ];
 
 const DOCUMENTS = [
-  { title: "Valid Passport", body: "As an American Muslim, you will need a U.S. passport with a minimum validity of 6 months for your travel plans. Shery Travel assists in securing the Hajj visa with proper documentation that complies with Saudi government regulations." },
-  { title: "Mahram Proof for Female Pilgrims", body: "According to Hajj guidance by the Saudi government, female pilgrims traveling alone must provide proof of a Mahram relationship (such as a birth certificate). Our team ensures that they collect the necessary documents." },
-  { title: "Health Vaccinations", body: "All pilgrims must present proof of COVID-19 vaccination (and any other required vaccines, if appropriate), according to Saudi officials. We’ll keep you updated on the most recent health regulations and assist you in meeting them on schedule." },
-  { title: "Flight Tickets and Hotel Confirmations", body: "You will need confirmed hotel reservations and round-trip airline tickets in order to finish your Hajj application. All Shery trip packages include them, and we offer official documents to back up your trip and visa applications." },
+  { Icon: FileCheck2, title: "Valid Passport", body: "As an American Muslim, you will need a U.S. passport with a minimum validity of 6 months for your travel plans. Shery Travel assists in securing the Hajj visa with proper documentation that complies with Saudi government regulations." },
+  { Icon: UserCheck, title: "Mahram Proof for Female Pilgrims", body: "According to Hajj guidance by the Saudi government, female pilgrims traveling alone must provide proof of a Mahram relationship (such as a birth certificate). Our team ensures that they collect the necessary documents." },
+  { Icon: Syringe, title: "Health Vaccinations", body: "All pilgrims must present proof of COVID-19 vaccination (and any other required vaccines, if appropriate), according to Saudi officials. We’ll keep you updated on the most recent health regulations and assist you in meeting them on schedule." },
+  { Icon: PlaneTakeoff, title: "Flight Tickets and Hotel Confirmations", body: "You will need confirmed hotel reservations and round-trip airline tickets in order to finish your Hajj application. All Shery trip packages include them, and we offer official documents to back up your trip and visa applications." },
 ];
 
 const FAQ = [
@@ -55,7 +49,7 @@ export function HajjPackagesContent({ breadcrumb }: { breadcrumb: { name: string
       <JsonLd data={breadcrumbSchema(breadcrumb)} />
 
       {/* Hero */}
-      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-10 dt:pt-12">
+      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-10 pb-8 dt:pt-12 dt:pb-10">
         <div aria-hidden className="pointer-events-none absolute -left-32 top-10 hidden h-[460px] w-[460px] rounded-full border border-gold/15 dt:block" />
         <Container className="flex flex-col items-center gap-6 text-center">
           <div className="order-1 max-w-[680px] text-center">
@@ -77,21 +71,6 @@ export function HajjPackagesContent({ breadcrumb }: { breadcrumb: { name: string
         </Container>
       </Section>
 
-      {/* Features */}
-      <Section bg="lightblue" className="py-10 dt:py-14">
-        <Container className="grid gap-5 dt:grid-cols-3 dt:gap-7">
-          {FEATURES.map(({ Icon, title, body }) => (
-            <div key={title} className="card-hover group rounded-2xl border border-navy/10 bg-ice p-7">
-              <span className="mb-5 grid h-14 w-14 place-items-center rounded-2xl border-[1.5px] border-gold bg-white transition-colors duration-300 group-hover:bg-gold">
-                <Icon size={26} className="text-navy" />
-              </span>
-              <h3 className="mb-2 font-serif text-[19px] font-bold text-navy">{title}</h3>
-              <p className="text-[14.5px] font-light leading-relaxed text-navy/75">{body}</p>
-            </div>
-          ))}
-        </Container>
-      </Section>
-
       {/* Trusted intro + package rooms */}
       <Section bg="ice" className="py-10 dt:py-14">
         <Container>
@@ -106,12 +85,8 @@ export function HajjPackagesContent({ breadcrumb }: { breadcrumb: { name: string
             </p>
           </div>
 
-          <h3 className="mb-6 text-center font-serif text-[22px] font-bold text-navy dt:text-[26px]">Types of USA Hajj Packages</h3>
-          <div className="grid gap-6 dt:grid-cols-3 dt:gap-7">
-            {HAJJ_PACKAGES.map((pkg) => (
-              <PackageCardLarge key={pkg.title} pkg={pkg} />
-            ))}
-          </div>
+          <h3 className="mb-8 text-center font-serif text-[22px] font-bold text-navy dt:text-[26px]">Our USA Hajj Packages</h3>
+          <PackageGrid cards={HAJJ_PACKAGES} initial={3} step={3} />
         </Container>
       </Section>
 
@@ -167,24 +142,27 @@ export function HajjPackagesContent({ breadcrumb }: { breadcrumb: { name: string
         </Container>
       </Section>
 
-      {/* Designed for every US Muslim — image + text with audience list */}
-      <Section bg="ice" className="py-10 dt:py-14">
-        <Container className="grid items-center gap-10 dt:grid-cols-2 dt:gap-16">
-          <div className="relative order-2 h-[340px] w-full overflow-hidden rounded-2xl bg-lightblue shadow-[0_30px_60px_-26px_rgba(26,62,110,0.45)] dt:order-1 dt:h-[500px]">
+      {/* Designed for every US Muslim — dark-blue band, image + text with audience list */}
+      <Section bg="navy" className="relative overflow-hidden py-11 dt:py-16">
+        <div aria-hidden className="pointer-events-none absolute -right-28 -top-24 hidden h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.14),transparent_70%)] dt:block" />
+        <div aria-hidden className="pointer-events-none absolute -left-24 -bottom-24 hidden h-[360px] w-[360px] rounded-full border border-gold/15 dt:block" />
+        <Container className="relative grid items-center gap-11 dt:grid-cols-2 dt:gap-16">
+          <div className="relative order-2 h-[340px] w-full overflow-hidden rounded-2xl bg-lightblue shadow-[0_44px_90px_-30px_rgba(0,0,0,0.6)] dt:order-1 dt:h-[500px]">
             <Image src="/images/hajj/usa-everyone.webp" alt="Hajj packages for every U.S. Muslim" fill sizes="(max-width:900px) 100vw, 45vw" className="object-cover" />
+            <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,transparent_58%,rgba(26,62,110,0.4)_100%)]" />
           </div>
           <div className="order-1 dt:order-2">
-            <Eyebrow align="left" className="mb-4">For everyone</Eyebrow>
-            <AccentHeading as="h2" before="Hajj Package Designed for Every U.S. " accent="Muslim" className="text-[24px] leading-tight text-navy dt:text-[34px]" />
-            <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-navy/80">
+            <Eyebrow align="left" tone="white" className="mb-4">For everyone</Eyebrow>
+            <AccentHeading as="h2" before="Hajj Package Designed for Every U.S. " accent="Muslim" className="text-[24px] leading-tight text-white dt:text-[34px]" />
+            <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-white/80">
               Whether you are a young American Muslim, a professional, an elderly couple, someone who wants to travel with their family, or even solo women travelers, we accommodate all of you.
             </p>
-            <p className="mt-3 text-[15.5px] font-light leading-[1.7] text-navy/80">
+            <p className="mt-3 text-[15.5px] font-light leading-[1.7] text-white/70">
               Here you can look for basic Hajj packages or a luxury Hajj package with added comfort, as per your affordability. Our hajj services are designed with options for:
             </p>
-            <ul className="mt-6 flex flex-col gap-3">
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {AUDIENCES.map((a) => (
-                <li key={a} className="flex items-start gap-2.5 rounded-xl border border-navy/10 bg-white px-4 py-3 text-[14.5px] font-medium text-navy">
+                <li key={a} className="flex items-start gap-2.5 rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-[14px] font-medium text-white/90">
                   <Check size={17} className="mt-0.5 flex-none text-gold" /> {a}
                 </li>
               ))}
@@ -193,21 +171,34 @@ export function HajjPackagesContent({ breadcrumb }: { breadcrumb: { name: string
         </Container>
       </Section>
 
-      {/* Essential documents — numbered */}
-      <Section bg="white" className="py-10 dt:py-14">
-        <Container>
-          <div className="mx-auto mb-10 max-w-[760px] text-center">
+      {/* Essential documents — checklist with gold icon tiles */}
+      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-white via-ice/40 to-white py-10 dt:py-14">
+        <div aria-hidden className="pointer-events-none absolute -left-24 top-10 h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.1),transparent_70%)] blur-2xl" />
+        <div aria-hidden className="pointer-events-none absolute -right-24 bottom-0 h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,rgba(47,128,237,0.08),transparent_70%)] blur-2xl" />
+        <Container className="relative">
+          <div className="mx-auto mb-10 max-w-[780px] text-center">
             <Eyebrow className="mb-4">Before you travel</Eyebrow>
             <AccentHeading as="h2" before="Essential Travel Documents for a Smooth Hajj " accent="Journey" className="text-[26px] leading-tight text-navy dt:text-[36px]" />
+            <p className="mx-auto mt-4 max-w-[620px] text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
+              A quick checklist of what you&apos;ll need — our team helps you prepare and verify every document so nothing holds up your Hajj application.
+            </p>
           </div>
-          <div className="grid gap-5 dt:grid-cols-2 dt:gap-7">
-            {DOCUMENTS.map((d, i) => (
-              <div key={d.title} className="card-hover relative overflow-hidden rounded-2xl border border-navy/10 bg-ice p-7">
-                <span className="pointer-events-none absolute -right-2 -top-3 font-serif text-[64px] font-bold leading-none text-gold/15" aria-hidden>
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="relative mb-2 font-serif text-[19px] font-bold text-navy">{d.title}</h3>
-                <p className="relative text-[14.5px] font-light leading-relaxed text-navy/75">{d.body}</p>
+          <div className="mx-auto grid max-w-[920px] gap-4 dt:gap-5">
+            {DOCUMENTS.map(({ Icon, title, body }, i) => (
+              <div
+                key={title}
+                className="group flex items-start gap-5 rounded-2xl border border-navy/10 bg-white p-5 shadow-[0_18px_40px_-30px_rgba(26,62,110,0.45)] transition-transform duration-300 hover:-translate-y-0.5 dt:p-6"
+              >
+                <div className="relative flex-none">
+                  <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-gold to-[#b4871a] text-navy shadow-[0_14px_30px_-12px_rgba(219,183,37,0.6)]">
+                    <Icon size={24} aria-hidden />
+                  </span>
+                  <span className="absolute -right-2 -top-2 grid h-7 w-7 place-items-center rounded-full bg-navy text-[12px] font-bold text-white ring-2 ring-white">{i + 1}</span>
+                </div>
+                <div>
+                  <h3 className="mb-1.5 font-serif text-[18px] font-bold text-navy">{title}</h3>
+                  <p className="text-[14px] font-light leading-relaxed text-navy/75">{body}</p>
+                </div>
               </div>
             ))}
           </div>
