@@ -8,7 +8,7 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { InquireButton } from "@/components/inquiry/InquireButton";
-import { ContactForm } from "@/components/inquiry/ContactForm";
+import { FormSection } from "@/components/home/form/FormSection";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { PackageGrid } from "@/components/home/packages/PackageGrid";
 import { PackagesShowcase } from "@/components/home/packages/PackagesShowcase";
@@ -114,33 +114,14 @@ export function HajjPackagesContent({ breadcrumb }: { breadcrumb: { name: string
         </Container>
       </Section>
 
-      {/* Suggestions — explore more packages (right after Why choose us) */}
+      {/* Explore more packages */}
       <PackagesShowcase
         eyebrow="Keep exploring"
         headingBefore="Explore more "
         headingAccent="packages"
         description="Browse other Umrah and Hajj packages — flights, visa, hotels near the Haram and transport, all arranged for you."
-        bg="ice"
+        bg="lightblue"
       />
-
-      {/* Transparent journey — text + image */}
-      <Section bg="white" className="py-10 dt:py-14">
-        <Container className="grid items-center gap-10 dt:grid-cols-2 dt:gap-16">
-          <div>
-            <Eyebrow align="left" className="mb-4">Transparency</Eyebrow>
-            <AccentHeading as="h2" before="Transparent Journey at Every Turn. From Planning to " accent="Return" className="text-[24px] leading-tight text-navy dt:text-[32px]" />
-            <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-navy/80">
-              Your journey begins with us the moment you contact us. From personalized consultation to post-travel follow-up, we are with you every step of the way. During Hajj, our team in Saudi Arabia provides 24/7 assistance so that you are never alone in unfamiliar territory.
-            </p>
-            <p className="mt-3 text-[15.5px] font-light leading-[1.7] text-navy/80">
-              We answer all your Hajj-related queries about lost items or any follow-ups needed.
-            </p>
-          </div>
-          <div className="relative h-[320px] w-full overflow-hidden rounded-2xl bg-lightblue shadow-[0_30px_60px_-26px_rgba(26,62,110,0.45)] dt:h-[420px]">
-            <Image src="/images/hajj/usa-transparent.webp" alt="24/7 support throughout your Hajj journey" fill sizes="(max-width:900px) 100vw, 45vw" className="object-cover" />
-          </div>
-        </Container>
-      </Section>
 
       {/* Designed for every US Muslim — dark-blue band, image + text with audience list */}
       <Section bg="navy" className="relative overflow-hidden py-11 dt:py-16">
@@ -171,36 +152,21 @@ export function HajjPackagesContent({ breadcrumb }: { breadcrumb: { name: string
         </Container>
       </Section>
 
-      {/* Essential documents — checklist with gold icon tiles */}
-      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-white via-ice/40 to-white py-10 dt:py-14">
-        <div aria-hidden className="pointer-events-none absolute -left-24 top-10 h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.1),transparent_70%)] blur-2xl" />
-        <div aria-hidden className="pointer-events-none absolute -right-24 bottom-0 h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,rgba(47,128,237,0.08),transparent_70%)] blur-2xl" />
-        <Container className="relative">
-          <div className="mx-auto mb-10 max-w-[780px] text-center">
-            <Eyebrow className="mb-4">Before you travel</Eyebrow>
-            <AccentHeading as="h2" before="Essential Travel Documents for a Smooth Hajj " accent="Journey" className="text-[26px] leading-tight text-navy dt:text-[36px]" />
-            <p className="mx-auto mt-4 max-w-[620px] text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
-              A quick checklist of what you&apos;ll need — our team helps you prepare and verify every document so nothing holds up your Hajj application.
+      {/* Transparent journey — text + image */}
+      <Section bg="white" className="py-10 dt:py-14">
+        <Container className="grid items-center gap-10 dt:grid-cols-2 dt:gap-16">
+          <div>
+            <Eyebrow align="left" className="mb-4">Transparency</Eyebrow>
+            <AccentHeading as="h2" before="Transparent Journey at Every Turn. From Planning to " accent="Return" className="text-[24px] leading-tight text-navy dt:text-[32px]" />
+            <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-navy/80">
+              Your journey begins with us the moment you contact us. From personalized consultation to post-travel follow-up, we are with you every step of the way. During Hajj, our team in Saudi Arabia provides 24/7 assistance so that you are never alone in unfamiliar territory.
+            </p>
+            <p className="mt-3 text-[15.5px] font-light leading-[1.7] text-navy/80">
+              We answer all your Hajj-related queries about lost items or any follow-ups needed.
             </p>
           </div>
-          <div className="mx-auto grid max-w-[920px] gap-4 dt:gap-5">
-            {DOCUMENTS.map(({ Icon, title, body }, i) => (
-              <div
-                key={title}
-                className="group flex items-start gap-5 rounded-2xl border border-navy/10 bg-white p-5 shadow-[0_18px_40px_-30px_rgba(26,62,110,0.45)] transition-transform duration-300 hover:-translate-y-0.5 dt:p-6"
-              >
-                <div className="relative flex-none">
-                  <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-gold to-[#b4871a] text-navy shadow-[0_14px_30px_-12px_rgba(219,183,37,0.6)]">
-                    <Icon size={24} aria-hidden />
-                  </span>
-                  <span className="absolute -right-2 -top-2 grid h-7 w-7 place-items-center rounded-full bg-navy text-[12px] font-bold text-white ring-2 ring-white">{i + 1}</span>
-                </div>
-                <div>
-                  <h3 className="mb-1.5 font-serif text-[18px] font-bold text-navy">{title}</h3>
-                  <p className="text-[14px] font-light leading-relaxed text-navy/75">{body}</p>
-                </div>
-              </div>
-            ))}
+          <div className="relative h-[320px] w-full overflow-hidden rounded-2xl bg-lightblue shadow-[0_30px_60px_-26px_rgba(26,62,110,0.45)] dt:h-[420px]">
+            <Image src="/images/hajj/usa-transparent.webp" alt="24/7 support throughout your Hajj journey" fill sizes="(max-width:900px) 100vw, 45vw" className="object-cover" />
           </div>
         </Container>
       </Section>
@@ -221,25 +187,56 @@ export function HajjPackagesContent({ breadcrumb }: { breadcrumb: { name: string
         </Container>
       </Section>
 
+      {/* Essential documents — glorified premium cards */}
+      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice via-white to-ice py-12 dt:py-16">
+        <div aria-hidden className="pointer-events-none absolute -left-28 -top-20 h-[380px] w-[380px] rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.12),transparent_70%)] blur-2xl" />
+        <div aria-hidden className="pointer-events-none absolute -right-28 bottom-0 h-[380px] w-[380px] rounded-full bg-[radial-gradient(circle,rgba(47,128,237,0.1),transparent_70%)] blur-2xl" />
+        <div aria-hidden className="pointer-events-none absolute left-1/2 top-16 hidden h-[620px] w-[620px] -translate-x-1/2 rounded-full border border-navy/[0.05] dt:block" />
+        <Container className="relative">
+          <div className="mx-auto mb-11 max-w-[800px] text-center dt:mb-14">
+            <Eyebrow align="center" className="mb-4">Before you travel</Eyebrow>
+            <AccentHeading as="h2" before="Essential Travel Documents for a Smooth Hajj " accent="Journey" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
+            <p className="mx-auto mt-4 max-w-[640px] text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
+              Here is everything you&apos;ll need to travel — and the good news is we prepare and verify each one with you, so nothing holds up your Hajj application.
+            </p>
+          </div>
+
+          <div className="mx-auto grid max-w-[1000px] gap-5 dt:grid-cols-2 dt:gap-6">
+            {DOCUMENTS.map(({ Icon, title, body }, i) => (
+              <div
+                key={title}
+                className="group relative overflow-hidden rounded-[22px] border border-navy/10 bg-white p-6 shadow-[0_26px_56px_-34px_rgba(26,62,110,0.5)] transition-transform duration-300 hover:-translate-y-1.5 dt:p-7"
+              >
+                <span aria-hidden className="pointer-events-none absolute -right-2 -top-5 font-serif text-[86px] font-bold leading-none text-navy/[0.04]">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span aria-hidden className="absolute inset-x-7 top-0 h-[3px] rounded-b-full bg-gradient-to-r from-gold/0 via-gold to-gold/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="relative flex items-start gap-5">
+                  <span className="grid h-16 w-16 flex-none place-items-center rounded-2xl bg-gradient-to-br from-gold to-[#b4871a] text-navy shadow-[0_16px_34px_-12px_rgba(219,183,37,0.65)]">
+                    <Icon size={28} aria-hidden />
+                  </span>
+                  <div>
+                    <h3 className="font-serif text-[19px] font-bold text-navy">{title}</h3>
+                    <p className="mt-2 text-[14px] font-light leading-relaxed text-navy/75">{body}</p>
+                    <span className="mt-3.5 inline-flex items-center gap-1.5 rounded-full bg-navy/5 px-3 py-1 text-[12px] font-semibold text-navy">
+                      <Check size={13} className="text-gold" /> We prepare &amp; verify this for you
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* Enquiry CTA (homepage design) */}
+      <FormSection />
+
       {/* FAQ */}
       <FaqAccordion
         intro="Find answers to common questions about our transportation, Umrah and Hajj services, documentation, customization options, or support during your pilgrimage."
         items={FAQ}
       />
-
-      {/* Inquiry */}
-      <Section bg="white" className="py-10 dt:py-14">
-        <Container className="grid items-start gap-10 dt:grid-cols-2 dt:gap-16">
-          <div>
-            <Eyebrow align="left" className="mb-4">Get in touch</Eyebrow>
-            <AccentHeading as="h2" before="Plan your Hajj from the " accent="USA" className="text-[28px] leading-tight text-navy dt:text-[40px]" />
-            <p className="mt-5 max-w-[460px] text-[16px] font-light leading-[1.7] text-navy/80">
-              Tell us your city, dates, and group size — a travel expert replies within 24 hours.
-            </p>
-          </div>
-          <ContactForm />
-        </Container>
-      </Section>
     </PageShell>
   );
 }
