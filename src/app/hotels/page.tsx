@@ -108,14 +108,14 @@ function Stars({ n }: { n: number }) {
 
 function HotelCard({ h }: { h: Hotel }) {
   return (
-    <article className="card-hover overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_26px_54px_-30px_rgba(26,62,110,0.4)]">
-      <div className="relative h-[200px] w-full bg-lightblue">
+    <article className="card-hover flex h-full flex-col overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_26px_54px_-30px_rgba(26,62,110,0.4)]">
+      <div className="relative h-[200px] w-full flex-none bg-lightblue">
         <Image src={h.image} alt={h.name} fill sizes="(max-width:900px) 100vw, 33vw" className="object-cover" />
         <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-white/95 px-2.5 py-1 shadow-sm">
           <Stars n={h.stars} />
         </span>
       </div>
-      <div className="p-5">
+      <div className="flex-1 p-5">
         <h3 className="font-serif text-[18px] font-bold text-navy">{h.name}</h3>
         <p className="mt-1.5 flex items-center gap-1.5 text-[13.5px] text-navy/70">
           <MapPin size={15} className="flex-none text-gold" /> {h.distance}
@@ -219,9 +219,9 @@ export default function HotelsPage() {
               Every tier is close to the Haram — the difference is how close, and how much comfort you'd like.
             </p>
           </div>
-          <div className="grid gap-x-6 gap-y-10 dt:grid-cols-3 dt:gap-x-7">
+          <div className="no-scrollbar -mx-5 flex snap-x snap-mandatory items-stretch gap-6 overflow-x-auto scroll-pl-5 pb-3 pl-5 pr-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:mx-0 dt:grid dt:grid-cols-3 dt:gap-7 dt:overflow-visible dt:p-0">
             {TIERS.map((t) => (
-              <div key={t.name} className="group relative flex flex-col">
+              <div key={t.name} className="group relative flex w-[80vw] max-w-[330px] flex-none snap-start flex-col dt:w-auto dt:max-w-none">
                 {/* Image — a little wider than the card; its lower edge tucks behind the card body */}
                 <div className="relative z-10 mx-[-10px] h-[180px] overflow-hidden rounded-[18px] shadow-[0_28px_54px_-22px_rgba(26,62,110,0.6)] dt:h-[200px]">
                   <Image src={t.image} alt={t.name} fill sizes="(max-width:900px) 100vw, 360px" className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 motion-reduce:transition-none" />
@@ -261,8 +261,12 @@ export default function HotelsPage() {
               Stay steps from the Kaaba, with Haram-view and walking-distance options across every star rating.
             </p>
           </div>
-          <div className="grid gap-6 dt:grid-cols-3 dt:gap-7">
-            {MAKKAH.map((h) => <HotelCard key={h.name} h={h} />)}
+          <div className="no-scrollbar -mx-5 flex snap-x snap-mandatory items-stretch gap-4 overflow-x-auto scroll-pl-5 pb-3 pl-5 pr-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:mx-0 dt:grid dt:grid-cols-3 dt:gap-7 dt:overflow-visible dt:p-0">
+            {MAKKAH.map((h) => (
+              <div key={h.name} className="w-[80vw] max-w-[330px] flex-none snap-start dt:w-auto dt:max-w-none">
+                <HotelCard h={h} />
+              </div>
+            ))}
           </div>
         </Container>
       </Section>
@@ -279,8 +283,12 @@ export default function HotelsPage() {
               Peaceful, comfortable hotels a short walk from the Prophet&apos;s Mosque, for a restful stay in the city of light.
             </p>
           </div>
-          <div className="grid gap-6 dt:grid-cols-3 dt:gap-7">
-            {MADINAH.map((h) => <HotelCard key={h.name} h={h} />)}
+          <div className="no-scrollbar -mx-5 flex snap-x snap-mandatory items-stretch gap-4 overflow-x-auto scroll-pl-5 pb-3 pl-5 pr-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:mx-0 dt:grid dt:grid-cols-3 dt:gap-7 dt:overflow-visible dt:p-0">
+            {MADINAH.map((h) => (
+              <div key={h.name} className="w-[80vw] max-w-[330px] flex-none snap-start dt:w-auto dt:max-w-none">
+                <HotelCard h={h} />
+              </div>
+            ))}
           </div>
           <p className="mx-auto mt-8 max-w-[640px] text-center text-[13.5px] font-light leading-relaxed text-navy/55">
             Hotels shown are representative. Your final hotel is confirmed at booking based on availability, your dates and your budget.
