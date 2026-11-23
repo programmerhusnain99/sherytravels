@@ -83,6 +83,9 @@ export default function AboutPage() {
               <Image src="/images/about/about-story.webp" alt="Shery Travels — about us" fill sizes="(max-width:900px) 290px, 380px" priority className="object-cover" />
             </div>
           </div>
+          <p className="mx-auto mt-7 max-w-[620px] text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
+            At Shery Travels, we make Umrah and Hajj simple, comfortable and deeply spiritual — handling visas, flights, hotels near the Haram and transport, so you can focus entirely on your worship.
+          </p>
         </Container>
       </Section>
 
@@ -125,30 +128,32 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      {/* What we do — redesigned pillars */}
-      <Section bg="ice" className="py-10 dt:py-14">
+      {/* What we do — redesigned pillars (compact) */}
+      <Section bg="lightblue" className="py-10 dt:py-14">
         <Container>
-          <div className="mx-auto mb-10 max-w-[760px] text-center dt:mb-12">
+          <div className="mx-auto mb-9 max-w-[760px] text-center dt:mb-11">
             <Eyebrow className="mb-4">What we do</Eyebrow>
             <AccentHeading as="h2" before="Everything Handled, " accent="End to End" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
             <p className="mx-auto mt-4 max-w-[600px] text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
               From the first enquiry to your return home, we take care of every detail — so your only focus is worship.
             </p>
           </div>
-          <div className="grid gap-5 dt:grid-cols-3 dt:gap-7">
+          <div className="grid gap-4 dt:grid-cols-3 dt:gap-5">
             {PILLARS.map(({ Icon, title, body }, i) => (
               <div
                 key={title}
-                className="group relative overflow-hidden rounded-2xl border border-navy/10 bg-white p-7 shadow-[0_18px_40px_-30px_rgba(26,62,110,0.45)] transition-transform duration-300 hover:-translate-y-1.5"
+                className="group relative overflow-hidden rounded-xl border border-navy/10 bg-white p-5 shadow-[0_16px_36px_-30px_rgba(26,62,110,0.45)] transition-transform duration-300 hover:-translate-y-1"
               >
-                <span aria-hidden className="pointer-events-none absolute -right-2 -top-3 font-serif text-[64px] font-bold leading-none text-gold/15">
+                <span aria-hidden className="pointer-events-none absolute -right-1 -top-2 font-serif text-[48px] font-bold leading-none text-gold/15">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="relative mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-gold to-[#b4871a] text-navy shadow-[0_14px_30px_-12px_rgba(219,183,37,0.65)]">
-                  <Icon size={26} />
-                </span>
-                <h3 className="relative mb-2 font-serif text-[19px] font-bold text-navy">{title}</h3>
-                <p className="relative text-[14.5px] font-light leading-relaxed text-navy/75">{body}</p>
+                <div className="relative mb-3 flex items-center gap-3">
+                  <span className="grid h-11 w-11 flex-none place-items-center rounded-xl bg-gradient-to-br from-gold to-[#b4871a] text-navy shadow-[0_12px_26px_-12px_rgba(219,183,37,0.6)]">
+                    <Icon size={21} />
+                  </span>
+                  <h3 className="font-serif text-[16.5px] font-bold leading-tight text-navy">{title}</h3>
+                </div>
+                <p className="relative text-[13.5px] font-light leading-relaxed text-navy/70">{body}</p>
               </div>
             ))}
           </div>
@@ -158,13 +163,7 @@ export default function AboutPage() {
       {/* Why Shery Travels — with image */}
       <Section bg="white" className="py-10 dt:py-14">
         <Container className="grid items-center gap-11 dt:grid-cols-2 dt:gap-16">
-          <div className="relative order-2 mx-auto w-full max-w-[440px] dt:order-1">
-            <div aria-hidden className="pointer-events-none absolute -right-5 -bottom-5 hidden h-28 w-28 rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.18),transparent_70%)] dt:block" />
-            <div className="relative mx-auto h-[380px] w-[300px] overflow-hidden rounded-t-[160px] rounded-b-[18px] bg-lightblue shadow-[0_40px_80px_-32px_rgba(26,62,110,0.5)] dt:h-[460px] dt:w-full dt:rounded-t-[210px]">
-              <Image src="/images/about/about-team.webp" alt="The Shery Travels team" fill sizes="(max-width:900px) 300px, 440px" className="object-cover" />
-            </div>
-          </div>
-          <div className="order-1 text-center dt:order-2 dt:text-left">
+          <div className="order-1 text-center dt:text-left">
             <Eyebrow align="center" className="mb-4 dt:justify-start">Why choose us</Eyebrow>
             <AccentHeading as="h2" before="Why Shery " accent="Travels?" className="text-[28px] leading-tight text-navy dt:text-[40px]" />
             <p className="mx-auto mt-5 max-w-[520px] text-[15.5px] font-light leading-[1.7] text-navy/80 dt:mx-0 dt:text-[16.5px]">
@@ -182,6 +181,12 @@ export default function AboutPage() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+          <div className="relative order-2 mx-auto w-full max-w-[440px]">
+            <div aria-hidden className="pointer-events-none absolute -left-5 -bottom-5 hidden h-28 w-28 rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.18),transparent_70%)] dt:block" />
+            <div className="relative mx-auto h-[380px] w-[300px] overflow-hidden rounded-t-[160px] rounded-b-[18px] bg-lightblue shadow-[0_40px_80px_-32px_rgba(26,62,110,0.5)] dt:h-[460px] dt:w-full dt:rounded-t-[210px]">
+              <Image src="/images/about/about-team.webp" alt="The Shery Travels team" fill sizes="(max-width:900px) 300px, 440px" className="object-cover" />
             </div>
           </div>
         </Container>
