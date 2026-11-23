@@ -8,7 +8,7 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { InquireButton } from "@/components/inquiry/InquireButton";
-import { ContactForm } from "@/components/inquiry/ContactForm";
+import { FormSection } from "@/components/home/form/FormSection";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 
 const PREMIUM = [
@@ -187,22 +187,16 @@ export function FleetsContent({
         </Container>
       </Section>
 
+      {/* Form — same as home */}
+      <FormSection
+        eyebrow="Get in touch with us"
+        headingBefore="Reserve Your "
+        headingAccent="Ride"
+        description="Tell us your route, dates, and group size — a travel expert replies within 24 hours with the right vehicle for your journey."
+      />
+
       {/* FAQ */}
       <FaqAccordion items={FAQ} />
-
-      {/* Inquiry */}
-      <Section bg="white" className="py-10 dt:py-14">
-        <Container className="grid items-start gap-10 dt:grid-cols-2 dt:gap-16">
-          <div>
-            <Eyebrow align="left" className="mb-4">Get in touch</Eyebrow>
-            <AccentHeading as="h2" before="Reserve your " accent="Ride" className="text-[28px] leading-tight text-navy dt:text-[40px]" />
-            <p className="mt-5 max-w-[460px] text-[16px] font-light leading-[1.7] text-navy/80">
-              Tell us your route, dates, and group size — a travel expert replies within 24 hours.
-            </p>
-          </div>
-          <ContactForm />
-        </Container>
-      </Section>
     </PageShell>
   );
 }
