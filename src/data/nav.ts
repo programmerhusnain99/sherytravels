@@ -52,16 +52,10 @@ export const MENU: MenuItem[] = [
     children: [
       { label: "Vehicles", href: "/umrah-transport/vehicles/" },
       { label: "Routes", href: "/umrah-transport/routes/" },
-    ],
-  },
-  {
-    // Group-only heading (no page of its own) for the two standalone services.
-    label: "Services",
-    children: [
       { label: "Ziyarat", href: "/ziyarat/" },
-      { label: "Hotels", href: "/hotels/" },
     ],
   },
+  { label: "Hotels", href: "/hotels/" },
   { label: "Contact", href: "/contact/" },
 ];
 
