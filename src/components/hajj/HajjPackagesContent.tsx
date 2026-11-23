@@ -29,10 +29,10 @@ const AUDIENCES = [
 ];
 
 const DOCUMENTS = [
-  { Icon: FileCheck2, title: "Valid Passport", body: "As an American Muslim, you will need a U.S. passport with a minimum validity of 6 months for your travel plans. Shery Travel assists in securing the Hajj visa with proper documentation that complies with Saudi government regulations." },
-  { Icon: UserCheck, title: "Mahram Proof for Female Pilgrims", body: "According to Hajj guidance by the Saudi government, female pilgrims traveling alone must provide proof of a Mahram relationship (such as a birth certificate). Our team ensures that they collect the necessary documents." },
-  { Icon: Syringe, title: "Health Vaccinations", body: "All pilgrims must present proof of COVID-19 vaccination (and any other required vaccines, if appropriate), according to Saudi officials. We’ll keep you updated on the most recent health regulations and assist you in meeting them on schedule." },
-  { Icon: PlaneTakeoff, title: "Flight Tickets and Hotel Confirmations", body: "You will need confirmed hotel reservations and round-trip airline tickets in order to finish your Hajj application. All Shery trip packages include them, and we offer official documents to back up your trip and visa applications." },
+  { Icon: FileCheck2, label: "Document 01", title: "Valid U.S. Passport", body: "Valid for at least 6 months — we secure your Hajj visa with compliant documentation." },
+  { Icon: UserCheck, label: "Document 02", title: "Mahram Proof", body: "Required for female pilgrims — our team helps gather the right documents." },
+  { Icon: Syringe, label: "Document 03", title: "Health Vaccinations", body: "Up-to-date records per Saudi rules — we keep you informed and on schedule." },
+  { Icon: PlaneTakeoff, label: "Document 04", title: "Flights & Hotel Confirmations", body: "Confirmed round-trip tickets and bookings — included in every Shery package." },
 ];
 
 const FAQ = [
@@ -187,41 +187,46 @@ export function HajjPackagesContent({ breadcrumb }: { breadcrumb: { name: string
         </Container>
       </Section>
 
-      {/* Essential documents — glorified premium cards */}
-      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice via-white to-ice py-12 dt:py-16">
-        <div aria-hidden className="pointer-events-none absolute -left-28 -top-20 h-[380px] w-[380px] rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.12),transparent_70%)] blur-2xl" />
-        <div aria-hidden className="pointer-events-none absolute -right-28 bottom-0 h-[380px] w-[380px] rounded-full bg-[radial-gradient(circle,rgba(47,128,237,0.1),transparent_70%)] blur-2xl" />
-        <div aria-hidden className="pointer-events-none absolute left-1/2 top-16 hidden h-[620px] w-[620px] -translate-x-1/2 rounded-full border border-navy/[0.05] dt:block" />
+      {/* Essential documents — boarding-pass style tickets */}
+      <Section bg="ice" className="relative overflow-hidden py-12 dt:py-16">
+        <div aria-hidden className="pointer-events-none absolute -left-32 -top-24 hidden h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.1),transparent_70%)] dt:block" />
+        <div aria-hidden className="pointer-events-none absolute -right-32 -bottom-24 hidden h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(47,128,237,0.08),transparent_70%)] dt:block" />
         <Container className="relative">
           <div className="mx-auto mb-11 max-w-[800px] text-center dt:mb-14">
             <Eyebrow align="center" className="mb-4">Before you travel</Eyebrow>
             <AccentHeading as="h2" before="Essential Travel Documents for a Smooth Hajj " accent="Journey" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
-            <p className="mx-auto mt-4 max-w-[640px] text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
-              Here is everything you&apos;ll need to travel — and the good news is we prepare and verify each one with you, so nothing holds up your Hajj application.
+            <p className="mx-auto mt-4 max-w-[600px] text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
+              Your travel checklist — and every one of these is prepared and verified by our team.
             </p>
           </div>
 
-          <div className="mx-auto grid max-w-[1000px] gap-5 dt:grid-cols-2 dt:gap-6">
-            {DOCUMENTS.map(({ Icon, title, body }, i) => (
+          <div className="mx-auto grid max-w-[980px] gap-5 dt:grid-cols-2 dt:gap-6">
+            {DOCUMENTS.map(({ Icon, label, title, body }) => (
               <div
                 key={title}
-                className="group relative overflow-hidden rounded-[22px] border border-navy/10 bg-white p-6 shadow-[0_26px_56px_-34px_rgba(26,62,110,0.5)] transition-transform duration-300 hover:-translate-y-1.5 dt:p-7"
+                className="group relative flex overflow-hidden rounded-2xl bg-white shadow-[0_24px_54px_-34px_rgba(26,62,110,0.55)] ring-1 ring-navy/10 transition-transform duration-300 hover:-translate-y-1"
               >
-                <span aria-hidden className="pointer-events-none absolute -right-2 -top-5 font-serif text-[86px] font-bold leading-none text-navy/[0.04]">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span aria-hidden className="absolute inset-x-7 top-0 h-[3px] rounded-b-full bg-gradient-to-r from-gold/0 via-gold to-gold/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <div className="relative flex items-start gap-5">
-                  <span className="grid h-16 w-16 flex-none place-items-center rounded-2xl bg-gradient-to-br from-gold to-[#b4871a] text-navy shadow-[0_16px_34px_-12px_rgba(219,183,37,0.65)]">
-                    <Icon size={28} aria-hidden />
+                {/* Stub */}
+                <div className="flex w-[78px] flex-none flex-col items-center justify-center gap-2.5 bg-gradient-to-b from-navy to-[#15335c] dt:w-[92px]">
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-white/[0.08] text-gold ring-1 ring-white/10">
+                    <Icon size={22} aria-hidden />
                   </span>
-                  <div>
-                    <h3 className="font-serif text-[19px] font-bold text-navy">{title}</h3>
-                    <p className="mt-2 text-[14px] font-light leading-relaxed text-navy/75">{body}</p>
-                    <span className="mt-3.5 inline-flex items-center gap-1.5 rounded-full bg-navy/5 px-3 py-1 text-[12px] font-semibold text-navy">
-                      <Check size={13} className="text-gold" /> We prepare &amp; verify this for you
-                    </span>
-                  </div>
+                  <span className="font-serif text-[15px] font-bold text-white/85">{label.split(" ")[1]}</span>
+                </div>
+
+                {/* Perforation + punched notches */}
+                <span aria-hidden className="pointer-events-none absolute inset-y-4 left-[78px] w-px border-l-2 border-dashed border-navy/15 dt:left-[92px]" />
+                <span aria-hidden className="pointer-events-none absolute left-[78px] top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-ice dt:left-[92px]" />
+                <span aria-hidden className="pointer-events-none absolute left-[78px] bottom-0 h-4 w-4 -translate-x-1/2 translate-y-1/2 rounded-full bg-ice dt:left-[92px]" />
+
+                {/* Body */}
+                <div className="min-w-0 flex-1 p-5 pl-6 dt:p-6 dt:pl-7">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-gold">{label}</span>
+                  <h3 className="mt-1.5 font-serif text-[18px] font-bold text-navy">{title}</h3>
+                  <p className="mt-1.5 text-[13.5px] font-light leading-relaxed text-navy/70">{body}</p>
+                  <span className="mt-3 inline-flex items-center gap-1.5 text-[12px] font-semibold text-navy/55">
+                    <Check size={13} className="text-gold" /> Handled &amp; verified by us
+                  </span>
                 </div>
               </div>
             ))}
