@@ -23,6 +23,7 @@ import { Button } from "@/components/ui/Button";
 import { HeroEnquiryForm } from "@/components/home/hero/HeroEnquiryForm";
 import { HERO_DESCRIPTION } from "@/components/sections/heroCopy";
 import { FormSection } from "@/components/home/form/FormSection";
+import { CustomPackageForm } from "@/components/inquiry/CustomPackageForm";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { PerfectPackages } from "@/components/home/perfect/PerfectPackages";
 import { Stagger, StaggerItem } from "@/components/motion/Reveal";
@@ -297,6 +298,14 @@ export function TransportationContent({
           </div>
         </Container>
       </Section>
+
+      <CustomPackageForm
+        title="Customise Your Ride"
+        accent="Ride"
+        description="Build a private transfer that fits your trip — pickup and drop-off, vehicle, dates and passengers, all arranged around you."
+        image="/images/transportation/transport-hero.webp"
+        variant="ride"
+      />
 
       {/* Enquiry CTA (homepage design) */}
       <FormSection />

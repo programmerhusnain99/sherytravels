@@ -1,6 +1,7 @@
 import { PackagesShowcase } from "@/components/home/packages/PackagesShowcase";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { FormSection, type FormSectionProps } from "@/components/home/form/FormSection";
+import { CustomPackageForm } from "@/components/inquiry/CustomPackageForm";
 import { WhyChooseUs } from "./WhyChooseUs";
 import { SpiritualHighlights } from "./SpiritualHighlights";
 import { FAQ } from "@/data/umrah/packages";
@@ -26,6 +27,14 @@ export function UmrahPackagesCommon({ cta }: { cta?: FormSectionProps }) {
       />
 
       <SpiritualHighlights />
+
+      <CustomPackageForm
+        title="Customise Your Umrah Package"
+        accent="Umrah"
+        description="Enjoy the flexibility to customise your Umrah package with trusted support, quality hotels, and convenient flight options."
+        image="/images/home/home-umrah-haram.webp"
+        variant="umrah"
+      />
 
       <FormSection {...cta} />
 

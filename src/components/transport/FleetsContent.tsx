@@ -10,6 +10,7 @@ import { AccentHeading } from "@/components/ui/AccentHeading";
 import { HeroEnquiryForm } from "@/components/home/hero/HeroEnquiryForm";
 import { HERO_DESCRIPTION } from "@/components/sections/heroCopy";
 import { FormSection } from "@/components/home/form/FormSection";
+import { CustomPackageForm } from "@/components/inquiry/CustomPackageForm";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 
 const PREMIUM = [
@@ -183,6 +184,14 @@ export function FleetsContent({
           </div>
         </Container>
       </Section>
+
+      <CustomPackageForm
+        title="Customise Your Ride"
+        accent="Ride"
+        description="Choose the vehicle that fits your group — pickup and drop-off, travel dates and passengers, arranged around your plans."
+        image="/images/transportation/fleets-hero.webp"
+        variant="ride"
+      />
 
       {/* Form — same as home */}
       <FormSection

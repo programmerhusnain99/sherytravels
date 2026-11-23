@@ -9,6 +9,7 @@ import { HeroEnquiryForm } from "@/components/home/hero/HeroEnquiryForm";
 import { HERO_DESCRIPTION } from "@/components/sections/heroCopy";
 import { ContactForm } from "@/components/inquiry/ContactForm";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
+import { CustomPackageForm } from "@/components/inquiry/CustomPackageForm";
 import { PackageGrid } from "@/components/home/packages/PackageGrid";
 import { PackagesShowcase } from "@/components/home/packages/PackagesShowcase";
 import { JsonLd } from "@/components/JsonLd";
@@ -185,6 +186,14 @@ export function PackageLandingPage({
       </Section>
 
       {/* FAQ */}
+      <CustomPackageForm
+        title="Customise Your Umrah Package"
+        accent="Umrah"
+        description="Enjoy the flexibility to customise your Umrah package with trusted support, quality hotels, and convenient flight options."
+        image="/images/home/home-umrah-madinah.webp"
+        variant="umrah"
+      />
+
       <FaqAccordion items={data.faq} />
 
       {/* Inquiry */}

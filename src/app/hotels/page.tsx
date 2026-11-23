@@ -13,6 +13,7 @@ import { AccentHeading } from "@/components/ui/AccentHeading";
 import { HeroEnquiryForm } from "@/components/home/hero/HeroEnquiryForm";
 import { HERO_DESCRIPTION } from "@/components/sections/heroCopy";
 import { FormSection } from "@/components/home/form/FormSection";
+import { CustomPackageForm } from "@/components/inquiry/CustomPackageForm";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 
 // TODO(client): replace placeholder hotel images with real photos, and confirm
@@ -314,6 +315,14 @@ export default function HotelsPage() {
           </div>
         </Container>
       </Section>
+
+      <CustomPackageForm
+        title="Customise Your Hotel Stay"
+        accent="Hotel"
+        description="Pick the city, dates, star rating and distance from the Haram — we match you to the right residency for your stay."
+        image="/images/home/home-hotels-tower.webp"
+        variant="hotel"
+      />
 
       {/* Enquiry CTA (homepage design) */}
       <FormSection />

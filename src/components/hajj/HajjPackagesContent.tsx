@@ -11,6 +11,7 @@ import { InquireButton } from "@/components/inquiry/InquireButton";
 import { HeroEnquiryForm } from "@/components/home/hero/HeroEnquiryForm";
 import { HERO_DESCRIPTION } from "@/components/sections/heroCopy";
 import { FormSection } from "@/components/home/form/FormSection";
+import { CustomPackageForm } from "@/components/inquiry/CustomPackageForm";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { PackageGrid } from "@/components/home/packages/PackageGrid";
 import { PackagesShowcase } from "@/components/home/packages/PackagesShowcase";
@@ -216,6 +217,14 @@ export function HajjPackagesContent({ breadcrumb }: { breadcrumb: { name: string
           </div>
         </Container>
       </Section>
+
+      <CustomPackageForm
+        title="Customise Your Hajj Package"
+        accent="Hajj"
+        description="Tailor every detail of your Hajj journey — hotels near the Haramain, room and meal preferences, transport and guided support."
+        image="/images/home/home-hajj-hero.webp"
+        variant="hajj"
+      />
 
       {/* Enquiry CTA (homepage design) */}
       <FormSection />

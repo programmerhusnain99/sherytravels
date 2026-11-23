@@ -15,6 +15,7 @@ import { HajjServices } from "@/components/home/hajj/HajjServices";
 import { HajjExperiences } from "@/components/home/hajj/HajjExperiences";
 import { HotelsSection } from "@/components/home/hotels/HotelsSection";
 import { FormSection } from "@/components/home/form/FormSection";
+import { CustomPackageForm } from "@/components/inquiry/CustomPackageForm";
 import { FaqSection } from "@/components/home/faqs/FaqSection";
 import { TrustStrip } from "@/components/home/trust/TrustStrip";
 
@@ -52,6 +53,13 @@ export default function HomePage() {
         <HajjServices />
         <HajjExperiences />
         <HotelsSection />
+        <CustomPackageForm
+          title="Customise Your Umrah Package"
+          accent="Umrah"
+          description="Enjoy the flexibility to customise your Umrah package with trusted support, quality hotels, and convenient flight options."
+          image="/images/home/home-hero-madinah.webp"
+          variant="umrah"
+        />
         <FormSection />
         <FaqSection />
         <TrustStrip />
