@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${libre.variable} ${outfit.variable}`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${libre.variable} ${outfit.variable}`}>
       <body className="min-h-dvh bg-white text-navy">
         {/* Initial-load splash: full-page line loader until the page is ready. */}
         <PageSplash />
