@@ -7,10 +7,10 @@ import type { PackageCard } from "@/data/home/packageCards";
 
 /**
  * Package listing with "load more", used on the detail pages (tier / seasonal).
- *  - Mobile: a horizontal snap-scroll showing one card plus the edge of the
- *    next. A slim "load more" strip sits where the next card's edge would be;
- *    tapping it reveals `step` more cards and smoothly scrolls the first new
- *    card into view (so the edge is "replaced" by a real card).
+ *  - Mobile: a horizontal scroll showing one card plus the edge of the next. A
+ *    slim "load more" strip sits where the next card's edge would be; tapping it
+ *    reveals `step` more cards in place — the strip disappears and the first new
+ *    card takes exactly its spot (its edge peeks), so the user keeps swiping.
  *  - Desktop: a 3-column grid with a "Load more" button below the cards.
  *
  * One responsive container renders the visible subset, so revealed cards mount
@@ -33,13 +33,14 @@ export function PackageGrid({
 
   return (
     <>
-      <div className="no-scrollbar -mx-5 flex snap-x snap-proximity items-stretch gap-4 overflow-x-auto scroll-pl-5 pb-3 pl-5 pr-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:mx-0 dt:grid dt:grid-cols-3 dt:gap-7 dt:overflow-visible dt:p-0 dt:[scroll-snap-type:none]">
-
+      {/* No scroll-snap: inserting cards must not shift the scroll, so a revealed
+          card lands exactly where the "load more" strip was. */}
+      <div className="no-scrollbar -mx-5 flex items-stretch gap-4 overflow-x-auto pb-3 pl-5 pr-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:mx-0 dt:grid dt:grid-cols-3 dt:gap-7 dt:overflow-visible dt:p-0">
         {shown.map((pkg, i) => (
           <div
             key={pkg.title + pkg.href}
             data-card
-            className={`w-[80vw] max-w-[330px] flex-none snap-start dt:w-auto dt:max-w-none ${
+            className={`w-[80vw] max-w-[330px] flex-none dt:w-auto dt:max-w-none ${
               i >= initial ? "card-in" : ""
             }`}
           >
@@ -53,7 +54,7 @@ export function PackageGrid({
             type="button"
             onClick={more}
             aria-label={`Load ${step} more packages`}
-            className="group relative flex w-[58px] flex-none snap-start flex-col items-center justify-center gap-3 self-stretch overflow-hidden rounded-xl border border-gold/40 bg-gradient-to-b from-navy to-[#14325a] text-white shadow-[0_18px_40px_-24px_rgba(26,62,110,0.85)] transition-colors hover:border-gold dt:hidden"
+            className="group relative flex w-[58px] flex-none flex-col items-center justify-center gap-3 self-stretch overflow-hidden rounded-xl border border-gold/40 bg-gradient-to-b from-navy to-[#14325a] text-white shadow-[0_18px_40px_-24px_rgba(26,62,110,0.85)] transition-colors hover:border-gold dt:hidden"
           >
             <span className="grid h-10 w-10 place-items-center rounded-full bg-gold text-navy shadow-[0_10px_22px_-8px_rgba(219,183,37,0.8)] transition-transform duration-300 group-hover:rotate-90">
               <Plus size={20} aria-hidden />

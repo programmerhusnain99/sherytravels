@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Route, ShieldCheck, Headset, Users, HeartHandshake } from "lucide-react";
+import { Route, ShieldCheck, Headset, Users, HeartHandshake, Check } from "lucide-react";
 import { pageMetadata, breadcrumbSchema } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { PageShell } from "@/components/layout/PageShell";
@@ -7,9 +7,8 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
-import { Button } from "@/components/ui/Button";
-import { InquireButton } from "@/components/inquiry/InquireButton";
-import { ContactForm } from "@/components/inquiry/ContactForm";
+import { FormSection } from "@/components/home/form/FormSection";
+import { FaqAccordion } from "@/components/sections/FaqAccordion";
 
 const PATH = "/about/";
 
@@ -22,22 +21,41 @@ export const metadata = pageMetadata({
 });
 
 const PILLARS = [
-  { Icon: Route, title: "Personalized Itineraries", body: "Customized packages to meet your needs." },
-  { Icon: ShieldCheck, title: "Trusted Processes", body: "From visas to hotel bookings." },
-  { Icon: Headset, title: "Ground Support", body: "Professional experts guide you." },
+  {
+    Icon: Route,
+    title: "Personalized Itineraries",
+    body: "We tailor every package to your dates, budget and pace — so your pilgrimage fits you, not a fixed template.",
+  },
+  {
+    Icon: ShieldCheck,
+    title: "Trusted, End-to-End Processes",
+    body: "From visa processing to hotels near the Haram, every step is handled accurately and on time, with nothing left to chance.",
+  },
+  {
+    Icon: Headset,
+    title: "On-Ground Support",
+    body: "Professional, spiritually aware experts guide you before departure and throughout your stay in Saudi Arabia.",
+  },
 ];
 
 const WHY = [
   {
     Icon: Users,
     title: "Professional Team",
-    body: "Professionally trained and spiritually aware, we handle your logistics planning from start to end to ensure every detail is taken care of.",
+    body: "Professionally trained and spiritually aware, we handle your logistics from start to end so every detail is taken care of.",
   },
   {
     Icon: HeartHandshake,
     title: "Safety and Comfort",
-    body: "Get updated information on Saudi travel regulations and all necessary documents you need to ensure a safe and sound journey throughout the pilgrimage.",
+    body: "Up-to-date guidance on Saudi travel regulations and the documents you need, for a safe and sound journey throughout.",
   },
+];
+
+const FAQ = [
+  { q: "What makes Shery Travels different?", a: "We combine years of travel expertise with a deep, faith-first understanding of Umrah and Hajj — handling visas, flights, hotels and transport so you can focus entirely on your worship." },
+  { q: "Do you handle the full Umrah visa and booking process?", a: "Yes. We process your visa, book flights and hotels near the Haram, and arrange all transfers and guided ziyarat — the complete journey, arranged end to end." },
+  { q: "Can you customize a package for my family or group?", a: "Absolutely. Every itinerary is tailored to your dates, group size, budget and preferences, whether you travel solo, with family, or in a group." },
+  { q: "Is support available during the trip?", a: "Yes — our team offers 24/7 on-ground support in Saudi Arabia, so help is always a call away throughout your stay." },
 ];
 
 export default function AboutPage() {
@@ -68,125 +86,115 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      {/* Story + image */}
-      <Section bg="lightblue" className="py-10 dt:py-14">
-        <Container className="grid items-center gap-10 dt:grid-cols-2 dt:gap-16">
-          <div className="relative order-2 mx-auto h-[420px] w-[320px] overflow-hidden rounded-t-[160px] rounded-b-[16px] bg-lightblue shadow-[0_34px_62px_-26px_rgba(26,62,110,0.5)] dt:order-1 dt:h-[520px] dt:w-[440px]">
-            <Image
-              src="/images/about/about-story.webp"
-              alt="Pilgrims on their journey with Shery Travels"
-              fill
-              sizes="(max-width: 900px) 320px, 440px"
-              className="object-cover"
-            />
-          </div>
-          <div className="order-1 dt:order-2">
-            <Eyebrow align="left" className="mb-4">Who we are</Eyebrow>
-            <AccentHeading
-              as="h2"
-              before="Umrah & Services Planned with "
-              accent="Care"
-              className="text-[28px] leading-[1.2] text-navy dt:text-[40px]"
-            />
-            <p className="mt-5 text-[16px] font-light leading-[1.7] text-navy/80 dt:text-[17px]">
-              Shery Travels was founded with the idea of providing more than just an ordinary travel
-              experience.
-            </p>
-            <p className="mt-4 text-[16px] font-light leading-[1.7] text-navy/80 dt:text-[17px]">
-              We understand that Umrah and Hajj are close to the heart of Muslims. The spiritual
-              journey is of utmost importance to our brothers and sisters. Keeping this in mind, we
-              wanted to share our expertise in travel matters, along with guidance on planning your
-              first Umrah and Hajj, without waiting in long queues.
-            </p>
-          </div>
-        </Container>
-      </Section>
-
-      {/* Three pillars */}
-      <Section bg="ice" className="py-10 dt:py-14">
-        <Container className="grid gap-5 dt:grid-cols-3 dt:gap-7">
-          {PILLARS.map(({ Icon, title, body }) => (
-            <div key={title} className="rounded-2xl border border-navy/10 bg-white p-7 text-center dt:text-left">
-              <span className="mx-auto mb-5 grid h-14 w-14 place-items-center rounded-2xl border-[1.5px] border-gold bg-ice dt:mx-0">
-                <Icon size={26} className="text-navy" />
-              </span>
-              <h3 className="mb-2 font-serif text-[20px] font-bold text-navy">{title}</h3>
-              <p className="text-[15px] font-light leading-relaxed text-navy/75">{body}</p>
+      {/* Story — dark-blue band with image */}
+      <Section bg="navy" className="relative overflow-hidden py-12 dt:py-16">
+        <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[760px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(219,183,37,0.12),transparent_70%)]" />
+        <div aria-hidden className="pointer-events-none absolute -right-28 -bottom-24 hidden h-[420px] w-[420px] rounded-full border border-gold/15 dt:block" />
+        <Container className="relative grid items-center gap-12 dt:grid-cols-2 dt:gap-16">
+          <div className="relative order-2 mx-auto w-full max-w-[420px] dt:order-1">
+            <div aria-hidden className="pointer-events-none absolute -left-5 -top-5 hidden h-28 w-28 rounded-full border border-gold/25 dt:block" />
+            <div className="hero-float relative mx-auto h-[380px] w-[300px] overflow-hidden rounded-t-[160px] rounded-b-[18px] bg-lightblue shadow-[0_44px_90px_-30px_rgba(0,0,0,0.6)] dt:h-[480px] dt:w-full dt:rounded-t-[220px]">
+              <Image src="/images/about/about-story.webp" alt="Pilgrims on their journey with Shery Travels" fill sizes="(max-width:900px) 300px, 440px" className="object-cover" />
+              <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(26,62,110,0.4)_100%)]" />
             </div>
-          ))}
-        </Container>
-      </Section>
-
-      {/* Worry-free CTA band */}
-      <Section bg="navy" className="py-10 dt:py-12">
-        <Container className="flex flex-col items-center gap-6 text-center dt:flex-row dt:justify-between dt:text-left">
-          <AccentHeading
-            as="h2"
-            before="Plan Your First Umrah & Hajj, "
-            accent="Worry-Free"
-            className="max-w-[720px] text-[26px] leading-[1.25] text-white dt:text-[36px]"
-          />
-          <div className="flex flex-none gap-3">
-            <InquireButton variant="gold" size="lg" className="rounded-lg">Inquire Now</InquireButton>
-            <Button href="/umrah-packages/" variant="outline" size="lg" className="hidden border-white/30 text-white dt:inline-flex">
-              Explore Umrah
-            </Button>
+            <div className="absolute inset-x-0 -bottom-4 flex justify-center dt:inset-x-auto dt:left-[-20px] dt:block">
+              <div className="flex w-fit items-center gap-3 rounded-2xl border border-white/10 bg-white px-5 py-3.5 shadow-[0_24px_50px_-18px_rgba(0,0,0,0.5)]">
+                <span className="font-serif text-[30px] font-bold leading-none text-navy">10+</span>
+                <span className="text-left text-[12px] font-light leading-tight text-navy/70">years of<br />trusted service</span>
+              </div>
+            </div>
+          </div>
+          <div className="order-1 text-center dt:order-2 dt:text-left">
+            <Eyebrow align="center" tone="white" className="mb-4 dt:justify-start">Who we are</Eyebrow>
+            <AccentHeading as="h2" before="Umrah & Services Planned with " accent="Care" className="text-[28px] leading-[1.18] text-white dt:text-[40px]" />
+            <p className="mx-auto mt-5 max-w-[520px] text-[15.5px] font-light leading-[1.7] text-white/80 dt:mx-0 dt:text-[16.5px]">
+              Shery Travels was founded on the idea of providing more than an ordinary travel experience — a journey rooted in faith, care and trust.
+            </p>
+            <p className="mx-auto mt-4 max-w-[520px] text-[15.5px] font-light leading-[1.7] text-white/70 dt:mx-0">
+              We understand that Umrah and Hajj are close to the heart of Muslims. Keeping that in mind, we share our expertise and guidance to plan your pilgrimage smoothly — without waiting in long queues.
+            </p>
+            <ul className="mx-auto mt-6 flex max-w-[520px] flex-col gap-2.5 text-left dt:mx-0 sm:flex-row sm:flex-wrap sm:gap-x-6">
+              {["Faith-first guidance", "End-to-end arrangements", "Strong local network"].map((t) => (
+                <li key={t} className="flex items-center gap-2.5 text-[14.5px] font-medium text-white/90">
+                  <span className="grid h-6 w-6 flex-none place-items-center rounded-full bg-gold/15 ring-1 ring-gold/30"><Check size={13} className="text-gold" /></span>
+                  {t}
+                </li>
+              ))}
+            </ul>
           </div>
         </Container>
       </Section>
 
-      {/* Why Shery Travels */}
-      <Section bg="white" className="py-10 dt:py-14">
+      {/* What we do — redesigned pillars */}
+      <Section bg="ice" className="py-10 dt:py-14">
         <Container>
-          <div className="mx-auto max-w-[760px] text-center">
-            <Eyebrow className="mb-4">Why choose us</Eyebrow>
-            <AccentHeading
-              as="h2"
-              before="Why Shery "
-              accent="Travels?"
-              className="text-[28px] leading-tight text-navy dt:text-[42px]"
-            />
-            <p className="mt-5 text-[16px] font-light leading-[1.7] text-navy/80 dt:text-[17px]">
-              Our years of travel expertise make us a reliable and trusted partner with a deep
-              spiritual understanding of sacred journeys. We provide Muslim travelers with comfort and
-              ease for their sacred trip to Makkah and Madinah, helping them relax and enjoy the journey.
+          <div className="mx-auto mb-10 max-w-[760px] text-center dt:mb-12">
+            <Eyebrow className="mb-4">What we do</Eyebrow>
+            <AccentHeading as="h2" before="Everything Handled, " accent="End to End" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
+            <p className="mx-auto mt-4 max-w-[600px] text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
+              From the first enquiry to your return home, we take care of every detail — so your only focus is worship.
             </p>
           </div>
-          <div className="mt-10 grid gap-5 dt:grid-cols-2 dt:gap-7">
-            {WHY.map(({ Icon, title, body }) => (
-              <div key={title} className="flex gap-5 rounded-2xl border border-navy/10 bg-ice p-7">
-                <span className="grid h-14 w-14 flex-none place-items-center rounded-2xl border-[1.5px] border-gold bg-white">
-                  <Icon size={26} className="text-navy" />
+          <div className="grid gap-5 dt:grid-cols-3 dt:gap-7">
+            {PILLARS.map(({ Icon, title, body }, i) => (
+              <div
+                key={title}
+                className="group relative overflow-hidden rounded-2xl border border-navy/10 bg-white p-7 shadow-[0_18px_40px_-30px_rgba(26,62,110,0.45)] transition-transform duration-300 hover:-translate-y-1.5"
+              >
+                <span aria-hidden className="pointer-events-none absolute -right-2 -top-3 font-serif text-[64px] font-bold leading-none text-gold/15">
+                  {String(i + 1).padStart(2, "0")}
                 </span>
-                <div>
-                  <h3 className="mb-2 font-serif text-[19px] font-bold text-navy">{title}</h3>
-                  <p className="text-[15px] font-light leading-relaxed text-navy/75">{body}</p>
-                </div>
+                <span className="relative mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-gold to-[#b4871a] text-navy shadow-[0_14px_30px_-12px_rgba(219,183,37,0.65)]">
+                  <Icon size={26} />
+                </span>
+                <h3 className="relative mb-2 font-serif text-[19px] font-bold text-navy">{title}</h3>
+                <p className="relative text-[14.5px] font-light leading-relaxed text-navy/75">{body}</p>
               </div>
             ))}
           </div>
         </Container>
       </Section>
 
-      {/* Inquiry */}
-      <Section bg="ice" className="py-10 dt:py-14">
-        <Container className="grid items-start gap-10 dt:grid-cols-2 dt:gap-16">
-          <div>
-            <Eyebrow align="left" className="mb-4">Get in touch</Eyebrow>
-            <AccentHeading
-              as="h2"
-              before="Send us an "
-              accent="Inquiry"
-              className="text-[28px] leading-tight text-navy dt:text-[40px]"
-            />
-            <p className="mt-5 max-w-[460px] text-[16px] font-light leading-[1.7] text-navy/80">
-              Whether it&apos;s a general question, a transport request, or a package inquiry — a travel
-              expert replies within 24 hours.
-            </p>
+      {/* Why Shery Travels — with image */}
+      <Section bg="white" className="py-10 dt:py-14">
+        <Container className="grid items-center gap-11 dt:grid-cols-2 dt:gap-16">
+          <div className="relative order-2 mx-auto w-full max-w-[440px] dt:order-1">
+            <div aria-hidden className="pointer-events-none absolute -right-5 -bottom-5 hidden h-28 w-28 rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.18),transparent_70%)] dt:block" />
+            <div className="relative mx-auto h-[380px] w-[300px] overflow-hidden rounded-t-[160px] rounded-b-[18px] bg-lightblue shadow-[0_40px_80px_-32px_rgba(26,62,110,0.5)] dt:h-[460px] dt:w-full dt:rounded-t-[210px]">
+              <Image src="/images/about/about-team.webp" alt="The Shery Travels team" fill sizes="(max-width:900px) 300px, 440px" className="object-cover" />
+            </div>
           </div>
-          <ContactForm />
+          <div className="order-1 text-center dt:order-2 dt:text-left">
+            <Eyebrow align="center" className="mb-4 dt:justify-start">Why choose us</Eyebrow>
+            <AccentHeading as="h2" before="Why Shery " accent="Travels?" className="text-[28px] leading-tight text-navy dt:text-[40px]" />
+            <p className="mx-auto mt-5 max-w-[520px] text-[15.5px] font-light leading-[1.7] text-navy/80 dt:mx-0 dt:text-[16.5px]">
+              Our years of travel expertise make us a reliable, trusted partner with a deep spiritual understanding of sacred journeys — so you can relax and enjoy the trip to Makkah and Madinah.
+            </p>
+            <div className="mt-7 flex flex-col gap-4 text-left">
+              {WHY.map(({ Icon, title, body }) => (
+                <div key={title} className="flex gap-4 rounded-2xl border border-navy/10 bg-ice p-5">
+                  <span className="grid h-12 w-12 flex-none place-items-center rounded-xl bg-gradient-to-br from-gold to-[#b4871a] text-navy shadow-[0_12px_26px_-12px_rgba(219,183,37,0.6)]">
+                    <Icon size={22} />
+                  </span>
+                  <div>
+                    <h3 className="mb-1 font-serif text-[17px] font-bold text-navy">{title}</h3>
+                    <p className="text-[13.5px] font-light leading-relaxed text-navy/70">{body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </Container>
       </Section>
+
+      {/* Enquiry CTA (homepage design) */}
+      <FormSection />
+
+      {/* FAQ */}
+      <FaqAccordion
+        intro="Answers to common questions about Shery Travels and how we plan your Umrah and Hajj."
+        items={FAQ}
+      />
     </PageShell>
   );
 }
