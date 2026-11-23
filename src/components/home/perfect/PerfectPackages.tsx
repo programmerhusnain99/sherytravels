@@ -36,7 +36,8 @@ const SCRIM =
 export function PerfectPackages({
   description,
   viewAllHref,
-}: { description?: string; viewAllHref?: string } = {}) {
+  py = "pb-12 pt-12 dt:pb-16 dt:pt-20",
+}: { description?: string; viewAllHref?: string; py?: string } = {}) {
   const deck = useRef<HTMLDivElement>(null);
 
   const scrollByCards = (dir: 1 | -1) => {
@@ -48,7 +49,7 @@ export function PerfectPackages({
   };
 
   return (
-    <Section bg="white" className="pb-12 pt-12 dt:pb-16 dt:pt-20">
+    <Section bg="white" className={py}>
       <Container className="mb-[26px] flex items-end justify-between gap-6 dt:mb-10">
         <Reveal as="div">
           <AccentHeading

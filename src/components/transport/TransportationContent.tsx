@@ -24,6 +24,7 @@ import { InquireButton } from "@/components/inquiry/InquireButton";
 import { FormSection } from "@/components/home/form/FormSection";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { PerfectPackages } from "@/components/home/perfect/PerfectPackages";
+import { Stagger, StaggerItem } from "@/components/motion/Reveal";
 
 const FLEET = [
   { name: "Sedan / Camry / Ford Taurus", seats: "4 pax", bags: "2 – 4 bags", src: "/images/transportation/fleet-sedan.webp" },
@@ -38,10 +39,10 @@ const PILLARS = [
 ];
 
 const HOW = [
-  { Icon: MapPin, title: "Point-to-Point Transfers", body: "We ensure smooth connections for pilgrims traveling between airports, hotels, and sacred sites — including Ziyarat transfers in Mecca, Medina, and Jeddah with both taxi services and buses." },
-  { Icon: Clock, title: "24/7 Flexible Travel", body: "Travel on your schedule — day or night, one-way or round-trip. We recommend booking at least 2 hours in advance to ensure availability." },
-  { Icon: ShieldCheck, title: "Licensed & Courteous Drivers", body: "Our drivers are experienced, multilingual, and familiar with all Umrah and Hajj routes. Expect timely service, professionalism and a calm, safe journey." },
-  { Icon: ReceiptText, title: "Transparent Fare Structure", body: "You will know the cost before you start your journey — transparent pricing for key routes and economical Umrah bus sharing options." },
+  { Icon: MapPin, title: "Point-to-Point Transfers", body: "Airports, hotels and sacred sites — by taxi or bus." },
+  { Icon: Clock, title: "24/7 Flexible Travel", body: "Day or night, one-way or round-trip, on your schedule." },
+  { Icon: ShieldCheck, title: "Licensed Drivers", body: "Experienced, multilingual drivers who know every route." },
+  { Icon: ReceiptText, title: "Transparent Fares", body: "Know the cost upfront — clear pricing, no surprises." },
 ];
 
 const EFFORTLESS = [
@@ -109,28 +110,38 @@ export function TransportationContent({
         </Container>
       </Section>
 
-      {/* Reliable Mecca transportation — dark-blue stat band */}
-      <Section bg="navy" className="relative overflow-hidden py-12 dt:py-16">
-        <div aria-hidden className="pointer-events-none absolute left-1/2 -top-24 h-[420px] w-[760px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(219,183,37,0.14),transparent_70%)]" />
-        <div aria-hidden className="pointer-events-none absolute -right-28 -bottom-24 hidden h-[380px] w-[380px] rounded-full border border-gold/15 dt:block" />
-        <Container className="relative">
-          <div className="mx-auto max-w-[860px] text-center">
-            <Eyebrow align="center" tone="white" className="mb-4">Reliable transfers</Eyebrow>
-            <AccentHeading as="h2" before="Reliable Mecca Transportation for Umrah " accent="Pilgrims" className="text-[27px] leading-tight text-white dt:text-[38px]" />
-            <p className="mx-auto mt-5 max-w-[720px] text-[15.5px] font-light leading-[1.75] text-white/75 dt:text-[16.5px]">
-              Shery Travels offers reliable Mecca transportation for pilgrims from every walk of life — whether you prefer an Umrah taxi, the value of an Umrah bus, or the shared experience of travelling by bus. Modern, air-conditioned vehicles, skilled drivers, and round-the-clock service make your travel easy and stress-free.
+      {/* Reliable Mecca transportation — dark-blue band with an edge-bleed image that dissolves into the navy */}
+      <Section bg="navy" className="relative overflow-hidden py-12 dt:py-0 dt:min-h-[540px]">
+        <div aria-hidden className="absolute inset-y-0 left-0 hidden w-[46%] dt:block">
+          <Image src="/images/transportation/transport-hero.webp" alt="" fill sizes="46vw" className="object-cover" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(26,62,110,0.3)_0%,rgba(26,62,110,0.55)_50%,rgba(26,62,110,0.9)_82%,#1a3e6e_100%)]" />
+          <span className="absolute right-0 top-[18%] bottom-[18%] w-px bg-gradient-to-b from-gold/0 via-gold/40 to-gold/0" />
+        </div>
+        <div aria-hidden className="pointer-events-none absolute -right-28 -top-24 h-[380px] w-[380px] rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.14),transparent_70%)]" />
+        <Container className="relative flex items-center dt:min-h-[540px] dt:py-16">
+          <div className="w-full dt:ml-[48%] dt:w-[52%]">
+            <div className="relative mb-6 h-[200px] w-full overflow-hidden rounded-2xl dt:hidden">
+              <Image src="/images/transportation/transport-hero.webp" alt="Air-conditioned Umrah transfer" fill sizes="100vw" className="object-cover" />
+              <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(26,62,110,0.5)_100%)]" />
+            </div>
+            <Eyebrow align="left" tone="white" className="mb-4">Reliable transfers</Eyebrow>
+            <AccentHeading as="h2" before="Reliable Mecca Transportation for Umrah " accent="Pilgrims" className="text-[26px] leading-tight text-white dt:text-[36px]" />
+            <p className="mt-5 max-w-[560px] text-[15.5px] font-light leading-[1.7] text-white/75 dt:text-[16.5px]">
+              Shery Travels offers reliable Mecca transportation for pilgrims from every walk of life — an Umrah taxi, the value of an Umrah bus, or a shared ride. Modern, air-conditioned vehicles, skilled drivers and round-the-clock service make travel easy and stress-free.
             </p>
-          </div>
-          <div className="mx-auto mt-10 grid max-w-[920px] grid-cols-1 divide-y divide-white/10 dt:mt-12 dt:grid-cols-3 dt:divide-x dt:divide-y-0">
-            {PILLARS.map(({ Icon, title, body }) => (
-              <div key={title} className="flex flex-col items-center gap-3 px-6 py-7 text-center dt:py-2">
-                <span className="grid h-16 w-16 place-items-center rounded-full border-[1.5px] border-gold/50 text-gold">
-                  <Icon size={28} />
-                </span>
-                <h3 className="font-serif text-[18px] font-bold text-white">{title}</h3>
-                <p className="max-w-[240px] text-[13.5px] font-light leading-relaxed text-white/65">{body}</p>
-              </div>
-            ))}
+            <div className="mt-7 flex flex-col gap-3.5">
+              {PILLARS.map(({ Icon, title, body }) => (
+                <div key={title} className="flex items-start gap-4">
+                  <span className="grid h-11 w-11 flex-none place-items-center rounded-xl border-[1.5px] border-gold/50 text-gold">
+                    <Icon size={20} />
+                  </span>
+                  <div>
+                    <h3 className="font-serif text-[16px] font-bold text-white">{title}</h3>
+                    <p className="text-[13.5px] font-light leading-relaxed text-white/65">{body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </Container>
       </Section>
@@ -187,34 +198,30 @@ export function TransportationContent({
       <PerfectPackages
         viewAllHref={ziaratHref}
         description="Dedicated to trustworthy, convenient Ziarat journeys in Makkah and Madinah — skilled chauffeurs and well-maintained vehicles prioritise your safety and comfort, so you can focus on reflection at every sacred site."
+        py="pb-8 pt-8 dt:pb-10 dt:pt-12"
       />
 
-      {/* How it works — vertical process timeline */}
-      <Section bg="ice" className="py-12 dt:py-16">
+      {/* How it works — compact animated step row */}
+      <Section bg="ice" className="py-9 dt:py-12">
         <Container>
-          <div className="mx-auto mb-10 max-w-[760px] text-center dt:mb-12">
+          <div className="mx-auto mb-8 max-w-[760px] text-center dt:mb-10">
             <Eyebrow align="center" className="mb-4">How it works</Eyebrow>
-            <AccentHeading as="h2" before="How Our Transportation " accent="Works" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
-            <p className="mx-auto mt-4 max-w-[600px] text-[15.5px] font-light leading-relaxed text-navy/75">
-              Four simple promises behind every transfer you book with us.
-            </p>
+            <AccentHeading as="h2" before="How Our Transportation " accent="Works" className="text-[26px] leading-tight text-navy dt:text-[36px]" />
           </div>
-          <div className="relative mx-auto max-w-[780px]">
-            <div aria-hidden className="absolute left-7 top-4 bottom-4 w-[2px] bg-gradient-to-b from-gold/50 via-navy/15 to-transparent dt:left-8" />
-            <div className="flex flex-col gap-6 dt:gap-7">
+          <div className="relative">
+            <div aria-hidden className="absolute inset-x-[12%] top-7 hidden h-[2px] bg-gradient-to-r from-gold/0 via-navy/15 to-gold/0 dt:block" />
+            <Stagger as="div" gap={0.1} className="relative grid grid-cols-2 gap-x-4 gap-y-8 dt:grid-cols-4 dt:gap-5">
               {HOW.map(({ Icon, title, body }, i) => (
-                <div key={title} className="relative flex gap-5">
-                  <span className="relative z-10 grid h-14 w-14 flex-none place-items-center rounded-2xl bg-gradient-to-br from-gold to-[#b4871a] text-navy shadow-[0_16px_32px_-12px_rgba(219,183,37,0.65)] ring-4 ring-ice dt:h-16 dt:w-16">
-                    <Icon size={24} />
+                <StaggerItem as="div" key={title} direction="up" className="flex flex-col items-center px-2 text-center">
+                  <span className="relative grid h-14 w-14 place-items-center rounded-full bg-gradient-to-br from-gold to-[#b4871a] text-navy shadow-[0_14px_30px_-12px_rgba(219,183,37,0.65)] ring-4 ring-ice transition-transform duration-300 hover:-translate-y-1">
+                    <Icon size={23} />
+                    <span className="absolute -right-1.5 -top-1.5 grid h-6 w-6 place-items-center rounded-full bg-navy text-[11px] font-bold text-white ring-2 ring-ice">{i + 1}</span>
                   </span>
-                  <div className="pt-1">
-                    <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-gold">Step {i + 1}</span>
-                    <h3 className="mt-1 font-serif text-[18px] font-bold text-navy dt:text-[19px]">{title}</h3>
-                    <p className="mt-1.5 text-[14px] font-light leading-relaxed text-navy/75">{body}</p>
-                  </div>
-                </div>
+                  <h3 className="mt-4 font-serif text-[15.5px] font-bold leading-tight text-navy">{title}</h3>
+                  <p className="mt-1.5 text-[12.5px] font-light leading-relaxed text-navy/65">{body}</p>
+                </StaggerItem>
               ))}
-            </div>
+            </Stagger>
           </div>
         </Container>
       </Section>
