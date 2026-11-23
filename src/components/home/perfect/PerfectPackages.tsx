@@ -7,6 +7,7 @@ import { ArrowRight, ArrowLeft } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { AccentHeading } from "@/components/ui/AccentHeading";
+import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 
 type Tile = {
@@ -32,7 +33,10 @@ const SCRIM =
  * Horizontal deck with prev/next arrow controls (desktop) + CSS swipe (mobile).
  * Content is rendered in JSX (server-prerendered in the HTML) for SEO.
  */
-export function PerfectPackages() {
+export function PerfectPackages({
+  description,
+  viewAllHref,
+}: { description?: string; viewAllHref?: string } = {}) {
   const deck = useRef<HTMLDivElement>(null);
 
   const scrollByCards = (dir: 1 | -1) => {
@@ -54,10 +58,15 @@ export function PerfectPackages() {
             className="text-[29px] leading-[1.22] dt:text-[40px] dt:leading-[1.16]"
           />
           <p className="mt-3 max-w-[720px] text-[15.5px] font-light leading-[1.65] text-navy/85 dt:text-[16.5px] dt:leading-[1.68]">
-            Visit the blessed sites of Makkah and Madinah with knowledgeable guides — from Jabal
-            al-Noor and the Cave of Hira to Quba Mosque and Masjid an-Nabawi, every stop brings your
-            journey closer to its meaning.
+            {description ??
+              "Visit the blessed sites of Makkah and Madinah with knowledgeable guides — from Jabal al-Noor and the Cave of Hira to Quba Mosque and Masjid an-Nabawi, every stop brings your journey closer to its meaning."}
           </p>
+          {viewAllHref && (
+            <Button href={viewAllHref} variant="navy" size="md" className="mt-6 uppercase tracking-[0.06em]">
+              View all Ziyarat
+              <ArrowRight size={17} aria-hidden />
+            </Button>
+          )}
         </Reveal>
 
         {/* Prev / next controls (desktop) */}

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import {
-  Check,
   Users,
   Briefcase,
   MapPin,
@@ -8,6 +7,10 @@ import {
   ShieldCheck,
   ReceiptText,
   ArrowRight,
+  BusFront,
+  MousePointerClick,
+  SlidersHorizontal,
+  Headset,
 } from "lucide-react";
 import { breadcrumbSchema } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
@@ -18,29 +21,40 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { Button } from "@/components/ui/Button";
 import { InquireButton } from "@/components/inquiry/InquireButton";
-import { ContactForm } from "@/components/inquiry/ContactForm";
+import { FormSection } from "@/components/home/form/FormSection";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
+import { PerfectPackages } from "@/components/home/perfect/PerfectPackages";
 
 const FLEET = [
   { name: "Sedan / Camry / Ford Taurus", seats: "4 pax", bags: "2 – 4 bags", src: "/images/transportation/fleet-sedan.webp" },
   { name: "Hyundai H1 / Toyota Hiace", seats: "7 – 10 pax", bags: "Up to 10 bags", src: "/images/transportation/fleet-h1.webp" },
   { name: "GMC Yukon / Chevy Suburban", seats: "7 pax", bags: "7 bags", src: "/images/transportation/fleet-yukon.webp" },
-  { name: "Minibus / Coaster", seats: "15 – 16 pax", bags: "20 – 25 bags", src: "/images/transportation/fleet-coaster.webp" },
-  { name: "Large Bus", seats: "Up to 50 pax", bags: "Up to 50 bags", src: "/images/transportation/fleet-bus.webp" },
+];
+
+const PILLARS = [
+  { Icon: Clock, title: "24/7 Transfers", body: "Round-the-clock reliable Mecca transportation, day or night." },
+  { Icon: BusFront, title: "Bus or Private Taxi", body: "Shared Umrah bus or a private taxi — whatever suits you." },
+  { Icon: MapPin, title: "Straight to the Haram", body: "Smooth transfers from Jeddah Airport to Masjid al-Haram." },
 ];
 
 const HOW = [
-  { Icon: MapPin, title: "Point-to-Point Transfers", body: "We ensure smooth connections for pilgrims traveling between airports, hotels, and sacred sites. Our services also include Ziyarat transfers in Mecca, Medina, and Jeddah with both Umrah taxi services and buses." },
-  { Icon: Clock, title: "24/7 Flexible Travel", body: "Travel on your schedule – day or night. One-way or round-trip? The choice is yours. We recommend booking at least 2 hours in advance to ensure availability." },
-  { Icon: ShieldCheck, title: "Licensed & Courteous Drivers", body: "Our drivers are experienced, multilingual, and familiar with all the Umrah and Hajj routes. Expect timely service, professionalism, and a calm, safe journey." },
-  { Icon: ReceiptText, title: "Transparent Fare Structure", body: "You will know the cost before you start your journey. We offer transparent pricing for key routes and Umrah bus sharing options, providing economical travel options." },
+  { Icon: MapPin, title: "Point-to-Point Transfers", body: "We ensure smooth connections for pilgrims traveling between airports, hotels, and sacred sites — including Ziyarat transfers in Mecca, Medina, and Jeddah with both taxi services and buses." },
+  { Icon: Clock, title: "24/7 Flexible Travel", body: "Travel on your schedule — day or night, one-way or round-trip. We recommend booking at least 2 hours in advance to ensure availability." },
+  { Icon: ShieldCheck, title: "Licensed & Courteous Drivers", body: "Our drivers are experienced, multilingual, and familiar with all Umrah and Hajj routes. Expect timely service, professionalism and a calm, safe journey." },
+  { Icon: ReceiptText, title: "Transparent Fare Structure", body: "You will know the cost before you start your journey — transparent pricing for key routes and economical Umrah bus sharing options." },
+];
+
+const EFFORTLESS = [
+  { Icon: MousePointerClick, title: "Effortless Booking", body: "Arrange every transfer in a few clicks — online or on WhatsApp." },
+  { Icon: SlidersHorizontal, title: "Customized Services", body: "Options tailored to your routes, dates and group size." },
+  { Icon: Headset, title: "24/7 Team Support", body: "Our team follows up with confirmation and any details you need." },
 ];
 
 const BOOK = [
-  { title: "Choose Your Ride", body: "Pick your route, vehicle type, and the date for your transfer – whether it’s an Umrah bus or a private taxi." },
-  { title: "Book Online or via WhatsApp", body: "Fill out our booking form online or WhatsApp us. Our team is here to help you with instant support." },
-  { title: "Instant Confirmation", body: "Get prompt confirmation with all the details about your ride. This includes fare, driver info, and your timings." },
-  { title: "Relax and Travel", body: "Our driver will be there on time for you. All you have to do is sit back, enjoy the journey, and focus on your spiritual goals." },
+  { title: "Choose Your Ride", body: "Pick your route, vehicle type and date — an Umrah bus or a private taxi." },
+  { title: "Book Online or WhatsApp", body: "Fill out our form or WhatsApp us — instant support from our team." },
+  { title: "Instant Confirmation", body: "Get prompt confirmation with fare, driver info and your timings." },
+  { title: "Relax and Travel", body: "Your driver arrives on time — sit back and focus on your worship." },
 ];
 
 const FAQ = [
@@ -72,7 +86,7 @@ export function TransportationContent({
       <JsonLd data={breadcrumbSchema(breadcrumb)} />
 
       {/* Hero */}
-      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-10 dt:pt-12">
+      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-10 pb-8 dt:pt-12 dt:pb-10">
         <div aria-hidden className="pointer-events-none absolute -left-32 top-10 hidden h-[460px] w-[460px] rounded-full border border-gold/15 dt:block" />
         <Container className="flex flex-col items-center gap-6 text-center">
           <div className="order-1 max-w-[680px] text-center">
@@ -83,12 +97,8 @@ export function TransportationContent({
               className="text-[30px] leading-[1.18] text-navy dt:text-[46px]"
             />
           </div>
-          <div className="order-3 max-w-[680px] text-center">
-            <div className="flex flex-wrap justify-center gap-3">
-              <InquireButton variant="gold" size="lg" className="rounded-lg">Inquire Now</InquireButton>
-              <Button href={fleetsHref} variant="outline" size="lg">Explore Fleet</Button>
-              <Button href={ziaratHref} variant="ghost" size="lg" className="text-navy underline underline-offset-4">Visit Ziarat</Button>
-            </div>
+          <div className="order-3">
+            <InquireButton variant="gold" size="lg" className="rounded-lg">Inquire Now</InquireButton>
           </div>
           <div className="relative order-2 flex justify-center">
             <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.12),transparent_70%)]" />
@@ -99,21 +109,61 @@ export function TransportationContent({
         </Container>
       </Section>
 
-      {/* Reliable Mecca intro */}
-      <Section bg="lightblue" className="py-10 dt:py-14">
-        <Container className="mx-auto max-w-[900px] text-center">
-          <Eyebrow className="mb-4">Reliable transfers</Eyebrow>
-          <AccentHeading as="h2" before="Reliable Mecca Transportation for Umrah " accent="Pilgrims" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
-          <p className="mt-5 text-[15.5px] font-light leading-[1.75] text-navy/80 dt:text-[16.5px]">
-            Traveling to Mecca for Umrah is a journey that can truly change your life. At Shery Travels, we understand how important this experience is, which is why we offer reliable Mecca transportation designed to serve pilgrims from every walk of life. Whether you prefer the convenience of an umrah taxi service, the affordability of an umrah bus, or the shared experience of umrah by bus, we ensure every option meets your needs. We provide smooth transfers from Jeddah Airport to your hotel or directly to Masjid al-Haram. Our modern, air-conditioned vehicles are driven by skilled professionals who respect the significance of your journey. Plus, with our round-the-clock service, we’re here to make your travel as easy and stress-free as possible.
-          </p>
-          <ul className="mx-auto mt-7 flex max-w-[760px] flex-col flex-wrap justify-center gap-3 dt:flex-row dt:gap-4">
-            {["24/7 reliable Mecca transportation", "Options for Umrah bus or taxi", "Smooth transfers to Masjid al-Haram"].map((b) => (
-              <li key={b} className="flex items-center gap-2 rounded-full border border-navy/10 bg-ice px-4 py-2 text-[14px] font-medium text-navy">
-                <Check size={16} className="flex-none text-gold" /> {b}
-              </li>
+      {/* Reliable Mecca transportation — dark-blue stat band */}
+      <Section bg="navy" className="relative overflow-hidden py-12 dt:py-16">
+        <div aria-hidden className="pointer-events-none absolute left-1/2 -top-24 h-[420px] w-[760px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(219,183,37,0.14),transparent_70%)]" />
+        <div aria-hidden className="pointer-events-none absolute -right-28 -bottom-24 hidden h-[380px] w-[380px] rounded-full border border-gold/15 dt:block" />
+        <Container className="relative">
+          <div className="mx-auto max-w-[860px] text-center">
+            <Eyebrow align="center" tone="white" className="mb-4">Reliable transfers</Eyebrow>
+            <AccentHeading as="h2" before="Reliable Mecca Transportation for Umrah " accent="Pilgrims" className="text-[27px] leading-tight text-white dt:text-[38px]" />
+            <p className="mx-auto mt-5 max-w-[720px] text-[15.5px] font-light leading-[1.75] text-white/75 dt:text-[16.5px]">
+              Shery Travels offers reliable Mecca transportation for pilgrims from every walk of life — whether you prefer an Umrah taxi, the value of an Umrah bus, or the shared experience of travelling by bus. Modern, air-conditioned vehicles, skilled drivers, and round-the-clock service make your travel easy and stress-free.
+            </p>
+          </div>
+          <div className="mx-auto mt-10 grid max-w-[920px] grid-cols-1 divide-y divide-white/10 dt:mt-12 dt:grid-cols-3 dt:divide-x dt:divide-y-0">
+            {PILLARS.map(({ Icon, title, body }) => (
+              <div key={title} className="flex flex-col items-center gap-3 px-6 py-7 text-center dt:py-2">
+                <span className="grid h-16 w-16 place-items-center rounded-full border-[1.5px] border-gold/50 text-gold">
+                  <Icon size={28} />
+                </span>
+                <h3 className="font-serif text-[18px] font-bold text-white">{title}</h3>
+                <p className="max-w-[240px] text-[13.5px] font-light leading-relaxed text-white/65">{body}</p>
+              </div>
             ))}
-          </ul>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Fleet — 3 vehicles + View all Vehicles */}
+      <Section bg="white" className="py-10 dt:py-14">
+        <Container>
+          <div className="mb-10 flex flex-col items-center gap-4 text-center dt:mb-12 dt:flex-row dt:items-end dt:justify-between dt:text-left">
+            <div>
+              <Eyebrow align="center" className="mb-4 dt:justify-start">Our fleet</Eyebrow>
+              <AccentHeading as="h2" before="Travel in Comfort: Choose Your " accent="Ride" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
+            </div>
+            <Button href={fleetsHref} variant="navy" size="md" className="flex-none uppercase tracking-[0.06em]">
+              View all Vehicles
+              <ArrowRight size={17} aria-hidden />
+            </Button>
+          </div>
+          <div className="grid gap-5 dt:grid-cols-3 dt:gap-6">
+            {FLEET.map((v) => (
+              <div key={v.name} className="card-hover flex h-full flex-col overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_26px_54px_-30px_rgba(26,62,110,0.4)]">
+                <div className="relative h-[180px] w-full flex-none bg-lightblue">
+                  <Image src={v.src} alt={v.name} fill sizes="(max-width:900px) 100vw, 30vw" className="object-cover" />
+                </div>
+                <div className="flex-1 p-5">
+                  <h3 className="mb-3 font-serif text-[18px] font-bold text-navy">{v.name}</h3>
+                  <div className="flex flex-wrap gap-4 text-[13.5px] text-navy/75">
+                    <span className="flex items-center gap-1.5"><Users size={16} className="text-gold" /> {v.seats}</span>
+                    <span className="flex items-center gap-1.5"><Briefcase size={16} className="text-gold" /> {v.bags}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </Container>
       </Section>
 
@@ -133,78 +183,66 @@ export function TransportationContent({
         </Container>
       </Section>
 
-      {/* Fleet */}
-      <Section bg="white" className="py-10 dt:py-14">
+      {/* Ziyarat — homepage design + View all Ziyarat */}
+      <PerfectPackages
+        viewAllHref={ziaratHref}
+        description="Dedicated to trustworthy, convenient Ziarat journeys in Makkah and Madinah — skilled chauffeurs and well-maintained vehicles prioritise your safety and comfort, so you can focus on reflection at every sacred site."
+      />
+
+      {/* How it works — vertical process timeline */}
+      <Section bg="ice" className="py-12 dt:py-16">
         <Container>
-          <div className="mx-auto mb-10 max-w-[760px] text-center">
-            <Eyebrow className="mb-4">Our fleet</Eyebrow>
-            <AccentHeading as="h2" before="Travel in Comfort: Choose Your " accent="Ride" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
-            <p className="mt-4 text-[15.5px] font-light leading-relaxed text-navy/75">
-              Shery Travels offers a diverse, well-maintained fleet to suit group or individual needs.
+          <div className="mx-auto mb-10 max-w-[760px] text-center dt:mb-12">
+            <Eyebrow align="center" className="mb-4">How it works</Eyebrow>
+            <AccentHeading as="h2" before="How Our Transportation " accent="Works" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
+            <p className="mx-auto mt-4 max-w-[600px] text-[15.5px] font-light leading-relaxed text-navy/75">
+              Four simple promises behind every transfer you book with us.
             </p>
           </div>
-          <div className="grid gap-5 dt:grid-cols-3 dt:gap-6">
-            {FLEET.map((v) => (
-              <div key={v.name} className="card-hover overflow-hidden rounded-2xl border border-navy/10 bg-white">
-                <div className="relative h-[180px] w-full bg-lightblue">
-                  <Image src={v.src} alt={v.name} fill sizes="(max-width:900px) 100vw, 30vw" className="object-cover" />
-                </div>
-                <div className="p-5">
-                  <h3 className="mb-3 font-serif text-[18px] font-bold text-navy">{v.name}</h3>
-                  <div className="flex flex-wrap gap-4 text-[13.5px] text-navy/75">
-                    <span className="flex items-center gap-1.5"><Users size={16} className="text-gold" /> {v.seats}</span>
-                    <span className="flex items-center gap-1.5"><Briefcase size={16} className="text-gold" /> {v.bags}</span>
+          <div className="relative mx-auto max-w-[780px]">
+            <div aria-hidden className="absolute left-7 top-4 bottom-4 w-[2px] bg-gradient-to-b from-gold/50 via-navy/15 to-transparent dt:left-8" />
+            <div className="flex flex-col gap-6 dt:gap-7">
+              {HOW.map(({ Icon, title, body }, i) => (
+                <div key={title} className="relative flex gap-5">
+                  <span className="relative z-10 grid h-14 w-14 flex-none place-items-center rounded-2xl bg-gradient-to-br from-gold to-[#b4871a] text-navy shadow-[0_16px_32px_-12px_rgba(219,183,37,0.65)] ring-4 ring-ice dt:h-16 dt:w-16">
+                    <Icon size={24} />
+                  </span>
+                  <div className="pt-1">
+                    <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-gold">Step {i + 1}</span>
+                    <h3 className="mt-1 font-serif text-[18px] font-bold text-navy dt:text-[19px]">{title}</h3>
+                    <p className="mt-1.5 text-[14px] font-light leading-relaxed text-navy/75">{body}</p>
                   </div>
                 </div>
-              </div>
-            ))}
-            <Button href={fleetsHref} variant="outline" size="lg" className="flex h-full min-h-[200px] flex-col items-center justify-center rounded-2xl text-center">
-              <span>Explore full fleet</span>
-              <ArrowRight size={20} />
-            </Button>
+              ))}
+            </div>
           </div>
         </Container>
       </Section>
 
-      {/* Ziarat — navy band */}
-      <Section bg="navy" className="relative overflow-hidden py-10 dt:py-14">
-        <div aria-hidden className="pointer-events-none absolute -right-28 -top-28 h-[360px] w-[360px] rounded-full border border-gold/15" />
-        <Container className="grid items-center gap-10 dt:grid-cols-2 dt:gap-16">
-          <div>
-            <Eyebrow align="left" tone="white" className="mb-4">Ziarat journeys</Eyebrow>
-            <AccentHeading as="h2" before="Sacred Ziarat Journeys Made " accent="Simple" className="text-[26px] leading-tight text-white dt:text-[36px]" />
-            <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-white/80 dt:text-[16.5px]">
-              At Shery Travels, we’re dedicated to providing you with trustworthy and convenient Umrah services for your Ziarat journeys in Makkah and Madinah. Our well-maintained vehicles are driven by skilled chauffeurs who prioritize your safety and comfort.
+      {/* Effortless planning — dark-blue split with stacked glass bars */}
+      <Section bg="navy" className="relative overflow-hidden py-12 dt:py-16">
+        <div aria-hidden className="pointer-events-none absolute -right-28 -top-24 h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.14),transparent_70%)]" />
+        <div aria-hidden className="pointer-events-none absolute -left-24 -bottom-24 hidden h-[360px] w-[360px] rounded-full border border-white/[0.06] dt:block" />
+        <Container className="relative grid items-center gap-11 dt:grid-cols-[0.9fr_1.1fr] dt:gap-16">
+          <div className="text-center dt:text-left">
+            <Eyebrow align="center" tone="white" className="mb-4 dt:justify-start">Plan your trip</Eyebrow>
+            <AccentHeading as="h2" before="Effortless Travel Planning: Your Trip, Your " accent="Way" className="text-[26px] leading-tight text-white dt:text-[36px]" />
+            <p className="mx-auto mt-5 max-w-[460px] text-[15.5px] font-light leading-[1.7] text-white/75 dt:mx-0 dt:text-[16.5px]">
+              Planning your Umrah by bus or car has never been easier. Fill out the form and our team follows up with confirmation and any details you need — so you can focus on your prayers while we handle every transfer.
             </p>
-            <p className="mt-4 text-[15.5px] font-light leading-[1.7] text-white/80 dt:text-[16.5px]">
-              Whether you’re en route to the holy sites in Makkah or exploring the rich history of Madinah, our Mecca transportation and Madinah routes are carefully designed to ensure a smooth and enjoyable travel experience. We aim to enhance your spiritual journey, allowing you to focus on your personal reflection and connection to these sacred places.
-            </p>
-            <Button href={ziaratHref} variant="gold" size="lg" className="mt-7 rounded-lg">
-              Visit Ziarat <ArrowRight size={18} />
-            </Button>
           </div>
-          <div className="relative mx-auto h-[360px] w-full overflow-hidden rounded-2xl bg-white/10 dt:h-[420px]">
-            <Image src="/images/transportation/transport-ziarat.webp" alt="Ziarat sites in Makkah and Madinah" fill sizes="(max-width:900px) 100vw, 45vw" className="object-cover" />
-          </div>
-        </Container>
-      </Section>
-
-      {/* How it works */}
-      <Section bg="white" className="py-10 dt:py-14">
-        <Container>
-          <div className="mx-auto mb-10 max-w-[760px] text-center">
-            <Eyebrow className="mb-4">How it works</Eyebrow>
-            <AccentHeading as="h2" before="How Our Transportation " accent="Works" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
-          </div>
-          <div className="grid gap-5 dt:grid-cols-2 dt:gap-7">
-            {HOW.map(({ Icon, title, body }) => (
-              <div key={title} className="card-hover group flex gap-5 rounded-2xl border border-navy/10 bg-ice p-7">
-                <span className="grid h-14 w-14 flex-none place-items-center rounded-2xl border-[1.5px] border-gold bg-white transition-colors duration-300 group-hover:bg-gold">
-                  <Icon size={26} className="text-navy" />
+          <div className="flex flex-col gap-4">
+            {EFFORTLESS.map(({ Icon, title, body }) => (
+              <div
+                key={title}
+                className="group flex items-center gap-5 rounded-2xl border border-white/10 bg-gradient-to-r from-white/[0.08] to-white/[0.02] p-5 transition-all duration-300 hover:border-gold/40 hover:translate-x-1"
+              >
+                <span className="grid h-14 w-14 flex-none place-items-center rounded-xl bg-gradient-to-br from-gold to-[#b4871a] text-navy shadow-[0_12px_26px_-10px_rgba(219,183,37,0.6)]">
+                  <Icon size={24} />
                 </span>
                 <div>
-                  <h3 className="mb-2 font-serif text-[19px] font-bold text-navy">{title}</h3>
-                  <p className="text-[14.5px] font-light leading-relaxed text-navy/75">{body}</p>
+                  <h3 className="font-serif text-[17px] font-bold text-white">{title}</h3>
+                  <p className="mt-0.5 text-[13.5px] font-light leading-relaxed text-white/65">{body}</p>
                 </div>
               </div>
             ))}
@@ -212,67 +250,41 @@ export function TransportationContent({
         </Container>
       </Section>
 
-      {/* Effortless planning */}
-      <Section bg="ice" className="py-10 dt:py-14">
-        <Container className="mx-auto max-w-[900px] text-center">
-          <Eyebrow className="mb-4">Plan your trip</Eyebrow>
-          <AccentHeading as="h2" before="Effortless Travel Planning: Your Trip, Your " accent="Way" className="text-[26px] leading-tight text-navy dt:text-[36px]" />
-          <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
-            Planning your Umrah by bus or car has never been easier! With our simple transportation services, you can arrange all your travel needs with just a few clicks. We understand how important this spiritual journey is for you, so we offer easy booking options customized to your requirements. Simply fill out the form, and our team will follow up with confirmation and any extra details you may need. Enjoy your pilgrimage by focusing on your prayers and reflections while we handle all your transportation arrangements, from airport pickups to transfers between holy sites.
-          </p>
-          <ul className="mx-auto mt-7 flex flex-col flex-wrap justify-center gap-3 dt:flex-row dt:gap-4">
-            {["Effortless Booking", "Customized Services", "24/7 Team Support"].map((b) => (
-              <li key={b} className="flex items-center gap-2 rounded-full border border-navy/10 bg-white px-4 py-2 text-[14px] font-medium text-navy">
-                <Check size={16} className="flex-none text-gold" /> {b}
-              </li>
-            ))}
-          </ul>
-        </Container>
-      </Section>
-
-      {/* Book your ride — numbered steps */}
-      <Section bg="white" className="py-10 dt:py-14">
-        <Container>
-          <div className="mx-auto mb-10 max-w-[760px] text-center">
-            <Eyebrow className="mb-4">Book your ride with ease</Eyebrow>
-            <AccentHeading as="h2" before="Book Your Ride With " accent="Ease" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
-            <p className="mt-4 text-[15.5px] font-light leading-relaxed text-navy/75">
-              Since 2007, thousands of pilgrims have trusted us for safe and reliable Umrah services across the holy cities. Booking your trip is quite simple. Here’s how you can do it:
+      {/* Book your ride — compact steps on a decorated backdrop */}
+      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice via-white to-ice py-11 dt:py-14">
+        <div aria-hidden className="pointer-events-none absolute -left-28 -top-20 h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.1),transparent_70%)] blur-2xl" />
+        <div aria-hidden className="pointer-events-none absolute -right-28 bottom-0 h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(47,128,237,0.08),transparent_70%)] blur-2xl" />
+        <div aria-hidden className="pointer-events-none absolute left-1/2 top-16 hidden h-[560px] w-[560px] -translate-x-1/2 rounded-full border border-navy/[0.05] dt:block" />
+        <Container className="relative">
+          <div className="mx-auto mb-9 max-w-[760px] text-center dt:mb-11">
+            <Eyebrow align="center" className="mb-4">Book your ride with ease</Eyebrow>
+            <AccentHeading as="h2" before="Book Your Ride With " accent="Ease" className="text-[26px] leading-tight text-navy dt:text-[36px]" />
+            <p className="mx-auto mt-3 max-w-[600px] text-[14.5px] font-light leading-relaxed text-navy/75">
+              Since 2007, thousands of pilgrims have trusted us across the holy cities. Booking is simple:
             </p>
           </div>
-          <div className="grid gap-5 dt:grid-cols-4 dt:gap-6">
+          <div className="grid grid-cols-2 gap-3.5 dt:grid-cols-4 dt:gap-5">
             {BOOK.map((s, i) => (
-              <div key={s.title} className="card-hover relative overflow-hidden rounded-2xl border border-navy/10 bg-ice p-6">
-                <span className="mb-3 inline-grid h-11 w-11 place-items-center rounded-full bg-navy font-serif text-[16px] font-bold text-white">
+              <div key={s.title} className="group rounded-xl border border-navy/10 bg-white p-4 shadow-[0_16px_36px_-30px_rgba(26,62,110,0.45)] transition-transform duration-300 hover:-translate-y-1 dt:p-5">
+                <span className="mb-3 inline-grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br from-gold to-[#b4871a] font-serif text-[14px] font-bold text-navy shadow-[0_10px_22px_-10px_rgba(219,183,37,0.6)]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mb-2 font-serif text-[17px] font-bold text-navy">{s.title}</h3>
-                <p className="text-[13.5px] font-light leading-relaxed text-navy/75">{s.body}</p>
+                <h3 className="mb-1.5 font-serif text-[15.5px] font-bold leading-tight text-navy">{s.title}</h3>
+                <p className="text-[12.5px] font-light leading-relaxed text-navy/70">{s.body}</p>
               </div>
             ))}
           </div>
         </Container>
       </Section>
+
+      {/* Enquiry CTA (homepage design) */}
+      <FormSection />
 
       {/* FAQ */}
       <FaqAccordion
         intro="Find answers to common questions about our Umrah services, required documents, customized options, or support during your pilgrimage."
         items={FAQ}
       />
-
-      {/* Inquiry */}
-      <Section bg="white" className="py-10 dt:py-14">
-        <Container className="grid items-start gap-10 dt:grid-cols-2 dt:gap-16">
-          <div>
-            <Eyebrow align="left" className="mb-4">Get in touch with us</Eyebrow>
-            <AccentHeading as="h2" before="Get in Touch with " accent="Us" className="text-[28px] leading-tight text-navy dt:text-[40px]" />
-            <p className="mt-5 max-w-[460px] text-[16px] font-light leading-[1.7] text-navy/80">
-              Choose your ride, book online or via WhatsApp, and get instant confirmation — a travel expert replies within 24 hours.
-            </p>
-          </div>
-          <ContactForm />
-        </Container>
-      </Section>
     </PageShell>
   );
 }
