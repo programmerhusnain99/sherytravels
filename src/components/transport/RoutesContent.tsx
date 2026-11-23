@@ -80,9 +80,9 @@ export function RoutesContent({
               Arrival-to-departure transport, arranged end to end. Prices shown are from our Sedan; every package is available in any vehicle.
             </p>
           </div>
-          <div className="grid gap-6 dt:grid-cols-3 dt:gap-6">
+          <div className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-pl-5 px-5 pb-2 dt:mx-0 dt:grid dt:grid-cols-3 dt:gap-6 dt:overflow-visible dt:p-0">
             {ROUND_TRIPS.map((rt) => (
-              <div key={rt.title} className="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] transition-all duration-300 hover:-translate-y-1.5 hover:border-gold/50">
+              <div key={rt.title} className="group flex w-[82vw] max-w-[330px] flex-none snap-start flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] transition-all duration-300 hover:-translate-y-1.5 hover:border-gold/50 dt:w-auto dt:max-w-none">
                 <div className="relative h-[150px] w-full overflow-hidden">
                   <Image src={rt.image} alt={rt.title} fill sizes="(max-width:900px) 100vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
                   <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,62,110,0.1)_0%,rgba(26,62,110,0.85)_100%)]" />
@@ -125,9 +125,9 @@ export function RoutesContent({
               Private travel between Makkah, Madinah, Jeddah and Taif — including scenic historic routes.
             </p>
           </div>
-          <Stagger as="div" gap={0.08} className="grid gap-5 dt:grid-cols-2 dt:gap-6">
+          <div className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-pl-5 px-5 pb-2 dt:mx-0 dt:grid dt:grid-cols-2 dt:gap-6 dt:overflow-visible dt:p-0">
             {INTERCITY.map((group) => (
-              <StaggerItem as="div" key={group.city} direction="up" className="group overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_22px_48px_-32px_rgba(26,62,110,0.4)]">
+              <div key={group.city} className="group w-[82vw] max-w-[360px] flex-none snap-start overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_22px_48px_-32px_rgba(26,62,110,0.4)] dt:w-auto dt:max-w-none">
                 <div className="relative h-[130px] w-full overflow-hidden">
                   <Image src={group.image} alt={group.city} fill sizes="(max-width:900px) 100vw, 50vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
                   <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,62,110,0.15)_0%,rgba(26,62,110,0.82)_100%)]" />
@@ -138,9 +138,9 @@ export function RoutesContent({
                     <li key={r} className="rounded-full border border-navy/10 bg-ice px-3.5 py-1.5 text-[13px] font-medium text-navy/85">{r}</li>
                   ))}
                 </ul>
-              </StaggerItem>
+              </div>
             ))}
-          </Stagger>
+          </div>
         </Container>
       </Section>
 
@@ -167,9 +167,9 @@ export function RoutesContent({
             <Eyebrow align="center" className="mb-4">Around the holy cities</Eyebrow>
             <AccentHeading as="h2" before="Local City " accent="Transport" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
           </div>
-          <div className="grid gap-6 dt:grid-cols-2 dt:gap-6">
+          <div className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-pl-5 px-5 pb-2 dt:mx-0 dt:grid dt:grid-cols-2 dt:gap-6 dt:overflow-visible dt:p-0">
             {LOCAL.map((group) => (
-              <div key={group.city} className="overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_24px_52px_-34px_rgba(26,62,110,0.45)] dt:flex">
+              <div key={group.city} className="w-[85vw] max-w-[400px] flex-none snap-start overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_24px_52px_-34px_rgba(26,62,110,0.45)] dt:w-auto dt:max-w-none dt:flex">
                 <div className="relative h-[190px] w-full overflow-hidden dt:h-auto dt:w-[40%] dt:self-stretch">
                   <Image src={group.image} alt={group.city} fill sizes="(max-width:900px) 100vw, 40vw" className="object-cover" />
                   <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,62,110,0.1)_0%,rgba(26,62,110,0.6)_100%)] dt:bg-[linear-gradient(90deg,rgba(26,62,110,0.1)_0%,rgba(26,62,110,0.55)_100%)]" />
@@ -220,9 +220,9 @@ export function RoutesContent({
             <Eyebrow align="center" tone="white" className="mb-4">Choose your ride</Eyebrow>
             <AccentHeading as="h2" before="Our Transport " accent="Fleet" className="text-[27px] leading-tight text-white dt:text-[38px]" />
           </div>
-          <div className="grid grid-cols-2 gap-3.5 dt:grid-cols-3 dt:gap-5">
+          <div className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-3.5 overflow-x-auto scroll-pl-5 px-5 pb-2 dt:mx-0 dt:grid dt:grid-cols-3 dt:gap-5 dt:overflow-visible dt:p-0">
             {VEHICLES.map((veh) => (
-              <div key={veh.key} className="group rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50">
+              <div key={veh.key} className="group w-[62vw] max-w-[230px] flex-none snap-start rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 dt:w-auto dt:max-w-none">
                 <h3 className="font-serif text-[16px] font-bold leading-tight text-white dt:text-[18px]">{veh.name}</h3>
                 <p className="mt-0.5 text-[12px] text-white/55">{veh.sub}</p>
                 <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5 text-[12.5px] text-white/80">

@@ -43,12 +43,12 @@ export function HeroEnquiryForm() {
               </select>
             </label>
 
-            <label className={`${fieldWrapClasses} hidden dt:flex`}>
+            <label className={fieldWrapClasses}>
               <span className={labelClasses}>Departure date</span>
               <input type="text" className={inputClasses} placeholder="Select date" />
             </label>
 
-            <label className={`${fieldWrapClasses} hidden dt:flex`}>
+            <label className={fieldWrapClasses}>
               <span className={labelClasses}>Travellers</span>
               <input type="text" className={inputClasses} placeholder="2 adults" />
             </label>

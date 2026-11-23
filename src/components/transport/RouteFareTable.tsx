@@ -54,12 +54,12 @@ export function RouteFareTable() {
             key={r.from + r.to}
             className="flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 transition-colors hover:border-gold/40"
           >
-            <div className="flex min-w-0 flex-1 items-center gap-2 text-[13px] text-white/85 dt:text-[13.5px]">
+            <div className="flex min-w-0 flex-1 items-center gap-1.5 overflow-hidden text-[12.5px] text-white/85 dt:gap-2 dt:text-[13.5px]">
               <EndpointIcon label={r.from} />
-              <span className="truncate">{r.from}</span>
+              <span className="min-w-0 truncate">{r.from}</span>
               <ArrowRight size={13} className="flex-none text-white/35" aria-hidden />
               <EndpointIcon label={r.to} />
-              <span className="truncate">{r.to}</span>
+              <span className="min-w-0 truncate">{r.to}</span>
             </div>
             <div className="flex-none font-serif text-[16px] font-bold text-gold">
               {r.prices[v]}
