@@ -2,6 +2,7 @@ import { Container } from "@/components/ui/Container";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { HeroArch } from "./HeroArch";
 import { Stagger, StaggerItem } from "@/components/motion/Reveal";
+import { HERO_DESCRIPTION } from "@/components/sections/heroCopy";
 
 /**
  * Homepage hero. Server-rendered content (heading, copy = SEO) with one client
@@ -30,6 +31,12 @@ export function Hero() {
 
           <StaggerItem className="order-2 mt-8 w-full dt:mt-10">
             <HeroArch />
+          </StaggerItem>
+
+          <StaggerItem className="order-3 mt-7 w-full dt:mt-9">
+            <p className="mx-auto max-w-[680px] text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
+              {HERO_DESCRIPTION}
+            </p>
           </StaggerItem>
         </Stagger>
       </Container>
