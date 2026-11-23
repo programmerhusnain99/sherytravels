@@ -22,6 +22,7 @@ export function UmrahPackagesCommon({ cta }: { cta?: FormSectionProps }) {
         description="Browse other Umrah packages — flights, visa, hotels near the Haram and transport, all arranged for you."
         viewAllHref="/umrah-packages/"
         bg="ice"
+        py="py-9 dt:py-12"
       />
 
       <SpiritualHighlights />

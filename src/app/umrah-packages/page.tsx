@@ -34,7 +34,7 @@ export default function UmrahPackagesPage() {
       />
 
       {/* Hero */}
-      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-10 pb-14 dt:pt-12 dt:pb-20">
+      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-10 pb-8 dt:pt-12 dt:pb-10">
         <div aria-hidden className="pointer-events-none absolute -left-32 top-10 hidden h-[460px] w-[460px] rounded-full border border-gold/15 dt:block" />
         <Container className="flex flex-col items-center gap-6 text-center">
           <div className="order-1">
@@ -61,7 +61,7 @@ export default function UmrahPackagesPage() {
       </Section>
 
       {/* Choose Your Umrah Package — cards on a soft, decorated backdrop. */}
-      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice via-white to-ice pt-12 pb-14 dt:pt-16 dt:pb-20">
+      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice via-white to-ice pt-9 pb-9 dt:pt-11 dt:pb-12">
         <div aria-hidden className="pointer-events-none absolute -right-20 -top-16 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.1),transparent_70%)]" />
         <div aria-hidden className="pointer-events-none absolute -left-24 bottom-0 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(47,128,237,0.08),transparent_70%)]" />
         <div aria-hidden className="pointer-events-none absolute left-1/2 top-10 hidden h-[560px] w-[560px] -translate-x-1/2 rounded-full border border-navy/[0.06] dt:block" />

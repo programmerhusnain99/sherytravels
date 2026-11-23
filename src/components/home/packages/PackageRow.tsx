@@ -13,12 +13,12 @@ export function PackageRow({ cards, cols = 3 }: { cards: PackageCard[]; cols?: 2
   const gridCols = cols === 2 ? "dt:grid-cols-2" : "dt:grid-cols-3";
   return (
     <div
-      className={`no-scrollbar -mx-5 flex snap-x snap-mandatory items-stretch gap-4 overflow-x-auto px-5 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:mx-0 dt:grid ${gridCols} dt:gap-7 dt:overflow-visible dt:px-0 dt:pb-0 dt:[scroll-snap-type:none]`}
+      className={`no-scrollbar -mx-5 flex snap-x snap-mandatory items-stretch gap-4 overflow-x-auto scroll-pl-5 pb-3 pl-5 pr-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:mx-0 dt:grid ${gridCols} dt:gap-7 dt:overflow-visible dt:p-0 dt:[scroll-snap-type:none]`}
     >
       {cards.map((pkg) => (
         <div
           key={pkg.title + pkg.href}
-          className="w-[82vw] max-w-[340px] flex-none snap-start dt:w-auto dt:max-w-none"
+          className="w-[80vw] max-w-[330px] flex-none snap-start dt:w-auto dt:max-w-none"
         >
           <PackageCardLarge pkg={pkg} />
         </div>

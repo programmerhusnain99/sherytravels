@@ -18,7 +18,7 @@ const ACCENTS = [
  */
 export function SpiritualHighlights() {
   return (
-    <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-white via-ice/40 to-white py-14 dt:py-20">
+    <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-white via-ice/40 to-white py-10 dt:py-14">
       <div aria-hidden className="pointer-events-none absolute -left-24 top-10 h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,rgba(47,128,237,0.1),transparent_70%)] blur-2xl" />
       <div aria-hidden className="pointer-events-none absolute -right-24 bottom-0 h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,rgba(240,114,46,0.08),transparent_70%)] blur-2xl" />
 

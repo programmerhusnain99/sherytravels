@@ -28,6 +28,8 @@ type Props = {
   revealInitial?: number;
   /** Reveal mode: how many more cards each "load more" click adds. */
   revealStep?: number;
+  /** Vertical padding utilities for the section. */
+  py?: string;
 };
 
 /**
@@ -48,6 +50,7 @@ export function PackagesShowcase({
   loop = false,
   revealInitial = 3,
   revealStep,
+  py = "py-12 dt:py-16",
 }: Props = {}) {
   const track = useRef<HTMLDivElement>(null);
   const paused = useRef(false);
@@ -171,7 +174,7 @@ export function PackagesShowcase({
 
   if (layout === "split") {
     return (
-      <Section bg={bg} className="overflow-hidden py-12 dt:py-16">
+      <Section bg={bg} className={`overflow-hidden ${py}`}>
         <Container>
           <div className="grid gap-8 dt:grid-cols-[minmax(0,330px)_minmax(0,1fr)] dt:items-center dt:gap-12">
             {/* Heading column (left) */}
@@ -204,7 +207,7 @@ export function PackagesShowcase({
   }
 
   return (
-    <Section bg={bg} className="overflow-hidden py-12 dt:py-16">
+    <Section bg={bg} className={`overflow-hidden ${py}`}>
       <Container className="mb-8 flex flex-col items-start justify-between gap-5 dt:mb-11 dt:flex-row dt:items-end">
         <div>
           <Eyebrow align="left" className="mb-4">

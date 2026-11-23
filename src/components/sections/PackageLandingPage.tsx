@@ -111,7 +111,7 @@ export function PackageLandingPage({
       </Section>
 
       {/* Packages */}
-      <Section bg="ice" className="py-10 dt:py-14">
+      <Section bg="ice" className="py-8 dt:py-10">
         <Container>
           <div className="mx-auto mb-12 max-w-[780px] text-center">
             <Eyebrow className="mb-4">Our packages</Eyebrow>

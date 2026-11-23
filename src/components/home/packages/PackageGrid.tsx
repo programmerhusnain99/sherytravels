@@ -1,21 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Plus } from "lucide-react";
 import { PackageCardLarge } from "./PackageCardLarge";
 import type { PackageCard } from "@/data/home/packageCards";
 
 /**
  * Package listing with "load more", used on the detail pages (tier / seasonal).
- *  - Mobile: horizontal snap-scroll showing one card plus the edge of the next;
- *    after the last visible card a beautiful "Load more" tile reveals 3 more in
- *    the row (and the next edge peeks so it's clear to keep scrolling).
+ *  - Mobile: a horizontal snap-scroll showing one card plus the edge of the
+ *    next. A slim "load more" strip sits where the next card's edge would be;
+ *    tapping it reveals `step` more cards and smoothly scrolls the first new
+ *    card into view (so the edge is "replaced" by a real card).
  *  - Desktop: a 3-column grid with a "Load more" button below the cards.
- * Both controls drive the same state and reveal cards with a smooth entrance.
  *
- * A single container renders the visible subset so (a) revealed cards mount and
- * animate, and (b) the SVG gradient icons resolve their paint server from a
- * visible first card (a display:none copy would render blank in Chromium).
+ * One responsive container renders the visible subset, so revealed cards mount
+ * and animate, and the SVG gradient icons always resolve their paint server
+ * from a visible first card.
  */
 export function PackageGrid({
   cards,
@@ -31,13 +31,36 @@ export function PackageGrid({
   const hasMore = visible < cards.length;
   const more = () => setVisible((v) => Math.min(v + step, cards.length));
 
+  const trackRef = useRef<HTMLDivElement>(null);
+  const prev = useRef(initial);
+
+  // When more cards are revealed, bring the first new card into view (mobile).
+  useEffect(() => {
+    const firstNew = prev.current;
+    const grew = visible > prev.current;
+    prev.current = visible;
+    if (!grew) return;
+    const el = trackRef.current;
+    if (!el || el.scrollWidth <= el.clientWidth + 4) return; // not horizontally scrollable (desktop)
+    const items = el.querySelectorAll<HTMLElement>("[data-card]");
+    const target = items[firstNew];
+    if (!target) return;
+    // Scroll the first new card to the row's left padding (20px), matching the resting state.
+    const delta = target.getBoundingClientRect().left - el.getBoundingClientRect().left - 20;
+    el.scrollBy({ left: delta, behavior: "smooth" });
+  }, [visible]);
+
   return (
     <>
-      <div className="no-scrollbar -mx-5 flex snap-x snap-mandatory items-stretch gap-4 overflow-x-auto px-5 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:mx-0 dt:grid dt:grid-cols-3 dt:gap-7 dt:overflow-visible dt:px-0 dt:pb-0 dt:[scroll-snap-type:none]">
+      <div
+        ref={trackRef}
+        className="no-scrollbar -mx-5 flex snap-x snap-mandatory items-stretch gap-4 overflow-x-auto scroll-pl-5 pb-3 pl-5 pr-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:mx-0 dt:grid dt:grid-cols-3 dt:gap-7 dt:overflow-visible dt:p-0 dt:[scroll-snap-type:none]"
+      >
         {shown.map((pkg, i) => (
           <div
             key={pkg.title + pkg.href}
-            className={`w-[82vw] max-w-[340px] flex-none snap-start dt:w-auto dt:max-w-none ${
+            data-card
+            className={`w-[80vw] max-w-[330px] flex-none snap-start dt:w-auto dt:max-w-none ${
               i >= initial ? "card-in" : ""
             }`}
           >
@@ -45,27 +68,27 @@ export function PackageGrid({
           </div>
         ))}
 
-        {/* Mobile-only inline "load more" tile after the last visible card */}
+        {/* Mobile-only slim "load more" strip, sized like a peeking card edge */}
         {hasMore && (
-          <div className="w-[72vw] max-w-[290px] flex-none snap-start dt:hidden">
-            <button
-              type="button"
-              onClick={more}
-              className="group flex h-full min-h-[240px] w-full flex-col items-center justify-center gap-3.5 rounded-xl border-2 border-dashed border-gold/50 bg-gradient-to-br from-navy to-[#14325a] p-6 text-center text-white transition-all duration-300 hover:border-gold"
-            >
-              <span className="grid h-14 w-14 place-items-center rounded-full bg-gold text-navy shadow-[0_14px_30px_-10px_rgba(219,183,37,0.7)] transition-transform duration-300 group-hover:rotate-90">
-                <Plus size={24} aria-hidden />
-              </span>
-              <span className="font-serif text-[18px] font-bold">Load {step} more</span>
-              <span className="text-[12.5px] font-light leading-relaxed text-white/70">Swipe to see more packages</span>
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={more}
+            aria-label={`Load ${step} more packages`}
+            className="group relative flex w-[58px] flex-none snap-start flex-col items-center justify-center gap-3 self-stretch overflow-hidden rounded-xl border border-gold/40 bg-gradient-to-b from-navy to-[#14325a] text-white shadow-[0_18px_40px_-24px_rgba(26,62,110,0.85)] transition-colors hover:border-gold dt:hidden"
+          >
+            <span className="grid h-10 w-10 place-items-center rounded-full bg-gold text-navy shadow-[0_10px_22px_-8px_rgba(219,183,37,0.8)] transition-transform duration-300 group-hover:rotate-90">
+              <Plus size={20} aria-hidden />
+            </span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-white/80 [writing-mode:vertical-rl] rotate-180">
+              Load {step} more
+            </span>
+          </button>
         )}
       </div>
 
       {/* Desktop-only "load more" button below the grid */}
       {hasMore && (
-        <div className="mt-12 hidden justify-center dt:flex">
+        <div className="mt-10 hidden justify-center dt:flex">
           <button
             type="button"
             onClick={more}
