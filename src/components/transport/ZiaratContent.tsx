@@ -7,7 +7,7 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
-import { InquireButton } from "@/components/inquiry/InquireButton";
+import { HeroEnquiryForm } from "@/components/home/hero/HeroEnquiryForm";
 import { FormSection } from "@/components/home/form/FormSection";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { Stagger, StaggerItem } from "@/components/motion/Reveal";
@@ -76,10 +76,8 @@ export function ZiaratContent({
             <p className="text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
               Join Shery Travels for a meaningful spiritual journey. Our Ziarat tours in Makkah and Madinah focus on your peace, comfort, and reflection. We provide trusted drivers and clean vehicles, along with guided visits to holy sites, ensuring your sacred trip is smooth and worry-free.
             </p>
-            <div className="mt-7">
-              <InquireButton variant="gold" size="lg" className="rounded-lg">Inquire Now</InquireButton>
-            </div>
           </div>
+          <div className="order-4 w-full"><HeroEnquiryForm /></div>
           <div className="relative order-2 flex justify-center">
             <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.12),transparent_70%)]" />
             <div className="hero-float relative h-[360px] w-[300px] overflow-hidden rounded-t-[150px] rounded-b-[16px] bg-lightblue shadow-[0_34px_62px_-26px_rgba(26,62,110,0.5)] dt:h-[480px] dt:w-[420px]">

@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { Button } from "@/components/ui/Button";
-import { InquireButton } from "@/components/inquiry/InquireButton";
+import { HeroEnquiryForm } from "@/components/home/hero/HeroEnquiryForm";
 
 const PATH = "/umrah-transport/routes/";
 
@@ -49,8 +49,8 @@ export default function RoutesPage() {
           <p className="mx-auto mt-6 max-w-[560px] text-[16px] font-light leading-[1.7] text-navy/80 dt:text-[17px]">
             Airport transfers, inter-city travel between Makkah and Madinah, and guided ziyarat routes — details for each route are on the way.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <InquireButton variant="gold" size="lg" className="rounded-lg">Inquire Now</InquireButton>
+          <div className="mt-8 w-full"><HeroEnquiryForm /></div>
+          <div className="mt-5 flex flex-wrap justify-center gap-3">
             <Button href="/umrah-transport/" variant="outline" size="lg">Back to Transport</Button>
           </div>
         </Container>

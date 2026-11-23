@@ -10,7 +10,7 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
-import { InquireButton } from "@/components/inquiry/InquireButton";
+import { HeroEnquiryForm } from "@/components/home/hero/HeroEnquiryForm";
 import { FormSection } from "@/components/home/form/FormSection";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 
@@ -151,8 +151,8 @@ export default function HotelsPage() {
             <p className="text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
               Rest close to the sanctuary. Shery Travels arranges carefully selected 3, 4 and 5-star hotels in Makkah and Madinah — within walking distance of the Haram, for every budget.
             </p>
-            <div className="mt-7"><InquireButton variant="gold" size="lg" className="rounded-lg">Inquire Now</InquireButton></div>
           </div>
+          <div className="order-4 w-full"><HeroEnquiryForm /></div>
           <div className="relative order-2 flex justify-center">
             <div aria-hidden className="pointer-events-none absolute left-1/2 top-0 hidden h-[500px] w-[450px] -translate-x-1/2 rounded-t-[225px] rounded-b-[18px] border border-navy/10 dt:block" />
             <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.12),transparent_70%)]" />

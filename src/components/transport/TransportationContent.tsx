@@ -20,7 +20,7 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { Button } from "@/components/ui/Button";
-import { InquireButton } from "@/components/inquiry/InquireButton";
+import { HeroEnquiryForm } from "@/components/home/hero/HeroEnquiryForm";
 import { FormSection } from "@/components/home/form/FormSection";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { PerfectPackages } from "@/components/home/perfect/PerfectPackages";
@@ -98,8 +98,8 @@ export function TransportationContent({
               className="text-[30px] leading-[1.18] text-navy dt:text-[46px]"
             />
           </div>
-          <div className="order-3">
-            <InquireButton variant="gold" size="lg" className="rounded-lg">Inquire Now</InquireButton>
+          <div className="order-3 w-full">
+            <HeroEnquiryForm />
           </div>
           <div className="relative order-2 flex justify-center">
             <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.12),transparent_70%)]" />

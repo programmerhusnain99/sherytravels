@@ -8,6 +8,7 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { FormSection } from "@/components/home/form/FormSection";
+import { HeroEnquiryForm } from "@/components/home/hero/HeroEnquiryForm";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 
 const PATH = "/about/";
@@ -86,6 +87,7 @@ export default function AboutPage() {
           <p className="mx-auto mt-7 max-w-[620px] text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
             At Shery Travels, we make Umrah and Hajj simple, comfortable and deeply spiritual — handling visas, flights, hotels near the Haram and transport, so you can focus entirely on your worship.
           </p>
+          <div className="mt-9 w-full"><HeroEnquiryForm /></div>
         </Container>
       </Section>
 
