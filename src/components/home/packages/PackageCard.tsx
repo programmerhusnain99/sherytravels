@@ -32,7 +32,7 @@ export function PackageCard({ pkg }: { pkg: TPackageCard }) {
           <Link
             href={pkg.href}
             aria-label={pkg.title}
-            className="relative h-[100px] w-[100px] flex-none overflow-hidden rounded-xl bg-lightblue dt:h-[108px] dt:w-[108px]"
+            className="relative w-[100px] flex-none self-stretch overflow-hidden rounded-xl bg-lightblue dt:w-[112px]"
           >
             <Image src={pkg.image} alt={pkg.title} fill sizes="128px" className="object-cover" />
           </Link>
