@@ -187,46 +187,29 @@ export function HajjPackagesContent({ breadcrumb }: { breadcrumb: { name: string
         </Container>
       </Section>
 
-      {/* Essential documents — boarding-pass style tickets */}
-      <Section bg="ice" className="relative overflow-hidden py-12 dt:py-16">
-        <div aria-hidden className="pointer-events-none absolute -left-32 -top-24 hidden h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.1),transparent_70%)] dt:block" />
-        <div aria-hidden className="pointer-events-none absolute -right-32 -bottom-24 hidden h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(47,128,237,0.08),transparent_70%)] dt:block" />
-        <Container className="relative">
-          <div className="mx-auto mb-11 max-w-[800px] text-center dt:mb-14">
+      {/* Essential documents — compact checklist strip */}
+      <Section bg="ice" className="py-9 dt:py-12">
+        <Container>
+          <div className="mx-auto mb-8 max-w-[760px] text-center dt:mb-10">
             <Eyebrow align="center" className="mb-4">Before you travel</Eyebrow>
-            <AccentHeading as="h2" before="Essential Travel Documents for a Smooth Hajj " accent="Journey" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
-            <p className="mx-auto mt-4 max-w-[600px] text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
-              Your travel checklist — and every one of these is prepared and verified by our team.
+            <AccentHeading as="h2" before="Essential Travel Documents for a Smooth Hajj " accent="Journey" className="text-[25px] leading-tight text-navy dt:text-[34px]" />
+            <p className="mx-auto mt-3 max-w-[560px] text-[14.5px] font-light leading-relaxed text-navy/75">
+              Your checklist — each one prepared and verified by our team.
             </p>
           </div>
 
-          <div className="mx-auto grid max-w-[980px] gap-5 dt:grid-cols-2 dt:gap-6">
-            {DOCUMENTS.map(({ Icon, label, title, body }) => (
+          <div className="grid grid-cols-2 gap-3.5 dt:grid-cols-4 dt:gap-5">
+            {DOCUMENTS.map(({ Icon, title, body }) => (
               <div
                 key={title}
-                className="group relative flex overflow-hidden rounded-2xl bg-white shadow-[0_24px_54px_-34px_rgba(26,62,110,0.55)] ring-1 ring-navy/10 transition-transform duration-300 hover:-translate-y-1"
+                className="group flex items-start gap-3 rounded-xl border border-navy/10 bg-white p-3.5 shadow-[0_14px_34px_-28px_rgba(26,62,110,0.5)] transition-transform duration-300 hover:-translate-y-1 dt:flex-col dt:gap-0 dt:p-5"
               >
-                {/* Stub */}
-                <div className="flex w-[78px] flex-none flex-col items-center justify-center gap-2.5 bg-gradient-to-b from-navy to-[#15335c] dt:w-[92px]">
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-white/[0.08] text-gold ring-1 ring-white/10">
-                    <Icon size={22} aria-hidden />
-                  </span>
-                  <span className="font-serif text-[15px] font-bold text-white/85">{label.split(" ")[1]}</span>
-                </div>
-
-                {/* Perforation + punched notches */}
-                <span aria-hidden className="pointer-events-none absolute inset-y-4 left-[78px] w-px border-l-2 border-dashed border-navy/15 dt:left-[92px]" />
-                <span aria-hidden className="pointer-events-none absolute left-[78px] top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-ice dt:left-[92px]" />
-                <span aria-hidden className="pointer-events-none absolute left-[78px] bottom-0 h-4 w-4 -translate-x-1/2 translate-y-1/2 rounded-full bg-ice dt:left-[92px]" />
-
-                {/* Body */}
-                <div className="min-w-0 flex-1 p-5 pl-6 dt:p-6 dt:pl-7">
-                  <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-gold">{label}</span>
-                  <h3 className="mt-1.5 font-serif text-[18px] font-bold text-navy">{title}</h3>
-                  <p className="mt-1.5 text-[13.5px] font-light leading-relaxed text-navy/70">{body}</p>
-                  <span className="mt-3 inline-flex items-center gap-1.5 text-[12px] font-semibold text-navy/55">
-                    <Check size={13} className="text-gold" /> Handled &amp; verified by us
-                  </span>
+                <span className="grid h-10 w-10 flex-none place-items-center rounded-lg bg-gradient-to-br from-gold to-[#b4871a] text-navy shadow-[0_10px_22px_-10px_rgba(219,183,37,0.6)] dt:mb-3 dt:h-11 dt:w-11">
+                  <Icon size={19} aria-hidden />
+                </span>
+                <div className="min-w-0">
+                  <h3 className="font-serif text-[14.5px] font-bold leading-tight text-navy dt:text-[15px]">{title}</h3>
+                  <p className="mt-1 text-[12.5px] font-light leading-relaxed text-navy/65">{body}</p>
                 </div>
               </div>
             ))}
