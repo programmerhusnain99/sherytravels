@@ -1,5 +1,4 @@
 import { Container } from "@/components/ui/Container";
-import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { HeroArch } from "./HeroArch";
 import { Stagger, StaggerItem } from "@/components/motion/Reveal";
@@ -7,7 +6,7 @@ import { Stagger, StaggerItem } from "@/components/motion/Reveal";
 /**
  * Homepage hero. Server-rendered content (heading, copy = SEO) with one client
  * island: the arch image cross-fade + rotating stat badges.
- * Order on every breakpoint: eyebrow → H1 → image → description.
+ * Order on every breakpoint: H1 title → image.
  */
 export function Hero() {
   return (
@@ -20,21 +19,17 @@ export function Hero() {
         />
 
         <Stagger mount gap={0.14} className="relative flex flex-col items-center">
-          <StaggerItem className="order-1">
-            <Eyebrow>Start your pilgrimage with confidence</Eyebrow>
-          </StaggerItem>
-
-          <StaggerItem className="order-2 mt-8 w-full dt:mt-10">
-            <HeroArch />
-          </StaggerItem>
-
-          <StaggerItem className="order-3 mt-8 w-full dt:mt-9">
+          <StaggerItem className="order-1 w-full">
             <AccentHeading
               as="h1"
               before="Begin Your Sacred "
               accent="Journey"
               className="mx-auto max-w-[640px] text-[30px] leading-[1.14] text-navy dt:text-[44px] dt:leading-[1.12]"
             />
+          </StaggerItem>
+
+          <StaggerItem className="order-2 mt-8 w-full dt:mt-10">
+            <HeroArch />
           </StaggerItem>
         </Stagger>
       </Container>

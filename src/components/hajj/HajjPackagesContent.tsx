@@ -58,12 +58,11 @@ export function HajjPackagesContent({ breadcrumb }: { breadcrumb: { name: string
       <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-10 dt:pt-12">
         <div aria-hidden className="pointer-events-none absolute -left-32 top-10 hidden h-[460px] w-[460px] rounded-full border border-gold/15 dt:block" />
         <Container className="flex flex-col items-center gap-6 text-center">
-          <div className="order-1">
-            <Eyebrow align="center">Hajj packages from USA</Eyebrow>
+          <div className="order-1 max-w-[680px] text-center">
+            <AccentHeading as="h1" before="Hajj Packages: From USA to the Heart of " accent="Makkah" className="text-[30px] leading-[1.18] text-navy dt:text-[46px]" />
           </div>
           <div className="order-3 max-w-[680px] text-center">
-            <AccentHeading as="h1" before="Hajj Packages: From USA to the Heart of " accent="Makkah" className="text-[30px] leading-[1.18] text-navy dt:text-[46px]" />
-            <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
+            <p className="text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
               Hajj is one in a lifetime journey that can become even more memorable and easier with premium services and smooth transportation. Exclusively catered to the Muslims living in the United States.
             </p>
             <div className="mt-7"><InquireButton variant="gold" size="lg" className="rounded-lg">Inquire Now</InquireButton></div>

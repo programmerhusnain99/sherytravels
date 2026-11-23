@@ -5,7 +5,6 @@ import { JsonLd } from "@/components/JsonLd";
 import { PageShell } from "@/components/layout/PageShell";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
-import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { CONTACT_EMAIL } from "@/data/nav";
 
@@ -71,15 +70,14 @@ export function PolicyPage({ data }: { data: PolicyPageData }) {
         <div aria-hidden className="pointer-events-none absolute -left-28 -top-24 hidden h-[360px] w-[360px] rounded-full border border-gold/15 dt:block" />
         <div aria-hidden className="pointer-events-none absolute -right-24 top-16 hidden h-[280px] w-[280px] rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.1),transparent_70%)] dt:block" />
         <Container className="relative flex flex-col items-center text-center">
-          <Eyebrow align="center">{data.eyebrow ?? "Legal"}</Eyebrow>
+          <AccentHeading as="h1" before={data.headBefore} accent={data.headAccent} className="text-[30px] leading-[1.16] text-navy dt:text-[44px]" />
           <div className="relative mt-6 flex justify-center dt:mt-7">
             <div className="hero-float relative h-[330px] w-[290px] overflow-hidden rounded-t-[145px] rounded-b-[16px] bg-lightblue shadow-[0_34px_62px_-26px_rgba(26,62,110,0.5)] dt:h-[420px] dt:w-[380px] dt:rounded-t-[190px]">
               <Image src={data.heroImage} alt={data.heroImageAlt} fill priority sizes="(max-width:900px) 290px, 380px" className="object-cover" />
             </div>
           </div>
-          <AccentHeading as="h1" before={data.headBefore} accent={data.headAccent} className="mt-8 text-[30px] leading-[1.16] text-navy dt:text-[44px]" />
           {data.lead[0] && (
-            <p className="mx-auto mt-4 max-w-[680px] text-[16px] font-light leading-[1.7] text-navy/80 dt:text-[17px]">
+            <p className="mx-auto mt-5 max-w-[680px] text-[16px] font-light leading-[1.7] text-navy/80 dt:text-[17px]">
               {data.lead[0]}
             </p>
           )}

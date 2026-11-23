@@ -36,20 +36,19 @@ export default function ContactPage() {
       {/* Intro */}
       <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-10 pb-12 dt:pt-12 dt:pb-16">
         <Container className="flex flex-col items-center text-center">
-          <Eyebrow>Contact us</Eyebrow>
+          <AccentHeading
+            as="h1"
+            before="Get In "
+            accent="Touch"
+            className="text-[30px] leading-[1.16] text-navy dt:text-[44px]"
+          />
           <div className="relative mt-6 flex justify-center dt:mt-7">
             <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.12),transparent_70%)]" />
             <div className="hero-float relative h-[330px] w-[290px] overflow-hidden rounded-t-[145px] rounded-b-[16px] bg-lightblue shadow-[0_34px_62px_-26px_rgba(26,62,110,0.5)] dt:h-[420px] dt:w-[380px] dt:rounded-t-[190px]">
               <Image src="/images/home/home-hero-madinah.webp" alt="Contact Shery Travels" fill sizes="(max-width:900px) 290px, 380px" priority className="object-cover" />
             </div>
           </div>
-          <AccentHeading
-            as="h1"
-            before="Get In "
-            accent="Touch"
-            className="mt-8 text-[30px] leading-[1.16] text-navy dt:text-[44px]"
-          />
-          <p className="mx-auto mt-4 max-w-[560px] text-[16px] font-light leading-[1.7] text-navy/80 dt:text-[17px]">
+          <p className="mx-auto mt-5 max-w-[560px] text-[16px] font-light leading-[1.7] text-navy/80 dt:text-[17px]">
             For any queries you might have, please contact us.
           </p>
         </Container>

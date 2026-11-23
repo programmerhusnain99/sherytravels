@@ -57,12 +57,11 @@ export function FleetsContent({
       <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-10 dt:pt-12">
         <div aria-hidden className="pointer-events-none absolute -left-32 top-10 hidden h-[460px] w-[460px] rounded-full border border-gold/15 dt:block" />
         <Container className="flex flex-col items-center gap-6 text-center">
-          <div className="order-1">
-            <Eyebrow align="center">Our fleet</Eyebrow>
+          <div className="order-1 max-w-[680px] text-center">
+            <AccentHeading as="h1" before="Safe, Spacious & Comfortable " accent="Rides" className="text-[32px] leading-[1.15] text-navy dt:text-[48px]" />
           </div>
           <div className="order-3 max-w-[680px] text-center">
-            <AccentHeading as="h1" before="Safe, Spacious & Comfortable " accent="Rides" className="text-[32px] leading-[1.15] text-navy dt:text-[48px]" />
-            <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
+            <p className="text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
               Experience the beauty of Saudi Arabia without the hassle. At Shery Travels, we provide a fleet of modern, air-conditioned vehicles that prioritize your comfort and peace of mind. Whether you’re on your way to Makkah, Madinah, or exploring surrounding cities, we ensure hassle-free transfers for families, individuals, and groups alike. Your journey with us will be relaxing and reliable, making every trip a pleasure.
             </p>
             <div className="mt-7">

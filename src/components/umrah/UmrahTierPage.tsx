@@ -47,18 +47,17 @@ export function UmrahTierPage({ tier }: { tier: UmrahTier }) {
       <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-10 pb-8 dt:pt-12 dt:pb-10">
         <div aria-hidden className="pointer-events-none absolute -left-32 top-10 hidden h-[460px] w-[460px] rounded-full border border-gold/15 dt:block" />
         <Container className="flex flex-col items-center gap-6 text-center">
-          <div className="order-1">
-            <Eyebrow align="center">{tier.heroEyebrow}</Eyebrow>
-          </div>
-          <div className="order-3 max-w-[680px] text-center">
+          <div className="order-1 max-w-[680px] text-center">
             <div className="mb-4 flex items-center justify-center gap-1">
               {Array.from({ length: 5 }).map((_, s) => (
                 <Star key={s} size={18} className={s < tier.stars ? "fill-gold text-gold" : "fill-navy/10 text-navy/10"} />
               ))}
             </div>
             <AccentHeading as="h1" before={tier.heroHeadBefore} accent={tier.heroHeadAccent} className="text-[29px] leading-[1.18] text-navy dt:text-[44px]" />
+          </div>
+          <div className="order-3 max-w-[680px] text-center">
             {tier.heroIntro.map((p, i) => (
-              <p key={i} className={`${i === 0 ? "mt-5" : "mt-3"} text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]`}>{p}</p>
+              <p key={i} className={`${i === 0 ? "" : "mt-3"} text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]`}>{p}</p>
             ))}
             <div className="mt-7"><InquireButton variant="gold" size="lg" className="rounded-lg">Inquire Now</InquireButton></div>
           </div>

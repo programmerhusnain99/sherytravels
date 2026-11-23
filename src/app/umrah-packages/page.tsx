@@ -37,12 +37,11 @@ export default function UmrahPackagesPage() {
       <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-10 pb-8 dt:pt-12 dt:pb-10">
         <div aria-hidden className="pointer-events-none absolute -left-32 top-10 hidden h-[460px] w-[460px] rounded-full border border-gold/15 dt:block" />
         <Container className="flex flex-col items-center gap-6 text-center">
-          <div className="order-1">
-            <Eyebrow align="center">Umrah packages</Eyebrow>
+          <div className="order-1 max-w-[680px] text-center">
+            <AccentHeading as="h1" before="Easy, Spiritual & Reliable Umrah " accent="Packages" className="text-[30px] leading-[1.18] text-navy dt:text-[46px]" />
           </div>
           <div className="order-3 max-w-[680px] text-center">
-            <AccentHeading as="h1" before="Easy, Spiritual & Reliable Umrah " accent="Packages" className="text-[30px] leading-[1.18] text-navy dt:text-[46px]" />
-            <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
+            <p className="text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
               Choose from our 3, 4 and 5-star Umrah packages — each one with hotels near the Haram, visa processing, flights, transport and guided ziyarat handled for you. Simply pick the comfort level that suits you.
             </p>
             <p className="mt-4 text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">

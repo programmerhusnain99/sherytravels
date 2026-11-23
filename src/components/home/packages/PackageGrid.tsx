@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { Plus } from "lucide-react";
 import { PackageCardLarge } from "./PackageCardLarge";
 import type { PackageCard } from "@/data/home/packageCards";
@@ -31,31 +31,10 @@ export function PackageGrid({
   const hasMore = visible < cards.length;
   const more = () => setVisible((v) => Math.min(v + step, cards.length));
 
-  const trackRef = useRef<HTMLDivElement>(null);
-  const prev = useRef(initial);
-
-  // When more cards are revealed, bring the first new card into view (mobile).
-  useEffect(() => {
-    const firstNew = prev.current;
-    const grew = visible > prev.current;
-    prev.current = visible;
-    if (!grew) return;
-    const el = trackRef.current;
-    if (!el || el.scrollWidth <= el.clientWidth + 4) return; // not horizontally scrollable (desktop)
-    const items = el.querySelectorAll<HTMLElement>("[data-card]");
-    const target = items[firstNew];
-    if (!target) return;
-    // Scroll the first new card to the row's left padding (20px), matching the resting state.
-    const delta = target.getBoundingClientRect().left - el.getBoundingClientRect().left - 20;
-    el.scrollBy({ left: delta, behavior: "smooth" });
-  }, [visible]);
-
   return (
     <>
-      <div
-        ref={trackRef}
-        className="no-scrollbar -mx-5 flex snap-x snap-mandatory items-stretch gap-4 overflow-x-auto scroll-pl-5 pb-3 pl-5 pr-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:mx-0 dt:grid dt:grid-cols-3 dt:gap-7 dt:overflow-visible dt:p-0 dt:[scroll-snap-type:none]"
-      >
+      <div className="no-scrollbar -mx-5 flex snap-x snap-proximity items-stretch gap-4 overflow-x-auto scroll-pl-5 pb-3 pl-5 pr-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dt:mx-0 dt:grid dt:grid-cols-3 dt:gap-7 dt:overflow-visible dt:p-0 dt:[scroll-snap-type:none]">
+
         {shown.map((pkg, i) => (
           <div
             key={pkg.title + pkg.href}

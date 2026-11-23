@@ -75,17 +75,16 @@ export function TransportationContent({
       <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-10 dt:pt-12">
         <div aria-hidden className="pointer-events-none absolute -left-32 top-10 hidden h-[460px] w-[460px] rounded-full border border-gold/15 dt:block" />
         <Container className="flex flex-col items-center gap-6 text-center">
-          <div className="order-1">
-            <Eyebrow align="center">Transportation</Eyebrow>
-          </div>
-          <div className="order-3 max-w-[680px] text-center">
+          <div className="order-1 max-w-[680px] text-center">
             <AccentHeading
               as="h1"
               before="Umrah Transportation Services for Smooth Travel Across the "
               accent="Holy Cities"
               className="text-[30px] leading-[1.18] text-navy dt:text-[46px]"
             />
-            <div className="mt-7 flex flex-wrap justify-center gap-3">
+          </div>
+          <div className="order-3 max-w-[680px] text-center">
+            <div className="flex flex-wrap justify-center gap-3">
               <InquireButton variant="gold" size="lg" className="rounded-lg">Inquire Now</InquireButton>
               <Button href={fleetsHref} variant="outline" size="lg">Explore Fleet</Button>
               <Button href={ziaratHref} variant="ghost" size="lg" className="text-navy underline underline-offset-4">Visit Ziarat</Button>
