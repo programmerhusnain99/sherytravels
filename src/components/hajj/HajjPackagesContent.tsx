@@ -187,10 +187,10 @@ export function HajjPackagesContent({ breadcrumb }: { breadcrumb: { name: string
         </Container>
       </Section>
 
-      {/* Essential documents — compact checklist strip */}
+      {/* Essential documents — card-free feature row with dividers */}
       <Section bg="ice" className="py-9 dt:py-12">
         <Container>
-          <div className="mx-auto mb-8 max-w-[760px] text-center dt:mb-10">
+          <div className="mx-auto mb-9 max-w-[760px] text-center dt:mb-11">
             <Eyebrow align="center" className="mb-4">Before you travel</Eyebrow>
             <AccentHeading as="h2" before="Essential Travel Documents for a Smooth Hajj " accent="Journey" className="text-[25px] leading-tight text-navy dt:text-[34px]" />
             <p className="mx-auto mt-3 max-w-[560px] text-[14.5px] font-light leading-relaxed text-navy/75">
@@ -198,19 +198,19 @@ export function HajjPackagesContent({ breadcrumb }: { breadcrumb: { name: string
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-3.5 dt:grid-cols-4 dt:gap-5">
-            {DOCUMENTS.map(({ Icon, title, body }) => (
+          <div className="mx-auto grid max-w-[1040px] grid-cols-1 dt:grid-cols-4">
+            {DOCUMENTS.map(({ Icon, title, body }, i) => (
               <div
                 key={title}
-                className="group flex items-start gap-3 rounded-xl border border-navy/10 bg-white p-3.5 shadow-[0_14px_34px_-28px_rgba(26,62,110,0.5)] transition-transform duration-300 hover:-translate-y-1 dt:flex-col dt:gap-0 dt:p-5"
+                className={`flex flex-col items-center px-4 py-6 text-center dt:py-2 ${
+                  i > 0 ? "border-t border-navy/10 dt:border-l dt:border-t-0" : ""
+                }`}
               >
-                <span className="grid h-10 w-10 flex-none place-items-center rounded-lg bg-gradient-to-br from-gold to-[#b4871a] text-navy shadow-[0_10px_22px_-10px_rgba(219,183,37,0.6)] dt:mb-3 dt:h-11 dt:w-11">
-                  <Icon size={19} aria-hidden />
+                <span className="mb-4 grid h-14 w-14 place-items-center rounded-full bg-gold/12 text-navy ring-1 ring-gold/25">
+                  <Icon size={24} aria-hidden />
                 </span>
-                <div className="min-w-0">
-                  <h3 className="font-serif text-[14.5px] font-bold leading-tight text-navy dt:text-[15px]">{title}</h3>
-                  <p className="mt-1 text-[12.5px] font-light leading-relaxed text-navy/65">{body}</p>
-                </div>
+                <h3 className="font-serif text-[16px] font-bold leading-tight text-navy">{title}</h3>
+                <p className="mx-auto mt-2 max-w-[230px] text-[13px] font-light leading-relaxed text-navy/65">{body}</p>
               </div>
             ))}
           </div>
