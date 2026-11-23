@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Plane, Building2, Clock, Users, Briefcase, MapPin, Route } from "lucide-react";
+import { Plane, Building2, Clock, Users, Briefcase, MapPin } from "lucide-react";
 import { breadcrumbSchema } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { PageShell } from "@/components/layout/PageShell";
@@ -13,13 +13,13 @@ import { HeroEnquiryForm } from "@/components/home/hero/HeroEnquiryForm";
 import { HERO_DESCRIPTION } from "@/components/sections/heroCopy";
 import { Stagger, StaggerItem } from "@/components/motion/Reveal";
 import {
-  SERVICES,
   ROUND_TRIPS,
   INTERCITY,
   LOCAL,
-  ZIYARAT,
   MAKKAH_TOUR,
   MADINAH_TOUR,
+  MAKKAH_GALLERY,
+  MADINAH_GALLERY,
   TOUR_SLOTS,
   VEHICLES,
   ADDITIONAL,
@@ -36,11 +36,6 @@ const FAQ = [
   { q: "Are your drivers professional?", a: "Our drivers are experienced, wear uniforms and speak multiple languages. They know the routes across Makkah, Madinah, Jeddah and beyond for timely, comfortable transfers." },
   { q: "Can I cancel my booking?", a: "Yes. To cancel, please contact us in writing through WhatsApp and our team will assist you with the next steps." },
 ];
-
-function StopIcon({ label }: { label: string }) {
-  const Icon = label.toLowerCase().includes("airport") ? Plane : Building2;
-  return <Icon size={16} className="text-navy" aria-hidden />;
-}
 
 export function RoutesContent({
   breadcrumb,
@@ -73,66 +68,79 @@ export function RoutesContent({
         </Container>
       </Section>
 
-      {/* Services overview */}
-      <Section bg="ice" className="py-12 dt:py-16">
-        <Container>
-          <div className="mx-auto mb-9 max-w-[760px] text-center dt:mb-12">
-            <Eyebrow align="center" className="mb-4">What we offer</Eyebrow>
-            <AccentHeading as="h2" before="Every Route, One Trusted " accent="Partner" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
-            <p className="mx-auto mt-4 max-w-[600px] text-[15px] font-light leading-relaxed text-navy/70 dt:text-[16px]">
-              Airport pickups, intercity journeys, local transfers and guided Ziyarat — all with private vehicles and professional drivers.
-            </p>
-          </div>
-          <Stagger as="div" gap={0.06} className="grid grid-cols-2 gap-3.5 dt:grid-cols-4 dt:gap-4">
-            {SERVICES.map(({ Icon, title, body }) => (
-              <StaggerItem as="div" key={title} direction="up" className="group rounded-2xl border border-navy/10 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-[0_22px_44px_-28px_rgba(26,62,110,0.5)]">
-                <span className="mb-3.5 grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-gold to-[#b4871a] text-navy shadow-[0_10px_22px_-10px_rgba(219,183,37,0.65)]">
-                  <Icon size={20} aria-hidden />
-                </span>
-                <h3 className="mb-1.5 font-serif text-[15.5px] font-bold leading-tight text-navy">{title}</h3>
-                <p className="text-[12.5px] font-light leading-relaxed text-navy/65">{body}</p>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </Container>
-      </Section>
-
-      {/* Round-trip packages */}
-      <Section bg="white" className="relative overflow-hidden py-12 dt:py-16">
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-br from-ice via-white to-ice" />
-        <div aria-hidden className="pointer-events-none absolute -left-28 -top-20 h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.1),transparent_70%)] blur-2xl" />
+      {/* Round-trip packages — dark, image cards */}
+      <Section bg="navy" className="relative overflow-hidden py-12 dt:py-16">
+        <div aria-hidden className="pointer-events-none absolute left-1/2 -top-24 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(219,183,37,0.14),transparent_70%)]" />
+        <div aria-hidden className="pointer-events-none absolute -right-28 bottom-0 hidden h-[360px] w-[360px] rounded-full border border-white/[0.06] dt:block" />
         <Container className="relative">
           <div className="mx-auto mb-10 max-w-[760px] text-center dt:mb-12">
-            <Eyebrow align="center" className="mb-4">Complete Umrah transport</Eyebrow>
-            <AccentHeading as="h2" before="Round-Trip " accent="Packages" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
-            <p className="mx-auto mt-4 max-w-[620px] text-[15px] font-light leading-relaxed text-navy/70 dt:text-[16px]">
+            <Eyebrow align="center" tone="white" className="mb-4">Complete Umrah transport</Eyebrow>
+            <AccentHeading as="h2" before="Round-Trip " accent="Packages" className="text-[27px] leading-tight text-white dt:text-[38px]" />
+            <p className="mx-auto mt-4 max-w-[620px] text-[15px] font-light leading-relaxed text-white/70 dt:text-[16px]">
               Arrival-to-departure transport, arranged end to end. Prices shown are from our Sedan; every package is available in any vehicle.
             </p>
           </div>
           <div className="grid gap-6 dt:grid-cols-3 dt:gap-6">
             {ROUND_TRIPS.map((rt) => (
-              <div key={rt.title} className="group relative flex flex-col overflow-hidden rounded-2xl border border-navy/10 bg-white/80 p-6 shadow-[0_24px_50px_-32px_rgba(26,62,110,0.5)] backdrop-blur transition-all duration-300 hover:-translate-y-1.5 hover:border-gold/50">
-                <span className="inline-flex w-fit items-center rounded-full bg-lightblue px-3 py-1 text-[11px] font-bold uppercase tracking-[0.1em] text-navy">{rt.tag}</span>
-                <h3 className="mt-3 font-serif text-[18px] font-bold leading-snug text-navy">{rt.title}</h3>
-                <ol className="mt-5 flex-1 space-y-0">
-                  {rt.stops.map((s, i) => (
-                    <li key={s + i} className="relative flex items-center gap-3 pb-5 last:pb-0">
-                      {i < rt.stops.length - 1 && <span aria-hidden className="absolute left-[17px] top-9 h-[calc(100%-18px)] w-px bg-gold/30" />}
-                      <span className="grid h-9 w-9 flex-none place-items-center rounded-full bg-ice ring-1 ring-navy/10"><StopIcon label={s} /></span>
-                      <span className="text-[13.5px] font-medium text-navy/85">{s}</span>
-                    </li>
-                  ))}
-                </ol>
-                <div className="mt-5 border-t border-navy/10 pt-4">
-                  <span className="text-[12px] font-medium uppercase tracking-[0.08em] text-navy/50">From</span>
-                  <div className="font-serif text-[26px] font-bold leading-none text-navy">
-                    {rt.prices[0]}
-                    <span className="ml-1.5 font-sans text-[13px] font-medium text-navy/55">SAR</span>
+              <div key={rt.title} className="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] transition-all duration-300 hover:-translate-y-1.5 hover:border-gold/50">
+                <div className="relative h-[150px] w-full overflow-hidden">
+                  <Image src={rt.image} alt={rt.title} fill sizes="(max-width:900px) 100vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,62,110,0.1)_0%,rgba(26,62,110,0.85)_100%)]" />
+                  <span className="absolute left-4 top-4 inline-flex items-center rounded-full bg-gold px-3 py-1 text-[11px] font-bold uppercase tracking-[0.1em] text-navy">{rt.tag}</span>
+                </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="font-serif text-[18px] font-bold leading-snug text-white">{rt.title}</h3>
+                  <ol className="mt-5 flex-1 space-y-0">
+                    {rt.stops.map((s, i) => (
+                      <li key={s + i} className="relative flex items-center gap-3 pb-5 last:pb-0">
+                        {i < rt.stops.length - 1 && <span aria-hidden className="absolute left-[17px] top-9 h-[calc(100%-18px)] w-px bg-gold/30" />}
+                        <span className="grid h-9 w-9 flex-none place-items-center rounded-full bg-white/10 text-gold ring-1 ring-white/10">
+                          {s.toLowerCase().includes("airport") ? <Plane size={15} aria-hidden /> : <Building2 size={15} aria-hidden />}
+                        </span>
+                        <span className="text-[13.5px] font-medium text-white/85">{s}</span>
+                      </li>
+                    ))}
+                  </ol>
+                  <div className="mt-5 border-t border-white/10 pt-4">
+                    <span className="text-[12px] font-medium uppercase tracking-[0.08em] text-white/45">From</span>
+                    <div className="font-serif text-[26px] font-bold leading-none text-gold">
+                      {rt.prices[0]}
+                      <span className="ml-1.5 font-sans text-[13px] font-medium text-white/55">SAR</span>
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+        </Container>
+      </Section>
+
+      {/* Intercity routes — image-banner cards */}
+      <Section bg="ice" className="py-12 dt:py-16">
+        <Container>
+          <div className="mx-auto mb-9 max-w-[760px] text-center dt:mb-12">
+            <Eyebrow align="center" className="mb-4">City to city</Eyebrow>
+            <AccentHeading as="h2" before="Intercity " accent="Routes" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
+            <p className="mx-auto mt-4 max-w-[560px] text-[15px] font-light leading-relaxed text-navy/70 dt:text-[16px]">
+              Private travel between Makkah, Madinah, Jeddah and Taif — including scenic historic routes.
+            </p>
+          </div>
+          <Stagger as="div" gap={0.08} className="grid gap-5 dt:grid-cols-2 dt:gap-6">
+            {INTERCITY.map((group) => (
+              <StaggerItem as="div" key={group.city} direction="up" className="group overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_22px_48px_-32px_rgba(26,62,110,0.4)]">
+                <div className="relative h-[130px] w-full overflow-hidden">
+                  <Image src={group.image} alt={group.city} fill sizes="(max-width:900px) 100vw, 50vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,62,110,0.15)_0%,rgba(26,62,110,0.82)_100%)]" />
+                  <h3 className="absolute bottom-4 left-5 font-serif text-[20px] font-bold text-white">{group.city}</h3>
+                </div>
+                <ul className="flex flex-wrap gap-2 p-5">
+                  {group.routes.map((r) => (
+                    <li key={r} className="rounded-full border border-navy/10 bg-ice px-3.5 py-1.5 text-[13px] font-medium text-navy/85">{r}</li>
+                  ))}
+                </ul>
+              </StaggerItem>
+            ))}
+          </Stagger>
         </Container>
       </Section>
 
@@ -152,45 +160,25 @@ export function RoutesContent({
         </Container>
       </Section>
 
-      {/* Intercity routes */}
-      <Section bg="ice" className="py-12 dt:py-16">
-        <Container>
-          <div className="mx-auto mb-9 max-w-[760px] text-center dt:mb-12">
-            <Eyebrow align="center" className="mb-4">City to city</Eyebrow>
-            <AccentHeading as="h2" before="Intercity " accent="Routes" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
-          </div>
-          <div className="grid gap-5 dt:grid-cols-2 dt:gap-6">
-            {INTERCITY.map((group) => (
-              <div key={group.city} className="rounded-2xl border border-navy/10 bg-white p-6">
-                <h3 className="mb-4 flex items-center gap-2 font-serif text-[17px] font-bold text-navy">
-                  <Route className="text-gold" /> {group.city}
-                </h3>
-                <ul className="flex flex-wrap gap-2">
-                  {group.routes.map((r) => (
-                    <li key={r} className="rounded-full border border-navy/10 bg-ice px-3.5 py-1.5 text-[13px] font-medium text-navy/85">{r}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* Local city transport */}
+      {/* Local city transport — split image cards */}
       <Section bg="white" className="py-12 dt:py-16">
         <Container>
           <div className="mx-auto mb-9 max-w-[760px] text-center dt:mb-12">
             <Eyebrow align="center" className="mb-4">Around the holy cities</Eyebrow>
             <AccentHeading as="h2" before="Local City " accent="Transport" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
           </div>
-          <div className="grid gap-5 dt:grid-cols-2 dt:gap-6">
+          <div className="grid gap-6 dt:grid-cols-2 dt:gap-6">
             {LOCAL.map((group) => (
-              <div key={group.city} className="rounded-2xl border border-navy/10 bg-ice p-6 dt:p-7">
-                <h3 className="mb-5 font-serif text-[18px] font-bold text-navy">{group.city}</h3>
-                <ul className="grid grid-cols-1 gap-x-6 gap-y-3">
+              <div key={group.city} className="overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_24px_52px_-34px_rgba(26,62,110,0.45)] dt:flex">
+                <div className="relative h-[190px] w-full overflow-hidden dt:h-auto dt:w-[40%] dt:self-stretch">
+                  <Image src={group.image} alt={group.city} fill sizes="(max-width:900px) 100vw, 40vw" className="object-cover" />
+                  <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,62,110,0.1)_0%,rgba(26,62,110,0.6)_100%)] dt:bg-[linear-gradient(90deg,rgba(26,62,110,0.1)_0%,rgba(26,62,110,0.55)_100%)]" />
+                  <h3 className="absolute bottom-4 left-5 font-serif text-[20px] font-bold text-white dt:top-5 dt:bottom-auto">{group.city}</h3>
+                </div>
+                <ul className="grid flex-1 grid-cols-1 gap-x-6 gap-y-3 p-6 dt:p-7">
                   {group.items.map((it) => (
                     <li key={it} className="flex items-center gap-3 text-[13.5px] text-navy/80">
-                      <span className="grid h-7 w-7 flex-none place-items-center rounded-full bg-white text-gold ring-1 ring-navy/10"><MapPin size={14} /></span>
+                      <span className="grid h-7 w-7 flex-none place-items-center rounded-full bg-lightblue text-navy"><MapPin size={14} /></span>
                       {it}
                     </li>
                   ))}
@@ -201,64 +189,27 @@ export function RoutesContent({
         </Container>
       </Section>
 
-      {/* Ziyarat tours */}
-      <Section bg="navy" className="relative overflow-hidden py-12 dt:py-16">
-        <div aria-hidden className="pointer-events-none absolute left-1/2 -top-24 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(219,183,37,0.13),transparent_70%)]" />
-        <Container className="relative">
-          <div className="mx-auto mb-9 max-w-[760px] text-center dt:mb-12">
-            <Eyebrow align="center" tone="white" className="mb-4">Sacred landmarks</Eyebrow>
-            <AccentHeading as="h2" before="Private Ziyarat " accent="Tours" className="text-[27px] leading-tight text-white dt:text-[38px]" />
-            <p className="mx-auto mt-4 max-w-[580px] text-[15px] font-light leading-relaxed text-white/70 dt:text-[16px]">
-              Guided visits to the historic Islamic sites of Makkah and Madinah — plus day trips to Badr and Taif.
-            </p>
-          </div>
-          <div className="grid gap-5 dt:grid-cols-2 dt:gap-6">
-            {ZIYARAT.map((group) => (
-              <div key={group.city} className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-6 dt:p-7">
-                <h3 className="mb-5 font-serif text-[18px] font-bold text-white">{group.city}</h3>
-                <ul className="flex flex-wrap gap-2">
-                  {group.sites.map((s) => (
-                    <li key={s} className="flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.07] px-3 py-1.5 text-[12.5px] font-medium text-white/90">
-                      <MapPin size={13} className="flex-none text-gold" /> {s}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </Section>
+      {/* Makkah sightseeing — glorified gallery + timeline */}
+      <SightseeingSection
+        bg="ice"
+        eyebrow="Guided day tour"
+        headBefore="Makkah Sightseeing "
+        headAccent="Route"
+        gallery={MAKKAH_GALLERY}
+        stops={MAKKAH_TOUR}
+        note="Be ready in your hotel lobby 10 minutes before the tour; your driver meets you there. Please arrive on time — delays may result in cancellation."
+      />
 
-      {/* Makkah sightseeing itinerary */}
-      <Section bg="ice" className="py-12 dt:py-16">
-        <Container>
-          <div className="mx-auto mb-9 max-w-[760px] text-center dt:mb-11">
-            <Eyebrow align="center" className="mb-4">Guided day tour</Eyebrow>
-            <AccentHeading as="h2" before="Makkah Sightseeing " accent="Route" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
-            <SlotRow />
-          </div>
-          <TourTimeline stops={MAKKAH_TOUR} />
-          <p className="mx-auto mt-8 max-w-[640px] text-center text-[13px] font-light leading-relaxed text-navy/60">
-            Be ready in your hotel lobby 10 minutes before the tour; your driver meets you there. Please arrive on time — delays may result in cancellation.
-          </p>
-        </Container>
-      </Section>
-
-      {/* Madinah sightseeing itinerary */}
-      <Section bg="white" className="relative overflow-hidden py-12 dt:py-16">
-        <div aria-hidden className="pointer-events-none absolute -right-24 -top-16 h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(47,128,237,0.08),transparent_70%)] blur-2xl" />
-        <Container className="relative">
-          <div className="mx-auto mb-9 max-w-[760px] text-center dt:mb-11">
-            <Eyebrow align="center" className="mb-4">Guided day tour</Eyebrow>
-            <AccentHeading as="h2" before="Madinah Sightseeing " accent="Route" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
-            <SlotRow />
-          </div>
-          <TourTimeline stops={MADINAH_TOUR} />
-          <p className="mx-auto mt-8 max-w-[640px] text-center text-[13px] font-light leading-relaxed text-navy/60">
-            A 2 to 2.5-hour tour with limited time at Masjid e Qiblatain — please make wudu beforehand. Be in your hotel lobby 10 minutes early.
-          </p>
-        </Container>
-      </Section>
+      {/* Madinah sightseeing — glorified gallery + timeline */}
+      <SightseeingSection
+        bg="white"
+        eyebrow="Guided day tour"
+        headBefore="Madinah Sightseeing "
+        headAccent="Route"
+        gallery={MADINAH_GALLERY}
+        stops={MADINAH_TOUR}
+        note="A 2 to 2.5-hour tour with limited time at Masjid e Qiblatain — please make wudu beforehand. Be in your hotel lobby 10 minutes early."
+      />
 
       {/* Fleet */}
       <Section bg="navy" className="relative overflow-hidden py-12 dt:py-16">
@@ -323,31 +274,68 @@ export function RoutesContent({
   );
 }
 
-/** Time-slot pills shared by both sightseeing itineraries. */
-function SlotRow() {
+/** Glorified sightseeing section: circular image gallery + numbered itinerary. */
+function SightseeingSection({
+  bg,
+  eyebrow,
+  headBefore,
+  headAccent,
+  gallery,
+  stops,
+  note,
+}: {
+  bg: "ice" | "white";
+  eyebrow: string;
+  headBefore: string;
+  headAccent: string;
+  gallery: { src: string; label: string }[];
+  stops: { name: string; time: string }[];
+  note: string;
+}) {
   return (
-    <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
-      <span className="text-[12px] font-bold uppercase tracking-[0.12em] text-gold">Time slots</span>
-      {TOUR_SLOTS.map((s) => (
-        <span key={s} className="rounded-full border border-navy/15 bg-white px-3 py-1 text-[12.5px] font-semibold text-navy">{s}</span>
-      ))}
-    </div>
-  );
-}
+    <Section bg={bg} className="relative overflow-hidden py-12 dt:py-16">
+      <div aria-hidden className="pointer-events-none absolute -left-24 -top-16 h-[340px] w-[340px] rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.1),transparent_70%)] blur-2xl" />
+      <div aria-hidden className="pointer-events-none absolute -right-24 bottom-0 h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(47,128,237,0.08),transparent_70%)] blur-2xl" />
+      <Container className="relative">
+        <div className="mx-auto mb-8 max-w-[760px] text-center dt:mb-10">
+          <Eyebrow align="center" className="mb-4">{eyebrow}</Eyebrow>
+          <AccentHeading as="h2" before={headBefore} accent={headAccent} className="text-[27px] leading-tight text-navy dt:text-[38px]" />
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
+            <span className="text-[12px] font-bold uppercase tracking-[0.12em] text-gold">Time slots</span>
+            {TOUR_SLOTS.map((s) => (
+              <span key={s} className="rounded-full border border-navy/15 bg-white px-3 py-1 text-[12.5px] font-semibold text-navy">{s}</span>
+            ))}
+          </div>
+        </div>
 
-/** Numbered itinerary timeline, two columns on desktop. */
-function TourTimeline({ stops }: { stops: { name: string; time: string }[] }) {
-  return (
-    <ol className="grid grid-cols-1 gap-2.5 dt:grid-cols-2 dt:gap-x-6 dt:gap-y-2.5">
-      {stops.map((s, i) => (
-        <li key={s.name} className="flex items-center gap-3.5 rounded-xl border border-navy/10 bg-white/70 px-4 py-3">
-          <span className="grid h-8 w-8 flex-none place-items-center rounded-full bg-gradient-to-br from-gold to-[#b4871a] text-[13px] font-bold text-navy">{i + 1}</span>
-          <span className="flex-1 text-[14px] font-medium text-navy">{s.name}</span>
-          <span className={`flex flex-none items-center gap-1.5 rounded-full px-2.5 py-1 text-[11.5px] font-semibold ${s.time === "Pass by" ? "bg-navy/5 text-navy/55" : "bg-lightblue text-navy"}`}>
-            <Clock size={12} aria-hidden /> {s.time}
-          </span>
-        </li>
-      ))}
-    </ol>
+        {/* Circular image gallery */}
+        <Stagger as="div" gap={0.1} className="no-scrollbar -mx-5 mb-10 flex gap-5 overflow-x-auto px-5 pb-2 dt:mx-0 dt:grid dt:grid-cols-5 dt:gap-6 dt:overflow-visible dt:px-0">
+          {gallery.map((g) => (
+            <StaggerItem as="div" key={g.label} direction="up" className="w-[130px] flex-none text-center dt:w-auto">
+              <div className="group relative mx-auto aspect-square w-[130px] overflow-hidden rounded-full ring-4 ring-white shadow-[0_22px_44px_-22px_rgba(26,62,110,0.55)] dt:w-full">
+                <Image src={g.src} alt={g.label} fill sizes="150px" className="object-cover transition-transform duration-500 group-hover:scale-110" />
+                <div aria-hidden className="absolute inset-0 rounded-full ring-1 ring-inset ring-navy/10" />
+              </div>
+              <div className="mt-3 text-[13px] font-semibold text-navy">{g.label}</div>
+            </StaggerItem>
+          ))}
+        </Stagger>
+
+        {/* Itinerary timeline */}
+        <ol className="grid grid-cols-1 gap-2.5 dt:grid-cols-2 dt:gap-x-6 dt:gap-y-2.5">
+          {stops.map((s, i) => (
+            <li key={s.name} className="flex items-center gap-3.5 rounded-xl border border-navy/10 bg-white/70 px-4 py-3 transition-colors hover:border-gold/40">
+              <span className="grid h-8 w-8 flex-none place-items-center rounded-full bg-gradient-to-br from-gold to-[#b4871a] text-[13px] font-bold text-navy">{i + 1}</span>
+              <span className="flex-1 text-[14px] font-medium text-navy">{s.name}</span>
+              <span className={`flex flex-none items-center gap-1.5 rounded-full px-2.5 py-1 text-[11.5px] font-semibold ${s.time === "Pass by" ? "bg-navy/5 text-navy/55" : "bg-lightblue text-navy"}`}>
+                <Clock size={12} aria-hidden /> {s.time}
+              </span>
+            </li>
+          ))}
+        </ol>
+
+        <p className="mx-auto mt-8 max-w-[640px] text-center text-[13px] font-light leading-relaxed text-navy/60">{note}</p>
+      </Container>
+    </Section>
   );
 }

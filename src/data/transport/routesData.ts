@@ -89,6 +89,7 @@ export const EXTRA_FARES: ExtraFare[] = [
 export interface RoundTrip {
   title: string;
   tag: string;
+  image: string;
   stops: string[];
   prices: [number, number, number, number, number, number];
 }
@@ -97,18 +98,21 @@ export const ROUND_TRIPS: RoundTrip[] = [
   {
     title: "Arrive Jeddah · Depart Madinah",
     tag: "One way across",
+    image: "/images/home/home-hero-kaaba.webp",
     stops: ["Jeddah Airport", "Makkah Hotel", "Madinah Hotel", "Madinah Airport"],
     prices: [730, 900, 1345, 1125, 1625, 2325],
   },
   {
     title: "Jeddah Arrival & Departure",
     tag: "Full round trip",
+    image: "/images/home/home-umrah-haram.webp",
     stops: ["Jeddah Airport", "Makkah Hotel", "Madinah Hotel", "Jeddah Airport"],
     prices: [975, 1225, 1875, 1425, 2075, 2825],
   },
   {
     title: "Jeddah Round Trip via Both Cities",
     tag: "Extended",
+    image: "/images/home/home-hero-madinah.webp",
     stops: ["Jeddah Airport", "Makkah Hotel", "Madinah Hotel", "Makkah Hotel", "Jeddah Airport"],
     prices: [1175, 1525, 2175, 1725, 2525, 3525],
   },
@@ -131,23 +135,42 @@ export const SERVICES: { Icon: LucideIcon; title: string; body: string }[] = [
 ];
 
 /** Intercity route groups. */
-export const INTERCITY: { city: string; routes: string[] }[] = [
-  { city: "From Makkah", routes: ["Makkah → Jeddah", "Makkah → Madinah", "Makkah → Taif", "Makkah → Jeddah Airport"] },
-  { city: "From Madinah", routes: ["Madinah → Makkah", "Madinah → Jeddah", "Madinah → Jeddah Airport", "Madinah → Badr", "Madinah → AlUla", "Madinah → Taif"] },
-  { city: "From Jeddah", routes: ["Jeddah → Makkah", "Jeddah → Madinah", "Jeddah → Taif", "Jeddah → Makkah → Jeddah"] },
-  { city: "Historic routes", routes: ["Makkah → Madinah via Badr & Roha Well", "Madinah → Makkah via Badr & Roha Well", "Makkah → Madinah via Taif"] },
+export const INTERCITY: { city: string; image: string; routes: string[] }[] = [
+  { city: "From Makkah", image: "/images/home/home-transport-makkah.webp", routes: ["Makkah → Jeddah", "Makkah → Madinah", "Makkah → Taif", "Makkah → Jeddah Airport"] },
+  { city: "From Madinah", image: "/images/home/home-transport-madinah.webp", routes: ["Madinah → Makkah", "Madinah → Jeddah", "Madinah → Jeddah Airport", "Madinah → Badr", "Madinah → AlUla", "Madinah → Taif"] },
+  { city: "From Jeddah", image: "/images/home/home-transport-jeddah.webp", routes: ["Jeddah → Makkah", "Jeddah → Madinah", "Jeddah → Taif", "Jeddah → Makkah → Jeddah"] },
+  { city: "Historic routes", image: "/images/ziarat/ziarat-makkah.webp", routes: ["Makkah → Madinah via Badr & Roha Well", "Madinah → Makkah via Badr & Roha Well", "Makkah → Madinah via Taif"] },
 ];
 
 /** Local city transport. */
-export const LOCAL: { city: string; items: string[] }[] = [
+export const LOCAL: { city: string; image: string; items: string[] }[] = [
   {
     city: "Within Makkah",
+    image: "/images/home/home-transport-makkah.webp",
     items: ["Haramain Train Station", "Masjid Aisha (Taneem)", "Masjid Al-Ji'ranah", "Shopping malls & markets", "Dates market", "Restaurants", "Relatives' residences", "Hourly private hire"],
   },
   {
     city: "Within Madinah",
+    image: "/images/home/home-transport-madinah.webp",
     items: ["Haramain Train Station", "Masjid an-Nabawi", "Shopping malls", "Dates market", "Restaurants", "Relatives' residences", "Wadi-e-Jinn", "Hourly private hire"],
   },
+];
+
+/** Circular image galleries for the sightseeing tours. */
+export const MAKKAH_GALLERY: { src: string; label: string }[] = [
+  { src: "/images/home/home-hero-jabal.webp", label: "Jabal al-Noor" },
+  { src: "/images/home/home-transport-makkah.webp", label: "Mount Arafat" },
+  { src: "/images/ziarat/ziarat-makkah.webp", label: "Jabal Thawr" },
+  { src: "/images/home/home-umrah-haram.webp", label: "Mina" },
+  { src: "/images/home/home-umrah-tawaf.webp", label: "Masjid Aisha" },
+];
+
+export const MADINAH_GALLERY: { src: string; label: string }[] = [
+  { src: "/images/home/home-transport-madinah.webp", label: "Mount Uhud" },
+  { src: "/images/home/home-hero-quba.webp", label: "Masjid Quba" },
+  { src: "/images/ziarat/ziarat-madinah.webp", label: "Masjid Qiblatain" },
+  { src: "/images/home/home-hero-madinah.webp", label: "Masjid an-Nabawi" },
+  { src: "/images/home/home-umrah-madinah.webp", label: "Saba Masajid" },
 ];
 
 /** Ziyarat site lists. */
