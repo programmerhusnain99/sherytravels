@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { UserCheck, CarFront, CalendarCheck, Users, Briefcase, Snowflake, Wallet, Sparkles } from "lucide-react";
+import { UserCheck, Users, Briefcase, Snowflake, Wallet, Sparkles, Check, ShieldCheck } from "lucide-react";
 import { breadcrumbSchema } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { PageShell } from "@/components/layout/PageShell";
@@ -11,10 +11,11 @@ import { InquireButton } from "@/components/inquiry/InquireButton";
 import { ContactForm } from "@/components/inquiry/ContactForm";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 
-const FEATURES = [
-  { Icon: UserCheck, title: "Experienced Drivers", body: "Our drivers are professional, friendly, and speak multiple languages, ensuring a safe and pleasant journey." },
-  { Icon: CarFront, title: "Modern Vehicles", body: "Enjoy our top-quality vehicles that are regularly maintained, offering comfort and plenty of room for your luggage." },
-  { Icon: CalendarCheck, title: "Easy Booking", body: "We’re available 24/7 for airport pickups, Ziyarah tours, and travel between cities, making it convenient for you to plan your trips." },
+const PREMIUM = [
+  "Air-conditioned, modern vehicles",
+  "Luxury sedans, vans & SUVs",
+  "Timely airport & hotel pickups",
+  "Personalized 24/7 support",
 ];
 
 const FLEET = [
@@ -27,10 +28,10 @@ const FLEET = [
 ];
 
 const WHY = [
-  { Icon: Wallet, title: "Affordable Packages", body: "At Shery Travels, we believe that great travel shouldn’t break the bank. Our rates are designed to fit every budget, so you can enjoy top-notch rides without compromising on comfort, quality, or safety along the way." },
-  { Icon: Users, title: "Group Travel Options", body: "Traveling with friends or family? We’ve got you covered! Our flexible group packages make sure everyone travels comfortably and stays connected, whether you’re headed for Umrah, Ziyarah, or exploring the city together." },
-  { Icon: Sparkles, title: "Clean & Quality Vehicles", body: "Your safety matters to us. That’s why every vehicle in our fleet is regularly inspected, sanitized, and maintained. We aim to provide a comfortable and smooth travel experience no matter your destination." },
-  { Icon: UserCheck, title: "Skilled Drivers", body: "Our friendly, experienced drivers are here to make your journey as enjoyable as possible. They speak English and are dedicated to ensuring timely transfers and a hassle-free ride, so you can sit back and relax." },
+  { Icon: Wallet, title: "Affordable Packages", body: "Fair rates for every budget — comfort, quality and safety without the premium price." },
+  { Icon: Users, title: "Group Travel Options", body: "Flexible group packages keep friends and family together and comfortable." },
+  { Icon: Sparkles, title: "Clean & Quality Vehicles", body: "Every vehicle is regularly inspected, sanitised and maintained for a smooth ride." },
+  { Icon: UserCheck, title: "Skilled Drivers", body: "Friendly, English-speaking chauffeurs focused on timely, hassle-free transfers." },
 ];
 
 const FAQ = [
@@ -54,7 +55,7 @@ export function FleetsContent({
       <JsonLd data={breadcrumbSchema(breadcrumb)} />
 
       {/* Hero */}
-      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-10 dt:pt-12">
+      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-10 pb-14 dt:pt-12 dt:pb-20">
         <div aria-hidden className="pointer-events-none absolute -left-32 top-10 hidden h-[460px] w-[460px] rounded-full border border-gold/15 dt:block" />
         <Container className="flex flex-col items-center gap-6 text-center">
           <div className="order-1 max-w-[680px] text-center">
@@ -77,33 +78,47 @@ export function FleetsContent({
         </Container>
       </Section>
 
-      {/* Features */}
-      <Section bg="ice" className="py-10 dt:py-14">
-        <Container className="grid gap-5 dt:grid-cols-3 dt:gap-7">
-          {FEATURES.map(({ Icon, title, body }) => (
-            <div key={title} className="card-hover group rounded-2xl border border-navy/10 bg-white p-7">
-              <span className="mb-5 grid h-14 w-14 place-items-center rounded-2xl border-[1.5px] border-gold bg-ice transition-colors duration-300 group-hover:bg-gold">
-                <Icon size={26} className="text-navy" />
-              </span>
-              <h3 className="mb-2 font-serif text-[19px] font-bold text-navy">{title}</h3>
-              <p className="text-[14.5px] font-light leading-relaxed text-navy/75">{body}</p>
+      {/* Premium experience — navy, redesigned */}
+      <Section bg="navy" className="relative overflow-hidden py-12 dt:py-16">
+        <div aria-hidden className="pointer-events-none absolute left-1/2 -top-24 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(219,183,37,0.13),transparent_70%)]" />
+        <div aria-hidden className="pointer-events-none absolute -left-28 bottom-0 hidden h-[360px] w-[360px] rounded-full border border-white/[0.06] dt:block" />
+        <div aria-hidden className="pointer-events-none absolute -right-24 top-20 hidden h-[300px] w-[300px] rounded-full border border-gold/15 dt:block" />
+        <Container className="relative grid items-center gap-12 dt:grid-cols-2 dt:gap-16">
+          {/* Image — gold corner frame + floating badge */}
+          <div className="relative order-2 dt:order-1">
+            <span aria-hidden className="pointer-events-none absolute -left-3 -top-3 z-10 h-16 w-16 rounded-tl-2xl border-l-2 border-t-2 border-gold/70" />
+            <span aria-hidden className="pointer-events-none absolute -bottom-3 -right-3 z-10 h-16 w-16 rounded-br-2xl border-b-2 border-r-2 border-gold/70" />
+            <div className="relative h-[340px] w-full overflow-hidden rounded-2xl bg-white/5 shadow-[0_34px_64px_-26px_rgba(0,0,0,0.6)] dt:h-[430px]">
+              <Image src="/images/transportation/fleets-premium.webp" alt="Luxury sedan and van for pilgrimage travel" fill sizes="(max-width:900px) 100vw, 45vw" className="object-cover" />
+              <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(26,62,110,0.6)_100%)]" />
             </div>
-          ))}
-        </Container>
-      </Section>
-
-      {/* Premium experience */}
-      <Section bg="white" className="py-10 dt:py-14">
-        <Container className="grid items-center gap-10 dt:grid-cols-2 dt:gap-16">
-          <div className="relative order-2 h-[340px] w-full overflow-hidden rounded-2xl bg-lightblue shadow-[0_30px_60px_-26px_rgba(26,62,110,0.45)] dt:order-1 dt:h-[420px]">
-            <Image src="/images/transportation/fleets-premium.webp" alt="Luxury sedan and van for pilgrimage travel" fill sizes="(max-width:900px) 100vw, 45vw" className="object-cover" />
+            <div className="absolute -bottom-5 left-5 flex items-center gap-3 rounded-xl border border-white/10 bg-navy/90 px-4 py-3 shadow-[0_18px_40px_-16px_rgba(0,0,0,0.7)] backdrop-blur">
+              <span className="grid h-10 w-10 flex-none place-items-center rounded-lg bg-gradient-to-br from-gold to-[#b4871a] text-navy">
+                <ShieldCheck size={20} />
+              </span>
+              <div>
+                <div className="font-serif text-[15px] font-bold leading-none text-white">Fully insured</div>
+                <div className="mt-1 text-[12px] text-white/60">Serviced &amp; sanitised fleet</div>
+              </div>
+            </div>
           </div>
+          {/* Text + feature chips */}
           <div className="order-1 dt:order-2">
-            <Eyebrow align="left" className="mb-4">Premium comfort</Eyebrow>
-            <AccentHeading as="h2" before="Premium Travel Experience for Every " accent="Journey" className="text-[26px] leading-tight text-navy dt:text-[36px]" />
-            <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
-              At Shery Travels, we believe that your journey should be just as enjoyable as your destination. Our fleet features comfortable luxury sedans, roomy vans, and SUVs that are perfect for families and groups. We take care of every detail to ensure your ride is smooth and pleasant - from timely pickups to personalized support. Whether you&apos;re heading to the airport or setting out on a pilgrimage, we focus on providing you with comfort, safety, and peace of mind every step of the way.
+            <Eyebrow align="left" tone="white" className="mb-4">Premium comfort</Eyebrow>
+            <AccentHeading as="h2" before="Premium Travel Experience for Every " accent="Journey" className="text-[26px] leading-tight text-white dt:text-[36px]" />
+            <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-white/75 dt:text-[16.5px]">
+              Your journey should be just as enjoyable as your destination. Our fleet of luxury sedans, roomy vans and SUVs is built for families and groups — and we handle every detail, from timely pickups to personalized support, so you travel in comfort, safety and peace of mind.
             </p>
+            <div className="mt-7 grid grid-cols-1 gap-3 dt:grid-cols-2">
+              {PREMIUM.map((f) => (
+                <div key={f} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3">
+                  <span className="grid h-7 w-7 flex-none place-items-center rounded-full bg-gold/15 text-gold">
+                    <Check size={15} />
+                  </span>
+                  <span className="text-[13.5px] font-light text-white/85">{f}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </Container>
       </Section>
@@ -138,24 +153,34 @@ export function FleetsContent({
         </Container>
       </Section>
 
-      {/* Why choose us — navy band */}
-      <Section bg="navy" className="relative overflow-hidden py-10 dt:py-14">
-        <div aria-hidden className="pointer-events-none absolute -right-28 -top-28 h-[360px] w-[360px] rounded-full border border-gold/15" />
-        <Container>
-          <div className="mx-auto mb-10 max-w-[760px] text-center">
-            <Eyebrow tone="white" className="mb-4">Why choose us</Eyebrow>
+      {/* Why choose us — navy, glass-card design (matches Umrah page) */}
+      <Section bg="navy" className="relative overflow-hidden py-12 dt:py-16">
+        <div aria-hidden className="pointer-events-none absolute left-1/2 -top-24 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(219,183,37,0.15),transparent_70%)]" />
+        <div aria-hidden className="pointer-events-none absolute -right-28 top-24 hidden h-[340px] w-[340px] rounded-full border border-gold/15 dt:block" />
+        <div aria-hidden className="pointer-events-none absolute -left-28 -bottom-28 hidden h-[380px] w-[380px] rounded-full border border-white/[0.06] dt:block" />
+        <Container className="relative">
+          <div className="mx-auto mb-9 max-w-[760px] text-center dt:mb-12">
+            <Eyebrow align="center" tone="white" className="mb-4">Why choose us</Eyebrow>
             <AccentHeading as="h2" before="Why Choose Shery Travels for Your " accent="Journey" className="text-[27px] leading-tight text-white dt:text-[38px]" />
+            <p className="mx-auto mt-4 max-w-[580px] text-[15px] font-light leading-relaxed text-white/70 dt:text-[16px]">
+              Budget-friendly rates, flexible group options and a spotless, well-kept fleet — driven by friendly, experienced chauffeurs.
+            </p>
           </div>
-          <div className="grid gap-5 dt:grid-cols-2 dt:gap-7">
+
+          <div className="grid grid-cols-2 gap-3.5 dt:grid-cols-4 dt:gap-4">
             {WHY.map(({ Icon, title, body }) => (
-              <div key={title} className="card-hover flex gap-5 rounded-2xl border border-white/10 bg-white/[0.06] p-7">
-                <span className="grid h-14 w-14 flex-none place-items-center rounded-2xl border-[1.5px] border-gold/60 text-gold">
-                  <Icon size={26} />
-                </span>
-                <div>
-                  <h3 className="mb-2 font-serif text-[19px] font-bold text-white">{title}</h3>
-                  <p className="text-[14.5px] font-light leading-relaxed text-white/75">{body}</p>
+              <div
+                key={title}
+                className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50"
+              >
+                <span aria-hidden className="pointer-events-none absolute -right-8 -top-8 h-20 w-20 rounded-full bg-gold/0 blur-2xl transition-colors duration-300 group-hover:bg-gold/25" />
+                <div className="relative mb-2.5 flex items-center gap-3">
+                  <span className="grid h-10 w-10 flex-none place-items-center rounded-lg bg-gradient-to-br from-gold to-[#b4871a] text-navy shadow-[0_10px_22px_-10px_rgba(219,183,37,0.65)]">
+                    <Icon size={19} aria-hidden />
+                  </span>
+                  <h3 className="font-serif text-[15px] font-bold leading-tight text-white">{title}</h3>
                 </div>
+                <p className="relative text-[12.5px] font-light leading-relaxed text-white/60">{body}</p>
               </div>
             ))}
           </div>
