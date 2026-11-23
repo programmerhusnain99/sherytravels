@@ -21,6 +21,7 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { Button } from "@/components/ui/Button";
 import { HeroEnquiryForm } from "@/components/home/hero/HeroEnquiryForm";
+import { HERO_DESCRIPTION } from "@/components/sections/heroCopy";
 import { FormSection } from "@/components/home/form/FormSection";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { PerfectPackages } from "@/components/home/perfect/PerfectPackages";
@@ -98,7 +99,10 @@ export function TransportationContent({
               className="text-[30px] leading-[1.18] text-navy dt:text-[46px]"
             />
           </div>
-          <div className="order-3 w-full">
+          <div className="order-3 max-w-[680px] text-center">
+            <p className="text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">{HERO_DESCRIPTION}</p>
+          </div>
+          <div className="order-4 w-full">
             <HeroEnquiryForm />
           </div>
           <div className="relative order-2 flex justify-center">

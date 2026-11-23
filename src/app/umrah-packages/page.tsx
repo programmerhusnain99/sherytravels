@@ -9,6 +9,7 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { HeroEnquiryForm } from "@/components/home/hero/HeroEnquiryForm";
+import { HERO_DESCRIPTION } from "@/components/sections/heroCopy";
 import { PackageRow } from "@/components/home/packages/PackageRow";
 import { UmrahPackagesCommon } from "@/components/umrah/UmrahPackagesCommon";
 import { TIERS } from "@/data/umrah/packages";
@@ -41,12 +42,7 @@ export default function UmrahPackagesPage() {
             <AccentHeading as="h1" before="Easy, Spiritual & Reliable Umrah " accent="Packages" className="text-[30px] leading-[1.18] text-navy dt:text-[46px]" />
           </div>
           <div className="order-3 max-w-[680px] text-center">
-            <p className="text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
-              Choose from our 3, 4 and 5-star Umrah packages — each one with hotels near the Haram, visa processing, flights, transport and guided ziyarat handled for you. Simply pick the comfort level that suits you.
-            </p>
-            <p className="mt-4 text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
-              Travel solo, with family, or in a group, and let our dedicated team support you every step of the way so you can focus entirely on your worship.
-            </p>
+            <p className="text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">{HERO_DESCRIPTION}</p>
           </div>
           <div className="order-4 w-full"><HeroEnquiryForm /></div>
           <div className="relative order-2 flex justify-center">

@@ -8,6 +8,7 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { HeroEnquiryForm } from "@/components/home/hero/HeroEnquiryForm";
+import { HERO_DESCRIPTION } from "@/components/sections/heroCopy";
 import { FormSection } from "@/components/home/form/FormSection";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { Stagger, StaggerItem } from "@/components/motion/Reveal";
@@ -73,9 +74,7 @@ export function ZiaratContent({
             <AccentHeading as="h1" before="Sacred Ziarat Journeys with Ease & " accent="Comfort" className="text-[32px] leading-[1.15] text-navy dt:text-[48px]" />
           </div>
           <div className="order-3 max-w-[680px] text-center">
-            <p className="text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
-              Join Shery Travels for a meaningful spiritual journey. Our Ziarat tours in Makkah and Madinah focus on your peace, comfort, and reflection. We provide trusted drivers and clean vehicles, along with guided visits to holy sites, ensuring your sacred trip is smooth and worry-free.
-            </p>
+            <p className="text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">{HERO_DESCRIPTION}</p>
           </div>
           <div className="order-4 w-full"><HeroEnquiryForm /></div>
           <div className="relative order-2 flex justify-center">

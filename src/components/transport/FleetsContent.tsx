@@ -8,6 +8,7 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { HeroEnquiryForm } from "@/components/home/hero/HeroEnquiryForm";
+import { HERO_DESCRIPTION } from "@/components/sections/heroCopy";
 import { FormSection } from "@/components/home/form/FormSection";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 
@@ -62,9 +63,7 @@ export function FleetsContent({
             <AccentHeading as="h1" before="Safe, Spacious & Comfortable " accent="Rides" className="text-[32px] leading-[1.15] text-navy dt:text-[48px]" />
           </div>
           <div className="order-3 max-w-[680px] text-center">
-            <p className="text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
-              Experience the beauty of Saudi Arabia without the hassle. At Shery Travels, we provide a fleet of modern, air-conditioned vehicles that prioritize your comfort and peace of mind. Whether you’re on your way to Makkah, Madinah, or exploring surrounding cities, we ensure hassle-free transfers for families, individuals, and groups alike. Your journey with us will be relaxing and reliable, making every trip a pleasure.
-            </p>
+            <p className="text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">{HERO_DESCRIPTION}</p>
           </div>
           <div className="order-4 w-full"><HeroEnquiryForm /></div>
           <div className="relative order-2 flex justify-center">

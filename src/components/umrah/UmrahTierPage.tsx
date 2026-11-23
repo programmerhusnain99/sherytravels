@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { HeroEnquiryForm } from "@/components/home/hero/HeroEnquiryForm";
+import { HERO_DESCRIPTION } from "@/components/sections/heroCopy";
 import { PackageGrid } from "@/components/home/packages/PackageGrid";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/seo";
@@ -56,9 +57,7 @@ export function UmrahTierPage({ tier }: { tier: UmrahTier }) {
             <AccentHeading as="h1" before={tier.heroHeadBefore} accent={tier.heroHeadAccent} className="text-[29px] leading-[1.18] text-navy dt:text-[44px]" />
           </div>
           <div className="order-3 max-w-[680px] text-center">
-            {tier.heroIntro.map((p, i) => (
-              <p key={i} className={`${i === 0 ? "" : "mt-3"} text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]`}>{p}</p>
-            ))}
+            <p className="text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">{HERO_DESCRIPTION}</p>
           </div>
           <div className="order-4 w-full"><HeroEnquiryForm /></div>
           <div className="relative order-2 flex justify-center">

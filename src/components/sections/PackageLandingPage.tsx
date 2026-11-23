@@ -6,6 +6,7 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { InquireButton } from "@/components/inquiry/InquireButton";
 import { HeroEnquiryForm } from "@/components/home/hero/HeroEnquiryForm";
+import { HERO_DESCRIPTION } from "@/components/sections/heroCopy";
 import { ContactForm } from "@/components/inquiry/ContactForm";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { PackageGrid } from "@/components/home/packages/PackageGrid";
@@ -95,9 +96,7 @@ export function PackageLandingPage({
             <AccentHeading as="h1" before={h1.before} accent={h1.accent} className="text-[29px] leading-[1.18] text-navy dt:text-[44px]" />
           </div>
           <div className="order-3 max-w-[680px] text-center">
-            {data.heroIntro.map((p, i) => (
-              <p key={i} className={`${i === 0 ? "" : "mt-3"} text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]`}>{p}</p>
-            ))}
+            <p className="text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">{HERO_DESCRIPTION}</p>
           </div>
           <div className="order-4 w-full"><HeroEnquiryForm /></div>
           <div className="relative order-2 flex justify-center">

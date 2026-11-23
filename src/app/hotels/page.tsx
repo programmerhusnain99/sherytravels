@@ -11,6 +11,7 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { HeroEnquiryForm } from "@/components/home/hero/HeroEnquiryForm";
+import { HERO_DESCRIPTION } from "@/components/sections/heroCopy";
 import { FormSection } from "@/components/home/form/FormSection";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 
@@ -148,9 +149,7 @@ export default function HotelsPage() {
             <AccentHeading as="h1" before="Comfortable Hotels Near the " accent="Haram" className="text-[30px] leading-[1.18] text-navy dt:text-[46px]" />
           </div>
           <div className="order-3 max-w-[680px] text-center">
-            <p className="text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
-              Rest close to the sanctuary. Shery Travels arranges carefully selected 3, 4 and 5-star hotels in Makkah and Madinah — within walking distance of the Haram, for every budget.
-            </p>
+            <p className="text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">{HERO_DESCRIPTION}</p>
           </div>
           <div className="order-4 w-full"><HeroEnquiryForm /></div>
           <div className="relative order-2 flex justify-center">

@@ -9,6 +9,7 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { FormSection } from "@/components/home/form/FormSection";
 import { HeroEnquiryForm } from "@/components/home/hero/HeroEnquiryForm";
+import { HERO_DESCRIPTION } from "@/components/sections/heroCopy";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 
 const PATH = "/about/";
@@ -84,9 +85,7 @@ export default function AboutPage() {
               <Image src="/images/about/about-story.webp" alt="Shery Travels — about us" fill sizes="(max-width:900px) 290px, 380px" priority className="object-cover" />
             </div>
           </div>
-          <p className="mx-auto mt-7 max-w-[620px] text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
-            At Shery Travels, we make Umrah and Hajj simple, comfortable and deeply spiritual — handling visas, flights, hotels near the Haram and transport, so you can focus entirely on your worship.
-          </p>
+          <p className="mx-auto mt-7 max-w-[620px] text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">{HERO_DESCRIPTION}</p>
           <div className="mt-9 w-full"><HeroEnquiryForm /></div>
         </Container>
       </Section>
