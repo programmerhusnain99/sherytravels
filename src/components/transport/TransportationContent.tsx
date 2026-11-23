@@ -179,10 +179,20 @@ export function TransportationContent({
       </Section>
 
       {/* Madinah */}
-      <Section bg="ice" className="py-10 dt:py-14">
-        <Container className="grid items-center gap-10 dt:grid-cols-2 dt:gap-16">
-          <div className="relative order-2 mx-auto h-[360px] w-full overflow-hidden rounded-2xl bg-lightblue shadow-[0_30px_60px_-26px_rgba(26,62,110,0.45)] dt:order-1 dt:h-[420px]">
-            <Image src="/images/transportation/transport-madinah.webp" alt="Transfers near Masjid al-Nabawi in Madinah" fill sizes="(max-width:900px) 100vw, 45vw" className="object-cover" />
+      <Section bg="ice" className="relative overflow-hidden py-10 dt:py-14">
+        {/* Decorative background wash */}
+        <div aria-hidden className="pointer-events-none absolute -left-28 -top-24 h-[380px] w-[380px] rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.14),transparent_70%)] blur-2xl" />
+        <div aria-hidden className="pointer-events-none absolute -right-24 -bottom-28 h-[440px] w-[440px] rounded-full bg-[radial-gradient(circle,rgba(47,128,237,0.1),transparent_70%)] blur-2xl" />
+        <div aria-hidden className="pointer-events-none absolute right-[6%] top-8 hidden h-[280px] w-[280px] rounded-full border border-navy/[0.06] dt:block" />
+        <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.5] [background-image:radial-gradient(rgba(26,62,110,0.05)_1px,transparent_1px)] [background-size:22px_22px]" />
+        <Container className="relative grid items-center gap-10 dt:grid-cols-2 dt:gap-16">
+          <div className="relative order-2 mx-auto w-full dt:order-1">
+            {/* Gold corner frame */}
+            <span aria-hidden className="pointer-events-none absolute -left-3 -top-3 z-10 h-16 w-16 rounded-tl-2xl border-l-2 border-t-2 border-gold/70" />
+            <span aria-hidden className="pointer-events-none absolute -bottom-3 -right-3 z-10 h-16 w-16 rounded-br-2xl border-b-2 border-r-2 border-gold/70" />
+            <div className="relative h-[360px] w-full overflow-hidden rounded-2xl bg-lightblue shadow-[0_30px_60px_-26px_rgba(26,62,110,0.45)] dt:h-[420px]">
+              <Image src="/images/transportation/transport-madinah.webp" alt="Transfers near Masjid al-Nabawi in Madinah" fill sizes="(max-width:900px) 100vw, 45vw" className="object-cover" />
+            </div>
           </div>
           <div className="order-1 dt:order-2">
             <Eyebrow align="left" className="mb-4">In Madinah</Eyebrow>

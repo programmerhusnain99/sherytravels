@@ -50,7 +50,7 @@ export function PerfectPackages({
 
   return (
     <Section bg="white" className={py}>
-      <Container className="mb-[26px] flex items-end justify-between gap-6 dt:mb-10">
+      <Container className="mb-[26px] dt:mb-10 dt:flex dt:items-end dt:justify-between dt:gap-6">
         <Reveal as="div">
           <AccentHeading
             as="h2"
@@ -70,8 +70,8 @@ export function PerfectPackages({
           )}
         </Reveal>
 
-        {/* Prev / next controls (desktop) */}
-        <div className="hidden flex-none items-center gap-3 dt:flex">
+        {/* Prev / next controls (mobile + desktop) */}
+        <div className="mt-6 flex flex-none items-center gap-3 dt:mt-0">
           <button
             type="button"
             aria-label="Previous packages"
