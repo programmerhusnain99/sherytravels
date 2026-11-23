@@ -11,7 +11,7 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
 import { InquireButton } from "@/components/inquiry/InquireButton";
-import { ContactForm } from "@/components/inquiry/ContactForm";
+import { FormSection } from "@/components/home/form/FormSection";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 
 // TODO(client): replace placeholder hotel images with real photos, and confirm
@@ -38,6 +38,7 @@ const TIERS = [
     stars: 5,
     name: "5-Star Luxury",
     distance: "50–200m from the Haram",
+    image: "/images/home/home-hotels-tower.webp",
     body: "The closest, most premium stays — spacious Haram-view rooms, fine dining and full service, steps from the sanctuary.",
     features: ["Haram-view rooms", "Premium dining", "Closest to the Haram"],
   },
@@ -45,6 +46,7 @@ const TIERS = [
     stars: 4,
     name: "4-Star Comfort",
     distance: "200–500m from the Haram",
+    image: "/images/home/home-hotel-kiswah.webp",
     body: "A comfortable balance of quality and value — a short, easy walk to prayers with excellent on-site facilities.",
     features: ["Short walk to the Haram", "Great value", "Family rooms"],
   },
@@ -52,6 +54,7 @@ const TIERS = [
     stars: 3,
     name: "3-Star Economy",
     distance: "500m – 1.5km from the Haram",
+    image: "/images/home/home-hotel-manar.webp",
     body: "Clean, budget-friendly hotels for pilgrims who want the essentials done well, with a shuttle to the Haram where needed.",
     features: ["Budget-friendly", "Clean & comfortable", "Haram shuttle"],
   },
@@ -138,7 +141,7 @@ export default function HotelsPage() {
       />
 
       {/* Hero */}
-      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-10 dt:pt-12">
+      <Section bg="white" className="relative overflow-hidden bg-gradient-to-b from-ice to-white pt-10 pb-8 dt:pt-12 dt:pb-10">
         <div aria-hidden className="pointer-events-none absolute -left-32 top-10 hidden h-[460px] w-[460px] rounded-full border border-gold/15 dt:block" />
         <Container className="flex flex-col items-center gap-6 text-center">
           <div className="order-1 max-w-[680px] text-center">
@@ -160,23 +163,48 @@ export default function HotelsPage() {
         </Container>
       </Section>
 
-      {/* Why our hotels */}
-      <Section bg="ice" className="py-10 dt:py-14">
-        <Container>
-          <div className="mx-auto mb-12 max-w-[760px] text-center">
-            <Eyebrow className="mb-4">Why stay with us</Eyebrow>
-            <AccentHeading as="h2" before="Hotels Chosen for Your " accent="Comfort" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
-          </div>
-          <div className="grid gap-5 sm:grid-cols-2 dt:grid-cols-4 dt:gap-6">
-            {WHY.map(({ Icon, title, body }) => (
-              <div key={title} className="card-hover group rounded-2xl border border-navy/10 bg-white p-6">
-                <span className="mb-4 grid h-12 w-12 place-items-center rounded-2xl border-[1.5px] border-gold bg-ice transition-colors duration-300 group-hover:bg-gold">
-                  <Icon size={24} className="text-navy" />
-                </span>
-                <h3 className="mb-2 font-serif text-[17px] font-bold text-navy">{title}</h3>
-                <p className="text-[13.5px] font-light leading-relaxed text-navy/75">{body}</p>
-              </div>
+      {/* Why our hotels — dark-blue band, gold-framed image + divided feature list */}
+      <Section bg="navy" className="relative overflow-hidden py-12 dt:py-16">
+        <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 h-[440px] w-[780px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(219,183,37,0.12),transparent_70%)]" />
+        <div aria-hidden className="pointer-events-none absolute -left-24 -bottom-24 hidden h-[360px] w-[360px] rounded-full border border-gold/15 dt:block" />
+        <Container className="relative grid items-center gap-12 dt:grid-cols-2 dt:gap-16">
+          {/* Image with gold corner frame + floating badge */}
+          <div className="relative order-2 mx-auto w-full max-w-[460px] dt:order-1">
+            {[
+              "left-0 top-0 border-l-2 border-t-2",
+              "right-0 top-0 border-r-2 border-t-2",
+              "left-0 bottom-0 border-b-2 border-l-2",
+              "right-0 bottom-0 border-b-2 border-r-2",
+            ].map((c) => (
+              <span key={c} aria-hidden className={`pointer-events-none absolute z-20 h-7 w-7 border-gold ${c}`} />
             ))}
+            <div className="relative m-2.5 h-[360px] overflow-hidden rounded-2xl bg-lightblue shadow-[0_44px_90px_-30px_rgba(0,0,0,0.6)] dt:h-[480px]">
+              <Image src="/images/home/home-hotels-tower.webp" alt="Hotel steps from the Haram" fill sizes="(max-width:900px) 100vw, 44vw" className="object-cover" />
+              <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,transparent_58%,rgba(26,62,110,0.45)_100%)]" />
+            </div>
+            <div className="absolute -bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-2.5 rounded-full border border-white/10 bg-white px-4 py-2 shadow-[0_22px_48px_-18px_rgba(0,0,0,0.5)] dt:left-5 dt:translate-x-0">
+              <Footprints size={16} className="text-gold" />
+              <span className="text-[12.5px] font-semibold text-navy">Steps from the Haram</span>
+            </div>
+          </div>
+
+          {/* Heading + divided feature list */}
+          <div className="order-1 dt:order-2">
+            <Eyebrow align="center" tone="white" className="mb-4 dt:justify-start">Why stay with us</Eyebrow>
+            <AccentHeading as="h2" before="Hotels Chosen for Your " accent="Comfort" className="text-center text-[27px] leading-tight text-white dt:text-left dt:text-[38px]" />
+            <div className="mt-6 flex flex-col">
+              {WHY.map(({ Icon, title, body }, i) => (
+                <div key={title} className={`flex gap-4 py-4 ${i > 0 ? "border-t border-white/10" : ""}`}>
+                  <span className="grid h-11 w-11 flex-none place-items-center rounded-xl border-[1.5px] border-gold/50 text-gold">
+                    <Icon size={20} />
+                  </span>
+                  <div>
+                    <h3 className="mb-1 font-serif text-[16px] font-bold text-white">{title}</h3>
+                    <p className="text-[13.5px] font-light leading-relaxed text-white/70">{body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </Container>
       </Section>
@@ -191,22 +219,30 @@ export default function HotelsPage() {
               Every tier is close to the Haram — the difference is how close, and how much comfort you'd like.
             </p>
           </div>
-          <div className="grid gap-6 dt:grid-cols-3 dt:gap-7">
+          <div className="grid gap-x-6 gap-y-10 dt:grid-cols-3 dt:gap-x-7">
             {TIERS.map((t) => (
-              <div key={t.name} className="card-hover relative flex flex-col rounded-2xl border border-navy/10 bg-ice p-7">
-                <div className="mb-3 flex items-center justify-between">
-                  <Stars n={t.stars} />
-                  <span className="rounded-full bg-navy/5 px-3 py-1 text-[12px] font-semibold text-navy/70">{t.distance}</span>
+              <div key={t.name} className="group relative flex flex-col">
+                {/* Image — a little wider than the card; its lower edge tucks behind the card body */}
+                <div className="relative z-10 mx-[-10px] h-[180px] overflow-hidden rounded-[18px] shadow-[0_28px_54px_-22px_rgba(26,62,110,0.6)] dt:h-[200px]">
+                  <Image src={t.image} alt={t.name} fill sizes="(max-width:900px) 100vw, 360px" className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 motion-reduce:transition-none" />
+                  <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(26,62,110,0.3)_100%)]" />
+                  <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-white/95 px-2.5 py-1 shadow-sm"><Stars n={t.stars} /></span>
                 </div>
-                <h3 className="font-serif text-[21px] font-bold text-navy">{t.name}</h3>
-                <p className="mt-2 text-[14px] font-light leading-relaxed text-navy/75">{t.body}</p>
-                <ul className="mt-4 flex flex-col gap-2 border-t border-navy/10 pt-4">
-                  {t.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-[13.5px] text-navy/80">
-                      <span className="h-2 w-2 flex-none rounded-full border-2 border-gold" aria-hidden /> {f}
-                    </li>
-                  ))}
-                </ul>
+                {/* Card body — overlaps the image's lower edge */}
+                <div className="relative z-20 -mt-9 flex flex-1 flex-col rounded-2xl border border-navy/10 bg-white p-6 pt-7 shadow-[0_24px_50px_-30px_rgba(26,62,110,0.4)]">
+                  <div className="mb-2 flex items-center justify-between gap-2">
+                    <h3 className="font-serif text-[20px] font-bold text-navy">{t.name}</h3>
+                    <span className="flex-none rounded-full bg-navy/5 px-2.5 py-1 text-[11px] font-semibold text-navy/70">{t.distance}</span>
+                  </div>
+                  <p className="text-[13.5px] font-light leading-relaxed text-navy/75">{t.body}</p>
+                  <ul className="mt-4 flex flex-col gap-2 border-t border-navy/10 pt-4">
+                    {t.features.map((f) => (
+                      <li key={f} className="flex items-center gap-2 text-[13px] text-navy/80">
+                        <span className="h-2 w-2 flex-none rounded-full border-2 border-gold" aria-hidden /> {f}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ))}
           </div>
@@ -252,46 +288,34 @@ export default function HotelsPage() {
         </Container>
       </Section>
 
-      {/* Amenities — navy band */}
-      <Section bg="navy" className="relative overflow-hidden py-10 dt:py-14">
-        <div aria-hidden className="pointer-events-none absolute -right-28 -top-28 h-[360px] w-[360px] rounded-full border border-gold/15" />
+      {/* Amenities */}
+      <Section bg="lightblue" className="py-10 dt:py-14">
         <Container>
           <div className="mx-auto mb-10 max-w-[760px] text-center">
-            <Eyebrow tone="white" className="mb-4">What to expect</Eyebrow>
-            <AccentHeading as="h2" before="Comfort in Every " accent="Stay" className="text-[27px] leading-tight text-white dt:text-[38px]" />
+            <Eyebrow className="mb-4">What to expect</Eyebrow>
+            <AccentHeading as="h2" before="Comfort in Every " accent="Stay" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
           </div>
           <div className="grid grid-cols-2 gap-4 dt:grid-cols-3 dt:gap-5">
             {AMENITIES.map(({ Icon, label }) => (
-              <div key={label} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.06] p-4 dt:p-5">
-                <span className="grid h-11 w-11 flex-none place-items-center rounded-xl border-[1.5px] border-gold/60 text-gold">
+              <div key={label} className="flex items-center gap-3 rounded-2xl border border-navy/10 bg-white p-4 dt:p-5">
+                <span className="grid h-11 w-11 flex-none place-items-center rounded-xl border-[1.5px] border-gold bg-ice text-navy">
                   <Icon size={20} />
                 </span>
-                <span className="text-[14px] font-medium text-white dt:text-[15px]">{label}</span>
+                <span className="text-[14px] font-medium text-navy dt:text-[15px]">{label}</span>
               </div>
             ))}
           </div>
         </Container>
       </Section>
 
+      {/* Enquiry CTA (homepage design) */}
+      <FormSection />
+
       {/* FAQ */}
       <FaqAccordion
         intro="Answers to common questions about our hotels, distances from the Haram, room types and what's included."
         items={FAQ}
       />
-
-      {/* Inquiry */}
-      <Section bg="white" className="py-10 dt:py-14">
-        <Container className="grid items-start gap-10 dt:grid-cols-2 dt:gap-16">
-          <div>
-            <Eyebrow align="left" className="mb-4">Reserve your stay</Eyebrow>
-            <AccentHeading as="h2" before="Find Your Hotel Near the " accent="Haram" className="text-[28px] leading-tight text-navy dt:text-[40px]" />
-            <p className="mt-5 max-w-[460px] text-[16px] font-light leading-[1.7] text-navy/80">
-              Tell us your city, dates, star rating and group size — a travel expert replies within 24 hours with the best options.
-            </p>
-          </div>
-          <ContactForm />
-        </Container>
-      </Section>
     </PageShell>
   );
 }
