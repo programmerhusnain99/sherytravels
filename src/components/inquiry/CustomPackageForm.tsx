@@ -77,9 +77,10 @@ export function CustomPackageForm({
       <div className="mx-auto w-full max-w-[1240px] px-5">
         <div className="relative">
           {/* Banner */}
-          <div className="relative overflow-hidden rounded-[26px]">
-            <Image src={image} alt="" fill sizes="100vw" className="object-cover" />
-            <div aria-hidden className="absolute inset-0 bg-[linear-gradient(90deg,rgba(26,62,110,0.82)_0%,rgba(26,62,110,0.45)_45%,rgba(26,62,110,0.72)_100%)]" />
+          <div className="relative overflow-hidden rounded-[26px] bg-navy">
+            <Image src={image} alt="" fill sizes="100vw" className="object-cover opacity-90" />
+            <div aria-hidden className="absolute inset-0 bg-[linear-gradient(90deg,rgba(26,62,110,0.94)_0%,rgba(26,62,110,0.68)_48%,rgba(26,62,110,0.9)_100%)]" />
+            <div aria-hidden className="pointer-events-none absolute -right-20 -top-16 h-[280px] w-[280px] rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.16),transparent_70%)]" />
             <div className="relative z-10 flex flex-col gap-5 px-7 pt-12 pb-36 dt:flex-row dt:items-end dt:justify-between dt:px-12 dt:pt-16 dt:pb-44">
               <h2 className="max-w-[460px] font-serif text-[30px] font-bold leading-[1.12] text-white dt:text-[40px]">
                 {heading}

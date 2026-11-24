@@ -47,12 +47,6 @@ export default function HomePage() {
         />
         <UmrahSection />
         <ExploreUmrahPackages />
-        <FirstChoice />
-        <PerfectPackages />
-        <TransportSection />
-        <HajjServices />
-        <HajjExperiences />
-        <HotelsSection />
         <CustomPackageForm
           title="Customise Your Umrah Package"
           accent="Umrah"
@@ -60,6 +54,12 @@ export default function HomePage() {
           image="/images/home/home-hero-madinah.webp"
           variant="umrah"
         />
+        <FirstChoice />
+        <PerfectPackages />
+        <TransportSection />
+        <HajjServices />
+        <HajjExperiences />
+        <HotelsSection />
         <FormSection />
         <FaqSection />
         <TrustStrip />

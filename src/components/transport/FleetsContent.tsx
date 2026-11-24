@@ -151,6 +151,14 @@ export function FleetsContent({
         </Container>
       </Section>
 
+      <CustomPackageForm
+        title="Customise Your Ride"
+        accent="Ride"
+        description="Choose the vehicle that fits your group — pickup and drop-off, travel dates and passengers, arranged around your plans."
+        image="/images/transportation/fleets-hero.webp"
+        variant="ride"
+      />
+
       {/* Why choose us — navy, glass-card design (matches Umrah page) */}
       <Section bg="navy" className="relative overflow-hidden py-12 dt:py-16">
         <div aria-hidden className="pointer-events-none absolute left-1/2 -top-24 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(219,183,37,0.15),transparent_70%)]" />
@@ -184,14 +192,6 @@ export function FleetsContent({
           </div>
         </Container>
       </Section>
-
-      <CustomPackageForm
-        title="Customise Your Ride"
-        accent="Ride"
-        description="Choose the vehicle that fits your group — pickup and drop-off, travel dates and passengers, arranged around your plans."
-        image="/images/transportation/fleets-hero.webp"
-        variant="ride"
-      />
 
       {/* Form — same as home */}
       <FormSection

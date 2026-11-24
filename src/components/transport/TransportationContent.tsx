@@ -183,6 +183,14 @@ export function TransportationContent({
         </Container>
       </Section>
 
+      <CustomPackageForm
+        title="Customise Your Ride"
+        accent="Ride"
+        description="Build a private transfer that fits your trip — pickup and drop-off, vehicle, dates and passengers, all arranged around you."
+        image="/images/transportation/transport-hero.webp"
+        variant="ride"
+      />
+
       {/* Madinah */}
       <Section bg="ice" className="relative overflow-hidden py-10 dt:py-14">
         {/* Decorative background wash */}
@@ -298,14 +306,6 @@ export function TransportationContent({
           </div>
         </Container>
       </Section>
-
-      <CustomPackageForm
-        title="Customise Your Ride"
-        accent="Ride"
-        description="Build a private transfer that fits your trip — pickup and drop-off, vehicle, dates and passengers, all arranged around you."
-        image="/images/transportation/transport-hero.webp"
-        variant="ride"
-      />
 
       {/* Enquiry CTA (homepage design) */}
       <FormSection />

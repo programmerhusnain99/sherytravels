@@ -14,6 +14,14 @@ import { FAQ } from "@/data/umrah/packages";
 export function UmrahPackagesCommon({ cta }: { cta?: FormSectionProps }) {
   return (
     <>
+      <CustomPackageForm
+        title="Customise Your Umrah Package"
+        accent="Umrah"
+        description="Enjoy the flexibility to customise your Umrah package with trusted support, quality hotels, and convenient flight options."
+        image="/images/home/home-umrah-haram.webp"
+        variant="umrah"
+      />
+
       <WhyChooseUs />
 
       <PackagesShowcase
@@ -27,14 +35,6 @@ export function UmrahPackagesCommon({ cta }: { cta?: FormSectionProps }) {
       />
 
       <SpiritualHighlights />
-
-      <CustomPackageForm
-        title="Customise Your Umrah Package"
-        accent="Umrah"
-        description="Enjoy the flexibility to customise your Umrah package with trusted support, quality hotels, and convenient flight options."
-        image="/images/home/home-umrah-haram.webp"
-        variant="umrah"
-      />
 
       <FormSection {...cta} />
 

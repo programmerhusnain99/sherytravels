@@ -91,6 +91,14 @@ export function HajjPackagesContent({ breadcrumb }: { breadcrumb: { name: string
         </Container>
       </Section>
 
+      <CustomPackageForm
+        title="Customise Your Hajj Package"
+        accent="Hajj"
+        description="Tailor every detail of your Hajj journey — hotels near the Haramain, room and meal preferences, transport and guided support."
+        image="/images/home/home-hajj-hero.webp"
+        variant="hajj"
+      />
+
       {/* Why rely — navy band */}
       <Section bg="navy" className="relative overflow-hidden py-10 dt:py-14">
         <div aria-hidden className="pointer-events-none absolute -right-28 -top-28 h-[360px] w-[360px] rounded-full border border-gold/15" />
@@ -217,14 +225,6 @@ export function HajjPackagesContent({ breadcrumb }: { breadcrumb: { name: string
           </div>
         </Container>
       </Section>
-
-      <CustomPackageForm
-        title="Customise Your Hajj Package"
-        accent="Hajj"
-        description="Tailor every detail of your Hajj journey — hotels near the Haramain, room and meal preferences, transport and guided support."
-        image="/images/home/home-hajj-hero.webp"
-        variant="hajj"
-      />
 
       {/* Enquiry CTA (homepage design) */}
       <FormSection />
