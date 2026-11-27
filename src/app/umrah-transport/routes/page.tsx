@@ -5,9 +5,9 @@ const PATH = "/umrah-transport/routes/";
 
 export const metadata = pageMetadata({
   path: PATH,
-  title: "Transport Routes & Fares | Shery Travels",
+  title: "Transport Routes | Shery Travels",
   description:
-    "Private transport routes and per-vehicle fares across Saudi Arabia — airport transfers, intercity travel, round-trip Umrah packages, local transfers and guided Ziyarat with Shery Travels.",
+    "Private transport routes across Saudi Arabia — airport transfers, intercity travel, round-trip Umrah packages and local transfers with Shery Travels.",
   ogType: "article",
 });
 

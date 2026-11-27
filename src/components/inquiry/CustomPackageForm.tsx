@@ -105,9 +105,9 @@ export function CustomPackageForm({
               </div>
             ) : (
               <form onSubmit={onSubmit} noValidate>
-                <div className="grid grid-cols-2 gap-3 dt:grid-cols-3">
+                <div className="flex flex-wrap gap-3">
                   {fields.map((f) => (
-                    <div key={f.placeholder} className="relative">
+                    <div key={f.placeholder} className="relative min-w-[150px] flex-1 basis-[30%]">
                       {f.kind === "select" ? (
                         <>
                           <select defaultValue="" className={`${inputCls} appearance-none pr-10`} aria-label={f.placeholder}>

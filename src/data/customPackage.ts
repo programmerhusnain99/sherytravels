@@ -28,7 +28,6 @@ export const UMRAH_FIELDS: CPField[] = [
   { kind: "select", placeholder: "Hotel Type", Icon: Building2, options: HOTEL_TYPE },
   { kind: "text", placeholder: "Passenger Name", Icon: User },
   { kind: "tel", placeholder: "Contact Number", Icon: Phone },
-  { kind: "email", placeholder: "Email Address", Icon: Mail },
 ];
 
 /** Hajj package customization. */
@@ -38,7 +37,6 @@ export const HAJJ_FIELDS: CPField[] = [
   { kind: "select", placeholder: "Hotel Type", Icon: Building2, options: HOTEL_TYPE },
   { kind: "text", placeholder: "Pilgrim Name", Icon: User },
   { kind: "tel", placeholder: "Contact Number", Icon: Phone },
-  { kind: "email", placeholder: "Email Address", Icon: Mail },
 ];
 
 /** Custom transport / ride. */
@@ -47,9 +45,7 @@ export const RIDE_FIELDS: CPField[] = [
   { kind: "text", placeholder: "Drop-off Location", Icon: Navigation },
   { kind: "date", placeholder: "Travel Date", Icon: Calendar },
   { kind: "text", placeholder: "Number of Passengers", Icon: Users },
-  { kind: "text", placeholder: "Passenger Name", Icon: User },
   { kind: "tel", placeholder: "Contact Number", Icon: Phone },
-  { kind: "email", placeholder: "Email Address", Icon: Mail },
 ];
 
 /** Custom hotel / residency. */

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Plane, Building2, Clock, Users, Briefcase, MapPin } from "lucide-react";
+import { Plane, Building2, MapPin } from "lucide-react";
 import { breadcrumbSchema } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { PageShell } from "@/components/layout/PageShell";
@@ -11,26 +11,15 @@ import { FormSection } from "@/components/home/form/FormSection";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { HeroEnquiryForm } from "@/components/home/hero/HeroEnquiryForm";
 import { HERO_DESCRIPTION } from "@/components/sections/heroCopy";
-import { Stagger, StaggerItem } from "@/components/motion/Reveal";
-import {
-  ROUND_TRIPS,
-  INTERCITY,
-  LOCAL,
-  MAKKAH_TOUR,
-  MADINAH_TOUR,
-  MAKKAH_GALLERY,
-  MADINAH_GALLERY,
-  TOUR_SLOTS,
-  VEHICLES,
-  ADDITIONAL,
-} from "@/data/transport/routesData";
-import { RouteFareTable } from "./RouteFareTable";
+import { CustomPackageForm } from "@/components/inquiry/CustomPackageForm";
+import { FleetPreview } from "./FleetPreview";
+import { ROUND_TRIPS, INTERCITY, LOCAL, ADDITIONAL } from "@/data/transport/routesData";
 
 const PATH = "/umrah-transport/routes/";
 
 const FAQ = [
-  { q: "How are your route prices calculated?", a: "All fares are quoted per vehicle (not per seat) in Saudi Riyals and include tolls, taxes and fees unless stated otherwise. You simply choose the vehicle that suits your group size and luggage." },
-  { q: "How do I book and pay?", a: "You can book through our website, a direct call, or on WhatsApp. A 25% deposit is required to confirm airport pickups; the balance is settled as agreed at booking." },
+  { q: "How do I get a quote for my route?", a: "Share your pickup, destination, dates and group size through our form or on WhatsApp, and a travel expert replies within 24 hours with the right vehicle for your trip." },
+  { q: "How do I book and pay?", a: "You can book through our website, a direct call, or on WhatsApp. Our team confirms your booking and driver details promptly, and arranges payment with you at booking." },
   { q: "Can I customize a round-trip package?", a: "Yes. Any round trip can include Ziyarat tours, extra hotel transfers, shopping visits and sightseeing stops. Tell us your itinerary and we will arrange it end to end." },
   { q: "Do you provide transport for large groups?", a: "Absolutely — from sedans and family vans to the Toyota Hiace, Coaster and a 50-seat King Long bus. Vehicle choice depends on passenger numbers, luggage and the route." },
   { q: "Are your drivers professional?", a: "Our drivers are experienced, wear uniforms and speak multiple languages. They know the routes across Makkah, Madinah, Jeddah and beyond for timely, comfortable transfers." },
@@ -77,7 +66,7 @@ export function RoutesContent({
             <Eyebrow align="center" tone="white" className="mb-4">Complete Umrah transport</Eyebrow>
             <AccentHeading as="h2" before="Round-Trip " accent="Packages" className="text-[27px] leading-tight text-white dt:text-[38px]" />
             <p className="mx-auto mt-4 max-w-[620px] text-[15px] font-light leading-relaxed text-white/70 dt:text-[16px]">
-              Arrival-to-departure transport, arranged end to end. Prices shown are from our Sedan; every package is available in any vehicle.
+              Arrival-to-departure transport, arranged end to end — available in any vehicle, from a private sedan to a group coach.
             </p>
           </div>
           <div className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-pl-5 px-5 pb-2 dt:mx-0 dt:grid dt:grid-cols-3 dt:gap-6 dt:overflow-visible dt:p-0">
@@ -101,12 +90,8 @@ export function RoutesContent({
                       </li>
                     ))}
                   </ol>
-                  <div className="mt-5 border-t border-white/10 pt-4">
-                    <span className="text-[12px] font-medium uppercase tracking-[0.08em] text-white/45">From</span>
-                    <div className="font-serif text-[26px] font-bold leading-none text-gold">
-                      {rt.prices[0]}
-                      <span className="ml-1.5 font-sans text-[13px] font-medium text-white/55">SAR</span>
-                    </div>
+                  <div className="mt-5 flex items-center gap-2 border-t border-white/10 pt-4 text-[12.5px] font-semibold text-gold">
+                    Private · door to door · any vehicle
                   </div>
                 </div>
               </div>
@@ -144,22 +129,6 @@ export function RoutesContent({
         </Container>
       </Section>
 
-      {/* Route fare table — interactive, navy */}
-      <Section bg="navy" className="relative overflow-hidden py-12 dt:py-16">
-        <div aria-hidden className="pointer-events-none absolute left-1/2 -top-24 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(219,183,37,0.14),transparent_70%)]" />
-        <div aria-hidden className="pointer-events-none absolute -right-28 bottom-0 hidden h-[360px] w-[360px] rounded-full border border-white/[0.06] dt:block" />
-        <Container className="relative">
-          <div className="mx-auto mb-9 max-w-[760px] text-center dt:mb-11">
-            <Eyebrow align="center" tone="white" className="mb-4">Transparent pricing</Eyebrow>
-            <AccentHeading as="h2" before="Route Fares by " accent="Vehicle" className="text-[27px] leading-tight text-white dt:text-[38px]" />
-            <p className="mx-auto mt-4 max-w-[560px] text-[15px] font-light leading-relaxed text-white/70 dt:text-[16px]">
-              Pick a vehicle to see live one-way fares for every popular route.
-            </p>
-          </div>
-          <RouteFareTable />
-        </Container>
-      </Section>
-
       {/* Local city transport — split image cards */}
       <Section bg="white" className="py-12 dt:py-16">
         <Container>
@@ -189,58 +158,8 @@ export function RoutesContent({
         </Container>
       </Section>
 
-      {/* Makkah sightseeing — glorified gallery + timeline */}
-      <SightseeingSection
-        bg="ice"
-        eyebrow="Guided day tour"
-        headBefore="Makkah Sightseeing "
-        headAccent="Route"
-        gallery={MAKKAH_GALLERY}
-        stops={MAKKAH_TOUR}
-        note="Be ready in your hotel lobby 10 minutes before the tour; your driver meets you there. Please arrive on time — delays may result in cancellation."
-      />
-
-      {/* Madinah sightseeing — glorified gallery + timeline */}
-      <SightseeingSection
-        bg="white"
-        eyebrow="Guided day tour"
-        headBefore="Madinah Sightseeing "
-        headAccent="Route"
-        gallery={MADINAH_GALLERY}
-        stops={MADINAH_TOUR}
-        note="A 2 to 2.5-hour tour with limited time at Masjid e Qiblatain — please make wudu beforehand. Be in your hotel lobby 10 minutes early."
-      />
-
-      {/* Fleet */}
-      <Section bg="navy" className="relative overflow-hidden py-12 dt:py-16">
-        <div aria-hidden className="pointer-events-none absolute left-1/2 -top-24 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(219,183,37,0.13),transparent_70%)]" />
-        <div aria-hidden className="pointer-events-none absolute -left-28 -bottom-28 hidden h-[380px] w-[380px] rounded-full border border-white/[0.06] dt:block" />
-        <Container className="relative">
-          <div className="mx-auto mb-9 max-w-[760px] text-center dt:mb-12">
-            <Eyebrow align="center" tone="white" className="mb-4">Choose your ride</Eyebrow>
-            <AccentHeading as="h2" before="Our Transport " accent="Fleet" className="text-[27px] leading-tight text-white dt:text-[38px]" />
-          </div>
-          <div className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-3.5 overflow-x-auto scroll-pl-5 px-5 pb-2 dt:mx-0 dt:grid dt:grid-cols-3 dt:gap-5 dt:overflow-visible dt:p-0">
-            {VEHICLES.map((veh) => (
-              <div key={veh.key} className="group w-[62vw] max-w-[230px] flex-none snap-start rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 dt:w-auto dt:max-w-none">
-                <h3 className="font-serif text-[16px] font-bold leading-tight text-white dt:text-[18px]">{veh.name}</h3>
-                <p className="mt-0.5 text-[12px] text-white/55">{veh.sub}</p>
-                <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5 text-[12.5px] text-white/80">
-                  <span className="flex items-center gap-1.5"><Users size={14} className="text-gold" /> {veh.persons}</span>
-                  <span className="flex items-center gap-1.5"><Briefcase size={14} className="text-gold" /> {veh.luggage}</span>
-                </div>
-                <div className="mt-4 border-t border-white/10 pt-3">
-                  <span className="text-[11px] font-medium uppercase tracking-[0.08em] text-white/45">Round trip from</span>
-                  <div className="font-serif text-[20px] font-bold leading-none text-gold">
-                    {veh.roundTrips[0]}
-                    <span className="ml-1 font-sans text-[11.5px] font-medium text-white/50">SAR</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </Section>
+      {/* Fleet preview — links to the vehicles page */}
+      <FleetPreview bg="navy" />
 
       {/* Additional services */}
       <Section bg="ice" className="py-12 dt:py-16">
@@ -260,82 +179,25 @@ export function RoutesContent({
         </Container>
       </Section>
 
+      {/* Customise your ride */}
+      <CustomPackageForm
+        title="Customise Your Ride"
+        accent="Ride"
+        description="Build a private transfer that fits your trip — pickup and drop-off, dates and passengers, all arranged around you."
+        image="/images/transportation/transport-hero.webp"
+        variant="ride"
+      />
+
       {/* Form */}
       <FormSection
         eyebrow="Get in touch with us"
         headingBefore="Plan Your "
         headingAccent="Route"
-        description="Tell us your pickup, destination, dates and group size — a travel expert replies within 24 hours with the right vehicle and a clear fare."
+        description="Tell us your pickup, destination, dates and group size — a travel expert replies within 24 hours with the right vehicle for your journey."
       />
 
       {/* FAQ */}
       <FaqAccordion items={FAQ} />
     </PageShell>
-  );
-}
-
-/** Glorified sightseeing section: circular image gallery + numbered itinerary. */
-function SightseeingSection({
-  bg,
-  eyebrow,
-  headBefore,
-  headAccent,
-  gallery,
-  stops,
-  note,
-}: {
-  bg: "ice" | "white";
-  eyebrow: string;
-  headBefore: string;
-  headAccent: string;
-  gallery: { src: string; label: string }[];
-  stops: { name: string; time: string }[];
-  note: string;
-}) {
-  return (
-    <Section bg={bg} className="relative overflow-hidden py-12 dt:py-16">
-      <div aria-hidden className="pointer-events-none absolute -left-24 -top-16 h-[340px] w-[340px] rounded-full bg-[radial-gradient(circle,rgba(219,183,37,0.1),transparent_70%)] blur-2xl" />
-      <div aria-hidden className="pointer-events-none absolute -right-24 bottom-0 h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(47,128,237,0.08),transparent_70%)] blur-2xl" />
-      <Container className="relative">
-        <div className="mx-auto mb-8 max-w-[760px] text-center dt:mb-10">
-          <Eyebrow align="center" className="mb-4">{eyebrow}</Eyebrow>
-          <AccentHeading as="h2" before={headBefore} accent={headAccent} className="text-[27px] leading-tight text-navy dt:text-[38px]" />
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
-            <span className="text-[12px] font-bold uppercase tracking-[0.12em] text-gold">Time slots</span>
-            {TOUR_SLOTS.map((s) => (
-              <span key={s} className="rounded-full border border-navy/15 bg-white px-3 py-1 text-[12.5px] font-semibold text-navy">{s}</span>
-            ))}
-          </div>
-        </div>
-
-        {/* Circular image gallery */}
-        <Stagger as="div" gap={0.1} className="no-scrollbar -mx-5 mb-10 flex gap-5 overflow-x-auto px-5 pb-2 dt:mx-0 dt:grid dt:grid-cols-5 dt:gap-6 dt:overflow-visible dt:px-0">
-          {gallery.map((g) => (
-            <StaggerItem as="div" key={g.label} direction="up" className="w-[130px] flex-none text-center dt:w-auto">
-              <div className="group relative mx-auto aspect-square w-[130px] overflow-hidden rounded-full ring-4 ring-white shadow-[0_22px_44px_-22px_rgba(26,62,110,0.55)] dt:w-full">
-                <Image src={g.src} alt={g.label} fill sizes="150px" className="object-cover transition-transform duration-500 group-hover:scale-110" />
-                <div aria-hidden className="absolute inset-0 rounded-full ring-1 ring-inset ring-navy/10" />
-              </div>
-              <div className="mt-3 text-[13px] font-semibold text-navy">{g.label}</div>
-            </StaggerItem>
-          ))}
-        </Stagger>
-
-        {/* Itinerary timeline */}
-        <ol className="grid grid-cols-1 gap-2.5 dt:grid-cols-2 dt:gap-x-6 dt:gap-y-2.5">
-          {stops.map((s, i) => (
-            <li key={s.name} className="flex items-center gap-3.5 rounded-xl border border-navy/10 bg-white/70 px-4 py-3 transition-colors hover:border-gold/40">
-              <span className="grid h-8 w-8 flex-none place-items-center rounded-full bg-gradient-to-br from-gold to-[#b4871a] text-[13px] font-bold text-navy">{i + 1}</span>
-              <span className="flex-1 text-[14px] font-medium text-navy">{s.name}</span>
-              <span className={`flex flex-none items-center gap-1.5 rounded-full px-2.5 py-1 text-[11.5px] font-semibold ${s.time === "Pass by" ? "bg-navy/5 text-navy/55" : "bg-lightblue text-navy"}`}>
-                <Clock size={12} aria-hidden /> {s.time}
-              </span>
-            </li>
-          ))}
-        </ol>
-
-        <p className="mx-auto mt-8 max-w-[640px] text-center text-[13px] font-light leading-relaxed text-navy/60">{note}</p>
-      </Container>
-    </Section>
   );
 }

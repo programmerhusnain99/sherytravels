@@ -12,6 +12,10 @@ import { HERO_DESCRIPTION } from "@/components/sections/heroCopy";
 import { FormSection } from "@/components/home/form/FormSection";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { Stagger, StaggerItem } from "@/components/motion/Reveal";
+import { SightseeingTour } from "./SightseeingTour";
+import { FleetPreview } from "./FleetPreview";
+import { CustomPackageForm } from "@/components/inquiry/CustomPackageForm";
+import { MAKKAH_TOUR, MADINAH_TOUR, MAKKAH_GALLERY, MADINAH_GALLERY } from "@/data/transport/routesData";
 
 const MAKKAH_SITES = ["The Kaaba", "Maqam Ibrahim", "The Black Stone (Al-Hajar Al-Aswad)", "The Well of Zamzam", "Mina", "Arafat", "Muzdalifah", "Gar-e-Hira", "Masjid Al-Jinn", "Jannat-ul-Mualla"];
 const MADINAH_SITES = ["Masjid Al Nabawi", "Jannat Al-Baqi", "Quba Mosque", "Uhud Mountain", "Masjid Al-Qiblatain", "The Baab-As-Salaam", "Mosque Al Ghamamah", "Battlefield of the Trench (Khandaq)"];
@@ -109,22 +113,48 @@ export function ZiaratContent({
         </Container>
       </Section>
 
-      {/* Madinah sites */}
-      <Section bg="ice" className="py-10 dt:py-14">
-        <Container className="grid items-center gap-10 dt:grid-cols-2 dt:gap-16">
-          <div className="relative order-1 h-[360px] w-full overflow-hidden rounded-2xl bg-lightblue shadow-[0_30px_60px_-26px_rgba(26,62,110,0.45)] dt:h-[460px]">
-            <Image src="/images/ziarat/ziarat-madinah.webp" alt="Blessed Ziarat sites in Madinah" fill sizes="(max-width:900px) 100vw, 45vw" className="object-cover" />
+      {/* Makkah sightseeing route */}
+      <SightseeingTour
+        bg="white"
+        headBefore="Makkah Sightseeing "
+        headAccent="Route"
+        gallery={MAKKAH_GALLERY}
+        stops={MAKKAH_TOUR}
+        note="Be ready in your hotel lobby 10 minutes before the tour; your driver meets you there. Please arrive on time — delays may result in cancellation."
+      />
+
+      {/* Madinah sites — dark */}
+      <Section bg="navy" className="relative overflow-hidden py-12 dt:py-16">
+        <div aria-hidden className="pointer-events-none absolute left-1/2 -top-24 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(219,183,37,0.12),transparent_70%)]" />
+        <div aria-hidden className="pointer-events-none absolute -left-28 bottom-0 hidden h-[360px] w-[360px] rounded-full border border-white/[0.06] dt:block" />
+        <Container className="relative grid items-center gap-10 dt:grid-cols-2 dt:gap-16">
+          <div className="relative order-1">
+            <span aria-hidden className="pointer-events-none absolute -left-3 -top-3 z-10 h-16 w-16 rounded-tl-2xl border-l-2 border-t-2 border-gold/70" />
+            <span aria-hidden className="pointer-events-none absolute -bottom-3 -right-3 z-10 h-16 w-16 rounded-br-2xl border-b-2 border-r-2 border-gold/70" />
+            <div className="relative h-[360px] w-full overflow-hidden rounded-2xl bg-white/5 shadow-[0_34px_64px_-26px_rgba(0,0,0,0.6)] dt:h-[460px]">
+              <Image src="/images/ziarat/ziarat-madinah.webp" alt="Blessed Ziarat sites in Madinah" fill sizes="(max-width:900px) 100vw, 45vw" className="object-cover" />
+            </div>
           </div>
           <div className="order-2">
-            <Eyebrow align="left" className="mb-4">In Madinah</Eyebrow>
-            <AccentHeading as="h2" before="Experience the Blessed Ziarat of Madinah " accent="Munawara" className="text-[26px] leading-tight text-navy dt:text-[36px]" />
-            <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
+            <Eyebrow align="left" tone="white" className="mb-4">In Madinah</Eyebrow>
+            <AccentHeading as="h2" before="Experience the Blessed Ziarat of Madinah " accent="Munawara" className="text-[26px] leading-tight text-white dt:text-[36px]" />
+            <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-white/75 dt:text-[16.5px]">
               Explore the beautiful and sacred sites of Madinah, known as the city of peace and mercy, home to the Prophet (PBUH). Our Ziarat tours are designed to guide you through places rich with historical and spiritual significance. With the help of our experienced guides, each visit promises to be insightful and unforgettable.
             </p>
-            <div className="mt-6"><SiteChips sites={MADINAH_SITES} /></div>
+            <div className="mt-6"><SiteChips sites={MADINAH_SITES} tone="dark" /></div>
           </div>
         </Container>
       </Section>
+
+      {/* Madinah sightseeing route */}
+      <SightseeingTour
+        bg="white"
+        headBefore="Madinah Sightseeing "
+        headAccent="Route"
+        gallery={MADINAH_GALLERY}
+        stops={MADINAH_TOUR}
+        note="A 2 to 2.5-hour tour with limited time at Masjid e Qiblatain — please make wudu beforehand. Be in your hotel lobby 10 minutes early."
+      />
 
       {/* Why choose us — navy, glass-card design (matches Umrah / Vehicles) */}
       <Section bg="navy" className="relative overflow-hidden py-12 dt:py-16">
@@ -192,6 +222,18 @@ export function ZiaratContent({
           </div>
         </Container>
       </Section>
+
+      {/* Fleet preview — links to the vehicles page */}
+      <FleetPreview bg="navy" />
+
+      {/* Customise your ride */}
+      <CustomPackageForm
+        title="Customise Your Ride"
+        accent="Ride"
+        description="Build a private transfer that fits your trip — pickup and drop-off, dates and passengers, all arranged around you."
+        image="/images/transportation/transport-hero.webp"
+        variant="ride"
+      />
 
       {/* Form — same as home */}
       <FormSection

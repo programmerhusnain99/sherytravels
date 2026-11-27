@@ -1,12 +1,9 @@
 import Image from "next/image";
 import {
-  Users,
-  Briefcase,
   MapPin,
   Clock,
   ShieldCheck,
   ReceiptText,
-  ArrowRight,
   BusFront,
   MousePointerClick,
   SlidersHorizontal,
@@ -19,7 +16,6 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AccentHeading } from "@/components/ui/AccentHeading";
-import { Button } from "@/components/ui/Button";
 import { HeroEnquiryForm } from "@/components/home/hero/HeroEnquiryForm";
 import { HERO_DESCRIPTION } from "@/components/sections/heroCopy";
 import { FormSection } from "@/components/home/form/FormSection";
@@ -27,12 +23,8 @@ import { CustomPackageForm } from "@/components/inquiry/CustomPackageForm";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { PerfectPackages } from "@/components/home/perfect/PerfectPackages";
 import { Stagger, StaggerItem } from "@/components/motion/Reveal";
-
-const FLEET = [
-  { name: "Sedan / Camry / Ford Taurus", seats: "4 pax", bags: "2 – 4 bags", src: "/images/transportation/fleet-sedan.webp" },
-  { name: "Hyundai H1 / Toyota Hiace", seats: "7 – 10 pax", bags: "Up to 10 bags", src: "/images/transportation/fleet-h1.webp" },
-  { name: "GMC Yukon / Chevy Suburban", seats: "7 pax", bags: "7 bags", src: "/images/transportation/fleet-yukon.webp" },
-];
+import { FleetPreview } from "./FleetPreview";
+import { RoutesPreview } from "./RoutesPreview";
 
 const PILLARS = [
   { Icon: Clock, title: "24/7 Transfers", body: "Round-the-clock reliable Mecca transportation, day or night." },
@@ -44,7 +36,7 @@ const HOW = [
   { Icon: MapPin, title: "Point-to-Point Transfers", body: "Airports, hotels and sacred sites — by taxi or bus." },
   { Icon: Clock, title: "24/7 Flexible Travel", body: "Day or night, one-way or round-trip, on your schedule." },
   { Icon: ShieldCheck, title: "Licensed Drivers", body: "Experienced, multilingual drivers who know every route." },
-  { Icon: ReceiptText, title: "Transparent Fares", body: "Know the cost upfront — clear pricing, no surprises." },
+  { Icon: ReceiptText, title: "Clear Confirmations", body: "Vehicle, driver and timings confirmed upfront — no surprises on the day." },
 ];
 
 const EFFORTLESS = [
@@ -56,12 +48,12 @@ const EFFORTLESS = [
 const BOOK = [
   { title: "Choose Your Ride", body: "Pick your route, vehicle type and date — an Umrah bus or a private taxi." },
   { title: "Book Online or WhatsApp", body: "Fill out our form or WhatsApp us — instant support from our team." },
-  { title: "Instant Confirmation", body: "Get prompt confirmation with fare, driver info and your timings." },
+  { title: "Instant Confirmation", body: "Get prompt confirmation with your driver details and timings." },
   { title: "Relax and Travel", body: "Your driver arrives on time — sit back and focus on your worship." },
 ];
 
 const FAQ = [
-  { q: "How much is the Makkah to Madinah taxi fare?", a: "It varies depending on vehicle type and time, but we provide transparent pricing upfront when you book." },
+  { q: "How do I arrange a Makkah to Madinah transfer?", a: "Share your dates and group size through our form or on WhatsApp, and we'll confirm the right vehicle and all the details for your private transfer." },
   { q: "Can I book a taxi from Jeddah to Makkah late at night?", a: "Yes! Our Umrah taxi service operates 24/7 to meet your travel needs." },
   { q: "Do you provide shared options for Jeddah to Madinah bus services?", a: "Yes, shared and private Umrah bus options are available based on your preference and budget." },
   { q: "How do I pay for my trip?", a: "We accept secure online payments at the time of booking for a stress-free experience." },
@@ -151,37 +143,8 @@ export function TransportationContent({
         </Container>
       </Section>
 
-      {/* Fleet — 3 vehicles + View all Vehicles */}
-      <Section bg="white" className="py-10 dt:py-14">
-        <Container>
-          <div className="mb-10 flex flex-col items-center gap-4 text-center dt:mb-12 dt:flex-row dt:items-end dt:justify-between dt:text-left">
-            <div>
-              <Eyebrow align="center" className="mb-4 dt:justify-start">Our fleet</Eyebrow>
-              <AccentHeading as="h2" before="Travel in Comfort: Choose Your " accent="Ride" className="text-[27px] leading-tight text-navy dt:text-[38px]" />
-            </div>
-            <Button href={fleetsHref} variant="navy" size="md" className="flex-none uppercase tracking-[0.06em]">
-              View all Vehicles
-              <ArrowRight size={17} aria-hidden />
-            </Button>
-          </div>
-          <div className="grid gap-5 dt:grid-cols-3 dt:gap-6">
-            {FLEET.map((v) => (
-              <div key={v.name} className="card-hover flex h-full flex-col overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_26px_54px_-30px_rgba(26,62,110,0.4)]">
-                <div className="relative h-[180px] w-full flex-none bg-lightblue">
-                  <Image src={v.src} alt={v.name} fill sizes="(max-width:900px) 100vw, 30vw" className="object-cover" />
-                </div>
-                <div className="flex-1 p-5">
-                  <h3 className="mb-3 font-serif text-[18px] font-bold text-navy">{v.name}</h3>
-                  <div className="flex flex-wrap gap-4 text-[13.5px] text-navy/75">
-                    <span className="flex items-center gap-1.5"><Users size={16} className="text-gold" /> {v.seats}</span>
-                    <span className="flex items-center gap-1.5"><Briefcase size={16} className="text-gold" /> {v.bags}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </Section>
+      {/* Fleet preview — links to the vehicles page */}
+      <FleetPreview bg="white" vehiclesHref={fleetsHref} />
 
       <CustomPackageForm
         title="Customise Your Ride"
@@ -211,7 +174,7 @@ export function TransportationContent({
             <Eyebrow align="left" className="mb-4">In Madinah</Eyebrow>
             <AccentHeading as="h2" before="Madinah Umrah Services with Easy Bus " accent="Travel" className="text-[26px] leading-tight text-navy dt:text-[36px]" />
             <p className="mt-5 text-[15.5px] font-light leading-[1.7] text-navy/80 dt:text-[16.5px]">
-              When you’re in Madinah, our Umrah services are all about making your journey smooth and enjoyable. We offer convenient airport pickups and comfortable hotel transfers just a short walk from Masjid al-Nabawi. If you’re looking for a friendly and cost-effective way to travel, join us for Umrah by bus with other pilgrims. You can trust that every ride will be timely and safe, allowing you to focus on your prayers and visits while we take care of the transportation.
+              When you’re in Madinah, our Umrah services are all about making your journey smooth and enjoyable. We offer convenient airport pickups and comfortable hotel transfers just a short walk from Masjid al-Nabawi. If you’re looking for a friendly and comfortable way to travel, join us for Umrah by bus with other pilgrims. You can trust that every ride will be timely and safe, allowing you to focus on your prayers and visits while we take care of the transportation.
             </p>
           </div>
         </Container>
@@ -223,6 +186,9 @@ export function TransportationContent({
         description="Dedicated to trustworthy, convenient Ziarat journeys in Makkah and Madinah — skilled chauffeurs and well-maintained vehicles prioritise your safety and comfort, so you can focus on reflection at every sacred site."
         py="pb-8 pt-8 dt:pb-10 dt:pt-12"
       />
+
+      {/* Routes preview — links to the routes page */}
+      <RoutesPreview />
 
       {/* How it works — compact animated step row */}
       <Section bg="ice" className="py-9 dt:py-12">

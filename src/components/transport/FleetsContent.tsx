@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { UserCheck, Users, Briefcase, Snowflake, Wallet, Sparkles, Check, ShieldCheck } from "lucide-react";
+import { UserCheck, Users, Briefcase, Snowflake, Sparkles, Check, ShieldCheck } from "lucide-react";
 import { breadcrumbSchema } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { PageShell } from "@/components/layout/PageShell";
@@ -30,7 +30,7 @@ const FLEET = [
 ];
 
 const WHY = [
-  { Icon: Wallet, title: "Affordable Packages", body: "Fair rates for every budget — comfort, quality and safety without the premium price." },
+  { Icon: ShieldCheck, title: "Comfort & Safety First", body: "Clean, well-kept vehicles for every group — comfort, quality and safety come as standard." },
   { Icon: Users, title: "Group Travel Options", body: "Flexible group packages keep friends and family together and comfortable." },
   { Icon: Sparkles, title: "Clean & Quality Vehicles", body: "Every vehicle is regularly inspected, sanitised and maintained for a smooth ride." },
   { Icon: UserCheck, title: "Skilled Drivers", body: "Friendly, English-speaking chauffeurs focused on timely, hassle-free transfers." },
